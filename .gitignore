@@ -1,0 +1,105 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+__pypackages__/
+.eggs/
+wheels/
+.python-version
+.venv/
+venv/
+build/
+dist/
+
+# Test, type-check, lint, and coverage output
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+.hypothesis/
+.pyre/
+.pytype/
+.dmypy.json
+dmypy.json
+.cache/
+coverage.xml
+junit.xml
+*.cover
+*.py.cover
+*.lcov
+*.pstats
+*.log
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+
+# Local data and generated analytical artifacts
+data/raw/
+data/staged/
+data/curated/
+data/checkpoints/
+*.duckdb
+*.duckdb.wal
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+*.parquet
+*.avro
+.duckdb_history
+
+# Reviewed, deterministic fixtures may use generated-data file formats
+!data/samples/**
+!tests/fixtures/**
+
+# Notebook, Spark, warehouse, and orchestration state
+.ipynb_checkpoints/
+metastore_db/
+spark-warehouse/
+derby.log
+.sparkStaging/
+**/_temporary/
+*.crc
+logs/
+.airflow/
+airflow.cfg
+standalone_admin_password.txt
+target/
+dbt_packages/
+profiles.yml
+!profiles.example.yml
+
+# Local service and container state
+infra/.state/
+infra/volumes/
+
+# Terraform generated, local, and potentially sensitive state
+**/.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.tfstate.lock.info
+*.tfplan
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+!*.example.tfvars
+!*.example.tfvars.json
+
+# Terraform dependency selections are reproducibility inputs
+!.terraform.lock.hcl
