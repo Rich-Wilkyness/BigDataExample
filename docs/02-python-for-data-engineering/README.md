@@ -27,6 +27,11 @@ clear enough to run repeatedly against untrusted and growing data.
 
 ## Learning path
 
+Use the [basic Python syntax and standard-library quick reference](00-basic-python-syntax-and-standard-library-reference.md)
+before or alongside the numbered guides when syntax, truthiness, built-ins, or
+iterator APIs are unfamiliar. It is a lookup companion rather than a ninth
+curriculum topic.
+
 1. [Python runtime, types, and Kotlin comparisons](01-python-runtime-types-and-kotlin-comparisons.md)
    establishes the object and execution model.
 2. [Collections, iteration, generators, and bounded memory](02-collections-iteration-generators-and-bounded-memory.md)
@@ -95,4 +100,3 @@ and ownership model is understood.
 - [ ] Bounded parser and transformation library implemented
 - [ ] Unit/property tests and static type check executed
 - [ ] Memory, process, cancellation, and concurrency evidence collected
-
