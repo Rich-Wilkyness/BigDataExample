@@ -623,6 +623,19 @@ Hudi later if a future project requires it.
 ## Further introductory videos
 
 - [What Is a Data Pipeline? Why Is It So Popular?](https://www.youtube.com/watch?v=kGT4PcTEPP8)
+  - ![Data Pipeline](image.png) 
+  - ![Batch vs Real-time](image-1.png)
+  - ![Stages of Data Pipeline](image-2.png)
+    - Collect
+      - Data stores = MySQL, PostgreSQL, MongoDB
+      - Data Streams = things like real time user interactions, sensor data, or log events. Collected with Apache Kafka, IoT devices, or other streaming platforms.
+    - Injest
+      - batch vs stream
+    - Transform or Store (ETL vs ELT)
+      - Stream vs Batch Processing
+        - Batch uses Apache Spark
+        - Stream uses Apache Kafka or Apache Flink
+          - stream typically does not use a data lake, transforms from the source as it arrives.
 - [Data Pipelines Explained](https://www.youtube.com/watch?v=6kEGUCrBEU0)
 - [ETL vs. ELT: Modern Data Architectures](https://www.youtube.com/watch?v=_Nk0v9qUWk4)
 

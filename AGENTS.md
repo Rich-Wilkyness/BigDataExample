@@ -82,3 +82,5 @@ exact result. Use current primary sources for version-sensitive technical claims
 4.5. Repository paths use kebab case. For example, the human title
 `01 Big Data and Data Engineering Foundations` maps to
 `docs/01-big-data-and-data-engineering-foundations/`.
+
+4.6. Do not hard-wrap Markdown prose. Keep each paragraph, list item, and table row on one source line unless Markdown syntax or meaning requires a deliberate line break; rely on the IDE or editor for visual wrapping. Preserve code blocks and intentional semantic breaks.

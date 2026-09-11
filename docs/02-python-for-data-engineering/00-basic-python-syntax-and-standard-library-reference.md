@@ -279,6 +279,8 @@ list(islice(range(10), 3))
 
 Modules are objects and imports execute module-level code the first time a
 module is loaded in a process. Avoid wildcard imports such as `from x import *`.
+- because they make it unclear which names are present in the current namespace and can lead to unexpected name collisions. 
+- Also more is loaded than necessary, which can increase memory usage and slow down startup time.
 
 ### Exceptions and cleanup
 
