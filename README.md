@@ -59,3 +59,18 @@ python -m unittest discover -s tests
 
 Dependencies and runnable data-platform infrastructure will be selected as the
 owning curriculum topics are implemented.
+
+## Optional PySpark notebook practice
+
+VS Code notebook practice uses the optional `spark-notebook` dependency group. On Windows, create the project environment with the selected Python interpreter and install the project plus that group:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -e ".[spark-notebook]"
+```
+
+Open an `.ipynb` file in VS Code, choose **Select Kernel**, and select `.venv\Scripts\python.exe`. The Microsoft Python and Jupyter extensions are required in VS Code, and local classic PySpark also requires a supported Java runtime through `JAVA_HOME` or `PATH`.
+
+The local Windows setup was smoke-tested on 2026-09-12 with Python 3.14.5, PySpark 4.2.0, and Java 21. The check started a `local[2]` session, ran a two-partition DataFrame filter through Python workers, collected the expected row, and stopped the session. This proves the local environment starts and executes a small job; it does not prove the topic-level correctness, plan, failure, or performance claims tracked in Area 09.
+
+The first complete worked lab is [DV-E23 High-Engagement Video Filtering](notebooks/interactive-data-engineering-labs/content-platform/dv-e23-high-engagement-video-filtering.ipynb), with its [solution and explanation](docs/interactive-data-engineering-labs/solutions/content-platform/dv-e23-high-engagement-video-filtering.md) kept separately. The [interactive lab learner guide](notebooks/interactive-data-engineering-labs/README.md) explains how question-specific implementation files relate to notebooks and tests, how to run the lab in VS Code, and how to restart or reset an attempt. Source intake and lab-authoring plans remain under [`docs/interactive-data-engineering-labs/`](docs/interactive-data-engineering-labs/README.md).

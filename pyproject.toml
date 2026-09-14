@@ -12,6 +12,12 @@ license = { text = "Private educational project" }
 authors = [{ name = "BigDataExample contributors" }]
 dependencies = []
 
+[project.optional-dependencies]
+spark-notebook = [
+    "ipykernel==7.3.0",
+    "pyspark==4.2.0",
+]
+
 [tool.setuptools]
 package-dir = { "" = "src" }
 

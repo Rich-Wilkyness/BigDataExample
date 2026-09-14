@@ -1,10 +1,10 @@
 # 09 Apache Spark and Distributed Computation
 
-> Area status: Documentation complete; executable PySpark evidence planned  
+> Area status: Documentation complete; local PySpark environment smoke-tested; topic and distributed evidence planned
 > Level: Beginner to Senior data engineering  
 > Applies to: PySpark / Spark SQL / Batch / Distributed computation / Storage / Platform  
 > Reference scenario: Spark batch version of the curated mobile product-event pipeline  
-> Evidence boundary: Documentation and contract review; no local or cluster Spark execution yet  
+> Evidence boundary: Documentation and contract review plus one local environment smoke check; no topic-specific or cluster Spark evidence yet
 > Last reviewed: 2026-09
 
 ## Purpose
@@ -33,7 +33,7 @@ processes, and materialize shuffle or spill data outside Python memory.
 - Grain, keys, dimensions, and metric semantics from [05 Data Modeling and Business Semantics](../05-data-modeling-and-business-semantics/README.md).
 - Incremental processing, checkpoints, backfills, and repair from [07 Batch Processing and ETL/ELT](../07-batch-processing-and-etl-elt/README.md).
 - Partitions, DAGs, shuffle, skew, retries, and capacity from [08 Distributed Systems Foundations](../08-distributed-systems-foundations/README.md).
-- No Spark installation or cluster is required for this documentation pass.
+- No Spark installation or cluster is required to read this documentation; the repository's optional `spark-notebook` dependency group supports local notebook practice.
 
 ## Learning path
 
@@ -96,12 +96,7 @@ Every production design should answer:
 
 ## Evidence and scope
 
-This pass contains worked DataFrame/SQL fragments, plan-reading procedures,
-decision tables, failure models, capacity arithmetic, deployment controls, and
-explicit pending evidence. It does not add a Spark dependency, executable job,
-cluster configuration, fixture, benchmark, or test. Therefore local-mode behavior,
-physical plans, shuffle metrics, skew handling, executor loss, packaging, and
-cluster behavior remain unverified.
+This pass contains worked DataFrame/SQL fragments, plan-reading procedures, decision tables, failure models, capacity arithmetic, deployment controls, and explicit pending evidence. The repository now declares an optional PySpark notebook dependency group, and a Windows environment smoke check started PySpark 4.2.0 with Python 3.14.5 and Java 21, ran a `local[2]` DataFrame filter through Python workers, collected the expected row, and stopped the session on 2026-09-12. It does not add an Area 09 executable job, deterministic fixture, committed test, cluster configuration, or benchmark. Therefore topic-level local behavior, physical plans, shuffle metrics, skew handling, executor loss, packaging, and cluster behavior remain unverified.
 
 Spark 4.2.0 documentation was the version-sensitive reference reviewed in
 2026-09. Pin and test an exact Spark/Python/Java/catalog combination before adding
@@ -114,6 +109,6 @@ runtime artifacts; `latest` documentation and defaults can change.
 - [x] Grain, ownership, `NULL`, time, failure, security, quality, capacity, compatibility, and publication addressed
 - [x] Current Spark primary documentation linked and review version/date stated
 - [x] Examples and evidence accurately marked Planned
-- [ ] PySpark package, deterministic fixtures, and local-mode tests implemented
+- [x] Optional PySpark notebook environment declared and local startup/worker smoke check passed
+- [ ] Deterministic fixtures and topic-level local-mode tests implemented
 - [ ] Plans, shuffle/skew metrics, executor-failure, load, and cluster evidence executed
-

@@ -7,3 +7,4 @@ should be versioned under `sql/` when SQL is the appropriate owner.
 Committed notebooks must have bounded output, deterministic inputs, no secrets,
 and a documented way to reproduce their environment.
 
+Start executable interview practice from the [Interactive Data Engineering Labs learner guide](interactive-data-engineering-labs/README.md).

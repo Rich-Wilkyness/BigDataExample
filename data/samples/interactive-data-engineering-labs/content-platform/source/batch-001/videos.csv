@@ -1,0 +1,11 @@
+video_id,title,genre,release_year,duration,view_count
+1,Amazing Adventure,Action,2020,120,2500000
+2,Sci-fi World,Sci-fi,2018,140,800000
+3,Mysterious Island,Drama,2022,115,1500000
+4,Uncharted Realms,Action,2019,134,3200000
+5,Journey to the Stars,Sci-fi,2021,128,1100000
+6,Exactly One Million,Documentary,2023,100,1000000
+7,Old Viral Classic,Comedy,2018,90,5000000
+8,Unknown Popularity,Drama,2024,105,
+9,Unknown Release Year,Action,,110,1800000
+10,Behind the Scenes,Documentary,2024,120,1200000
