@@ -1,0 +1,6 @@
+department,employee_count,active_employee_count,average_salary,median_salary,average_experience,highest_salary,highest_paid_employee
+Engineering,31,29,98677.42,98000.0,7.870967741935484,120000.0,Queen Phillips
+Finance,20,18,91200.0,91000.0,7.15,102000.0,Samuel Robinson
+Sales,20,17,77300.0,78000.0,5.5,86000.0,Trevor Diaz
+Marketing,15,14,73133.33,73000.0,5.133333333333334,80000.0,Violet Hayes
+HR,14,13,69642.86,69500.0,4.571428571428571,75000.0,Roger Russell

@@ -619,6 +619,17 @@ journalctl -b -p err --no-pager
 
 Do not begin by restarting services or killing processes. First distinguish missing input, bad data, permissions, code, scheduling, resource exhaustion, and dependency failures. A restart can erase evidence and repeat a non-idempotent write.
 
+## Bash RC
+
+The Bash RC (run commands) file is a script that runs every time a new shell session is started. It is commonly used to set environment variables, define functions, and customize the shell prompt.
+
+Typical locations include:
+- `~/.bashrc` for interactive non-login shells
+- `~/.bash_profile` or `~/.profile` for login shells
+- store database connection settings or other environment-specific configurations 
+
+on mac it is typically a `~/.zshrc` for the Zsh shell, which is the default as of macOS Catalina.
+
 ## Common pitfalls
 
 | Pitfall | Safer approach |

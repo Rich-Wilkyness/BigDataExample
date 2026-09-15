@@ -9,15 +9,10 @@ refer to a specific number when answering, correcting, or extending a task.
 Keep numbering stable within a response. Number questions and choices separately
 when more than one is present. Not for files, but for terminal or conversational responses.
 
-1.3. The user is a middle-to-senior Kotlin and Android engineer who is new to big
-data. Explain unfamiliar data-engineering concepts without reteaching general
-software-engineering fundamentals. Use Kotlin or Android comparisons when they
-materially clarify a concept, and identify where the analogy stops being accurate.
-
-1.4. The goal is thorough progression from beginner data concepts to senior data
+1.3. The goal is thorough progression from beginner data concepts to senior data
 engineering, not a quick tool tutorial.
 
-1.5. Prefer acting on clear requests. Ask for clarification only when a missing
+1.4. Prefer acting on clear requests. Ask for clarification only when a missing
 choice would materially change the result.
 
 ## 2. Repository guide
