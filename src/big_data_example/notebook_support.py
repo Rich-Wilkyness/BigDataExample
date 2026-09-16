@@ -9,13 +9,44 @@ from pathlib import Path
 from pyspark.sql import SparkSession
 
 
-PROJECT_ROOT = Path(__file__).resolve().parents[2]
+PROJECT_ROOT_ENV = "BIG_DATA_EXAMPLE_PROJECT_ROOT"
+
+
+def project_root() -> Path:
+    """Find the source checkout that owns repository fixtures and notebooks."""
+
+    configured_root = os.environ.get(PROJECT_ROOT_ENV)
+    if configured_root:
+        root = Path(configured_root).expanduser().resolve()
+        if _is_project_root(root):
+            return root
+        raise FileNotFoundError(
+            f"{PROJECT_ROOT_ENV} does not identify the BigDataExample checkout: {root}"
+        )
+
+    search_starts = (Path.cwd().resolve(), Path(__file__).resolve().parent)
+    for start in search_starts:
+        for candidate in (start, *start.parents):
+            if _is_project_root(candidate):
+                return candidate
+
+    raise FileNotFoundError(
+        f"Could not find the BigDataExample checkout; set {PROJECT_ROOT_ENV} explicitly"
+    )
+
+
+def _is_project_root(path: Path) -> bool:
+    """Identify this repository without relying on the installed package path."""
+
+    return (path / "pyproject.toml").is_file() and (
+        path / "src" / "big_data_example"
+    ).is_dir()
 
 
 def project_path(*parts: str) -> Path:
     """Resolve a path from the repository root without depending on notebook cwd."""
 
-    return PROJECT_ROOT.joinpath(*parts)
+    return project_root().joinpath(*parts)
 
 
 def local_spark(app_name: str, *, threads: int = 2) -> SparkSession:
