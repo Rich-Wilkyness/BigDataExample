@@ -10,9 +10,16 @@ readme = "README.md"
 requires-python = ">=3.12"
 license = { text = "Private educational project" }
 authors = [{ name = "BigDataExample contributors" }]
-dependencies = []
+dependencies = [
+    "fastapi",
+    "uvicorn",
+]
 
 [project.optional-dependencies]
+test = [
+    "httpx2",
+    "pytest",
+]
 spark-notebook = [
     "ipykernel==7.3.0",
     "pyspark==4.2.0",
