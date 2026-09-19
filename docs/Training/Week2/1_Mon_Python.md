@@ -573,38 +573,75 @@ Every DataFrame has an `index` that labels rows and `columns` that label its Ser
 
 Choose an operation by the shape of the result you need. Ask whether the result should retain the original rows, select fewer rows or columns, collapse rows into summaries, or combine separate tables.
 
-| Goal | Common API or pattern | Result shape and when to use it | Homework connection |
+The object before the dot identifies who owns an operation:
+
+- `pd.function(...)` calls a function from the pandas library. These functions commonly create, read, combine, categorize, or convert pandas objects.
+- `df.method(...)` calls a method on one particular DataFrame. These methods inspect, transform, group, join, or publish that table.
+- `series.method(...)` calls a method on one-dimensional Series, such as `df["salary"]`. These methods clean, transform, or summarize that column.
+
+Writing is owned by the object being written, so use `df.to_csv(...)` and `df.to_sql(...)`, not `pd.to_csv(...)` or `pd.to_sql(...)`.
+
+##### pandas library functions: `pd.function(...)`
+
+| Goal | pandas function | Result shape and when to use it | Homework connection |
 | --- | --- | --- | --- |
+| Construct a DataFrame | `pd.DataFrame(data)` | Creates a DataFrame from records, mappings, Series, or other supported data | Small examples and setup |
 | Read a CSV | `pd.read_csv(path, usecols=..., dtype=...)` | Creates a DataFrame; select only required columns and declare expected types | All questions |
-| Write a CSV | `df.to_csv(path, index=False)` | Publishes the current DataFrame as CSV; decide whether the index is data | 10 |
+| Read a SQL query | `pd.read_sql(query, connection)` | Executes a query through a database connection and creates a DataFrame from the result | Database ingestion |
+| Read JSON or JSON Lines | `pd.read_json(path, lines=...)` | Creates a DataFrame; `lines=True` reads one JSON object per line | File ingestion |
+| Read Parquet | `pd.read_parquet(path, columns=...)` | Creates a DataFrame from a columnar file and can project selected columns | File ingestion |
+| Convert values to numbers | `pd.to_numeric(series, errors=...)` | Returns a numeric Series or array-like result; `errors="coerce"` changes invalid values to missing values | Setup and ingestion |
+| Convert values to dates or timestamps | `pd.to_datetime(series, errors=...)` | Returns datetime-like values; choose whether invalid text should raise or become missing | Setup and ingestion |
+| Build ordered ranges | `pd.cut(series, bins=..., labels=...)` | Converts numeric values into categorical intervals using explicit boundaries | 3, 9 |
+| Stack compatible objects | `pd.concat([first, second], ignore_index=True)` | Combines DataFrames or Series along rows by default; it is not a key-based join | General ingestion |
+
+##### DataFrame methods: `df.method(...)`
+
+| Goal | DataFrame method | Result shape and when to use it | Homework connection |
+| --- | --- | --- | --- |
 | Preview records | `df.head(n)`, `df.tail(n)` | Returns the first or last `n` rows for inspection, not validation | All questions |
-| Inspect structure | `df.info()`, `df.shape`, `df.columns`, `df.dtypes` | Reports row/column counts, labels, types, null counts, and memory clues | Setup and debugging |
+| Inspect structure | `df.info()` | Prints column types, non-null counts, and memory information; use the attributes in the later syntax table for programmatic inspection | Setup and debugging |
 | Summarize distributions | `df.describe()` | Returns common descriptive statistics for selected columns | 1, 7, 10 |
+| Sort rows | `df.sort_values(columns, ascending=...)` | Reorders rows without changing their values | 1, 2, 5, 10 |
+| Create columns in a chain | `df.assign(new=lambda current: expression)` | Returns a new DataFrame with derived columns | 2, 8 |
+| Remove rows with missing values | `df.dropna(subset=[...])` | Returns a DataFrame without rows that are missing required values in the selected columns | 7, 9, 10 |
+| Remove duplicate rows | `df.drop_duplicates(subset=[...])` | Returns a DataFrame with duplicate identities removed according to the chosen columns | Pipeline validation |
+| Split rows into groups | `df.groupby(keys)` | Creates a GroupBy object; a following operation determines the output shape | 1–7, 9, 10 |
+| Join related tables | `df.merge(right, on=..., how=..., validate=...)` | Returns a DataFrame with columns or rows matched by keys; output cardinality depends on key uniqueness | 6 |
+| Reshape grouped results | `df.pivot_table(...)`, `df.unstack()`, `df.reset_index()` | Moves values between rows, columns, and index levels for analysis or presentation | 3, 9 |
+| Apply a custom element function | `df.map(function)` | Returns a same-shaped DataFrame after applying Python logic to each element; prefer vectorized expressions when available | Occasional custom rules |
+| Make an independent DataFrame | `df.copy()` | Copies the current DataFrame; commonly used after filtering when the result will be modified independently | Filtering and cleaning |
+| Write a CSV | `df.to_csv(path, index=False)` | Publishes the current DataFrame as CSV; decide whether the index is data | 10 |
+| Write to a SQL table | `df.to_sql(name, connection, schema=..., index=False)` | Writes the DataFrame through a database connection; table design and load policy must already be understood | Database loading |
+
+##### Series methods: `series.method(...)`
+
+| Goal | Series method | Result shape and when to use it | Homework connection |
+| --- | --- | --- | --- |
+| Convert to a known dtype | `series.astype(dtype)` | Returns a converted Series; invalid values normally raise instead of becoming missing | Setup and ingestion |
+| Detect missing or present values | `series.isna()`, `series.notna()` | Returns a same-length Boolean Series suitable for filtering or validation | 7, 9, 10 |
+| Replace or remove missing values | `series.fillna(value)`, `series.dropna()` | Returns a Series with missing values replaced or removed | 7, 9, 10 |
+| Count values or distinct values | `series.value_counts()`, `series.nunique()` | Returns frequency counts or one scalar distinct count | 3, 4 |
+| Detect or remove duplicate values | `series.duplicated()`, `series.drop_duplicates()` | Returns a Boolean Series or a Series containing unique occurrences | Pipeline validation |
+| Apply string operations | `series.str.strip()`, `series.str.lower()`, `series.str.upper()`, `series.str.split()`, `series.str.contains()` | Returns row-aligned string results through the `.str` accessor | Cleaning and parsing |
+| Choose values conditionally | `series.where(...)`, `series.mask(...)` | Returns a same-length Series with values kept or replaced according to a condition | 8 |
+| Calculate one overall statistic | `series.sum()`, `series.mean()`, `series.median()`, `series.min()`, `series.max()`, `series.std()`, `series.count()` | Reduces a Series to one scalar summary | 1, 7, 8, 10 |
+| Find the row label of an extreme | `series.idxmax()`, `series.idxmin()` | Returns the index label holding the maximum or minimum value | 10 |
+| Rank values | `series.rank(...)` | Returns one rank for each original value | 5 |
+| Apply a custom element function | `series.map(function)` | Returns a same-length Series after applying Python logic to each value; prefer vectorized expressions when available | Occasional custom rules |
+
+##### Related DataFrame attributes and selection patterns
+
+Not every useful pandas operation is a function or method. Attributes do not use parentheses, bracket selection chooses columns, and `.loc[]` or `.iloc[]` are indexers that use square brackets.
+
+| Goal | Attribute or selection pattern | Result shape and when to use it | Homework connection |
+| --- | --- | --- | --- |
+| Inspect dimensions, labels, or types | `df.shape`, `df.columns`, `df.index`, `df.dtypes` | Returns metadata about the DataFrame; these are attributes, so they do not use `()` | Setup and debugging |
 | Select one column | `df["salary"]` | Returns a Series | Most questions |
 | Select several columns | `df[["name", "salary"]]` | Returns a DataFrame with columns in the listed order | 2, 5, 7, 10 |
-| Select rows and columns | `df.loc[row_mask, ["name", "salary"]]` | Filters by labels or a boolean mask and controls output columns | 2, 4, 5, 7 |
-| Select by integer position | `df.iloc[row_positions, column_positions]` | Uses zero-based positions; useful for exploration, fragile for schema-driven pipelines | Exploration |
-| Sort rows | `df.sort_values(columns, ascending=...)` | Reorders rows without changing their values | 1, 2, 5, 10 |
-| Create or replace a column | `df["new"] = expression` | Produces one value aligned to each row | 3, 5, 8, 9 |
-| Create columns in a chain | `df.assign(new=lambda current: expression)` | Returns a new DataFrame with derived columns | 2, 8 |
-| Convert a type | `Series.astype(dtype)`, `pd.to_numeric(...)`, `pd.to_datetime(...)` | Converts representation; decide whether invalid values should raise or become missing | Setup and ingestion |
-| Work with missing values | `isna()`, `notna()`, `fillna()`, `dropna()` | Detects, replaces, or removes missing values; each choice changes data meaning | 7, 9, 10 |
-| Count values or distinct values | `value_counts()`, `nunique()` | Produces frequency or distinct-count summaries | 3, 4 |
-| Detect duplicate records | `duplicated()`, `drop_duplicates()` | Identifies or removes duplicates according to selected identity columns | Pipeline validation |
-| Apply string operations | `Series.str.lower()`, `.str.split()`, `.str.contains()` | Applies vectorized string behavior while preserving row alignment | Cleaning and parsing |
-| Build ordered ranges | `pd.cut(series, bins=..., labels=...)` | Converts numeric values into categories using explicit interval boundaries | 3, 9 |
-| Choose values conditionally | `Series.where(...)`, `Series.mask(...)` | Keeps or replaces values according to a boolean condition | 8 |
-| Calculate one overall statistic | `sum()`, `mean()`, `median()`, `min()`, `max()`, `std()`, `count()` | Reduces a Series to one scalar summary | 1, 7, 8, 10 |
-| Split rows into groups | `df.groupby(keys)` | Creates a GroupBy object; a following operation determines the output shape | 1–7, 9, 10 |
-| Produce one summary row per group | `groupby(...).agg(...)` | Reduces every group to named summary values | 1, 3, 4, 6, 9, 10 |
-| Put a group statistic beside every row | `groupby(...)[column].transform(...)` | Returns a same-length Series aligned to the original rows | 2, 7 |
-| Rank rows within each group | `groupby(...)[column].rank(...)` | Returns one rank per original row | 5 |
-| Find the row label of an extreme | `Series.idxmax()`, `Series.idxmin()` | Returns the index label holding the maximum or minimum value | 10 |
-| Join related tables | `left.merge(right, on=..., how=..., validate=...)` | Adds columns or rows based on matching keys; output cardinality depends on key uniqueness | 6 |
-| Stack compatible tables | `pd.concat([first, second], ignore_index=True)` | Combines objects along rows by default; not a key-based join | General ingestion |
-| Reshape grouped results | `pivot_table()`, `unstack()`, `reset_index()` | Moves values between rows, columns, and index levels for presentation or analysis | 3, 9 |
-| Apply a custom element function | `Series.map(function)`, `DataFrame.map(function)` | Applies Python-level element logic; prefer direct vectorized expressions when available | Occasional custom rules |
-| Apply flexible group logic | `groupby(...).apply(function)` | Passes each group to a custom function; use only when `agg`, `transform`, or built-ins cannot express the result | Advanced fallback |
+| Select rows and columns by labels | `df.loc[row_mask, ["name", "salary"]]` | Returns selected rows and columns using labels or a Boolean mask | 2, 4, 5, 7 |
+| Select by integer position | `df.iloc[row_positions, column_positions]` | Returns selected positions; useful for exploration but fragile for schema-driven pipelines | Exploration |
+| Create or replace a column directly | `df["new"] = expression` | Mutates the DataFrame by assigning one aligned value per row | 3, 5, 8, 9 |
 
 The most important GroupBy distinction is output shape:
 

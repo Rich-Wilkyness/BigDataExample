@@ -7,6 +7,7 @@ This directory is the learner entry point for executable, job-shaped data-engine
 | Lab | Difficulty | Scope | Effort | Tooling | Status |
 | --- | --- | --- | --- | --- | --- |
 | [DV-E23 High-Engagement Video Filtering](content-platform/dv-e23-high-engagement-video-filtering.ipynb) | Easy | Technique drill | 30-45 minutes | Python, PySpark, Spark | Ready to attempt |
+| [WH-M01 Medallion Sales Pipeline](retail-sales/wh-m01-medallion-sales-pipeline.ipynb) | Medium | System flow | Multiple sessions | Python, pandas, SQL, PostgreSQL | Stage 1 ready through Bronze; stop before Silver |
 
 ## How a lab is organized
 

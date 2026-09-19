@@ -1,0 +1,41 @@
+transaction_id,transaction_date,product_number,product_name,category,customer_number,customer_name,customer_city,quantity,unit_price,currency
+TXN-1001,2024-01-15,P500,Webcam,Electronics,C100,Ana Rivera,Boise,3,80.00,USD
+TXN-1002,2024-02-07,P300,Monitor,Electronics,C500,Maya Patel,Boston,2,300.00,USD
+TXN-1003,2024-03-01, P100 ,Laptop Stand, Office Accessories ,C200,Marcus Lee,Denver,3,45.00,USD
+TXN-1004,2024-03-24,P500,Webcam,Electronics,C300,Priya Shah,Chicago,5,80.00,USD
+TXN-1005,2024-04-16,P500,WEBCAM,electronics,C200,Marcus Lee,Denver,2,80.00,usd
+TXN-1006,2024-05-09,P400,Standing Desk,Furniture,C400,Jordan Kim,Seattle,1,550.00,USD
+TXN-1007,2025-13-40,P300,Monitor,Electronics,C100,Ana Rivera,Boise,2,300.00,USD
+TXN-1008,,P500,Webcam,Electronics,C100,Ana Rivera,Boise,3,80.00,USD
+TXN-1009,2024-07-17,P100,Laptop Stand,Office Accessories,C400,Jordan Kim,Seattle,1,,USD
+TXN-1010,2024-08-09,P400,Standing Desk,Furniture,C500,Maya Patel,Boston,5,not-a-price,USD
+TXN-1011,2024-09-01,P200,Mechanical Keyboard,Electronics,C500,Maya Patel,Boston,0,120.00,USD
+TXN-1012,2024-09-24,P300,Monitor,Electronics,C200,Marcus Lee,Denver,-2,300.00,USD
+TXN-1013,2024-10-17,P400,Standing Desk,Furniture,C400,Jordan Kim,Seattle,2,550.00,USD
+TXN-1013,2024-11-09,P100,Laptop Stand,Office Accessories,C400,Jordan Kim,Seattle,5,45.00,USD
+TXN-1015,2024-12-02,P200,Mechanical Keyboard,Electronics,C200,Marcus Lee,Denver,3,120.00,EUR
+TXN-1016,2024-12-25,,Webcam,Electronics,C300,Priya Shah,Chicago,1,80.00,USD
+TXN-1017,2025-01-17,P500,Webcam,Electronics,,Jordan Kim,Seattle,1,80.00,USD
+,2025-02-09,P100,Laptop Stand,Office Accessories,C100,Ana Rivera,Boise,3,45.00,USD
+TXN-1019,2025-03-04,P100,Laptop Stand,Office Accessories,C500,Maya Patel,Boston,3,45.00,USD
+TXN-1020,2025-03-27,P100,Laptop Stand,Office Accessories,C500,Maya Patel, Boston ,2,45.00,USD
+TXN-1021,2025-04-19,P400,Standing Desk,Furniture,C400,Jordan Kim,Seattle,2,550.00,USD
+TXN-1022,2025-05-12,P300,Monitor,Electronics,C100,Ana Rivera,Boise,3,300.00,USD
+TXN-1023,2025-06-04,P400,Standing Desk,Furniture,C100,Ana Rivera,Boise,1,550.00,USD
+TXN-1024,2025-06-27,P200,Mechanical Keyboard,Electronics,C400,Jordan Kim,Seattle,1,120.00,USD
+TXN-1025,2025-07-20,P100,Laptop Stand,Office Accessories,C500,Maya Patel,Boston,1,45.00,USD
+TXN-1026,2025-08-12,P200,Mechanical Keyboard,Electronics,C200,Marcus Lee,Denver,1,120.00,USD
+TXN-1027,2025-09-04,P500,Webcam,Electronics,C400,Jordan Kim,Seattle,5,80.00,USD
+TXN-1028,2025-09-27,P400,Standing Desk,Furniture,C500,Maya Patel,Boston,5,550.00,USD
+TXN-1029,2025-10-20,P100,Laptop Stand,Office Accessories,C500,Maya Patel,Boston,5,45.00,USD
+TXN-1030,2025-11-12,P100,Laptop Stand,Office Accessories,C400,Jordan Kim,Seattle,4,45.00,USD
+TXN-1031,2025-12-01,P400,Standing Desk,Furniture,C100,Ana Rivera,Meridian,4,550.00,USD
+TXN-1032,2025-12-28,P300,Monitor,Electronics,C200,Marcus Lee,Denver,4,300.00,USD
+TXN-1033,2026-01-20,P400,Standing Desk,Furniture,C200,Marcus Lee,Denver,4,550.00,USD
+TXN-1034,2026-02-12,P300,Monitor,Electronics,C200,Marcus Lee,Denver,5,300.00,USD
+TXN-1035,2026-03-07,P300,Monitor,Electronics,C300,Priya Shah,Chicago,1,300.00,USD
+TXN-1036,2026-03-30,P100,Laptop Stand,Office Accessories,C300,Priya Shah,Chicago,5,45.00,USD
+TXN-1037,2026-04-22,P200,Mechanical Keyboard,Electronics,C300,Priya Shah,Chicago,3,120.00,USD
+TXN-1038,2026-05-15,P300,Monitor,Electronics,C100,Ana Rivera,Meridian,1,300.00,USD
+TXN-1039,2026-06-07,P500,Webcam,Electronics,C400,Jordan Kim,Seattle,1,80.00,USD
+TXN-1040,2026-06-30,P300,Monitor,Electronics,C500,Maya Patel,Boston,5,300.00,USD

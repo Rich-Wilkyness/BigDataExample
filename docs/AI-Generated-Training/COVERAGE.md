@@ -17,7 +17,7 @@ does not prove distributed or production behavior.
 | SQL workspace | Root and `sql/README.md` | `sql/` | No executable query yet | Structure complete; examples planned |
 | Data workspace | `data/README.md` | `data/` plus ignore policy | Policy inspection; no dataset yet | Structure complete; fixtures planned |
 | Notebook boundary | `notebooks/README.md` | `notebooks/` | Manual boundary review | Structure complete; notebooks planned |
-| Infrastructure boundary | `infra/README.md` | `infra/` | No services selected yet | Structure complete; infrastructure planned |
+| Infrastructure boundary | Root and `infra/README.md` | `infra/postgres/compose.yml`, local `.env`, and named Docker volume | Compose configuration validated; PostgreSQL 18.6 reached healthy status on `127.0.0.1:5432`; read-only query confirmed database/user/version; named volume mount verified | Local PostgreSQL integration verified; other infrastructure planned |
 
 ## Status vocabulary
 

@@ -24,6 +24,14 @@ spark-notebook = [
     "ipykernel==7.3.0",
     "pyspark==4.2.0",
 ]
+warehouse-lab = [
+    "ipykernel==7.3.0",
+    "matplotlib==3.11.2",
+    "pandas==3.0.5",
+    "psycopg2-binary==2.9.13",
+    "seaborn==0.13.2",
+    "SQLAlchemy==2.0.54",
+]
 
 [tool.setuptools]
 package-dir = { "" = "src" }
