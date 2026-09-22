@@ -1,0 +1,9 @@
+transaction_id,transaction_date,customer,product,category,quantity,unit_price
+T001,2026-09-01,Alice,Laptop,Electronics,1,1200
+T002,2026-09-01,Bob,Mouse,Electronics,3,25
+T003,2026-09-02,Alice,Desk,Furniture,1,450
+T004,2026-09-02,Carol,Chair,Furniture,4,125
+T005,2026-09-03,David,Monitor,Electronics,2,300
+T006,2026-09-03,Alice,Keyboard,Electronics,2,75
+T007,2026-09-04,Bob,Desk,Furniture,1,450
+T008,2026-09-04,Carol,Laptop,Electronics,1,1200

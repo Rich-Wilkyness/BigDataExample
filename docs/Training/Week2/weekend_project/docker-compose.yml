@@ -1,0 +1,55 @@
+# Compose is the runtime wiring diagram. It says which containers exist, how they communicate,
+# which environment variables they receive, and which host files or Docker volumes they can see.
+name: sales-report-pipeline
+
+services:
+  postgres:
+    # This service uses an existing image from a registry; this project does not build PostgreSQL.
+    image: postgres:18
+    # ${NAME} values are substituted from the shell or the project .env file before containers start.
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    # host:container — a host tool uses localhost:${POSTGRES_PORT}, while other containers use
+    # postgres:5432 on the private Compose network.
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    # This named volume persists database files even when the PostgreSQL container is recreated.
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    # The pipeline waits for this check instead of guessing how long PostgreSQL needs to start.
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}",]
+      interval: 3s
+      timeout: 10s
+      retries: 15
+      start_period: 5s
+  
+  pipeline:
+    # Unlike postgres, this service builds a new local image from ./Dockerfile and this directory.
+    build: .
+    # Start the pipeline only after PostgreSQL is accepting connections.
+    depends_on:
+      postgres:
+        condition: service_healthy
+    # These are container-side values read by os.environ in pipeline.py. "postgres" in the URL is
+    # the Compose service name, not localhost and not a manually assigned container name.
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      INPUT_FILE: /app/input/sales.csv
+      OUTPUT_FILE: /app/output/sales_report.csv
+    # A bind mount connects a host path (source) to a container path (target). The CSV is read-only;
+    # the output directory is writable so the container can return the graded report to the host.
+    volumes:
+      - type: bind
+        source: ${SALES_CSV_PATH}
+        target: /app/input/sales.csv
+        read_only: true
+      - type: bind
+        source: ./output
+        target: /app/output
+
+volumes:
+  # Declaring the named volume lets Compose create it once and reuse it on later runs.
+  postgres-data:

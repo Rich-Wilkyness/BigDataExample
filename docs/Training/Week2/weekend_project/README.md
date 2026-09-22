@@ -220,7 +220,9 @@ The instructor may ask them to:
 1. Delete `output/sales_report.csv`.
 2. Run `./run_pipeline.sh`.
 3. Show the running Docker containers.
-4. Connect to PostgreSQL and show the loaded table.
+4. Connect to PostgreSQL and show the loaded table. 
+    -> docker compose exec postgres psql -U pipeline -d sales
+    -> docker exec -it <container> bash -> psql -U pipeline -d sales
 5. Show several rows using `SELECT`.
 6. Explain the Pandas transformation.
 7. Show the SQL aggregation that creates the report.

@@ -1,0 +1,41 @@
+# Learner file for OP-C01. Replace each __PLACEHOLDER__ while completing Checkpoint 3.
+name: op-c01-container-runtime
+
+services:
+  postgres:
+    image: __POSTGRES_IMAGE__
+    environment:
+      POSTGRES_USER: __POSTGRES_USER_FROM_ENV__
+      POSTGRES_PASSWORD: __POSTGRES_PASSWORD_FROM_ENV__
+      POSTGRES_DB: __POSTGRES_DB_FROM_ENV__
+    ports:
+      - "__HOST_TO_CONTAINER_PORT__"
+    volumes:
+      - __DATABASE_VOLUME_MOUNT__
+    healthcheck:
+      test: ["CMD-SHELL", "__POSTGRES_HEALTHCHECK__"]
+      interval: 2s
+      timeout: 5s
+      retries: 15
+      start_period: 5s
+
+  pipeline:
+    build: __BUILD_CONTEXT__
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: __DATABASE_URL__
+      INPUT_FILE: __CONTAINER_INPUT_PATH__
+      OUTPUT_FILE: __CONTAINER_OUTPUT_PATH__
+    volumes:
+      - type: bind
+        source: __HOST_INPUT_SOURCE__
+        target: __CONTAINER_INPUT_TARGET__
+        read_only: true
+      - type: bind
+        source: __HOST_OUTPUT_SOURCE__
+        target: __CONTAINER_OUTPUT_TARGET__
+
+volumes:
+  __DATABASE_VOLUME_NAME__:

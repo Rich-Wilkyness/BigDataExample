@@ -1,0 +1,42 @@
+name: op-c02-sqlalchemy-setup
+
+services:
+  postgres:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "${POSTGRES_PORT:-55433}:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 2s
+      timeout: 5s
+      retries: 15
+      start_period: 5s
+
+  pipeline:
+    build:
+      context: ../../../..
+      dockerfile: infra/interactive-data-engineering-labs/platform-operations/op-c02-sqlalchemy-pipeline-setup/Dockerfile
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB}
+      INPUT_FILE: /app/input/sales.csv
+      OUTPUT_FILE: /app/output/sales_report.csv
+    volumes:
+      - type: bind
+        source: ${SALES_CSV_PATH}
+        target: /app/input/sales.csv
+        read_only: true
+      - type: bind
+        source: ./output
+        target: /app/output
+
+volumes:
+  postgres-data:

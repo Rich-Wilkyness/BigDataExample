@@ -7,6 +7,8 @@ This directory is the learner entry point for executable, job-shaped data-engine
 | Lab | Difficulty | Scope | Effort | Tooling | Status |
 | --- | --- | --- | --- | --- | --- |
 | [DV-E23 High-Engagement Video Filtering](content-platform/dv-e23-high-engagement-video-filtering.ipynb) | Easy | Technique drill | 30-45 minutes | Python, PySpark, Spark | Ready to attempt |
+| [OP-C01 Containerized Pipeline Runtime](platform-operations/op-c01-containerized-pipeline-runtime.ipynb) | Easy | Component exercise | 60-90 minutes | Docker, Compose, Bash, PostgreSQL, Python | Ready to attempt; runtime check requires completed learner files |
+| [OP-C02 Python Pipeline Setup with SQLAlchemy](platform-operations/op-c02-sqlalchemy-pipeline-setup.ipynb) | Easy | Component exercise | 60-90 minutes | Python, SQLAlchemy, SQL, PostgreSQL | Ready to attempt; runtime check requires the completed learner module |
 | [WH-M01 Medallion Sales Pipeline](retail-sales/wh-m01-medallion-sales-pipeline.ipynb) | Medium | System flow | Multiple sessions | Python, pandas, SQL, PostgreSQL | Stage 1 ready through Bronze; stop before Silver |
 
 ## How a lab is organized
@@ -48,6 +50,28 @@ Then select `.venv/bin/python` as the notebook kernel. The dependency result is 
 7. Continue through the plan and reflection sections, then stop Spark with the cleanup cell.
 
 The setup cell confirms that Python and Spark start successfully. That is an environment check. The **Check my work** cell validates your transformation. Author-side unit tests exist for maintaining the curriculum's reference implementation, but the learner workflow does not link to or require those tests.
+
+## Run OP-C01 in VS Code
+
+1. Open the [OP-C01 notebook](platform-operations/op-c01-containerized-pipeline-runtime.ipynb).
+2. Select the repository's `.venv` kernel; the notebook uses Python only to coordinate checks and terminal commands.
+3. Read the initial Dockerfile, Compose, Bash, and Docker CLI API field guides, then complete the linked `Dockerfile`, `docker-compose.yml`, and `run_pipeline.sh` in the isolated learner workspace.
+4. Run the static **Check my work** before starting services.
+5. Run the one-command pipeline checkpoint, then run the runtime **Check my work** to verify PostgreSQL state and the generated report.
+6. Use the lab-specific reset only when you intend to remove OP-C01's named volume and generated output.
+
+OP-C01 supplies its pandas/SQL pipeline implementation. The learner responsibility is to reproduce and explain the runtime boundary around it: image contents, service lifecycle, environment injection, networking, bind mounts, named volumes, readiness, and Bash orchestration.
+
+## Run OP-C02 in VS Code
+
+1. Open the [OP-C02 notebook](platform-operations/op-c02-sqlalchemy-pipeline-setup.ipynb).
+2. Select the repository's `.venv` kernel; the notebook uses Python to inspect the learner module and invoke the supplied checks.
+3. Read the initial Python, SQLAlchemy, pandas SQL-I/O, filesystem, and SQL API field guides, then edit only the linked `op_c02_sqlalchemy_pipeline_setup.py` learner module. The pandas transformation and container runtime are supplied.
+4. Complete the checkpoints in execution order: configuration, report SQL, engine, schema and table, full-refresh load, report read, and CSV publication.
+5. Run the static **Check my work**, then use the supplied one-command runner and runtime **Check my work**.
+6. Use the lab-specific reset only when you intend to remove OP-C02's named volume, generated report, and local `.env`.
+
+OP-C02 deliberately reuses OP-C01's immutable eight-row CSV delivery. The repeated business data makes the new boundary easier to see: the learner is now responsible for the Python and SQLAlchemy setup inside the already-supplied container runtime, not for rebuilding the pandas transformation.
 
 ## Restart, clear, and reset
 

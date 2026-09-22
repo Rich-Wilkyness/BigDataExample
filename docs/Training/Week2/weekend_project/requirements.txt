@@ -1,0 +1,7 @@
+pandas
+SQLAlchemy
+psycopg[binary]
+
+# these are included in python
+# os
+# pathlib

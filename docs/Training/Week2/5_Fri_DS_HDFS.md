@@ -6,7 +6,9 @@
 >
 > Applies to: Distributed storage, cluster resource management, batch processing, SQL over files, and analytical file formats
 >
-> Evidence: Documentation reviewed against current Apache project documentation; no Hadoop cluster commands were run
+> Evidence: Documentation reviewed against current Apache project documentation; one complete YouTube caption track and both videos' metadata were reviewed; no Hadoop cluster commands were run
+>
+> Last reviewed: 2026-09
 
 ## Overview
 
@@ -30,6 +32,7 @@ After completing this guide, you should be able to:
 - Explain what Hive and the Hive Metastore add to files stored in HDFS or object storage.
 - Compare schema-on-write with schema-on-read and managed with external Hive tables.
 - Distinguish partitioning, bucketing, compression, file formats, and table formats.
+- Explain where Docker and Kubernetes fit without confusing them with HDFS, YARN, or Spark.
 - Place major Hadoop-ecosystem tools into storage, compute, ingestion, orchestration, security, governance, or administration categories.
 
 ## Prerequisites
@@ -579,23 +582,84 @@ Avro is not “compressed JSON.” It is a binary serialization system whose sch
 
 Avro is useful when records move between systems and producers and consumers need explicit schema resolution. Schema evolution still requires compatibility rules; a format cannot decide business meaning when a field is renamed, removed, or reinterpreted.
 
+Consider an online retailer that publishes order events:
+
+```text
+Checkout service            Kafka topic                 Independent consumers
+(producer)                  orders.created             |-- Fulfillment service
+                                                        |-- Fraud detector
+                                                        `-- Spark order pipeline
+```
+
+The checkout service is the **producer** because it creates an `OrderCreated` record. Kafka is the transport and retention system. Fulfillment, fraud detection, and Spark are **consumers** because each reads the same record for a different purpose. Avro defines how the record is encoded and how a consumer can interpret records written with compatible schema versions.
+
+Suppose version 1 contains `order_id`, `customer_id`, and `total_cents`. Version 2 adds `currency` with a default of `"USD"`:
+
+```json
+{
+  "type": "record",
+  "name": "OrderCreated",
+  "fields": [
+    {"name": "order_id", "type": "string"},
+    {"name": "customer_id", "type": "string"},
+    {"name": "total_cents", "type": "long"},
+    {"name": "currency", "type": "string", "default": "USD"}
+  ]
+}
+```
+
+During **schema resolution**, Avro compares the schema that wrote a record with the schema the consumer expects:
+
+- A new consumer reading an old record supplies `"USD"` because the reader's new `currency` field has that default.
+- An old consumer reading a new record ignores `currency` because its reader schema does not request that field.
+- A compatible numeric promotion such as `int` to `long` can be resolved, but narrowing or changing a field to an unrelated type may fail.
+- A field rename needs an alias or a coordinated migration. Even when bytes remain readable, changing the meaning of `total_cents` from “before tax” to “after tax” is a business-contract break that Avro cannot solve.
+
+An Avro object-container file carries its writer schema in the file. For individual Avro messages in Kafka, teams commonly place a schema identifier in the message and retrieve the matching schema from a schema registry; that registry convention is separate from the Avro file format itself. Compatibility checks should run before a producer deploys so one producer does not unexpectedly break several consumers.
+
 ### Snappy
 
-Snappy is a **compression codec**, not a standalone analytical file format. A filename such as `part-00000.snappy.parquet` commonly means that the file uses the Parquet format and a writer used Snappy for compressed data within it.
+Snappy is a **compression codec**, not a standalone analytical file format. A filename such as `part-00000.snappy.parquet` commonly means that the file uses the Parquet format and a writer used Snappy for compressed data within it. Snappy is frequently paired with Parquet, but formats such as Avro and ORC can also use it.
 
 ### Open table formats
 
-A file format describes bytes within one file. A **table format** such as Apache Iceberg manages a collection of files as a table and adds metadata for capabilities such as snapshots, schema evolution, partition evolution, and atomic table updates.
+A file format describes bytes within one file. Parquet does have metadata: each Parquet file contains a schema plus metadata about its row groups, column chunks, offsets, encodings, and often statistics such as minimum and maximum values. An engine can use that metadata to decode the file, select columns, and skip some irrelevant data.
+
+What a Parquet file does **not** know is whether it is still part of a logical table, which other Parquet files belong to the same committed version, which schema and partition rules govern the table as a whole, or whether a multi-file write completed successfully.
+
+A **table format** such as Apache Iceberg adds that table-level control layer:
 
 ```text
-Parquet files alone
-        +
-Iceberg table metadata
-        =
-a table whose current snapshot identifies an exact set of data files
+Catalog or metastore
+  orders -> current Iceberg metadata file
+                         |
+                         v
+Iceberg table metadata: schemas, partition specs, properties, snapshots
+                         |
+                         v
+Snapshot -> manifest list -> manifests -> exact data and delete files
+                                                |
+                                                v
+                                    Parquet files and their own metadata
 ```
 
-Do not use “Parquet table” and “Iceberg table” as synonyms. An Iceberg table may use Parquet data files, but the Iceberg metadata supplies table-level behavior that Parquet alone does not provide.
+The layers have different scopes:
+
+| Metadata layer | Typical responsibility |
+| --- | --- |
+| Parquet file metadata | Describes the columns, row groups, encodings, offsets, and statistics inside one file |
+| Iceberg manifests and manifest lists | Track the data and delete files in a snapshot, their partition values, and file-level metrics |
+| Iceberg table metadata | Tracks table schemas, partition specifications, properties, snapshot history, and the current snapshot |
+| Catalog or metastore | Resolves a logical name such as `analytics.orders` to the current Iceberg metadata location and may also manage namespaces, ownership, or access integration |
+
+This structure enables several behaviors:
+
+- **Snapshots:** each committed snapshot identifies an exact set of files. A reader can keep using the snapshot it started with while a newer snapshot is committed, and retained older snapshots can support time travel or rollback.
+- **Schema evolution:** Iceberg tracks columns with stable field IDs. Adding, dropping, reordering, or renaming a column can be a metadata change rather than an immediate rewrite of every old Parquet file. Compatibility rules still limit unsafe type changes.
+- **Partition evolution:** a new partition specification can apply to new files while old files remain under the earlier specification. The scan planner uses the specification recorded for each manifest, so callers continue to filter on logical columns instead of manually knowing every historical directory layout.
+- **Atomic table updates:** a writer first creates new data files, manifests, and a new metadata file. It then commits by atomically replacing the table's current metadata reference, often through a catalog, from the old version to the new one. Readers see either the old committed snapshot or the new committed snapshot, not a half-published file set. The exact atomic mechanism depends on the catalog, and optimistic concurrency checks prevent one writer from silently overwriting a concurrent commit.
+
+Iceberg metadata does not replace Parquet metadata or a catalog. It connects catalog-level table identity to snapshot-level file membership while Parquet continues to describe the contents of each data file. Do not use “Parquet table” and “Iceberg table” as synonyms: an Iceberg table may use Parquet data files, but the Iceberg metadata supplies table-level behavior that Parquet alone does not provide.
 
 ---
 
@@ -645,7 +709,7 @@ These names may appear in older systems, migration projects, or interviews:
 
 ### Cloudera and Hortonworks context
 
-Historically, Cloudera CDH and Hortonworks HDP packaged many of the same Apache projects but emphasized different management, SQL, security, and governance components. Their histories explain why older environments may use different combinations of Impala, Kudu, Ambari, Ranger, Atlas, Knox, Sentry, Tez, and ORC.
+Historically, **CDH** meant **Cloudera Distribution Including Apache Hadoop**, and **HDP** meant **Hortonworks Data Platform**. They packaged many of the same Apache projects but emphasized different management, SQL, security, and governance components. Their histories explain why older environments may use different combinations of Impala, Kudu, Ambari, Ranger, Atlas, Knox, Sentry, Tez, and ORC.
 
 For a beginner, the architectural responsibility matters more than memorizing which vendor originally emphasized each project. Ask these questions instead:
 
@@ -656,6 +720,33 @@ For a beginner, the architectural responsibility matters more than memorizing wh
 5. Which system moves or orchestrates data?
 6. Which systems enforce identity, authorization, and auditing?
 7. How does each component recover from failure?
+
+#### Example: an on-premises retailer
+
+Imagine a retailer that keeps five years of web-click events and order data. Application servers produce JSON click events, PostgreSQL owns current order records, analysts need interactive SQL, and a nightly job builds sales summaries. The company chooses an on-premises Hadoop cluster because this historical scenario predates its cloud migration and the data volume exceeds one database server.
+
+The seven questions can be answered without choosing a vendor first:
+
+1. **Durable bytes:** HDFS stores landed events, database extracts, Parquet/ORC analytical files, and derived outputs. PostgreSQL remains the source of truth for current operational orders.
+2. **Table metadata:** the Hive Metastore records table names, columns, partitions, formats, and HDFS locations; it does not contain the order rows themselves.
+3. **Compute and SQL:** Spark performs nightly transformations. An interactive SQL engine answers analysts' queries over curated files.
+4. **Resources:** YARN allocates CPU and memory to Spark and other applications designed to use YARN. An interactive SQL engine may use YARN or its own admission-control mechanism, depending on the engine and distribution.
+5. **Movement and orchestration:** Kafka or NiFi receives click events, a database ingestion process copies order changes, and Oozie schedules the historical nightly workflow.
+6. **Security and audit:** Kerberos authenticates identities; an authorization service controls table or file access and records audit events.
+7. **Recovery:** HDFS replication and NameNode high availability protect service continuity, YARN and Spark retry failed work, and the pipeline uses idempotent batch identifiers so a rerun does not double-count sales. Separate snapshots or backups protect against deletion and application mistakes.
+
+The vendor distribution mainly changes the packaged tools used to implement some responsibilities:
+
+| Responsibility | Historical CDH-style answer | Historical HDP-style answer |
+| --- | --- | --- |
+| Administration | Cloudera Manager | Ambari |
+| Interactive SQL | Impala, sharing Hive Metastore metadata | Hive with Tez, with other engines possible |
+| Common analytical format emphasis | Parquet | ORC, while Parquet was also available |
+| Authorization and audit | Sentry with related Cloudera tooling | Ranger |
+| Governance and lineage | Cloudera Navigator in enterprise deployments | Atlas |
+| Edge gateway | Product and deployment dependent | Knox was commonly packaged for secured gateway access |
+
+This is historical orientation, not a recommendation to build a new CDH or HDP cluster. Cloudera and Hortonworks merged, their product lines evolved, and modern platforms may use object storage, Kubernetes, cloud identity, and newer catalogs. The responsibility questions remain useful during both maintenance and migration.
 
 ---
 
@@ -684,23 +775,42 @@ HDFS and object storage are not identical:
 
 Moving from HDFS to object storage changes the operational model. It does not remove the need to design file sizes, partitions, schemas, commits, retention, security, or recovery.
 
+### Where Docker and Kubernetes fit
+
+Docker and Kubernetes matter to modern data platforms, but they solve different problems from HDFS, Hive, and Iceberg:
+
+| Technology | Responsibility in this lesson | What it does not provide by itself |
+| --- | --- | --- |
+| Docker image | Packages an application runtime, libraries, and configuration defaults into a portable image | Cluster scheduling, distributed storage, table metadata, or data durability |
+| Kubernetes | Places and manages containerized workloads across cluster nodes using pods, resource requests, health behavior, networking, and other control-plane features | HDFS semantics, Spark transformations, or analytical table transactions |
+| YARN | Allocates cluster resources to Hadoop-style applications | A Docker image format or durable filesystem |
+
+Spark can use standalone Spark, YARN, or Kubernetes as its cluster manager. With Kubernetes, a Spark application commonly has a driver pod and executor pods created from container images. Kubernetes decides where pods can run and manages their lifecycle; Spark still divides the data work into jobs, stages, and tasks.
+
+Be careful with the word **container**. A YARN container is primarily an allocation of CPU, memory, and related resources. It is not automatically a Docker container. YARN can be configured to launch its allocated work inside Docker containers, but those are two distinct layers.
+
+Kubernetes also does not automatically replace HDFS. A platform might run Spark on Kubernetes while keeping durable data in cloud object storage, HDFS, or another storage service. The storage system owns byte durability, a catalog or table format owns table state, Spark owns computation, and Kubernetes owns the containerized processes and cluster resources.
+
 ---
 
-## 12. Video notes to complete later
+## 12. Video summaries and takeaways
 
-The videos are intentionally left as separate sections so each can later receive a transcript-based summary and focused big-data/data-engineering takeaways.
+The first summary is based on the video's complete auto-generated caption track. The second video currently exposes no YouTube caption track, so its section is based on the presenter-provided description and a community-posted timestamp index visible with the video rather than a transcript. Auto-generated captions and community chapter labels can contain mistakes, so use the videos themselves when exact wording matters.
 
-### Video 1
+### Video 1: Intro to Hadoop and Big Data, Part 1 — Frank Kane
 
 - [Watch the video](https://www.youtube.com/watch?v=0AzF4BGdVVM&list=PLKjwSP1bnrvOCon-j9Gm6ehf1JWk9Rhqk)
-- **Transcript summary:** To be added after the transcript is reviewed.
-- **Big data / data engineering takeaways:** To be added after the transcript is reviewed.
+- **Length and transcript:** 1:36; complete English auto-generated captions reviewed.
+- **Transcript summary:** Frank Kane introduces a course intended to turn “big data” and “cloud computing” from buzzwords into concrete concepts. He previews Hadoop architecture, MapReduce, Hive, Pig, Spark, and Amazon Elastic MapReduce, then explains that learners will examine movie-rating data and simple MapReduce code rather than stay entirely at the conceptual level. He presents the course as accessible without prior programming experience, with the main goal of understanding the tools, techniques, and terminology used to extract useful information from large datasets at scale.
+- **Big data / data engineering takeaways:** The video is a course trailer, not a technical explanation of Hadoop. Its durable message is that a data engineer should connect architecture and terminology to an actual dataset and executable processing logic. Its tool list reflects the Hadoop ecosystem of its time: HDFS, resource management, data movement, and distributed computation remain useful concepts, while Pig and direct MapReduce are more likely to appear in legacy systems than in a new pipeline.
 
-### Video 2
+### Video 2: Advanced Apache Spark Training — Sameer Farooqui
 
-- [Watch the video](https://www.youtube.com/watch?v=7ooZ4S7Ay6Y&t=11155s&pp=ygUQc3BhcmsgcHJpbmNpcGxlcw%3D%3D)
-- **Transcript summary:** To be added after the transcript is reviewed.
-- **Big data / data engineering takeaways:** To be added after the transcript is reviewed.
+- [Watch the full video](https://www.youtube.com/watch?v=7ooZ4S7Ay6Y); the originally saved link begins at [3:05:55](https://www.youtube.com/watch?v=7ooZ4S7Ay6Y&t=11155s), near the memory, persistence, and serialization portion.
+- **Length and source limitation:** 5:58:30; published from Spark Summit 2015. YouTube currently exposes no caption track, so the following is a description-and-chapter-based overview, not a transcript summary.
+- **Content overview:** The training starts with the big-data ecosystem and Spark history, then develops the RDD model and Spark runtime architecture. Later sections cover resource managers, memory and persistence, serialization, stages, shuffles, broadcast variables, accumulators, PySpark, improvements to shuffle behavior, Spark Streaming, and the technical ideas behind Spark's 2014 100 TB sort result. The presenter-provided agenda emphasizes Spark Core, RDDs, YARN and standalone deployment, internal behavior, shared variables, streaming, and large-scale sorting.
+- **Big data / data engineering takeaways:** RDD lineage explains how Spark can recompute lost partitions; transformations are lazy and actions cause Spark to construct and execute work; stage boundaries and shuffles matter because network transfer, serialization, memory pressure, and disk spill often dominate performance; persistence is a deliberate reuse decision rather than proof that Spark performs everything in memory; and broadcast variables and accumulators have narrow distributed roles rather than behaving like ordinary shared mutable variables.
+- **Age warning:** Treat the video as a valuable explanation of durable Spark internals, not as current API or deployment documentation. It teaches a 2015-era Spark stack centered on RDDs, YARN, and standalone mode. Current work commonly emphasizes DataFrames, Spark SQL, structured APIs, Adaptive Query Execution, Structured Streaming, and Kubernetes in addition to YARN. Confirm syntax and configuration in the documentation for the Spark version you actually run.
 
 ---
 
@@ -719,7 +829,10 @@ The videos are intentionally left as separate sections so each can later receive
 | Partitioning means one partition per machine | Storage and execution partitions can move, coexist on one node, or be processed by different workers |
 | Snappy is a file format | Snappy is a compression codec often used inside formats such as Parquet |
 | Avro is compressed JSON | Avro uses JSON to describe schemas but encodes records in a binary serialization format |
+| Parquet has no metadata | A Parquet file has file- and page-level metadata; it lacks Iceberg's table-wide snapshots and committed file membership |
 | Object storage eliminates the small-files problem | Query engines still pay listing, planning, open, scheduling, and metadata costs for many tiny files |
+| A YARN container is a Docker container | A YARN container is a resource allocation; YARN may optionally launch that work inside Docker |
+| Kubernetes replaces HDFS | Kubernetes manages containerized workloads; durable data still needs HDFS, object storage, or another storage system |
 
 ---
 
@@ -739,6 +852,8 @@ The videos are intentionally left as separate sections so each can later receive
 12. In `part-00000.snappy.parquet`, which name refers to the compression codec and which refers to the file format?
 13. What additional responsibility does Iceberg have beyond the Parquet files it may reference?
 14. Where would you place Kafka, Airflow, Ranger, and Atlas in the ecosystem responsibility map?
+15. What are Hadoop's four core modules, and which three responsibilities do HDFS, YARN, and MapReduce represent?
+16. How do Docker, Kubernetes, YARN, and HDFS differ from one another?
 
 ## 15. One-sentence mental model
 
@@ -756,6 +871,10 @@ The videos are intentionally left as separate sections so each can later receive
 - [Apache Spark cluster overview](https://spark.apache.org/docs/latest/cluster-overview.html)
 - [Apache Spark RDD programming guide](https://spark.apache.org/docs/latest/rdd-programming-guide.html)
 - [Apache Parquet documentation](https://parquet.apache.org/docs/)
+- [Apache Parquet metadata](https://parquet.apache.org/docs/file-format/metadata/)
 - [Apache ORC specification](https://orc.apache.org/specification/)
-- [Apache Avro specification](https://avro.apache.org/docs/1.11.4/specification/)
-- [Apache Iceberg documentation](https://iceberg.apache.org/docs/latest/)
+- [Apache Avro specification](https://avro.apache.org/docs/current/specification/)
+- [Apache Iceberg specification](https://iceberg.apache.org/spec/)
+- [Apache Spark on Kubernetes](https://spark.apache.org/docs/latest/running-on-kubernetes.html)
+- [Kubernetes overview](https://kubernetes.io/docs/concepts/overview/)
+- [Apache Hadoop: launching YARN applications using Docker containers](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/DockerContainers.html)
