@@ -1,0 +1,110 @@
+product_key,product_number,product_name,category_key,product_scale,product_manufacturer,length,width,height
+1,S10_1678,1969 Harley Davidson Ultimate Chopper,2,1:10,Min Lin Diecast,7933,48.81,95.7
+2,S10_1949,1952 Alpine Renault 1300,1,1:10,Classic Metal Creations,7305,98.58,214.3
+3,S10_2016,1996 Moto Guzzi 1100i,2,1:10,Highway 66 Mini Classics,6625,68.99,118.94
+4,S10_4698,2003 Harley-Davidson Eagle Drag Bike,2,1:10,Red Start Diecast,3252,85.68,136
+5,S10_4757,1972 Alfa Romeo GTA,1,1:10,Motor City Art Classics,3252,85.68,136
+6,S10_4962,1962 LanciaA Delta 16V,1,1:10,Second Gear Diecast,6791,103.42,147.74
+7,S12_1099,1968 Ford Mustang,1,1:12,Autoart Studio Design,68,95.34,194.57
+8,S12_1108,2001 Ferrari Enzo,1,1:12,Second Gear Diecast,3619,95.59,207.8
+9,S12_1666,1958 Setra Bus,6,1:12,Welly Diecast Productions,1579,77.9,136.67
+10,S12_2823,2002 Suzuki XREO,2,1:12,Unimax Art Galleries,9997,66.27,150.62
+11,S12_3148,1969 Corvair Monza,1,1:18,Welly Diecast Productions,6906,89.14,151.08
+12,S12_3380,1968 Dodge Charger,1,1:12,Welly Diecast Productions,9123,75.16,117.44
+13,S12_3891,1969 Ford Falcon,1,1:12,Second Gear Diecast,1049,83.05,173.02
+14,S12_3990,1970 Plymouth Hemi Cuda,1,1:12,Studio M Art Models,5663,31.92,79.8
+15,S12_4473,1957 Chevy Pickup,6,1:12,Exoto Designs,6125,55.7,118.5
+16,S12_4675,1969 Dodge Charger,1,1:12,Welly Diecast Productions,7323,58.73,115.16
+17,S18_1097,1940 Ford Pickup Truck,6,1:18,Studio M Art Models,2613,58.33,116.67
+18,S18_1129,1993 Mazda RX-7,1,1:18,Highway 66 Mini Classics,3975,83.51,141.54
+19,S18_1342,1937 Lincoln Berline,7,1:18,Motor City Art Classics,8693,60.62,102.74
+20,S18_1367,1936 Mercedes-Benz 500K Special Roadster,7,1:18,Studio M Art Models,8635,24.26,53.91
+21,S18_1589,1965 Aston Martin DB5,1,1:18,Classic Metal Creations,9042,65.96,124.44
+22,S18_1662,1980s Black Hawk Helicopter,3,1:18,Red Start Diecast,5330,77.27,157.69
+23,S18_1749,1917 Grand Touring Sedan,7,1:18,Welly Diecast Productions,2724,86.7,170
+24,S18_1889,1948 Porsche 356-A Roadster,1,1:18,Gearbox Collectibles,8826,53.9,77
+25,S18_1984,1995 Honda Civic,1,1:18,Min Lin Diecast,9772,93.89,142.25
+26,S18_2238,1998 Chrysler Plymouth Prowler,1,1:18,Gearbox Collectibles,4724,101.51,163.73
+27,S18_2248,1911 Ford Town Car,7,1:18,Motor City Art Classics,540,33.3,60.54
+28,S18_2319,1964 Mercedes Tour Bus,6,1:18,Unimax Art Galleries,8258,74.86,122.73
+29,S18_2325,1932 Model A Ford J-Coupe,7,1:18,Autoart Studio Design,9354,58.48,127.13
+30,S18_2432,1926 Ford Fire Engine,6,1:18,Carousel DieCast Legends,2018,24.92,60.77
+31,S18_2581,P-51-D Mustang,3,1:72,Gearbox Collectibles,992,49,84.48
+32,S18_2625,1936 Harley Davidson El Knucklehead,2,1:18,Welly Diecast Productions,4357,24.23,60.57
+33,S18_2795,1928 Mercedes-Benz SSK,7,1:18,Gearbox Collectibles,548,72.56,168.75
+34,S18_2870,1999 Indy 500 Monte Carlo SS,1,1:18,Red Start Diecast,8164,56.76,132
+35,S18_2949,1913 Ford Model T Speedster,7,1:18,Carousel DieCast Legends,4189,60.78,101.31
+36,S18_2957,1934 Ford V8 Coupe,7,1:18,Min Lin Diecast,5649,34.35,62.46
+37,S18_3029,1999 Yamaha Speed Boat,4,1:18,Min Lin Diecast,4259,51.61,86.02
+38,S18_3136,18th Century Vintage Horse Carriage,7,1:18,Red Start Diecast,4189,60.78,101.31
+39,S18_3140,1903 Ford Model A,7,1:18,Unimax Art Galleries,3913,68.3,136.59
+40,S18_3232,1992 Ferrari 360 Spider red,1,1:18,Unimax Art Galleries,8347,77.9,169.34
+41,S18_3259,Collectable Wooden Train,5,1:18,Carousel DieCast Legends,6450,67.56,100.84
+42,S18_3278,1969 Dodge Super Bee,1,1:18,Min Lin Diecast,1917,49.05,80.41
+43,S18_3320,1917 Maxwell Touring Car,7,1:18,Exoto Designs,7913,57.54,99.21
+44,S18_3482,1976 Ford Gran Torino,1,1:18,Gearbox Collectibles,9127,73.49,146.99
+45,S18_3685,1948 Porsche Type 356 Roadster,1,1:18,Gearbox Collectibles,8990,62.16,141.28
+46,S18_3782,1957 Vespa GS150,2,1:18,Studio M Art Models,7689,32.95,62.17
+47,S18_3856,1941 Chevrolet Special Deluxe Cabriolet,7,1:18,Exoto Designs,2378,64.58,105.87
+48,S18_4027,1970 Triumph Spitfire,1,1:18,Min Lin Diecast,5545,91.92,143.62
+49,S18_4409,1932 Alfa Romeo 8C2300 Spider Sport,7,1:18,Exoto Designs,6553,43.26,92.03
+50,S18_4522,1904 Buick Runabout,7,1:18,Exoto Designs,8290,52.66,87.77
+51,S18_4600,1940s Ford truck,6,1:18,Motor City Art Classics,3128,84.76,121.08
+52,S18_4668,1939 Cadillac Limousine,7,1:18,Studio M Art Models,6645,23.14,50.31
+53,S18_4721,1957 Corvette Convertible,1,1:18,Classic Metal Creations,1249,69.93,148.8
+54,S18_4933,1957 Ford Thunderbird,1,1:18,Studio M Art Models,3209,34.21,71.27
+55,S24_1046,1970 Chevy Chevelle SS 454,1,1:24,Unimax Art Galleries,1005,49.24,73.49
+56,S24_1444,1970 Dodge Coronet,1,1:24,Highway 66 Mini Classics,4074,32.37,57.8
+57,S24_1578,1997 BMW R 1100 S,2,1:24,Autoart Studio Design,7003,60.86,112.7
+58,S24_1628,1966 Shelby Cobra 427 S/C,1,1:24,Carousel DieCast Legends,8197,29.18,50.31
+59,S24_1785,1928 British Royal Navy Airplane,3,1:24,Classic Metal Creations,3627,66.74,109.42
+60,S24_1937,1939 Chevrolet Deluxe Coupe,7,1:24,Motor City Art Classics,7332,22.57,33.19
+61,S24_2000,1960 BSA Gold Star DBD34,2,1:24,Highway 66 Mini Classics,15,37.32,76.17
+62,S24_2011,18th century schooner,4,1:24,Carousel DieCast Legends,1898,82.34,122.89
+63,S24_2022,1938 Cadillac V-16 Presidential Limousine,7,1:24,Classic Metal Creations,2847,20.61,44.8
+64,S24_2300,1962 Volkswagen Microbus,6,1:24,Autoart Studio Design,2327,61.34,127.79
+65,S24_2360,1982 Ducati 900 Monster,2,1:24,Highway 66 Mini Classics,6840,47.1,69.26
+66,S24_2766,1949 Jaguar XK 120,1,1:24,Classic Metal Creations,2350,47.25,90.87
+67,S24_2840,1958 Chevy Corvette Limited Edition,1,1:24,Carousel DieCast Legends,2542,15.91,35.36
+68,S24_2841,1900s Vintage Bi-Plane,3,1:24,Autoart Studio Design,5942,34.25,68.51
+69,S24_2887,1952 Citroen-15CV,1,1:24,Exoto Designs,1452,72.82,117.44
+70,S24_2972,1982 Lamborghini Diablo,1,1:24,Second Gear Diecast,7723,16.24,37.76
+71,S24_3151,1912 Ford Model T Delivery Wagon,7,1:24,Min Lin Diecast,9173,46.91,88.51
+72,S24_3191,1969 Chevrolet Camaro Z28,1,1:24,Exoto Designs,4695,50.51,85.61
+73,S24_3371,1971 Alpine Renault 1600s,1,1:24,Welly Diecast Productions,7995,38.58,61.23
+74,S24_3420,1937 Horch 930V Limousine,7,1:24,Autoart Studio Design,2902,26.3,65.75
+75,S24_3432,2002 Chevy Corvette,1,1:24,Gearbox Collectibles,9446,62.11,107.08
+76,S24_3816,1940 Ford Delivery Sedan,7,1:24,Carousel DieCast Legends,6621,48.64,83.86
+77,S24_3856,1956 Porsche 356A Coupe,1,1:18,Classic Metal Creations,6600,98.3,140.43
+78,S24_3949,Corsair F4U ( Bird Cage),3,1:24,Second Gear Diecast,6812,29.34,68.24
+79,S24_3969,1936 Mercedes Benz 500k Roadster,7,1:24,Red Start Diecast,2081,21.75,41.03
+80,S24_4048,1992 Porsche Cayenne Turbo Silver,1,1:24,Exoto Designs,6582,69.78,118.28
+81,S24_4258,1936 Chrysler Airflow,7,1:24,Second Gear Diecast,4710,57.46,97.39
+82,S24_4278,1900s Vintage Tri-Plane,3,1:24,Unimax Art Galleries,2756,36.23,72.45
+83,S24_4620,1961 Chevrolet Impala,1,1:18,Classic Metal Creations,7869,32.33,80.84
+84,S32_1268,1980�s GM Manhattan Express,6,1:32,Motor City Art Classics,5099,53.93,96.31
+85,S32_1374,1997 BMW F650 ST,2,1:32,Exoto Designs,178,66.92,99.89
+86,S32_2206,1982 Ducati 996 R,2,1:32,Gearbox Collectibles,9241,24.14,40.23
+87,S32_2509,1954 Greyhound Scenicruiser,6,1:32,Classic Metal Creations,2874,25.98,54.11
+88,S32_3207,1950's Chicago Surface Lines Streetcar,5,1:32,Gearbox Collectibles,8601,26.72,62.14
+89,S32_3522,1996 Peterbilt 379 Stake Bed with Outrigger,6,1:32,Red Start Diecast,814,33.61,64.64
+90,S32_4289,1928 Ford Phaeton Deluxe,7,1:32,Highway 66 Mini Classics,136,33.02,68.79
+91,S32_4485,1974 Ducati 350 Mk3 Desmo,2,1:32,Second Gear Diecast,3341,56.13,102.05
+92,S50_1341,1930 Buick Marquette Phaeton,7,1:50,Studio M Art Models,7062,27.06,43.64
+93,S50_1392,Diamond T620 Semi-Skirted Tanker,6,1:50,Highway 66 Mini Classics,1016,68.29,115.75
+94,S50_1514,1962 City of Detroit Streetcar,5,1:50,Classic Metal Creations,1645,37.49,58.58
+95,S50_4713,2002 Yamaha YZR M1,2,1:50,Autoart Studio Design,600,34.17,81.36
+96,S700_1138,The Schooner Bluenose,4,1:700,Autoart Studio Design,4566,15.25,142.26
+97,S700_1691,American Airlines: B767-300,3,1:700,Min Lin Diecast,5841,51.15,91.34
+98,S700_1938,The Mayflower,4,1:700,Studio M Art Models,600,34.17,81.36
+99,S700_2047,HMS Bounty,4,1:700,Unimax Art Galleries,600,34.17,81.36
+100,S700_2466,America West Airlines B757-200,3,1:700,Motor City Art Classics,9653,68.8,99.72
+101,S700_2610,The USS Constitution Ship,4,1:700,Red Start Diecast,7083,33.97,72.28
+102,S700_2824,1982 Camaro Z28,1,1:18,Carousel DieCast Legends,600,34.17,81.36
+103,S700_2834,ATA: B757-300,3,1:700,Highway 66 Mini Classics,7106,59.33,118.65
+104,S700_3167,F/A 18 Hornet 1/72,3,1:72,Motor City Art Classics,551,54.4,80
+105,S700_3505,The Titanic,4,1:700,Carousel DieCast Legends,1956,51.09,100.17
+106,S700_3962,The Queen Mary,4,1:700,Welly Diecast Productions,5088,53.63,99.31
+107,S700_4002,American Airlines: MD-11S,3,1:700,Second Gear Diecast,8820,36.27,74.03
+108,S72_1253,Boeing X-32A JSF,3,1:72,Motor City Art Classics,4857,32.77,49.66
+109,S72_3212,Pont Yacht,4,1:72,Unimax Art Galleries,,,

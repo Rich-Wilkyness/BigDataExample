@@ -1,0 +1,24 @@
+employee_key,employee_id,employee_name,badge_code,email,job_title,office_key
+1,1002,Diane Murphy,x5800,dmurphy@classicmodelcars.com,President,1
+2,1056,Mary Patterson,x4611,mpatterso@classicmodelcars.com,VP Sales,2
+3,1076,Jeff Firrelli,x9273,jfirrelli@classicmodelcars.com,VP Marketing,3
+4,1088,William Patterson,x4871,wpatterson@classicmodelcars.com,Sales Manager (APAC),4
+5,1102,Gerard Bondur,x5408,gbondur@classicmodelcars.com,Sale Manager (EMEA),5
+6,1143,Anthony Bow,x5428,abow@classicmodelcars.com,Sales Manager (NA),6
+7,1165,Leslie Jennings,x3291,ljennings@classicmodelcars.com,Sales Rep,7
+8,1166,Leslie Thompson,x4065,lthompson@classicmodelcars.com,Sales Rep,1
+9,1188,Julie Firrelli,x2173,jfirrelli@classicmodelcars.com,Sales Rep,2
+10,1216,Steve Patterson,x4334,spatterson@classicmodelcars.com,Sales Rep,3
+11,1286,Foon Yue Tseng,x2248,ftseng@classicmodelcars.com,Sales Rep,4
+12,1323,George Vanauf,x4102,gvanauf@classicmodelcars.com,Sales Rep,5
+13,1337,Loui Bondur,x6493,lbondur@classicmodelcars.com,Sales Rep,6
+14,1370,Gerard Hernandez,x2028,ghernande@classicmodelcars.com,Sales Rep,7
+15,1401,Pamela Castillo,x2759,pcastillo@classicmodelcars.com,Sales Rep,1
+16,1501,Larry Bott,x2311,lbott@classicmodelcars.com,Sales Rep,2
+17,1504,Barry Jones,x102,bjones@classicmodelcars.com,Sales Rep,3
+18,1611,Andy Fixter,x101,afixter@classicmodelcars.com,Sales Rep,4
+19,1612,Peter Marsh,x102,pmarsh@classicmodelcars.com,Sales Rep,5
+20,1619,Tom King,x103,tking@classicmodelcars.com,Sales Rep,6
+21,1621,Mami Nishi,x101,mnishi@classicmodelcars.com,Sales Rep,7
+22,1625,Yoshimi Kato,x102,ykato@classicmodelcars.com,Sales Rep,1
+23,1702,Martin Gerard,x2312,mgerard@classicmodelcars.com,Sales Rep,2

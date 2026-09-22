@@ -1,0 +1,4 @@
+status_key,order_status
+1,Cancelled
+2,Resolved
+3,Shipped
