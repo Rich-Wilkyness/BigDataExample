@@ -139,6 +139,7 @@ CREATE TABLE gold.fact_sales (
     CHECK (sales_amount = quantity * unit_price)
 );
 
+-- copies csv files into the sql database
 \copy bronze.sales_raw FROM '/tmp/week3_hive_migration_data/bronze/sales_raw.csv' WITH (FORMAT csv, HEADER true)
 \copy silver.sales_clean FROM '/tmp/week3_hive_migration_data/silver/sales_clean.csv' WITH (FORMAT csv, HEADER true)
 \copy gold.dim_customer FROM '/tmp/week3_hive_migration_data/gold/dim_customer.csv' WITH (FORMAT csv, HEADER true)
