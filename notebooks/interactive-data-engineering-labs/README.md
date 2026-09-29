@@ -10,6 +10,7 @@ This directory is the learner entry point for executable, job-shaped data-engine
 | [OP-C01 Containerized Pipeline Runtime](platform-operations/op-c01-containerized-pipeline-runtime.ipynb) | Easy | Component exercise | 60-90 minutes | Docker, Compose, Bash, PostgreSQL, Python | Ready to attempt; runtime check requires completed learner files |
 | [OP-C02 Python Pipeline Setup with SQLAlchemy](platform-operations/op-c02-sqlalchemy-pipeline-setup.ipynb) | Easy | Component exercise | 60-90 minutes | Python, SQLAlchemy, SQL, PostgreSQL | Ready to attempt; runtime check requires the completed learner module |
 | [WH-M01 Medallion Sales Pipeline](retail-sales/wh-m01-medallion-sales-pipeline.ipynb) | Medium | System flow | Multiple sessions | Python, pandas, SQL, PostgreSQL | Stage 1 ready through Bronze; stop before Silver |
+| [WH-M02 Scala/Spark PostgreSQL-to-Hive Silver Pipeline](retail-sales/wh-m02-scala-spark-postgres-to-hive.ipynb) | Medium | Pipeline slice | Two 90-150 minute sessions | Scala, Spark, PostgreSQL, Hive, Parquet, Docker | Draft ready to attempt; Part 1 Scala checkpoint and isolated reset remain pending |
 
 ## How a lab is organized
 
@@ -72,6 +73,17 @@ OP-C01 supplies its pandas/SQL pipeline implementation. The learner responsibili
 6. Use the lab-specific reset only when you intend to remove OP-C02's named volume, generated report, and local `.env`.
 
 OP-C02 deliberately reuses OP-C01's immutable eight-row CSV delivery. The repeated business data makes the new boundary easier to see: the learner is now responsible for the Python and SQLAlchemy setup inside the already-supplied container runtime, not for rebuilding the pandas transformation.
+
+## Run WH-M02 in VS Code and IntelliJ
+
+1. Open the [WH-M02 notebook](retail-sales/wh-m02-scala-spark-postgres-to-hive.ipynb) in VS Code and select the repository's `.venv` Python kernel.
+2. Open `/Users/richardwilkerson/IdeaProjects/HelloWorld/src/main/scala/WeekendHomework.scala` in IntelliJ; this external Scala file is the learner-owned implementation.
+3. Complete Part 1 first: verify both containers, trace the boundaries, add idempotent clean-table setup and `--setup-only`, package the JAR, and prove that setup-only mode leaves row counts unchanged.
+4. Stop at the Part 1 checkpoint until you can explain PostgreSQL JDBC, the host/container filesystem boundary, Spark `StructType`, Hive metadata, and Parquet ownership.
+5. Complete Part 2: distinguish duplicate types, select only unprocessed IDs, parse and validate raw values, reconcile accepted and rejected rows, then run the state-changing two-pass test.
+6. Run the final **Check my work** cell to verify Bronze reconciliation, target uniqueness, and clean/rejected disjointness.
+
+WH-M02 uses the Python notebook only to coordinate inspection and validation. Scala/Spark remains the pipeline implementation language, and the separate Python `generate_sales.py` remains the input generator. The current draft shares the Week 3 migration tables and therefore does not provide a destructive automatic reset; read the notebook's state warning before generating a batch.
 
 ## Restart, clear, and reset
 
