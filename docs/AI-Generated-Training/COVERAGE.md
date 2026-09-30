@@ -21,6 +21,8 @@ does not prove distributed or production behavior.
 
 ## Status vocabulary
 
+Week 4 homework supplemental artifact: [`../Training/Week4/2.3_Tue_HW/README.md`](../Training/Week4/2.3_Tue_HW/README.md) documents the Part 3 weather producer and Spark console/MongoDB starter, dependency installation, service setup, and MongoDB inspection. Checkpoint 5 adds a Streamlit API reference covering launch, charts, layout, metrics, widgets, and fragment refresh; dashboard runtime validation remains pending. The learner transformation remains a TODO; installation and end-to-end runtime evidence are pending. This starter does not change Area 10's verification status.
+
 | Status | Meaning |
 | --- | --- |
 | Planned | Scope exists, but the guide or artifact has not been authored |
