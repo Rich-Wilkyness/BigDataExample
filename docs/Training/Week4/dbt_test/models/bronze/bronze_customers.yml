@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: bronze_customers
+    description: View of the externally loaded bronze.customers source, preserving its rows and values.
+    columns:
+      - name: customer_id
+        description: Customer identifier supplied by the source.
+      - name: name
+        description: Original customer name before Silver normalization.

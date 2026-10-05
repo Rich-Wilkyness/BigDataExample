@@ -1,0 +1,21 @@
+session_id,player_name,game_title,platform,minutes_played,session_date
+1,Avery,Stardew Valley,PC,45,2026-09-20
+2,Jordan,Minecraft,pc,90,2026-09-20
+3,Riley,Hades,Switch,30,2026-09-20
+4,Morgan,Stardew Valley,Switch,60,2026-09-21
+5,Casey,Minecraft,PC,75,2026-09-21
+6,Avery,Hades,PC,40,2026-09-21
+7,Jordan,Celeste,switch,25,2026-09-22
+8,Riley,Minecraft,PC,120,2026-09-22
+9,Morgan,Hades,Switch,35,2026-09-22
+10,Casey,Celeste,PC,50,2026-09-23
+11,Avery,Minecraft,pc,80,2026-09-23
+12,Jordan,Stardew Valley,Switch,65,2026-09-23
+13,Riley,Celeste,PC,20,2026-09-24
+14,Morgan,Minecraft,PC,95,2026-09-24
+15,Casey,Hades,switch,55,2026-09-24
+16,Avery,Celeste,Switch,30,2026-09-25
+17,Jordan,Hades,PC,45,2026-09-25
+18,Riley,Stardew Valley,Switch,70,2026-09-25
+19,Morgan,Celeste,pc,40,2026-09-26
+20,Casey,Stardew Valley,Switch,85,2026-09-26

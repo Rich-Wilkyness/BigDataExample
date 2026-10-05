@@ -1,0 +1,2 @@
+# Separate Python environment; see the Wednesday Flink lesson setup.
+apache-flink==2.2.1

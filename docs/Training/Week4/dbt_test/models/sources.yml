@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: raw_shop
+    description: Raw customer data created and loaded outside dbt in the connected PostgreSQL database.
+    schema: bronze
+    tables:
+      - name: customers
+        description: Source customer records before name normalization.

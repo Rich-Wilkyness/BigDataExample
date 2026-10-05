@@ -1,0 +1,8 @@
+version: 2
+
+models:
+  - name: gold_customer_summary
+    description: One-row customer count derived from the cleaned Silver dataset at the last successful build.
+    columns:
+      - name: total_customers
+        description: Number of Silver customer rows; assumes customer_id is unique and non-null. Returns zero for an empty input.

@@ -1,0 +1,30 @@
+version: 2
+
+# dbt test --select silver_customers
+# dbt generates SQL that looks for violations; zero violations means a test passes.
+
+# - `version: 2` describes the YAML properties format—it is **not your installed dbt version**.
+# - `not_null` permits an empty string such as `''`; checking blank names requires another rule.
+# - `unique` checks duplicates; combine it with `not_null` to express the intended ID requirement.
+# - These tests **detect problems**. They do not clean the data or create PostgreSQL constraints
+
+# For future runs, build and test together:
+#  dbt build --select +silver_customers
+# This builds the upstream model and Silver model, then runs the applicable tests in dependency order. 
+# A failing test does not undo a table already built, but it can prevent downstream models from running
+
+models:
+# The model name must match `silver_customers.sql`
+  - name: silver_customers
+    description: Customer records with normalized names.
+    columns:
+      - name: customer_id
+        description: Identifies one customer.
+        data_tests:
+          - not_null
+          - unique
+
+      - name: customer_name
+        description: Trimmed name with standardized capitalization.
+        data_tests:
+          - not_null

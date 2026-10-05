@@ -1,0 +1,7 @@
+# Main repository environment. PySpark is already in the spark-notebook extra.
+fastapi
+uvicorn
+requests
+kafka-python
+pandas
+streamlit>=1.37
