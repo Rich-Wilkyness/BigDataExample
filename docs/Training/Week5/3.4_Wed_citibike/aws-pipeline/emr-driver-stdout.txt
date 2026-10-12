@@ -1,0 +1,112 @@
+root
+ |-- data: struct (nullable = true)
+ |    |-- stations: array (nullable = true)
+ |    |    |-- element: struct (containsNull = true)
+ |    |    |    |-- eightd_has_available_keys: boolean (nullable = true)
+ |    |    |    |-- is_installed: long (nullable = true)
+ |    |    |    |-- is_renting: long (nullable = true)
+ |    |    |    |-- is_returning: long (nullable = true)
+ |    |    |    |-- last_reported: long (nullable = true)
+ |    |    |    |-- legacy_id: string (nullable = true)
+ |    |    |    |-- num_bikes_available: long (nullable = true)
+ |    |    |    |-- num_bikes_disabled: long (nullable = true)
+ |    |    |    |-- num_docks_available: long (nullable = true)
+ |    |    |    |-- num_docks_disabled: long (nullable = true)
+ |    |    |    |-- num_ebikes_available: long (nullable = true)
+ |    |    |    |-- num_scooters_available: long (nullable = true)
+ |    |    |    |-- num_scooters_unavailable: long (nullable = true)
+ |    |    |    |-- station_id: string (nullable = true)
+ |-- last_updated: long (nullable = true)
+ |-- ttl: long (nullable = true)
+ |-- version: string (nullable = true)
+ |-- year: integer (nullable = true)
+ |-- month: integer (nullable = true)
+ |-- day: integer (nullable = true)
+ |-- hour: integer (nullable = true)
+ |-- source_file: string (nullable = false)
+
+root
+ |-- data: struct (nullable = true)
+ |    |-- stations: array (nullable = true)
+ |    |    |-- element: struct (containsNull = true)
+ |    |    |    |-- capacity: long (nullable = true)
+ |    |    |    |-- eightd_has_key_dispenser: boolean (nullable = true)
+ |    |    |    |-- eightd_station_services: array (nullable = true)
+ |    |    |    |    |-- element: string (containsNull = true)
+ |    |    |    |-- electric_bike_surcharge_waiver: boolean (nullable = true)
+ |    |    |    |-- external_id: string (nullable = true)
+ |    |    |    |-- has_kiosk: boolean (nullable = true)
+ |    |    |    |-- lat: double (nullable = true)
+ |    |    |    |-- lon: double (nullable = true)
+ |    |    |    |-- name: string (nullable = true)
+ |    |    |    |-- region_id: string (nullable = true)
+ |    |    |    |-- rental_methods: array (nullable = true)
+ |    |    |    |    |-- element: string (containsNull = true)
+ |    |    |    |-- rental_uris: struct (nullable = true)
+ |    |    |    |    |-- android: string (nullable = true)
+ |    |    |    |    |-- ios: string (nullable = true)
+ |    |    |    |-- short_name: string (nullable = true)
+ |    |    |    |-- station_id: string (nullable = true)
+ |    |    |    |-- station_type: string (nullable = true)
+ |-- last_updated: long (nullable = true)
+ |-- ttl: long (nullable = true)
+ |-- version: string (nullable = true)
+ |-- year: integer (nullable = true)
+ |-- month: integer (nullable = true)
+ |-- day: integer (nullable = true)
+ |-- hour: integer (nullable = true)
+
+root
+ |-- station_id: string (nullable = true)
+ |-- snapshot_timestamp: timestamp (nullable = false)
+ |-- bikes_available: long (nullable = true)
+ |-- ebikes_available: long (nullable = true)
+ |-- bikes_disabled: long (nullable = true)
+ |-- docks_available: long (nullable = true)
+ |-- docks_disabled: long (nullable = true)
+ |-- is_installed: boolean (nullable = true)
+ |-- is_renting: boolean (nullable = true)
+ |-- is_returning: boolean (nullable = true)
+ |-- last_reported_epoch: long (nullable = true)
+ |-- legacy_id: string (nullable = true)
+ |-- last_reported_timestamp: timestamp (nullable = true)
+ |-- station_name: string (nullable = true)
+ |-- short_name: string (nullable = true)
+ |-- latitude: double (nullable = true)
+ |-- longitude: double (nullable = true)
+ |-- region_id: string (nullable = true)
+ |-- capacity: long (nullable = true)
+ |-- station_type: string (nullable = true)
+ |-- has_kiosk: boolean (nullable = true)
+ |-- utilization_pct: double (nullable = true)
+ |-- is_empty: boolean (nullable = true)
+ |-- is_full: boolean (nullable = true)
+ |-- is_operational: boolean (nullable = true)
+
+SILVER RECORD COUNT: 2519
++------------------------------------+-------------------------------+-------------------+-----------------------+--------+---------------+----------------+---------------+---------------+--------+-------+--------------+
+|station_id                          |station_name                   |snapshot_timestamp |last_reported_timestamp|capacity|bikes_available|ebikes_available|docks_available|utilization_pct|is_empty|is_full|is_operational|
++------------------------------------+-------------------------------+-------------------+-----------------------+--------+---------------+----------------+---------------+---------------+--------+-------+--------------+
+|2235290764033174460                 |Blake Ave & Herzl St           |2026-10-09 02:41:15|2026-10-09 02:37:40    |16      |14             |5               |2              |87.5           |false   |false  |true          |
+|66dc0dab-0aca-11e7-82f6-3863bb44ef7c|W 59 St & 10 Ave               |2026-10-09 02:41:15|2026-10-09 02:38:34    |117     |30             |29              |75             |25.64          |false   |false  |true          |
+|6b60bf55-3da4-439a-bde1-fc80be8623ba|Fort Washington Ave & W 173 St |2026-10-09 02:41:15|2026-10-09 02:38:35    |24      |4              |4               |20             |16.67          |false   |false  |true          |
+|66db2a71-0aca-11e7-82f6-3863bb44ef7c|Barrow St & Hudson St          |2026-10-09 02:41:15|2026-10-09 02:38:34    |44      |39             |24              |4              |88.64          |false   |false  |true          |
+|576abdc1-986e-48b0-bde2-051a13d3ff59|39 St & Queens Blvd            |2026-10-09 02:41:15|2026-10-09 02:38:32    |21      |5              |0               |12             |23.81          |false   |false  |true          |
+|c2d549f8-f54c-4a0d-9ecd-6e6f79118279|Cooper Ave & 65 Pl             |2026-10-09 02:41:15|2026-10-09 02:38:31    |23      |11             |6               |11             |47.83          |false   |false  |true          |
+|2124036994734951288                 |Shore Rd & 86 St               |2026-10-09 02:41:15|2026-10-09 02:36:53    |12      |6              |1               |5              |50.0           |false   |false  |true          |
+|09dfc0e3-a448-477c-bb3c-9467dc51ef8d|W 15 St & 6 Ave                |2026-10-09 02:41:15|2026-10-09 02:38:34    |75      |21             |2               |47             |28.0           |false   |false  |true          |
+|1835246658344669972                 |96 St & Northern Blvd          |2026-10-09 02:41:15|2026-10-09 02:38:40    |20      |0              |0               |20             |0.0            |true    |false  |true          |
+|b371c432-b682-412f-9b85-8df84ce7a9f3|St Nicholas Ave & W 137 St     |2026-10-09 02:41:15|2026-10-09 02:38:36    |21      |0              |0               |18             |0.0            |true    |false  |true          |
+|66dd4ec7-0aca-11e7-82f6-3863bb44ef7c|Riverside Dr & W 82 St         |2026-10-09 02:41:15|2026-10-09 02:38:37    |75      |49             |24              |24             |65.33          |false   |false  |true          |
+|66de2274-0aca-11e7-82f6-3863bb44ef7c|E 78 St & 2 Ave                |2026-10-09 02:41:15|2026-10-09 02:38:36    |25      |21             |13              |2              |84.0           |false   |false  |true          |
+|0de1f95f-8b1b-4e5e-9eff-73c63265b0ab|35 St & 30 Ave                 |2026-10-09 02:41:15|2026-10-09 02:38:36    |29      |6              |5               |21             |20.69          |false   |false  |true          |
+|f681f980-185d-45b9-8490-bb2606624dd4|Goulden Ave & Bedford Park Blvd|2026-10-09 02:41:15|2026-10-09 02:38:37    |19      |16             |16              |2              |84.21          |false   |false  |true          |
+|754ac5df-f2b5-4636-8c58-ed84ea262bde|Bailey Ave & Sedgwick Ave      |2026-10-09 02:41:15|2026-10-09 02:38:38    |20      |8              |8               |9              |40.0           |false   |false  |true          |
+|2104286315955915532                 |W 47 St & 6 Ave                |2026-10-09 02:41:15|2026-10-09 02:38:38    |68      |0              |0               |62             |0.0            |true    |false  |true          |
+|1876800925490112950                 |Arthur Ave & E Tremont Ave     |2026-10-09 02:41:15|2026-10-09 02:38:39    |19      |11             |6               |5              |57.89          |false   |false  |true          |
+|1869753484503987044                 |Sedgwick Ave & W 231 St        |2026-10-09 02:41:15|2026-10-09 02:38:38    |19      |4              |4               |11             |21.05          |false   |false  |true          |
+|a2ef8ed2-6031-4049-b7dc-9838ef39889b|Dawson St & Intervale Ave      |2026-10-09 02:41:15|2026-10-09 02:38:37    |19      |10             |5               |8              |52.63          |false   |false  |true          |
+|2124037250266884686                 |Colonial Rd & 89 St            |2026-10-09 02:41:15|2026-10-09 02:38:17    |12      |9              |4               |1              |75.0           |false   |false  |true          |
++------------------------------------+-------------------------------+-------------------+-----------------------+--------+---------------+----------------+---------------+---------------+--------+-------+--------------+
+only showing top 20 rows
+Silver dataset written to s3://richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/silver/citibike/station_status/

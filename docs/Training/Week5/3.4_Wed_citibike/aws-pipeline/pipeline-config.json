@@ -1,0 +1,13 @@
+{
+  "account": "866934333672",
+  "region": "us-east-2",
+  "bucket": "richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an",
+  "function": "richard-citibike-ingestion",
+  "lambdaRole": "RichardCitiBikeLambdaRole",
+  "schedulerRole": "RichardCitiBikeSchedulerRole",
+  "emrRole": "RichardCitiBikeEMRRole",
+  "emrApplicationId": "00g9cdv89blube0d",
+  "emrJobRunId": "00g9com5g7safg0f",
+  "glueJobName": "richard-citibike-bronze-to-silver",
+  "glueJobRunId": "jr_70db287aa6199146b043df237873d3a25f3cdde8490a142c7c9a56e1e97980ef"
+}

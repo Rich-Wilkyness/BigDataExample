@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: raw_shop
+    database: HOMEWORK_DB
+    schema: RAW
+    tables:
+      - name: orders
+        identifier: ORDERS
+        description: "Synthetic practice orders; one current row per order, using the four captured lecture fields."

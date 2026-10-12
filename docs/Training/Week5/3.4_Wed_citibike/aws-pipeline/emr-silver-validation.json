@@ -1,0 +1,86 @@
+{
+  "rows": 2519,
+  "columns": [
+    "station_id",
+    "snapshot_timestamp",
+    "bikes_available",
+    "ebikes_available",
+    "bikes_disabled",
+    "docks_available",
+    "docks_disabled",
+    "is_installed",
+    "is_renting",
+    "is_returning",
+    "last_reported_epoch",
+    "legacy_id",
+    "last_reported_timestamp",
+    "station_name",
+    "short_name",
+    "latitude",
+    "longitude",
+    "region_id",
+    "capacity",
+    "station_type",
+    "has_kiosk",
+    "utilization_pct",
+    "is_empty",
+    "is_full",
+    "is_operational"
+  ],
+  "schema": "station_id: string\nsnapshot_timestamp: timestamp[ns] not null\nbikes_available: int64\nebikes_available: int64\nbikes_disabled: int64\ndocks_available: int64\ndocks_disabled: int64\nis_installed: bool\nis_renting: bool\nis_returning: bool\nlast_reported_epoch: int64\nlegacy_id: string\nlast_reported_timestamp: timestamp[ns]\nstation_name: string\nshort_name: string\nlatitude: double\nlongitude: double\nregion_id: string\ncapacity: int64\nstation_type: string\nhas_kiosk: bool\nutilization_pct: double\nis_empty: bool\nis_full: bool\nis_operational: bool\n-- schema metadata --\norg.apache.spark.version: '4.0.2'\norg.apache.spark.sql.parquet.row.metadata: '{\"type\":\"struct\",\"fields\":[{\"' + 1757",
+  "missing_station_id": 0,
+  "missing_snapshot_timestamp": 0,
+  "duplicate_station_snapshot": 0,
+  "unmatched_metadata": 0,
+  "negative_counts": 0,
+  "snapshot_timestamps": [
+    "2026-10-09 02:41:15"
+  ],
+  "sample": [
+    {
+      "station_id": "2235290764033174460",
+      "station_name": "Blake Ave & Herzl St",
+      "snapshot_timestamp": "2026-10-09T02:41:15.000",
+      "bikes_available": 14,
+      "docks_available": 2,
+      "capacity": 16,
+      "utilization_pct": 87.5
+    },
+    {
+      "station_id": "66dc0dab-0aca-11e7-82f6-3863bb44ef7c",
+      "station_name": "W 59 St & 10 Ave",
+      "snapshot_timestamp": "2026-10-09T02:41:15.000",
+      "bikes_available": 30,
+      "docks_available": 75,
+      "capacity": 117,
+      "utilization_pct": 25.64
+    },
+    {
+      "station_id": "6b60bf55-3da4-439a-bde1-fc80be8623ba",
+      "station_name": "Fort Washington Ave & W 173 St",
+      "snapshot_timestamp": "2026-10-09T02:41:15.000",
+      "bikes_available": 4,
+      "docks_available": 20,
+      "capacity": 24,
+      "utilization_pct": 16.67
+    },
+    {
+      "station_id": "66db2a71-0aca-11e7-82f6-3863bb44ef7c",
+      "station_name": "Barrow St & Hudson St",
+      "snapshot_timestamp": "2026-10-09T02:41:15.000",
+      "bikes_available": 39,
+      "docks_available": 4,
+      "capacity": 44,
+      "utilization_pct": 88.64
+    },
+    {
+      "station_id": "576abdc1-986e-48b0-bde2-051a13d3ff59",
+      "station_name": "39 St & Queens Blvd",
+      "snapshot_timestamp": "2026-10-09T02:41:15.000",
+      "bikes_available": 5,
+      "docks_available": 12,
+      "capacity": 21,
+      "utilization_pct": 23.81
+    }
+  ]
+}

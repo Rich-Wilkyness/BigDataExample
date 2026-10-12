@@ -1,0 +1,20 @@
+{
+  "Name": "richard-citibike-every-five-minutes",
+  "GroupName": "default",
+  "ScheduleExpression": "rate(5 minutes)",
+  "ScheduleExpressionTimezone": "UTC",
+  "FlexibleTimeWindow": {
+    "Mode": "OFF"
+  },
+  "State": "DISABLED",
+  "Target": {
+    "Arn": "arn:aws:lambda:us-east-2:866934333672:function:richard-citibike-ingestion",
+    "RoleArn": "arn:aws:iam::866934333672:role/RichardCitiBikeSchedulerRole",
+    "Input": "{}",
+    "RetryPolicy": {
+      "MaximumEventAgeInSeconds": 300,
+      "MaximumRetryAttempts": 0
+    }
+  },
+  "Description": "Richard Citi Bike capture; starts disabled pending explicit scheduling setup"
+}

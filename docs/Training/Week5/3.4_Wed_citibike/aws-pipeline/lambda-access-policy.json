@@ -1,0 +1,30 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "WriteOwnBronze",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject"
+      ],
+      "Resource": "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/bronze/citibike/*"
+    },
+    {
+      "Sid": "OwnFunctionLogs",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup"
+      ],
+      "Resource": "arn:aws:logs:us-east-2:866934333672:log-group:/aws/lambda/richard-citibike-ingestion"
+    },
+    {
+      "Sid": "WriteOwnLogStreams",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:us-east-2:866934333672:log-group:/aws/lambda/richard-citibike-ingestion:*"
+    }
+  ]
+}

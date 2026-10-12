@@ -1,0 +1,36 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetBucketLocation"
+      ],
+      "Resource": "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/bronze/citibike/*",
+        "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/scripts/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/silver/citibike/glue_station_status/*",
+        "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/glue-temp/*",
+        "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/redshift-temp/*"
+      ]
+    }
+  ]
+}

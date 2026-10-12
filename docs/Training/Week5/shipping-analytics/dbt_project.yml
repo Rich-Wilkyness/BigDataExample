@@ -1,0 +1,15 @@
+name: shipping_analytics
+version: '1.0.0'
+config-version: 2
+
+profile: shipping_analytics
+model-paths: [models]
+
+models:
+  shipping_analytics:
+    staging:
+      +materialized: view
+    silver:
+      +materialized: table
+    gold:
+      +materialized: table

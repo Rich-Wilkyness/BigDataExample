@@ -1,0 +1,556 @@
+{
+  "identity": "arn:aws:lambda:us-east-2:866934333672:function:richard-citibike-ingestion",
+  "ingestion": {
+    "StatusCode": 200,
+    "LogResult": "U1RBUlQgUmVxdWVzdElkOiA3ZGUyZjg3Mi02YmM2LTRhYzEtOWUxMS1hNmQ3MzZmZTcxODggVmVyc2lvbjogJExBVEVTVApEb3dubG9hZGluZzogaHR0cHM6Ly9nYmZzLmNpdGliaWtlbnljLmNvbS9nYmZzL2diZnMuanNvbgpVcGxvYWRlZCAzLDQ2MyBieXRlcyAtPiBzMzovL3JpY2hhcmQtd2lsa2Vyc29uLWNpdGliaWtlLXBpcGVsaW5lLTg2NjkzNDMzMzY3Mi11cy1lYXN0LTItYW4vYnJvbnplL2NpdGliaWtlL2diZnNfZGlzY292ZXJ5L3llYXI9MjAyNi9tb250aD0xMC9kYXk9MDkvaG91cj0wMi9nYmZzX2Rpc2NvdmVyeV8yMDI2MTAwOVQwMjQxMTVaLmpzb24KRG93bmxvYWRpbmc6IGh0dHBzOi8vZ2Jmcy5seWZ0LmNvbS9nYmZzLzEuMS9ia24vZW4vc3lzdGVtX2luZm9ybWF0aW9uLmpzb24KVXBsb2FkZWQgMjkwIGJ5dGVzIC0+IHMzOi8vcmljaGFyZC13aWxrZXJzb24tY2l0aWJpa2UtcGlwZWxpbmUtODY2OTM0MzMzNjcyLXVzLWVhc3QtMi1hbi9icm9uemUvY2l0aWJpa2Uvc3lzdGVtX2luZm9ybWF0aW9uL3llYXI9MjAyNi9tb250aD0xMC9kYXk9MDkvaG91cj0wMi9zeXN0ZW1faW5mb3JtYXRpb25fMjAyNjEwMDlUMDI0MTE1Wi5qc29uCkRvd25sb2FkaW5nOiBodHRwczovL2diZnMubHlmdC5jb20vZ2Jmcy8xLjEvYmtuL2VuL3N0YXRpb25faW5mb3JtYXRpb24uanNvbgpVcGxvYWRlZCAxLDI3NSw4NzkgYnl0ZXMgLT4gczM6Ly9yaWNoYXJkLXdpbGtlcnNvbi1jaXRpYmlrZS1waXBlbGluZS04NjY5MzQzMzM2NzItdXMtZWFzdC0yLWFuL2Jyb256ZS9jaXRpYmlrZS9zdGF0aW9uX2luZm9ybWF0aW9uL3llYXI9MjAyNi9tb250aD0xMC9kYXk9MDkvaG91cj0wMi9zdGF0aW9uX2luZm9ybWF0aW9uXzIwMjYxMDA5VDAyNDExNVouanNvbgpEb3dubG9hZGluZzogaHR0cHM6Ly9nYmZzLmx5ZnQuY29tL2diZnMvMS4xL2Jrbi9lbi9zdGF0aW9uX3N0YXR1cy5qc29uClVwbG9hZGVkIDg5OCw3NjAgYnl0ZXMgLT4gczM6Ly9yaWNoYXJkLXdpbGtlcnNvbi1jaXRpYmlrZS1waXBlbGluZS04NjY5MzQzMzM2NzItdXMtZWFzdC0yLWFuL2Jyb256ZS9jaXRpYmlrZS9zdGF0aW9uX3N0YXR1cy95ZWFyPTIwMjYvbW9udGg9MTAvZGF5PTA5L2hvdXI9MDIvc3RhdGlvbl9zdGF0dXNfMjAyNjEwMDlUMDI0MTE1Wi5qc29uCnsic3RhdHVzQ29kZSI6IDIwMCwgInNuYXBzaG90X3RpbWUiOiAiMjAyNi0xMC0wOVQwMjo0MToxNS4zMDQzMjIrMDA6MDAiLCAiZmlsZXNfdXBsb2FkZWQiOiA0LCAib2JqZWN0cyI6IFsiYnJvbnplL2NpdGliaWtlL2diZnNfZGlzY292ZXJ5L3llYXI9MjAyNi9tb250aD0xMC9kYXk9MDkvaG91cj0wMi9nYmZzX2Rpc2NvdmVyeV8yMDI2MTAwOVQwMjQxMTVaLmpzb24iLCAiYnJvbnplL2NpdGliaWtlL3N5c3RlbV9pbmZvcm1hdGlvbi95ZWFyPTIwMjYvbW9udGg9MTAvZGF5PTA5L2hvdXI9MDIvc3lzdGVtX2luZm9ybWF0aW9uXzIwMjYxMDA5VDAyNDExNVouanNvbiIsICJicm9uemUvY2l0aWJpa2Uvc3RhdGlvbl9pbmZvcm1hdGlvbi95ZWFyPTIwMjYvbW9udGg9MTAvZGF5PTA5L2hvdXI9MDIvc3RhdGlvbl9pbmZvcm1hdGlvbl8yMDI2MTAwOVQwMjQxMTVaLmpzb24iLCAiYnJvbnplL2NpdGliaWtlL3N0YXRpb25fc3RhdHVzL3llYXI9MjAyNi9tb250aD0xMC9kYXk9MDkvaG91cj0wMi9zdGF0aW9uX3N0YXR1c18yMDI2MTAwOVQwMjQxMTVaLmpzb24iXX0KRU5EIFJlcXVlc3RJZDogN2RlMmY4NzItNmJjNi00YWMxLTllMTEtYTZkNzM2ZmU3MTg4ClJFUE9SVCBSZXF1ZXN0SWQ6IDdkZTJmODcyLTZiYzYtNGFjMS05ZTExLWE2ZDczNmZlNzE4OAlEdXJhdGlvbjogMTMzNC4yMiBtcwlCaWxsZWQgRHVyYXRpb246IDE5MDMgbXMJTWVtb3J5IFNpemU6IDI1NiBNQglNYXggTWVtb3J5IFVzZWQ6IDEwOCBNQglJbml0IER1cmF0aW9uOiA1NjcuODIgbXMJCg==",
+    "ExecutedVersion": "$LATEST",
+    "Payload": "{\"statusCode\": 200, \"snapshot_time\": \"2026-10-09T02:41:15.304322+00:00\", \"files_uploaded\": 4, \"objects\": [\"bronze/citibike/gbfs_discovery/year=2026/month=10/day=09/hour=02/gbfs_discovery_20261009T024115Z.json\", \"bronze/citibike/system_information/year=2026/month=10/day=09/hour=02/system_information_20261009T024115Z.json\", \"bronze/citibike/station_information/year=2026/month=10/day=09/hour=02/station_information_20261009T024115Z.json\", \"bronze/citibike/station_status/year=2026/month=10/day=09/hour=02/station_status_20261009T024115Z.json\"]}"
+  },
+  "bronze": {
+    "bronze/citibike/station_status/year=2026/month=10/day=09/hour=02/station_status_20261009T024115Z.json": {
+      "count": 2519,
+      "fields": [
+        "station_id",
+        "num_bikes_available",
+        "num_bikes_disabled",
+        "num_docks_available",
+        "num_docks_disabled",
+        "is_installed",
+        "is_renting",
+        "is_returning",
+        "last_reported",
+        "legacy_id",
+        "num_ebikes_available",
+        "num_scooters_available",
+        "num_scooters_unavailable",
+        "eightd_has_available_keys"
+      ],
+      "first_station": {
+        "station_id": "2235290764033174460",
+        "num_bikes_available": 14,
+        "num_bikes_disabled": 0,
+        "num_docks_available": 2,
+        "num_docks_disabled": 0,
+        "is_installed": 1,
+        "is_renting": 1,
+        "is_returning": 1,
+        "last_reported": 1791513460,
+        "legacy_id": "2235290764033174460",
+        "num_ebikes_available": 5,
+        "num_scooters_available": 0,
+        "num_scooters_unavailable": 0,
+        "eightd_has_available_keys": false
+      }
+    },
+    "bronze/citibike/station_information/year=2026/month=10/day=09/hour=02/station_information_20261009T024115Z.json": {
+      "count": 2519,
+      "fields": [
+        "station_id",
+        "name",
+        "short_name",
+        "lon",
+        "lat",
+        "region_id",
+        "capacity",
+        "rental_uris",
+        "rental_methods",
+        "has_kiosk",
+        "station_type",
+        "external_id",
+        "electric_bike_surcharge_waiver",
+        "eightd_station_services",
+        "eightd_has_key_dispenser"
+      ],
+      "first_station": {
+        "station_id": "1822663031356509142",
+        "name": "Matthews Ct & Coney Island Ave",
+        "short_name": "3034.02",
+        "lon": -73.96951,
+        "lat": 40.64235,
+        "region_id": "71",
+        "capacity": 0,
+        "rental_uris": {
+          "android": "https://bkn.lft.to/lastmile_qr_scan",
+          "ios": "https://bkn.lft.to/lastmile_qr_scan"
+        },
+        "rental_methods": [
+          "KEY",
+          "CREDITCARD"
+        ],
+        "has_kiosk": true,
+        "station_type": "classic",
+        "external_id": "1822663031356509142",
+        "electric_bike_surcharge_waiver": false,
+        "eightd_station_services": [],
+        "eightd_has_key_dispenser": false
+      }
+    }
+  },
+  "roles": {
+    "RichardCitiBikeLambdaRole": {
+      "role": {
+        "Path": "/",
+        "RoleName": "RichardCitiBikeLambdaRole",
+        "RoleId": "AROA4TWKQEDUETFU5ZVSU",
+        "Arn": "arn:aws:iam::866934333672:role/RichardCitiBikeLambdaRole",
+        "CreateDate": "2026-10-09T02:39:17+00:00",
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "Description": "Execution role for Richard Citi Bike ingestion into his Bronze S3 prefix",
+        "MaxSessionDuration": 3600,
+        "Tags": [
+          {
+            "Key": "Owner",
+            "Value": "richard.wilkerson"
+          },
+          {
+            "Key": "Project",
+            "Value": "citibike-homework"
+          }
+        ],
+        "RoleLastUsed": {}
+      },
+      "inline_policies": {
+        "RichardCitiBikeIngestionAccess": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "WriteOwnBronze",
+              "Effect": "Allow",
+              "Action": [
+                "s3:PutObject"
+              ],
+              "Resource": "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/bronze/citibike/*"
+            },
+            {
+              "Sid": "OwnFunctionLogs",
+              "Effect": "Allow",
+              "Action": [
+                "logs:CreateLogGroup"
+              ],
+              "Resource": "arn:aws:logs:us-east-2:866934333672:log-group:/aws/lambda/richard-citibike-ingestion"
+            },
+            {
+              "Sid": "WriteOwnLogStreams",
+              "Effect": "Allow",
+              "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              "Resource": "arn:aws:logs:us-east-2:866934333672:log-group:/aws/lambda/richard-citibike-ingestion:*"
+            }
+          ]
+        }
+      },
+      "attached": []
+    },
+    "RichardCitiBikeEMRRole": {
+      "role": {
+        "Path": "/",
+        "RoleName": "RichardCitiBikeEMRRole",
+        "RoleId": "AROA4TWKQEDUG4UH2PN6X",
+        "Arn": "arn:aws:iam::866934333672:role/RichardCitiBikeEMRRole",
+        "CreateDate": "2026-10-09T02:39:47+00:00",
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "emr-serverless.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole",
+              "Condition": {
+                "StringEquals": {
+                  "aws:SourceAccount": "866934333672"
+                },
+                "ArnLike": {
+                  "aws:SourceArn": "arn:aws:emr-serverless:us-east-2:866934333672:/applications/00g9cdv89blube0d"
+                }
+              }
+            }
+          ]
+        },
+        "Description": "Runtime role for Richard Citi Bike Spark application",
+        "MaxSessionDuration": 3600,
+        "Tags": [
+          {
+            "Key": "Owner",
+            "Value": "richard.wilkerson"
+          },
+          {
+            "Key": "Project",
+            "Value": "citibike-homework"
+          }
+        ],
+        "RoleLastUsed": {}
+      },
+      "inline_policies": {
+        "RichardCitiBikeSparkAccess": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Sid": "ListOwnBucket",
+              "Effect": "Allow",
+              "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
+              ],
+              "Resource": "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an"
+            },
+            {
+              "Sid": "ReadOwnInputs",
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObject"
+              ],
+              "Resource": [
+                "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/bronze/citibike/*",
+                "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/scripts/*"
+              ]
+            },
+            {
+              "Sid": "PublishOwnSilverAndLogs",
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject"
+              ],
+              "Resource": [
+                "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/silver/citibike/*",
+                "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/logs/emr/*"
+              ]
+            },
+            {
+              "Sid": "ReadSparkCatalogMetadata",
+              "Effect": "Allow",
+              "Action": [
+                "glue:GetDatabase",
+                "glue:GetDatabases",
+                "glue:GetTable",
+                "glue:GetTables",
+                "glue:GetPartition",
+                "glue:GetPartitions",
+                "glue:GetUserDefinedFunctions"
+              ],
+              "Resource": [
+                "arn:aws:glue:us-east-2:866934333672:catalog",
+                "arn:aws:glue:us-east-2:866934333672:database/default",
+                "arn:aws:glue:us-east-2:866934333672:table/default/*"
+              ]
+            }
+          ]
+        }
+      },
+      "attached": []
+    },
+    "RichardCitiBikeSchedulerRole": {
+      "role": {
+        "Path": "/",
+        "RoleName": "RichardCitiBikeSchedulerRole",
+        "RoleId": "AROA4TWKQEDUB4NRWJYWN",
+        "Arn": "arn:aws:iam::866934333672:role/RichardCitiBikeSchedulerRole",
+        "CreateDate": "2026-10-09T02:39:48+00:00",
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "scheduler.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole",
+              "Condition": {
+                "StringEquals": {
+                  "aws:SourceArn": "arn:aws:scheduler:us-east-2:866934333672:schedule-group/default",
+                  "aws:SourceAccount": "866934333672"
+                }
+              }
+            }
+          ]
+        },
+        "Description": "Scheduler invokes only Richard Citi Bike ingestion Lambda",
+        "MaxSessionDuration": 3600,
+        "Tags": [
+          {
+            "Key": "Owner",
+            "Value": "richard.wilkerson"
+          },
+          {
+            "Key": "Project",
+            "Value": "citibike-homework"
+          }
+        ],
+        "RoleLastUsed": {}
+      },
+      "inline_policies": {
+        "RichardCitiBikeInvokeIngestion": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": "lambda:InvokeFunction",
+              "Resource": "arn:aws:lambda:us-east-2:866934333672:function:richard-citibike-ingestion"
+            }
+          ]
+        }
+      },
+      "attached": []
+    },
+    "AWSGlueServiceRole-RichardCitiBike": {
+      "role": {
+        "Path": "/",
+        "RoleName": "AWSGlueServiceRole-RichardCitiBike",
+        "RoleId": "AROA4TWKQEDUACZFUJPM2",
+        "Arn": "arn:aws:iam::866934333672:role/AWSGlueServiceRole-RichardCitiBike",
+        "CreateDate": "2026-10-09T02:29:56+00:00",
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "glue.amazonaws.com"
+              },
+              "Action": "sts:AssumeRole"
+            }
+          ]
+        },
+        "MaxSessionDuration": 3600,
+        "RoleLastUsed": {}
+      },
+      "inline_policies": {
+        "RichardCitiBikeGlueS3Access": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:ListBucket",
+                "s3:GetBucketLocation"
+              ],
+              "Resource": "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an"
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObject"
+              ],
+              "Resource": [
+                "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/bronze/citibike/*",
+                "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/scripts/*"
+              ]
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:DeleteObject"
+              ],
+              "Resource": [
+                "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/silver/citibike/glue_station_status/*",
+                "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/glue-temp/*",
+                "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/redshift-temp/*"
+              ]
+            }
+          ]
+        }
+      },
+      "attached": [
+        {
+          "PolicyName": "AWSGlueServiceRole",
+          "PolicyArn": "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"
+        }
+      ]
+    }
+  },
+  "emrSubmission": {
+    "applicationId": "00g9cdv89blube0d",
+    "jobRunId": "00g9com5g7safg0f",
+    "arn": "arn:aws:emr-serverless:us-east-2:866934333672:/applications/00g9cdv89blube0d/jobruns/00g9com5g7safg0f"
+  },
+  "glueSubmission": {
+    "JobRunId": "jr_70db287aa6199146b043df237873d3a25f3cdde8490a142c7c9a56e1e97980ef"
+  },
+  "scheduler": {
+    "status": "blocked",
+    "denied": [
+      "scheduler:ListSchedules",
+      "scheduler:GetSchedule",
+      "scheduler:CreateSchedule"
+    ],
+    "roleCreated": "RichardCitiBikeSchedulerRole"
+  },
+  "emr_terminal": {
+    "jobRunId": "00g9com5g7safg0f",
+    "state": "SUCCESS",
+    "stateDetails": "",
+    "totalExecutionDurationSeconds": 33,
+    "updatedAt": "2026-10-09T02:45:07.582000+00:00"
+  },
+  "glue_terminal": {
+    "Id": "jr_70db287aa6199146b043df237873d3a25f3cdde8490a142c7c9a56e1e97980ef",
+    "JobRunState": "SUCCEEDED",
+    "ExecutionTime": 78,
+    "CompletedOn": "2026-10-09T02:46:02.008000+00:00"
+  },
+  "published_objects": [
+    {
+      "Key": "silver/citibike/glue_station_status/part-00000-10a89bcb-3dec-44a8-8f89-2f2c43d89fbc-c000.snappy.parquet",
+      "Size": 202997
+    },
+    {
+      "Key": "silver/citibike/station_status/_SUCCESS",
+      "Size": 0
+    },
+    {
+      "Key": "silver/citibike/station_status/part-00000-8b392dfd-39ea-4e59-ab43-3ada69546f31-c000.snappy.parquet",
+      "Size": 203473
+    }
+  ],
+  "emr_application_final": {
+    "applicationId": "00g9cdv89blube0d",
+    "state": "STOPPED",
+    "autoStart": {
+      "enabled": true
+    },
+    "autoStop": {
+      "enabled": true,
+      "idleTimeoutMinutes": 15
+    }
+  },
+  "emr_validation": {
+    "rows": 2519,
+    "columns": [
+      "station_id",
+      "snapshot_timestamp",
+      "bikes_available",
+      "ebikes_available",
+      "bikes_disabled",
+      "docks_available",
+      "docks_disabled",
+      "is_installed",
+      "is_renting",
+      "is_returning",
+      "last_reported_epoch",
+      "legacy_id",
+      "last_reported_timestamp",
+      "station_name",
+      "short_name",
+      "latitude",
+      "longitude",
+      "region_id",
+      "capacity",
+      "station_type",
+      "has_kiosk",
+      "utilization_pct",
+      "is_empty",
+      "is_full",
+      "is_operational"
+    ],
+    "schema": "station_id: string\nsnapshot_timestamp: timestamp[ns] not null\nbikes_available: int64\nebikes_available: int64\nbikes_disabled: int64\ndocks_available: int64\ndocks_disabled: int64\nis_installed: bool\nis_renting: bool\nis_returning: bool\nlast_reported_epoch: int64\nlegacy_id: string\nlast_reported_timestamp: timestamp[ns]\nstation_name: string\nshort_name: string\nlatitude: double\nlongitude: double\nregion_id: string\ncapacity: int64\nstation_type: string\nhas_kiosk: bool\nutilization_pct: double\nis_empty: bool\nis_full: bool\nis_operational: bool\n-- schema metadata --\norg.apache.spark.version: '4.0.2'\norg.apache.spark.sql.parquet.row.metadata: '{\"type\":\"struct\",\"fields\":[{\"' + 1757",
+    "missing_station_id": 0,
+    "missing_snapshot_timestamp": 0,
+    "duplicate_station_snapshot": 0,
+    "unmatched_metadata": 0,
+    "negative_counts": 0,
+    "snapshot_timestamps": [
+      "2026-10-09 02:41:15"
+    ],
+    "sample": [
+      {
+        "station_id": "2235290764033174460",
+        "station_name": "Blake Ave & Herzl St",
+        "snapshot_timestamp": "2026-10-09T02:41:15.000",
+        "bikes_available": 14,
+        "docks_available": 2,
+        "capacity": 16,
+        "utilization_pct": 87.5
+      },
+      {
+        "station_id": "66dc0dab-0aca-11e7-82f6-3863bb44ef7c",
+        "station_name": "W 59 St & 10 Ave",
+        "snapshot_timestamp": "2026-10-09T02:41:15.000",
+        "bikes_available": 30,
+        "docks_available": 75,
+        "capacity": 117,
+        "utilization_pct": 25.64
+      },
+      {
+        "station_id": "6b60bf55-3da4-439a-bde1-fc80be8623ba",
+        "station_name": "Fort Washington Ave & W 173 St",
+        "snapshot_timestamp": "2026-10-09T02:41:15.000",
+        "bikes_available": 4,
+        "docks_available": 20,
+        "capacity": 24,
+        "utilization_pct": 16.67
+      },
+      {
+        "station_id": "66db2a71-0aca-11e7-82f6-3863bb44ef7c",
+        "station_name": "Barrow St & Hudson St",
+        "snapshot_timestamp": "2026-10-09T02:41:15.000",
+        "bikes_available": 39,
+        "docks_available": 4,
+        "capacity": 44,
+        "utilization_pct": 88.64
+      },
+      {
+        "station_id": "576abdc1-986e-48b0-bde2-051a13d3ff59",
+        "station_name": "39 St & Queens Blvd",
+        "snapshot_timestamp": "2026-10-09T02:41:15.000",
+        "bikes_available": 5,
+        "docks_available": 12,
+        "capacity": 21,
+        "utilization_pct": 23.81
+      }
+    ]
+  },
+  "glue_validation": {
+    "rows": 2519,
+    "columns": [
+      "station_id",
+      "snapshot_timestamp",
+      "bikes_available",
+      "ebikes_available",
+      "bikes_disabled",
+      "docks_available",
+      "docks_disabled",
+      "is_installed",
+      "is_renting",
+      "is_returning",
+      "last_reported_epoch",
+      "legacy_id",
+      "last_reported_timestamp",
+      "station_name",
+      "short_name",
+      "latitude",
+      "longitude",
+      "region_id",
+      "capacity",
+      "station_type",
+      "has_kiosk",
+      "utilization_pct",
+      "is_empty",
+      "is_full",
+      "is_operational"
+    ],
+    "missing_station_id": 0,
+    "missing_snapshot_timestamp": 0,
+    "duplicate_station_snapshot": 0,
+    "unmatched_metadata": 0,
+    "negative_counts": 0,
+    "matches_emr_output": true
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ListOwnBucket",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetBucketLocation"
+      ],
+      "Resource": "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an"
+    },
+    {
+      "Sid": "ReadSilverAndStagedFiles",
+      "Effect": "Allow",
+      "Action": "s3:GetObject",
+      "Resource": [
+        "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/silver/citibike/*",
+        "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/redshift-temp/*"
+      ]
+    },
+    {
+      "Sid": "WriteTemporaryExports",
+      "Effect": "Allow",
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/redshift-temp/*"
+    }
+  ]
+}
