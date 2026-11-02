@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#F7F9FC"/>
+<text x="70" y="52" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="45" font-weight="700" fill="#24344B">Gold data model: two connected stars</text>
+<text x="70" y="114" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="26" font-weight="400" fill="#56677D">Shared state and month dimensions form a fact constellation</text>
+<rect x="80" y="205" width="450" height="230" rx="18" fill="#EAF1FF" stroke="#95B6F0" stroke-width="2"/>
+<text x="104" y="225" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#24344B">dim_state</text>
+<text x="104" y="276" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">state_key  [key]</text>
+<text x="104" y="310" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">state_fips</text>
+<text x="104" y="344" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">state_abbreviation</text>
+<text x="104" y="378" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">state_name</text>
+<rect x="735" y="205" width="450" height="230" rx="18" fill="#F0EDFC" stroke="#B7A2DB" stroke-width="2"/>
+<text x="759" y="225" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#24344B">dim_date</text>
+<text x="759" y="276" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">date_key  [key]</text>
+<text x="759" y="310" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">year · quarter</text>
+<text x="759" y="344" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">month_number</text>
+<text x="759" y="378" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">month_name</text>
+<rect x="1390" y="205" width="450" height="230" rx="18" fill="#E8F5F2" stroke="#82BCAE" stroke-width="2"/>
+<text x="1414" y="225" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#24344B">dim_industry</text>
+<text x="1414" y="276" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">industry_key  [key]</text>
+<text x="1414" y="310" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">ces_industry_code</text>
+<text x="1414" y="344" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">industry_name</text>
+<path d="M305,435 L305,478 L245,478 L245,560" fill="none" stroke="#4779B8" stroke-width="3"/>
+<path d="M305,478 L1120,478 L1120,560" fill="none" stroke="#4779B8" stroke-width="3"/>
+<path d="M960,435 L960,512 L620,512 L620,560" fill="none" stroke="#8968B4" stroke-width="3"/>
+<path d="M960,512 L1390,512 L1390,560" fill="none" stroke="#8968B4" stroke-width="3"/>
+<path d="M1615,435 L1615,560" fill="none" stroke="#478F7D" stroke-width="3"/>
+<text x="315" y="440" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#24344B">1</text>
+<text x="970" y="440" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#24344B">1</text>
+<text x="1625" y="440" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#24344B">1</text>
+<text x="253" y="531" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="20" font-weight="400" fill="#24344B">many</text>
+<text x="628" y="531" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="20" font-weight="400" fill="#24344B">many</text>
+<text x="1128" y="531" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="20" font-weight="400" fill="#24344B">many</text>
+<text x="1398" y="531" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="20" font-weight="400" fill="#24344B">many</text>
+<text x="1623" y="531" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="20" font-weight="400" fill="#24344B">many</text>
+<rect x="80" y="560" width="800" height="360" rx="18" fill="#FFF6DB" stroke="#D4B34E" stroke-width="2"/>
+<text x="105" y="582" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#24344B">fact_state_month</text>
+<text x="105" y="628" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#7B662A">Grain: one state + one calendar month</text>
+<text x="105" y="682" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">state_key  [FK]    date_key  [FK]</text>
+<text x="105" y="726" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">total_nonfarm_jobs · unemployment_rate_pct</text>
+<text x="105" y="770" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">snap_persons · snap_households</text>
+<text x="105" y="814" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">snap_benefit_cost_usd</text>
+<text x="105" y="875" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#56677D">Plus source status, lineage, and revision metadata</text>
+<rect x="1040" y="560" width="800" height="360" rx="18" fill="#FFF6DB" stroke="#D4B34E" stroke-width="2"/>
+<text x="1065" y="582" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#24344B">fact_state_industry_month</text>
+<text x="1065" y="628" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#7B662A">Grain: one state + industry + calendar month</text>
+<text x="1065" y="682" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">state_key  [FK]    date_key  [FK]</text>
+<text x="1065" y="726" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">industry_key  [FK]</text>
+<text x="1065" y="770" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">industry_nonfarm_jobs</text>
+<text x="1065" y="875" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#56677D">Plus source status, lineage, and revision metadata</text>
+<text x="80" y="955" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#24344B">Each dimension can label many fact rows. Lines show logical key relationships, not enforced constraints.</text>
+<text x="80" y="999" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#24344B">Keep SNAP in the state/month fact: joining to several industries must not multiply SNAP totals.</text>
+</svg>

@@ -1,0 +1,7 @@
+{
+  "batch_id": "sf_20261016T175229_v1",
+  "window_start": "2026-10-16T15:55:00Z",
+  "window_end": "2026-10-16T17:52:30Z",
+  "checkpoint_before": "2026-10-16T15:55:00Z",
+  "expected_rows": 2518
+}

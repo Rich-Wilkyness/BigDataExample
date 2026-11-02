@@ -1,0 +1,11 @@
+{
+  "status": "complete",
+  "start_year": 2015,
+  "end_year": 2025,
+  "bls_run": "/Users/richardwilkerson/VSCodeProjects/BigDataExample/docs/Training/Week7/us-jobs-snap-pipeline/data/bronze/bls/ingestion_date=2026-10-25/run_id=7882c36124674a5cbe44f04a8b32c715",
+  "snap_manifest": "/Users/richardwilkerson/VSCodeProjects/BigDataExample/docs/Training/Week7/us-jobs-snap-pipeline/data/bronze/snap/ingestion_date=2026-10-25/run_id=a4a640c086d74c21b472f08f84306277/attempt_id=001/manifest.json",
+  "bls_rows": 32736,
+  "snap_rows": 6600,
+  "bls_source_missing": 50,
+  "snap_benefit_review_rows": 1
+}

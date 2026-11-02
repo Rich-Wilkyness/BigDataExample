@@ -1,0 +1,799 @@
+{
+  "inspection_utc": "2026-10-20T02:35:09.872211+00:00",
+  "scope": "Source schema and period-presence inspection only; no Silver/Gold tables or Azure execution.",
+  "archive_url": "https://fns-prod.azureedge.us/sites/default/files/resource-files/snap-zip-fy69tocurrent-9.zip",
+  "archive_sha256": "ce676f4628993881f3f4dd26d923c060fbb8473c12a1c47a23748ea81e1ce857",
+  "recent_summary_url": "https://fns-prod.azureedge.us/sites/default/files/resource-files/snap-4fymonthly-9.xlsx",
+  "recent_summary_sha256": "a0e4a3a440f6cfd0b4e5cf68d46fcc8b129dfda58c97593a51bc67de4a10636c",
+  "files": [
+    {
+      "file": "FY15.xls",
+      "sha256": "b42ab68842be484726dffe78c09a27b40e2f79881fc65c6f45fd9b7aa3c14103",
+      "sheet_names": [
+        "NERO",
+        "MARO",
+        "SERO",
+        "MWRO",
+        "SWRO",
+        "MPRO",
+        "WRO",
+        "US Summary"
+      ],
+      "inspected_sheet": "US Summary",
+      "sheet_rows": 24,
+      "sheet_columns": 6,
+      "source_as_of_F1": "2017-12-08T00:00:00",
+      "title_A2": "SNAP Monthly State Participation and Benefit Summary - Public Data, Fiscal Year 2015",
+      "header_rows_5_to_7": [
+        [
+          " ",
+          "Total 1/",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Fiscal Year and Month",
+          "Participation 1/",
+          "",
+          "Cost",
+          "Cost Per",
+          ""
+        ],
+        [
+          "",
+          "Household",
+          "Persons",
+          "",
+          "Household",
+          "Persons"
+        ]
+      ],
+      "monthly_row_count": 12,
+      "first_month": "2014-10-01",
+      "last_month": "2015-09-01",
+      "non_numeric_monthly_cells": [],
+      "footnotes": [
+        "Footnotes:",
+        "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements, Replacements and Other. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+      ]
+    },
+    {
+      "file": "FY16.xls",
+      "sha256": "c1bf32e4411f1d05c403e0f15cdcd373f34215377d08a7bc900c895791d62974",
+      "sheet_names": [
+        "NERO",
+        "MARO",
+        "SERO",
+        "MWRO",
+        "SWRO",
+        "MPRO",
+        "WRO",
+        "US Summary"
+      ],
+      "inspected_sheet": "US Summary",
+      "sheet_rows": 24,
+      "sheet_columns": 6,
+      "source_as_of_F1": "2017-12-08T00:00:00",
+      "title_A2": "SNAP Monthly State Participation and Benefit Summary - Public Data, Fiscal Year 2016",
+      "header_rows_5_to_7": [
+        [
+          " ",
+          "Total 1/",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Fiscal Year and Month",
+          "Participation 1/",
+          "",
+          "Cost",
+          "Cost Per",
+          ""
+        ],
+        [
+          "",
+          "Household",
+          "Persons",
+          "",
+          "Household",
+          "Persons"
+        ]
+      ],
+      "monthly_row_count": 12,
+      "first_month": "2015-10-01",
+      "last_month": "2016-09-01",
+      "non_numeric_monthly_cells": [],
+      "footnotes": [
+        "Footnotes:",
+        "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements, Replacements and Other. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+      ]
+    },
+    {
+      "file": "FY17.xls",
+      "sha256": "3c7ed870277bf5dfa95e049d485d14f68ec9d93ffdb0559e0e846106e3262c79",
+      "sheet_names": [
+        "NERO",
+        "MARO",
+        "SERO",
+        "MWRO",
+        "SWRO",
+        "MPRO",
+        "WRO",
+        "US Summary"
+      ],
+      "inspected_sheet": "US Summary",
+      "sheet_rows": 24,
+      "sheet_columns": 6,
+      "source_as_of_F1": "2020-03-13T00:00:00",
+      "title_A2": "SNAP Monthly State Participation and Benefit Summary - Public Data, Fiscal Year 2017",
+      "header_rows_5_to_7": [
+        [
+          " ",
+          "Total 1/",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Fiscal Year and Month",
+          "Participation 1/",
+          "",
+          "Cost",
+          "Cost Per",
+          ""
+        ],
+        [
+          "",
+          "Household",
+          "Persons",
+          "",
+          "Household",
+          "Persons"
+        ]
+      ],
+      "monthly_row_count": 12,
+      "first_month": "2016-10-01",
+      "last_month": "2017-09-01",
+      "non_numeric_monthly_cells": [],
+      "footnotes": [
+        "Footnotes:",
+        "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+      ]
+    },
+    {
+      "file": "FY18.xls",
+      "sha256": "eff803123fd8a15971b2a0db74184697724710e051e98a529cd8a018e7c7f26c",
+      "sheet_names": [
+        "NERO",
+        "MARO",
+        "SERO",
+        "MWRO",
+        "SWRO",
+        "MPRO",
+        "WRO",
+        "US Summary"
+      ],
+      "inspected_sheet": "US Summary",
+      "sheet_rows": 24,
+      "sheet_columns": 6,
+      "source_as_of_F1": "2020-03-13T00:00:00",
+      "title_A2": "SNAP Monthly State Participation and Benefit Summary - Public Data, Fiscal Year 2018",
+      "header_rows_5_to_7": [
+        [
+          " ",
+          "Total 1/",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Fiscal Year and Month",
+          "Participation 1/",
+          "",
+          "Cost",
+          "Cost Per",
+          ""
+        ],
+        [
+          "",
+          "Household",
+          "Persons",
+          "",
+          "Household",
+          "Persons"
+        ]
+      ],
+      "monthly_row_count": 12,
+      "first_month": "2017-10-01",
+      "last_month": "2018-09-01",
+      "non_numeric_monthly_cells": [],
+      "footnotes": [
+        "Footnotes:",
+        "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+      ]
+    },
+    {
+      "file": "FY19.xls",
+      "sha256": "688b0d179cc41afd600868ce1c1588436dc95f829470f9f61115066aa1065aa5",
+      "sheet_names": [
+        "NERO",
+        "MARO",
+        "SERO",
+        "MWRO",
+        "SWRO",
+        "MPRO",
+        "WRO",
+        "US Summary"
+      ],
+      "inspected_sheet": "US Summary",
+      "sheet_rows": 25,
+      "sheet_columns": 6,
+      "source_as_of_F1": "05/07/2021",
+      "title_A2": "SNAP Monthly State Participation and Benefit Summary - Public Data, Fiscal Year 2019",
+      "header_rows_5_to_7": [
+        [
+          " ",
+          "Total 1/",
+          "",
+          "",
+          "",
+          ""
+        ],
+        [
+          "Fiscal Year and Month",
+          "Participation 1/",
+          "",
+          "Cost",
+          "Cost Per",
+          ""
+        ],
+        [
+          "",
+          "Household",
+          "Persons",
+          "",
+          "Household",
+          "Persons"
+        ]
+      ],
+      "monthly_row_count": 12,
+      "first_month": "2018-10-01",
+      "last_month": "2019-09-01",
+      "non_numeric_monthly_cells": [],
+      "footnotes": [
+        "Footnotes:",
+        "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category.",
+        "2. Due to the partial Federal government shutdown, most of the February 2019 SNAP benefits were issued early in the month of January 2019.  This was done to ensure SNAP recipients would receive their February 2019 benefits in a timely manner.  As a result, January 2019's benefits will show a significant increase over the previous month and February 2019's benefits will show significantly less than January 2019."
+      ]
+    },
+    {
+      "file": "FY20.xlsx",
+      "sha256": "3c4ff195447db655624afb1e41b8ae82024f686340b1164d8dcd5611b458b541",
+      "sheet_names": [
+        "NERO",
+        "MARO",
+        "SERO",
+        "MWRO",
+        "SWRO",
+        "MPRO",
+        "WRO",
+        "US Summary"
+      ],
+      "inspected_sheet": "US Summary",
+      "sheet_rows": 26,
+      "sheet_columns": 6,
+      "source_as_of_F1": "2024-03-08T00:00:00",
+      "title_A2": "SNAP Monthly State Participation and Benefit Summary P-EBT/Other Excluded - Public Data, Fiscal Year 2020",
+      "header_rows_5_to_7": [
+        [
+          " ",
+          "Total 1/",
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          "Fiscal Year and Month",
+          "Participation 1/",
+          null,
+          "Cost",
+          "Cost Per",
+          null
+        ],
+        [
+          null,
+          "Household",
+          "Persons",
+          null,
+          "Household",
+          "Persons"
+        ]
+      ],
+      "monthly_row_count": 12,
+      "first_month": "2019-10-01",
+      "last_month": "2020-09-01",
+      "non_numeric_monthly_cells": [],
+      "footnotes": [
+        "Footnotes:",
+        "ALL DATA SUBJECT TO REVISION",
+        "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+      ]
+    },
+    {
+      "file": "FY21.xlsx",
+      "sha256": "04318a940b8cbb0015f939d0eb96fae289f32c3f021fc5151ef0b59a5bf0ec89",
+      "sheet_names": [
+        "NERO",
+        "MARO",
+        "SERO",
+        "MWRO",
+        "SWRO",
+        "MPRO",
+        "WRO",
+        "US Summary"
+      ],
+      "inspected_sheet": "US Summary",
+      "sheet_rows": 26,
+      "sheet_columns": 6,
+      "source_as_of_F1": "2024-03-08T00:00:00",
+      "title_A2": "SNAP Monthly State Participation and Benefit Summary P-EBT/Other Excluded - Public Data, Fiscal Year 2021",
+      "header_rows_5_to_7": [
+        [
+          " ",
+          "Total 1/",
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          "Fiscal Year and Month",
+          "Participation 1/",
+          null,
+          "Cost",
+          "Cost Per",
+          null
+        ],
+        [
+          null,
+          "Household",
+          "Persons",
+          null,
+          "Household",
+          "Persons"
+        ]
+      ],
+      "monthly_row_count": 12,
+      "first_month": "2020-10-01",
+      "last_month": "2021-09-01",
+      "non_numeric_monthly_cells": [],
+      "footnotes": [
+        "Footnotes:",
+        "ALL DATA SUBJECT TO REVISION",
+        "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+      ]
+    },
+    {
+      "file": "FY22.xlsx",
+      "sha256": "1ae9c55d6c1ce6af10f53c09962273730fd6f17edeb8e679fb3f4236bbbf9177",
+      "sheet_names": [
+        "NERO",
+        "MARO",
+        "SERO",
+        "MWRO",
+        "SWRO",
+        "MPRO",
+        "WRO",
+        "US Summary"
+      ],
+      "inspected_sheet": "US Summary",
+      "sheet_rows": 26,
+      "sheet_columns": 6,
+      "source_as_of_F1": "2024-03-08T00:00:00",
+      "title_A2": "SNAP Monthly State Participation and Benefit Summary P-EBT/Other Excluded - Public Data, Fiscal Year 2022",
+      "header_rows_5_to_7": [
+        [
+          " ",
+          "Total 1/",
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          "Fiscal Year and Month",
+          "Participation 1/",
+          null,
+          "Cost",
+          "Cost Per",
+          null
+        ],
+        [
+          null,
+          "Household",
+          "Persons",
+          null,
+          "Household",
+          "Persons"
+        ]
+      ],
+      "monthly_row_count": 12,
+      "first_month": "2021-10-01",
+      "last_month": "2022-09-01",
+      "non_numeric_monthly_cells": [],
+      "footnotes": [
+        "Footnotes:",
+        "ALL DATA SUBJECT TO REVISION",
+        "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+      ]
+    },
+    {
+      "file": "FY23.xlsx",
+      "sha256": "9bd24cff3b0e9a4421b8e70b34b3ce68d50833aad0a491702a1e085b73f2ac65",
+      "sheet_names": [
+        "NERO",
+        "MARO",
+        "SERO",
+        "MWRO",
+        "SWRO",
+        "MPRO",
+        "WRO",
+        "US Summary"
+      ],
+      "inspected_sheet": "US Summary",
+      "sheet_rows": 26,
+      "sheet_columns": 6,
+      "source_as_of_F1": "2026-09-11T00:00:00",
+      "title_A2": "SNAP Monthly State Participation and Benefit Summary P-EBT/Other Excluded - Public Data, Fiscal Year 2023",
+      "header_rows_5_to_7": [
+        [
+          " ",
+          "Total 1/",
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          "Fiscal Year and Month",
+          "Participation 1/",
+          null,
+          "Cost",
+          "Cost Per",
+          null
+        ],
+        [
+          null,
+          "Household",
+          "Persons",
+          null,
+          "Household",
+          "Persons"
+        ]
+      ],
+      "monthly_row_count": 12,
+      "first_month": "2022-10-01",
+      "last_month": "2023-09-01",
+      "non_numeric_monthly_cells": [],
+      "footnotes": [
+        "Footnotes:",
+        "ALL DATA SUBJECT TO REVISION",
+        "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+      ]
+    },
+    {
+      "file": "FY24.xlsx",
+      "sha256": "17a0a0ae597f08f73881fe5576783a08ec26e0dc67d8b31213a0b11122a46dd0",
+      "sheet_names": [
+        "NERO",
+        "MARO",
+        "SERO",
+        "MWRO",
+        "SWRO",
+        "MPRO",
+        "WRO",
+        "US Summary"
+      ],
+      "inspected_sheet": "US Summary",
+      "sheet_rows": 26,
+      "sheet_columns": 6,
+      "source_as_of_F1": "2026-09-11T00:00:00",
+      "title_A2": "SNAP Monthly State Participation and Benefit Summary P-EBT/Other Excluded - Public Data, Fiscal Year 2024",
+      "header_rows_5_to_7": [
+        [
+          " ",
+          "Total 1/",
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          "Fiscal Year and Month",
+          "Participation 1/",
+          null,
+          "Cost",
+          "Cost Per",
+          null
+        ],
+        [
+          null,
+          "Household",
+          "Persons",
+          null,
+          "Household",
+          "Persons"
+        ]
+      ],
+      "monthly_row_count": 12,
+      "first_month": "2023-10-01",
+      "last_month": "2024-09-01",
+      "non_numeric_monthly_cells": [],
+      "footnotes": [
+        "Footnotes:",
+        "ALL DATA SUBJECT TO REVISION",
+        "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+      ]
+    },
+    {
+      "file": "FY25.xlsx",
+      "sha256": "eb73967423df8aeb41e5a2ba2e8e672238d4c97692b7662649151aab85e55132",
+      "sheet_names": [
+        "NERO",
+        "MARO",
+        "SERO",
+        "MWRO",
+        "SWRO",
+        "MPRO",
+        "WRO",
+        "US Summary"
+      ],
+      "inspected_sheet": "US Summary",
+      "sheet_rows": 26,
+      "sheet_columns": 6,
+      "source_as_of_F1": "2026-09-11T00:00:00",
+      "title_A2": "SNAP Monthly State Participation and Benefit Summary P-EBT/Other Excluded - Public Data, Fiscal Year 2025",
+      "header_rows_5_to_7": [
+        [
+          " ",
+          "Total 1/",
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          "Fiscal Year and Month",
+          "Participation 1/",
+          null,
+          "Cost",
+          "Cost Per",
+          null
+        ],
+        [
+          null,
+          "Household",
+          "Persons",
+          null,
+          "Household",
+          "Persons"
+        ]
+      ],
+      "monthly_row_count": 12,
+      "first_month": "2024-10-01",
+      "last_month": "2025-09-01",
+      "non_numeric_monthly_cells": [],
+      "footnotes": [
+        "Footnotes:",
+        "ALL DATA SUBJECT TO REVISION",
+        "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+      ]
+    },
+    {
+      "file": "FY26.xlsx",
+      "sha256": "81ddf5b7f9d36b5a7f343891d90e1730af3a55cbe15ecda3d94614093e41fddd",
+      "sheet_names": [
+        "NERO",
+        "MARO",
+        "SERO",
+        "MWRO",
+        "SWRO",
+        "MPRO",
+        "WRO",
+        "US Summary"
+      ],
+      "inspected_sheet": "US Summary",
+      "sheet_rows": 26,
+      "sheet_columns": 6,
+      "source_as_of_F1": "2026-09-11T00:00:00",
+      "title_A2": "SNAP Monthly State Participation and Benefit Summary P-EBT/Other Excluded - Public Data, Fiscal Year 2026",
+      "header_rows_5_to_7": [
+        [
+          " ",
+          "Total 1/",
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          "Fiscal Year and Month",
+          "Participation 1/",
+          null,
+          "Cost",
+          "Cost Per",
+          null
+        ],
+        [
+          null,
+          "Household",
+          "Persons",
+          null,
+          "Household",
+          "Persons"
+        ]
+      ],
+      "monthly_row_count": 12,
+      "first_month": "2025-10-01",
+      "last_month": "2026-09-01",
+      "non_numeric_monthly_cells": [
+        {
+          "date": "2026-07-01",
+          "column": "B",
+          "value": "--"
+        },
+        {
+          "date": "2026-07-01",
+          "column": "C",
+          "value": "--"
+        },
+        {
+          "date": "2026-07-01",
+          "column": "D",
+          "value": "--"
+        },
+        {
+          "date": "2026-07-01",
+          "column": "E",
+          "value": "--"
+        },
+        {
+          "date": "2026-07-01",
+          "column": "F",
+          "value": "--"
+        },
+        {
+          "date": "2026-08-01",
+          "column": "B",
+          "value": "--"
+        },
+        {
+          "date": "2026-08-01",
+          "column": "C",
+          "value": "--"
+        },
+        {
+          "date": "2026-08-01",
+          "column": "D",
+          "value": "--"
+        },
+        {
+          "date": "2026-08-01",
+          "column": "E",
+          "value": "--"
+        },
+        {
+          "date": "2026-08-01",
+          "column": "F",
+          "value": "--"
+        },
+        {
+          "date": "2026-09-01",
+          "column": "B",
+          "value": "--"
+        },
+        {
+          "date": "2026-09-01",
+          "column": "C",
+          "value": "--"
+        },
+        {
+          "date": "2026-09-01",
+          "column": "D",
+          "value": "--"
+        },
+        {
+          "date": "2026-09-01",
+          "column": "E",
+          "value": "--"
+        },
+        {
+          "date": "2026-09-01",
+          "column": "F",
+          "value": "--"
+        }
+      ],
+      "footnotes": [
+        "Footnotes:",
+        "ALL DATA SUBJECT TO REVISION",
+        "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+      ]
+    }
+  ],
+  "target_window": {
+    "start": "2015-01-01",
+    "end": "2025-12-31",
+    "monthly_rows": 132,
+    "distinct_months": 132,
+    "missing_months": [],
+    "duplicate_months": [],
+    "non_numeric_cells": 0,
+    "negative_cells": 0
+  },
+  "normalized_headers_match_across_12_files": true,
+  "recent_summary": {
+    "sheet": "Sheet1",
+    "rows": 61,
+    "worksheet_extent_columns_including_empty_formatting": 186,
+    "populated_data_columns": 6,
+    "headers_row_3": [
+      "Fiscal Year",
+      "Participation Persons",
+      "Participation Households",
+      "Benefit Costs",
+      "Average Monthly Benefit Per Person",
+      "Average Monthly Benefit Per Household"
+    ],
+    "overlap_months_in_target": 39,
+    "differing_months_on_persons_households_or_benefits": 36,
+    "difference_examples": [
+      {
+        "date": "2022-10-01",
+        "archive_persons_households_benefits": [
+          42336750,
+          22320309,
+          10665259184
+        ],
+        "recent_summary_persons_households_benefits": [
+          51694100,
+          30505460,
+          13402758874
+        ]
+      },
+      {
+        "date": "2022-11-01",
+        "archive_persons_households_benefits": [
+          42400812,
+          22284748,
+          10951221634
+        ],
+        "recent_summary_persons_households_benefits": [
+          52778886,
+          31070437,
+          13319419263
+        ]
+      },
+      {
+        "date": "2022-12-01",
+        "archive_persons_households_benefits": [
+          42694515,
+          22536060,
+          11018900725
+        ],
+        "recent_summary_persons_households_benefits": [
+          49362894,
+          27227397,
+          13112843094
+        ]
+      }
+    ]
+  },
+  "fred_evidence": "Official API documentation schema only. No authenticated observations or metadata requests executed."
+}

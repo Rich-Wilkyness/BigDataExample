@@ -1,0 +1,10 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -t
+      - us-central1-docker.pkg.dev/$PROJECT_ID/jobs-snap/publish-runtime:v2
+      - .
+
+images:
+  - us-central1-docker.pkg.dev/$PROJECT_ID/jobs-snap/publish-runtime:v2

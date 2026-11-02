@@ -1,0 +1,98 @@
+{
+  "date": "2026-10-19",
+  "account": "866934333672",
+  "region": "us-east-2",
+  "terraform_apply": {
+    "added": 5,
+    "changed": 4,
+    "destroyed": 0,
+    "final_plan": "No changes"
+  },
+  "local_checks": {
+    "offline_tests_passed": 16,
+    "python_ast": "passed",
+    "terraform_validation": "passed",
+    "aws_definition_validation": "OK; no diagnostics"
+  },
+  "database_grant_statement": "4c71edef-ce5d-429f-8b38-d86a074bce93",
+  "source_capture": {
+    "statusCode": 200,
+    "snapshot_time": "2026-10-19T17:32:57.794966+00:00",
+    "files_uploaded": 4,
+    "objects": [
+      "bronze/citibike/gbfs_discovery/year=2026/month=10/day=19/hour=17/gbfs_discovery_20261019T173257Z.json",
+      "bronze/citibike/system_information/year=2026/month=10/day=19/hour=17/system_information_20261019T173257Z.json",
+      "bronze/citibike/station_information/year=2026/month=10/day=19/hour=17/station_information_20261019T173257Z.json",
+      "bronze/citibike/station_status/year=2026/month=10/day=19/hour=17/station_status_20261019T173257Z.json"
+    ]
+  },
+  "preview_execution": "prepare_preview_20261019_v1",
+  "full_execution": {
+    "executionArn": "arn:aws:states:us-east-2:866934333672:execution:richard-citibike-incremental-workflow:prepare_live_20261019_v1",
+    "status": "SUCCEEDED",
+    "startDate": "2026-10-19T11:34:32.495000-06:00",
+    "stopDate": "2026-10-19T11:39:27.797000-06:00",
+    "input": "{}"
+  },
+  "prepared_batch": {
+    "batch_id": "auto_8f134b30fa25883742c348d6aa0bee46",
+    "window_start": "2026-10-16T17:52:30Z",
+    "window_end": "2026-10-19T17:32:58Z",
+    "checkpoint_before": "2026-10-16T17:52:30Z",
+    "expected_rows": 2519,
+    "manifest_key": "control/citibike/incremental/batches/auto_8f134b30fa25883742c348d6aa0bee46/manifest.json",
+    "capture_count": 1
+  },
+  "glue_runs": {
+    "bronze_to_silver": "jr_a4477361d9b00c8bf1112f39a218b7b3a67010bd13eb90a43ac0e49a3bd75a1a",
+    "silver_to_landing": "jr_78ab9ccdd9f480c3f1582f405ac79e6712d460d54028c97f4bd90ec6a7db9020"
+  },
+  "acceptance_statement": "ece73aa0-43d9-4a2d-b56a-4fcd1e19b886",
+  "warehouse_audit_statement": "17769474-869f-46e7-a9fb-c852e563d64c",
+  "gold_checks": {
+    "date_rows": 2,
+    "duplicate_date_keys": 0,
+    "duplicate_fact_keys": 0,
+    "duplicate_station_keys": 0,
+    "fact_rows": 7555,
+    "invalid_fact_measures": 0,
+    "invalid_station_attributes": 0,
+    "missing_date_references": 0,
+    "missing_station_references": 0,
+    "station_rows": 2519
+  },
+  "warehouse_summary": {
+    "last_completed_utc": "2026-10-19 17:32:58",
+    "accepted_batches": 3,
+    "canonical_rows": 7555,
+    "new_landing_rows": 2519,
+    "new_fact_rows": 2519,
+    "accepted_logical_rows": 2519
+  },
+  "no_data_execution": {
+    "executionArn": "arn:aws:states:us-east-2:866934333672:execution:richard-citibike-incremental-workflow:prepare_no_data_20261019_v1",
+    "status": "SUCCEEDED",
+    "startDate": "2026-10-19T11:41:56.509000-06:00",
+    "stopDate": "2026-10-19T11:41:59.919000-06:00",
+    "input": "{}"
+  },
+  "no_data_output": {
+    "status": "NO_DATA",
+    "checkpoint_before": "2026-10-19T17:32:58Z"
+  },
+  "no_data_entered_states": [
+    "PrepareBatch",
+    "NoNewData"
+  ],
+  "final_lock": {
+    "released_by": "arn:aws:states:us-east-2:866934333672:execution:richard-citibike-incremental-workflow:prepare_no_data_20261019_v1",
+    "state": "idle"
+  },
+  "remaining": [
+    "EventBridge and completion events",
+    "capture-event deduplication",
+    "late-arrival catch-up",
+    "automatic partial-output recovery",
+    "live overlapping-workflow and failure-path tests"
+  ]
+}

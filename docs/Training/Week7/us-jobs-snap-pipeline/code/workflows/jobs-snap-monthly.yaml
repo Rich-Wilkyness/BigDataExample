@@ -1,0 +1,381 @@
+# Runs the existing components in order, waits for completion, passes fresh inputs between stages, and stops if a stage fails.
+main:
+  params: [input]
+  steps:
+    - initialize:
+        assign:
+          - project: project-4b0f63f3-e441-4289-b42
+          - region: us-central1
+          - bronze: jobs-snap-bronze-620503845148
+          - silver: jobs-snap-silver-620503845148
+          - execution_id: ${sys.get_env("GOOGLE_CLOUD_WORKFLOW_EXECUTION_ID")}
+          - refresh_id: ${"monthly-" + execution_id}
+          - batch_id: ${"jobs-snap-" + execution_id}
+          - capture_env:
+              - name: REFRESH_RUN_ID
+                value: ${refresh_id}
+
+    # Capture fresh source data using the existing ingestion jobs.
+    - capture_bls:
+        call: run_job
+        args:
+          project: ${project}
+          region: ${region}
+          job: jobs-snap-bls-ingest
+          env: ${capture_env}
+        result: bls_execution
+
+    - locate_bls:
+        call: find_summary
+        args:
+          bucket: ${bronze}
+          prefix: bls
+          run_id: ${bls_execution.execution_id}
+        result: bls_summary
+
+    - capture_snap:
+        call: run_job
+        args:
+          project: ${project}
+          region: ${region}
+          job: jobs-snap-usda-ingest
+          env: ${capture_env}
+        result: snap_execution
+
+    - locate_snap:
+        call: find_summary
+        args:
+          bucket: ${bronze}
+          prefix: snap
+          run_id: ${snap_execution.execution_id}
+        result: snap_summary
+
+    # Submit managed Spark with the same runtime already tested manually.
+    - submit_silver:
+        call: http.post
+        args:
+          url: ${"https://dataproc.googleapis.com/v1/projects/" + project + "/locations/" + region + "/batches"}
+          auth:
+            type: OAuth2
+          query:
+            batchId: ${batch_id}
+            requestId: ${execution_id}
+          body:
+            pysparkBatch:
+              mainPythonFileUri: ${"gs://" + silver + "/code/silver-v1/build_silver_cloud.py"}
+              pythonFileUris:
+                - ${"gs://" + silver + "/code/silver-v1/build_silver.py"}
+              args:
+                - ${"--bls-summary=" + bls_summary}
+                - ${"--snap-summary=" + snap_summary}
+                - ${"--silver-bucket=" + silver}
+                - ${"--run-id=" + refresh_id}
+            runtimeConfig:
+              version: "3.0"
+              containerImage: us-central1-docker.pkg.dev/project-4b0f63f3-e441-4289-b42/jobs-snap/silver-runtime:v1
+            environmentConfig:
+              executionConfig:
+                serviceAccount: jobs-snap-process@project-4b0f63f3-e441-4289-b42.iam.gserviceaccount.com
+                authenticationConfig:
+                  userWorkloadAuthenticationType: SERVICE_ACCOUNT
+                subnetworkUri: ${"projects/" + project + "/regions/" + region + "/subnetworks/default"}
+                ttl: 1200s
+        result: silver_operation
+
+    - wait_for_silver:
+        call: wait_operation
+        args:
+          url: ${"https://dataproc.googleapis.com/v1/" + silver_operation.body.name}
+        result: silver_operation_result
+
+    - inspect_silver:
+        call: http.get
+        args:
+          url: ${"https://dataproc.googleapis.com/v1/projects/" + project + "/locations/" + region + "/batches/" + batch_id}
+          auth:
+            type: OAuth2
+        result: silver_batch
+
+    - check_silver:
+        switch:
+          - condition: ${silver_batch.body.state != "SUCCEEDED"}
+            raise: ${silver_batch.body}
+
+    - locate_silver:
+        call: find_summary
+        args:
+          bucket: ${silver}
+          prefix: silver
+          run_id: ${refresh_id}
+        result: silver_summary
+
+    # Override the manually configured arguments with this run's inputs.
+    - stage_refresh:
+        call: run_job
+        args:
+          project: ${project}
+          region: ${region}
+          job: jobs-snap-stage
+          arguments:
+            - ${"--silver-summary=" + silver_summary}
+            - ${"--refresh-run-id=" + refresh_id}
+        result: staging_execution
+
+    - find_staging_manifest:
+        call: run_query
+        args:
+          project: ${project}
+          region: ${region}
+          refresh_id: ${refresh_id}
+          sql: >-
+            SELECT CONCAT(
+              'project-4b0f63f3-e441-4289-b42.jobs_snap_staging.manifest_',
+              _TABLE_SUFFIX
+            ) AS manifest_table
+            FROM `project-4b0f63f3-e441-4289-b42.jobs_snap_staging.manifest_*`
+            WHERE refresh_run_id = @refresh_id
+              AND status = 'complete'
+        result: staging_lookup
+
+    - check_staging_manifest:
+        switch:
+          - condition: ${len(default(map.get(staging_lookup, "rows"), [])) != 1}
+            raise: "Expected exactly one accepted staging manifest"
+
+    - select_manifest:
+        assign:
+          - manifest_table: ${staging_lookup.rows[0].f[0].v}
+
+    - publish_gold:
+        call: run_job
+        args:
+          project: ${project}
+          region: ${region}
+          job: jobs-snap-publish
+          arguments:
+            - ${"--manifest-table=" + manifest_table}
+            - "--publish"
+        result: publication_execution
+
+    # Require a committed warehouse record before reporting success.
+    - verify_publication:
+        call: run_query
+        args:
+          project: ${project}
+          region: ${region}
+          refresh_id: ${refresh_id}
+          sql: >-
+            SELECT state_rows, industry_rows, history_events
+            FROM `project-4b0f63f3-e441-4289-b42.jobs_snap_gold.refresh_publications`
+            WHERE refresh_run_id = @refresh_id
+        result: publication
+
+    - check_publication:
+        switch:
+          - condition: ${len(default(map.get(publication, "rows"), [])) != 1}
+            raise: "Expected exactly one committed publication"
+
+    - complete:
+        return:
+          status: complete
+          refresh_run_id: ${refresh_id}
+          bls_summary: ${bls_summary}
+          snap_summary: ${snap_summary}
+          silver_summary: ${silver_summary}
+          manifest_table: ${manifest_table}
+          state_rows: ${int(publication.rows[0].f[0].v)}
+          industry_rows: ${int(publication.rows[0].f[1].v)}
+          history_events: ${int(publication.rows[0].f[2].v)}
+
+
+# Start a Cloud Run execution and require its task to succeed.
+run_job:
+  params: [project, region, job, env: null, arguments: null]
+  steps:
+    - initialize:
+        assign:
+          - job_env: ${default(env, [])}
+          - job_arguments: ${default(arguments, [])}
+          - container_override:
+              env: ${job_env}
+
+    - choose_arguments:
+        switch:
+          - condition: ${len(job_arguments) > 0}
+            steps:
+              - set_arguments:
+                  assign:
+                    - container_override.args: ${job_arguments}
+
+    - start:
+        call: http.post
+        args:
+          url: ${"https://run.googleapis.com/v2/projects/" + project + "/locations/" + region + "/jobs/" + job + ":run"}
+          auth:
+            type: OAuth2
+          body:
+            overrides:
+              containerOverrides:
+                - ${container_override}
+        result: operation
+
+    - wait:
+        call: wait_operation
+        args:
+          url: ${"https://run.googleapis.com/v2/" + operation.body.name}
+        result: execution
+
+    - check:
+        switch:
+          - condition: ${int(default(map.get(execution, "succeededCount"), 0)) != 1}
+            raise: ${execution}
+
+    - extract_name:
+        assign:
+          - parts: ${text.split(execution.name, "/")}
+
+    - complete:
+        return:
+          name: ${execution.name}
+          execution_id: ${parts[len(parts) - 1]}
+
+
+# Poll a Google long-running operation for at most about 30 minutes.
+# GET retries are safe; job-start POSTs are not blindly repeated.
+wait_operation:
+  params: [url]
+  steps:
+    - initialize:
+        assign:
+          - deadline: ${sys.now() + 1800}
+          - empty_response: {}
+
+    - poll:
+        try:
+          call: http.get
+          args:
+            url: ${url}
+            auth:
+              type: OAuth2
+          result: operation
+        retry: ${http.default_retry}
+
+    - inspect:
+        switch:
+          - condition: ${map.get(operation.body, "error") != null}
+            raise: ${operation.body.error}
+          - condition: ${default(map.get(operation.body, "done"), false)}
+            return: ${default(map.get(operation.body, "response"), empty_response)}          
+          - condition: ${sys.now() >= deadline}
+            raise: "Operation polling deadline exceeded"
+
+    - pause:
+        call: sys.sleep
+        args:
+          seconds: 10
+        next: poll
+
+
+# Find the exact execution's summary, even across UTC date boundaries.
+find_summary:
+  params: [bucket, prefix, run_id]
+  steps:
+    - initialize:
+        assign:
+          - page_token: ""
+          - found: []
+
+    - list_objects:
+        call: googleapis.storage.v1.objects.list
+        args:
+          bucket: ${bucket}
+          prefix: ${prefix + "/"}
+          matchGlob: ${prefix + "/ingestion_date=*/run_id=" + run_id + "/summary.json"}
+          maxResults: 2
+          pageToken: ${page_token}
+        result: listing
+
+    - collect:
+        for:
+          value: object
+          in: ${default(map.get(listing, "items"), [])}
+          steps:
+            - append:
+                assign:
+                  - found: ${list.concat(found, object.name)}
+
+    - inspect:
+        switch:
+          - condition: ${len(found) > 1}
+            raise: "Multiple summaries found for one execution"
+          - condition: ${map.get(listing, "nextPageToken") != null}
+            steps:
+              - advance:
+                  assign:
+                    - page_token: ${listing.nextPageToken}
+                  next: list_objects
+
+    - require_summary:
+        switch:
+          - condition: ${len(found) != 1}
+            raise: "Completed execution has no saved summary"
+
+    - complete:
+        return: ${"gs://" + bucket + "/" + found[0]}
+
+
+# Run a small parameterized lookup and wait for its query result.
+run_query:
+  params: [project, region, sql, refresh_id]
+  steps:
+    - initialize:
+        assign:
+          - deadline: ${sys.now() + 300}
+
+    - submit:
+        call: googleapis.bigquery.v2.jobs.query
+        args:
+          projectId: ${project}
+          body:
+            query: ${sql}
+            useLegacySql: false
+            location: ${region}
+            maximumBytesBilled: "104857600"
+            timeoutMs: 20000
+            maxResults: 2
+            parameterMode: NAMED
+            queryParameters:
+              - name: refresh_id
+                parameterType:
+                  type: STRING
+                parameterValue:
+                  value: ${refresh_id}
+        result: query_result
+
+    - inspect:
+        switch:
+          - condition: ${len(default(map.get(query_result, "errors"), [])) > 0}
+            raise: ${query_result.errors}
+          - condition: ${default(map.get(query_result, "jobComplete"), false)}
+            next: complete
+          - condition: ${sys.now() >= deadline}
+            raise: "BigQuery lookup deadline exceeded"
+
+    - pause:
+        call: sys.sleep
+        args:
+          seconds: 2
+
+    - poll:
+        call: googleapis.bigquery.v2.jobs.getQueryResults
+        args:
+          projectId: ${project}
+          jobId: ${query_result.jobReference.jobId}
+          location: ${region}
+          timeoutMs: 10000
+          maxResults: 2
+        result: query_result
+        next: inspect
+
+    - complete:
+        return: ${query_result}

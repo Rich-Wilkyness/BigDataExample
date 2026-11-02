@@ -1,0 +1,40 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ManageOnlyRichardCaptureRule",
+      "Effect": "Allow",
+      "Action": [
+        "events:DescribeRule",
+        "events:PutRule",
+        "events:DeleteRule",
+        "events:PutTargets",
+        "events:RemoveTargets",
+        "events:ListTargetsByRule",
+        "events:EnableRule",
+        "events:DisableRule",
+        "events:ListTagsForResource",
+        "events:TagResource",
+        "events:UntagResource"
+      ],
+      "Resource": "arn:aws:events:us-east-2:866934333672:rule/richard-citibike-capture-complete"
+    },
+    {
+      "Sid": "TestEventPatterns",
+      "Effect": "Allow",
+      "Action": "events:TestEventPattern",
+      "Resource": "*"
+    },
+    {
+      "Sid": "PassOnlyRichardEventTargetRole",
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "arn:aws:iam::866934333672:role/RichardCitiBikeCaptureEventRole",
+      "Condition": {
+        "StringEquals": {
+          "iam:PassedToService": "events.amazonaws.com"
+        }
+      }
+    }
+  ]
+}

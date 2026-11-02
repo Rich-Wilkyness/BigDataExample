@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Live Fraud Detection + Generative AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+  <script src="{{ url_for('static', filename='dashboard.js') }}" defer></script>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Week 8 · Classroom reconstruction · Synthetic transactions</p>
+    <h1>Live fraud detection <span>+ Generative AI</span></h1>
+    <p>Inspect classifier predictions, then ask for an explanation of a selected transaction.</p>
+    <!-- Values are populated by the read-only polling route, not a model call. -->
+    <section class="metrics" aria-label="Stored prediction statistics">
+      <article><h2>Processed</h2><strong id="processed">—</strong></article>
+      <article><h2>Flagged</h2><strong id="flagged">—</strong></article>
+      <article><h2>Accuracy</h2><strong id="accuracy">—</strong></article>
+    </section>
+    <p class="note">Counts cover all stored transactions and model versions. Accuracy compares predictions with synthetic labels.</p>
+    <section class="panel" aria-labelledby="predictions-title">
+      <div class="section-heading">
+        <h2 id="predictions-title">Recent predictions</h2>
+        <span id="refresh-status" role="status">Loading…</span>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th>Transaction</th><th>Amount</th><th>Prediction</th><th>Label</th><th>Correct</th><th>Model version</th><th>Analysis</th></tr></thead>
+          <tbody id="predictions"></tbody>
+        </table>
+      </div>
+      <p id="empty-state" hidden>No predictions yet. Start the collector and upstream pipeline, or load the included sample records.</p>
+      <p class="note">Latest 100 stored records · Refreshes every 3 seconds · “sample” versions are fixtures, not trained model output.</p>
+    </section>
+    <!-- Explanation text is inserted with textContent by dashboard.js. -->
+    <section class="panel" aria-labelledby="analysis-title">
+      <h2 id="analysis-title">AI transaction analysis</h2>
+      <p class="note">Explain makes an OpenAI API request. Generated assessments are not proof of fraud or the classifier’s internal reasoning.</p>
+      <p id="selected-transaction"></p>
+      <pre id="explanation" aria-live="polite">Choose Explain on a transaction to request an assessment.</pre>
+      <p class="note">MLflow tracing: {{ 'enabled' if tracing else 'disabled for local preview' }}.</p>
+    </section>
+  </main>
+</body>
+</html>

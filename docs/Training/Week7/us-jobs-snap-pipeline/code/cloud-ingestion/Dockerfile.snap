@@ -1,0 +1,15 @@
+FROM python:3.12-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY snap_ingest.py backfill_snap.py backfill_bls.py plan_monthly_refresh.py /app/code/
+
+USER 10001:10001
+
+CMD ["python", "/app/code/snap_ingest.py"]

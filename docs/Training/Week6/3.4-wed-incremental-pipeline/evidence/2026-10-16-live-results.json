@@ -1,0 +1,200 @@
+{
+  "date": "2026-10-16",
+  "region": "us-east-2",
+  "workgroup": "richard-citibike-wg",
+  "workflow": "richard-citibike-incremental-workflow",
+  "execution": "arn:aws:states:us-east-2:866934333672:execution:richard-citibike-incremental-workflow:sf_20261016T175229_v1",
+  "status": "SUCCEEDED",
+  "checkpoint_utc": "2026-10-16 17:52:30",
+  "acceptance_statement": "eaba97cd-c405-4830-bdaf-634c30a3a922",
+  "forced_failure_statement": "00008ec6-65c7-4699-8f01-ce5e71dd7a74",
+  "recovery_statement": "dd888e62-c550-4073-9313-ead478e0cb89",
+  "replay_statement": "add59711-28dc-4200-aa6c-3b47991abfd8",
+  "final_queries": [
+    {
+      "id": "d465ef96-7bdd-4184-b546-d619e6ee05e0",
+      "status": "FINISHED",
+      "columns": [
+        "last_completed_utc",
+        "accepted_rows",
+        "landing_rows",
+        "canonical_rows",
+        "fact_rows"
+      ],
+      "records": [
+        [
+          {
+            "stringValue": "2026-10-16 17:52:30"
+          },
+          {
+            "longValue": 2
+          },
+          {
+            "longValue": 2518
+          },
+          {
+            "longValue": 5036
+          },
+          {
+            "longValue": 5036
+          }
+        ]
+      ]
+    },
+    {
+      "id": "e4d819b6-6db4-4fa9-8079-ec8b18410531",
+      "status": "FINISHED",
+      "columns": [
+        "check_name",
+        "observed"
+      ],
+      "records": [
+        [
+          {
+            "stringValue": "date_rows"
+          },
+          {
+            "longValue": 1
+          }
+        ],
+        [
+          {
+            "stringValue": "duplicate_date_keys"
+          },
+          {
+            "longValue": 0
+          }
+        ],
+        [
+          {
+            "stringValue": "duplicate_fact_keys"
+          },
+          {
+            "longValue": 0
+          }
+        ],
+        [
+          {
+            "stringValue": "duplicate_station_keys"
+          },
+          {
+            "longValue": 0
+          }
+        ],
+        [
+          {
+            "stringValue": "fact_rows"
+          },
+          {
+            "longValue": 5036
+          }
+        ],
+        [
+          {
+            "stringValue": "invalid_fact_measures"
+          },
+          {
+            "longValue": 0
+          }
+        ],
+        [
+          {
+            "stringValue": "invalid_station_attributes"
+          },
+          {
+            "longValue": 0
+          }
+        ],
+        [
+          {
+            "stringValue": "missing_date_references"
+          },
+          {
+            "longValue": 0
+          }
+        ],
+        [
+          {
+            "stringValue": "missing_station_references"
+          },
+          {
+            "longValue": 0
+          }
+        ],
+        [
+          {
+            "stringValue": "station_rows"
+          },
+          {
+            "longValue": 2518
+          }
+        ]
+      ]
+    },
+    {
+      "id": "8da59ab9-81ac-47e3-99e2-18ab804dc703",
+      "status": "FINISHED",
+      "columns": [
+        "snapshot_date",
+        "calendar_year",
+        "calendar_month",
+        "day_of_month"
+      ],
+      "records": [
+        [
+          {
+            "stringValue": "2026-10-16"
+          },
+          {
+            "longValue": 2026
+          },
+          {
+            "longValue": 10
+          },
+          {
+            "longValue": 16
+          }
+        ]
+      ]
+    },
+    {
+      "id": "66533233-a5e5-4411-a947-e062a7b0f13f",
+      "status": "FINISHED",
+      "columns": [
+        "batch_id",
+        "rows",
+        "stations",
+        "earliest",
+        "latest",
+        "null_measures"
+      ],
+      "records": [
+        [
+          {
+            "stringValue": "sf_20261016T175229_v1"
+          },
+          {
+            "longValue": 2518
+          },
+          {
+            "longValue": 2518
+          },
+          {
+            "stringValue": "2026-10-16 17:52:29"
+          },
+          {
+            "stringValue": "2026-10-16 17:52:29"
+          },
+          {
+            "longValue": 0
+          }
+        ]
+      ]
+    }
+  ],
+  "limitations": [
+    "manual fixed window; no automatic schedules",
+    "full workflow resume and concurrent executions untested",
+    "frozen manifests and late-data overlap/catch-up pending"
+  ]
+}

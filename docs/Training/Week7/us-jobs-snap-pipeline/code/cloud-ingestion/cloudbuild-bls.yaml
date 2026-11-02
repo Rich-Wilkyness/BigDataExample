@@ -1,0 +1,12 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -f
+      - Dockerfile.bls
+      - -t
+      - us-central1-docker.pkg.dev/$PROJECT_ID/jobs-snap/bls-ingest:v1
+      - .
+
+images:
+  - us-central1-docker.pkg.dev/$PROJECT_ID/jobs-snap/bls-ingest:v1

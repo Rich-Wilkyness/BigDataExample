@@ -1,0 +1,4 @@
+Flask>=3.1,<4
+kafka-python>=2.2,<4
+openai>=2,<4
+mlflow>=3.10,<4

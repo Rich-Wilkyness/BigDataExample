@@ -1,0 +1,42 @@
+{
+  "ingestion_date": "2026-10-25",
+  "run_id": "7882c36124674a5cbe44f04a8b32c715",
+  "source": "bls",
+  "mode": "historical",
+  "start_year": 2015,
+  "end_year": 2025,
+  "inventory_sha256": "762218dcde8045167a452e0969c79132cbe96e1f1880695c35e81ae028c8fcf7",
+  "status": "complete",
+  "completed_batches": [
+    {
+      "manifest": "/Users/richardwilkerson/VSCodeProjects/BigDataExample/docs/Training/Week7/us-jobs-snap-pipeline/data/bronze/bls/ingestion_date=2026-10-25/run_id=7882c36124674a5cbe44f04a8b32c715/batch_id=001/attempt_id=001/manifest.json",
+      "series_count": 50,
+      "monthly_observations": 6600,
+      "source_missing_values": 10
+    },
+    {
+      "manifest": "/Users/richardwilkerson/VSCodeProjects/BigDataExample/docs/Training/Week7/us-jobs-snap-pipeline/data/bronze/bls/ingestion_date=2026-10-25/run_id=7882c36124674a5cbe44f04a8b32c715/batch_id=002/attempt_id=001/manifest.json",
+      "series_count": 50,
+      "monthly_observations": 6600,
+      "source_missing_values": 10
+    },
+    {
+      "manifest": "/Users/richardwilkerson/VSCodeProjects/BigDataExample/docs/Training/Week7/us-jobs-snap-pipeline/data/bronze/bls/ingestion_date=2026-10-25/run_id=7882c36124674a5cbe44f04a8b32c715/batch_id=003/attempt_id=001/manifest.json",
+      "series_count": 50,
+      "monthly_observations": 6600,
+      "source_missing_values": 10
+    },
+    {
+      "manifest": "/Users/richardwilkerson/VSCodeProjects/BigDataExample/docs/Training/Week7/us-jobs-snap-pipeline/data/bronze/bls/ingestion_date=2026-10-25/run_id=7882c36124674a5cbe44f04a8b32c715/batch_id=004/attempt_id=001/manifest.json",
+      "series_count": 50,
+      "monthly_observations": 6600,
+      "source_missing_values": 10
+    },
+    {
+      "manifest": "/Users/richardwilkerson/VSCodeProjects/BigDataExample/docs/Training/Week7/us-jobs-snap-pipeline/data/bronze/bls/ingestion_date=2026-10-25/run_id=7882c36124674a5cbe44f04a8b32c715/batch_id=005/attempt_id=001/manifest.json",
+      "series_count": 48,
+      "monthly_observations": 6336,
+      "source_missing_values": 10
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# Section: Dependency needed only for live AWS publication and SDK validation
+# Cloud producer only. Standard-library capture/inspection/demo/tests need no install.
+# Exact SDK version used for local validation; no remote Kinesis call was made.
+boto3==1.43.108
+# Pinning makes the SDK version reproducible; it does not pin AWS service behavior.

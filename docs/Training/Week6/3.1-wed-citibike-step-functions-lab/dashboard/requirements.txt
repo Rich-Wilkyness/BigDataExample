@@ -1,0 +1,4 @@
+# Install only if missing from the repository environment. Glue supplies its own runtime.
+streamlit>=1.40,<2
+pandas>=2.2,<4
+boto3>=1.35,<2

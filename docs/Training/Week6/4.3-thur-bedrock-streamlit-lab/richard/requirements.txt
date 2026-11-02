@@ -1,0 +1,7 @@
+# Richard compatibility ranges; see verification.md for versions actually checked.
+streamlit>=1.39,<2
+pandas>=2.1,<4
+requests>=2.31,<3
+pydeck>=0.9,<1
+boto3>=1.35,<2
+sqlglot>=25,<31

@@ -1,0 +1,154 @@
+{
+  "Comment": "Richard reconstruction: explicit batch -> landing -> atomic acceptance. One active writer.",
+  "QueryLanguage": "JSONPath",
+  "StartAt": "ChooseSilver",
+  "TimeoutSeconds": 3600,
+  "States": {
+    "ChooseSilver": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "And": [
+            {
+              "Variable": "$.reuse_silver",
+              "IsPresent": true
+            },
+            {
+              "Variable": "$.reuse_silver",
+              "BooleanEquals": true
+            }
+          ],
+          "Next": "LoadLanding"
+        }
+      ],
+      "Default": "BuildSilver"
+    },
+    "BuildSilver": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::glue:startJobRun.sync",
+      "Parameters": {
+        "JobName": "richard-citibike-v2-lab-incremental-silver",
+        "Arguments": {
+          "--BATCH_ID.$": "$.batch_id",
+          "--START_AT_UTC.$": "$.start_at_utc",
+          "--END_BEFORE_UTC.$": "$.end_before_utc"
+        }
+      },
+      "ResultPath": "$.silver",
+      "TimeoutSeconds": 1200,
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "ResultPath": "$.failure",
+          "Next": "Failed"
+        }
+      ],
+      "Next": "LoadLanding"
+    },
+    "LoadLanding": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::glue:startJobRun.sync",
+      "Parameters": {
+        "JobName": "richard-citibike-v2-lab-incremental-redshift",
+        "Arguments": {
+          "--BATCH_ID.$": "$.batch_id"
+        }
+      },
+      "ResultPath": "$.load",
+      "TimeoutSeconds": 1200,
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "ResultPath": "$.failure",
+          "Next": "Failed"
+        }
+      ],
+      "Next": "CreateSqlToken"
+    },
+    "CreateSqlToken": {
+      "Type": "Pass",
+      "Parameters": {
+        "client_token.$": "States.UUID()"
+      },
+      "ResultPath": "$.sql_request",
+      "Next": "SubmitAcceptance"
+    },
+    "SubmitAcceptance": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::aws-sdk:redshiftdata:executeStatement",
+      "Parameters": {
+        "WorkgroupName": "richard-citibike-wg",
+        "Database": "dev",
+        "Sql.$": "$.accept_sql",
+        "ClientToken.$": "$.sql_request.client_token"
+      },
+      "ResultPath": "$.statement",
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "ResultPath": "$.failure",
+          "Next": "Failed"
+        }
+      ],
+      "Next": "WaitForSql"
+    },
+    "WaitForSql": {
+      "Type": "Wait",
+      "Seconds": 10,
+      "Next": "DescribeSql"
+    },
+    "DescribeSql": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::aws-sdk:redshiftdata:describeStatement",
+      "Parameters": {
+        "Id.$": "$.statement.Id"
+      },
+      "ResultPath": "$.sql_status",
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "ResultPath": "$.failure",
+          "Next": "Failed"
+        }
+      ],
+      "Next": "CheckSql"
+    },
+    "CheckSql": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.sql_status.Status",
+          "StringEquals": "FINISHED",
+          "Next": "Accepted"
+        },
+        {
+          "Variable": "$.sql_status.Status",
+          "StringEquals": "FAILED",
+          "Next": "Failed"
+        },
+        {
+          "Variable": "$.sql_status.Status",
+          "StringEquals": "ABORTED",
+          "Next": "Failed"
+        }
+      ],
+      "Default": "WaitForSql"
+    },
+    "Accepted": {
+      "Type": "Succeed"
+    },
+    "Failed": {
+      "Type": "Fail",
+      "Error": "CitiBikeLabFailed",
+      "Cause": "Inspect execution history, Glue run or SQL statement, and partial side effects before replay."
+    }
+  }
+}

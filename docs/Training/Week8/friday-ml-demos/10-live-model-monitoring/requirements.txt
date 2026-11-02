@@ -1,0 +1,4 @@
+mlflow
+kafka-python
+scikit-learn
+requests

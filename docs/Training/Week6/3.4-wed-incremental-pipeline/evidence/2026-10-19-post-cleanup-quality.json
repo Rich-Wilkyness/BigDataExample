@@ -1,0 +1,156 @@
+{
+  "status": "success",
+  "stdout": "",
+  "stderr": null,
+  "return_value": {
+    "status": {
+      "Id": "92772c1f-5c36-4bf3-9d7a-2ddbdf266574",
+      "DbUser": "IAM:richard.wilkerson@techconsulting.tech",
+      "Database": "dev",
+      "Duration": 27354209,
+      "Status": "FINISHED",
+      "CreatedAt": "2026-10-19T17:13:30.250000+00:00",
+      "UpdatedAt": "2026-10-19T17:13:30.907000+00:00",
+      "RedshiftPid": 1073946724,
+      "HasResultSet": true,
+      "QueryString": "-- Run in Richard's warehouse, database dev.\n-- Expected totals apply to the initial single-capture dataset only.\nSELECT 'fact_rows' AS check_name, COUNT(*) AS observed\nFROM gold.incremental_fact_station_snapshot\nUNION ALL\nSELECT 'station_rows', COUNT(*) FROM gold.incremental_dim_station\nUNION ALL\nSELECT 'date_rows', COUNT(*) FROM gold.incremental_dim_date\nUNION ALL\nSELECT 'duplicate_fact_keys', COUNT(*)\nFROM (\n    SELECT station_id, snapshot_timestamp\n    FROM gold.incremental_fact_station_snapshot\n    GROUP BY station_id, snapshot_timestamp\n    HAVING COUNT(*) > 1\n) AS duplicate_facts\nUNION ALL\nSELECT 'duplicate_station_keys', COUNT(*)\nFROM (\n    SELECT station_id\n    FROM gold.incremental_dim_station\n    GROUP BY station_id\n    HAVING COUNT(*) > 1\n) AS duplicate_stations\nUNION ALL\nSELECT 'duplicate_date_keys', COUNT(*)\nFROM (\n    SELECT snapshot_date\n    FROM gold.incremental_dim_date\n    GROUP BY snapshot_date\n    HAVING COUNT(*) > 1\n) AS duplicate_dates\nUNION ALL\nSELECT 'missing_station_references', COUNT(*)\nFROM gold.incremental_fact_station_snapshot AS f\nWHERE NOT EXISTS (\n    SELECT 1 FROM gold.incremental_dim_station AS s\n    WHERE s.station_id = f.station_id\n)\nUNION ALL\nSELECT 'missing_date_references', COUNT(*)\nFROM gold.incremental_fact_station_snapshot AS f\nWHERE NOT EXISTS (\n    SELECT 1 FROM gold.incremental_dim_date AS d\n    WHERE d.snapshot_date = f.snapshot_date\n)\nUNION ALL\nSELECT 'invalid_fact_measures', COUNT(*)\nFROM gold.incremental_fact_station_snapshot\nWHERE bikes_available IS NULL OR bikes_available < 0\n   OR ebikes_available IS NULL OR ebikes_available < 0\n   OR docks_available IS NULL OR docks_available < 0\n   OR capacity_at_capture IS NULL OR capacity_at_capture < 0\n   OR (capacity_at_capture > 0 AND utilization_pct IS NULL)\nUNION ALL\nSELECT 'invalid_station_attributes', COUNT(*)\nFROM gold.incremental_dim_station\nWHERE station_name IS NULL OR TRIM(station_name) = ''\n   OR capacity IS NULL OR capacity < 0\nORDER BY check_name;",
+      "ResultRows": 10,
+      "ResultSize": 386,
+      "RedshiftQueryId": 4267711,
+      "WorkgroupName": "richard-citibike-wg",
+      "ResultFormat": "json"
+    },
+    "results": {
+      "Records": [
+        [
+          {
+            "stringValue": "date_rows"
+          },
+          {
+            "longValue": 1
+          }
+        ],
+        [
+          {
+            "stringValue": "duplicate_date_keys"
+          },
+          {
+            "longValue": 0
+          }
+        ],
+        [
+          {
+            "stringValue": "duplicate_fact_keys"
+          },
+          {
+            "longValue": 0
+          }
+        ],
+        [
+          {
+            "stringValue": "duplicate_station_keys"
+          },
+          {
+            "longValue": 0
+          }
+        ],
+        [
+          {
+            "stringValue": "fact_rows"
+          },
+          {
+            "longValue": 5036
+          }
+        ],
+        [
+          {
+            "stringValue": "invalid_fact_measures"
+          },
+          {
+            "longValue": 0
+          }
+        ],
+        [
+          {
+            "stringValue": "invalid_station_attributes"
+          },
+          {
+            "longValue": 0
+          }
+        ],
+        [
+          {
+            "stringValue": "missing_date_references"
+          },
+          {
+            "longValue": 0
+          }
+        ],
+        [
+          {
+            "stringValue": "missing_station_references"
+          },
+          {
+            "longValue": 0
+          }
+        ],
+        [
+          {
+            "stringValue": "station_rows"
+          },
+          {
+            "longValue": 2518
+          }
+        ]
+      ],
+      "ColumnMetadata": [
+        {
+          "isCaseSensitive": true,
+          "isCurrency": false,
+          "isSigned": false,
+          "label": "check_name",
+          "name": "check_name",
+          "nullable": 1,
+          "precision": 26,
+          "scale": 0,
+          "schemaName": "",
+          "tableName": "",
+          "typeName": "varchar",
+          "length": 0
+        },
+        {
+          "isCaseSensitive": false,
+          "isCurrency": false,
+          "isSigned": true,
+          "label": "observed",
+          "name": "observed",
+          "nullable": 1,
+          "precision": 19,
+          "scale": 0,
+          "schemaName": "",
+          "tableName": "",
+          "typeName": "int8",
+          "length": 0
+        }
+      ],
+      "TotalNumRows": 10
+    }
+  },
+  "warning": null,
+  "api_calls": [
+    {
+      "service": "redshift-data",
+      "operation": "DescribeStatement",
+      "status": "success"
+    },
+    {
+      "service": "redshift-data",
+      "operation": "GetStatementResult",
+      "status": "success",
+      "n_items": {
+        "Records": 10,
+        "ColumnMetadata": 2
+      }
+    }
+  ]
+}

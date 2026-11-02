@@ -1,0 +1,6474 @@
+{
+  "verified_at_utc": "2026-10-20T17:01:58.537416+00:00",
+  "scope": "Workbook source inspection of regional state sections only; no Azure ingestion or Silver/Gold transforms executed.",
+  "archive_url": "https://fns-prod.azureedge.us/sites/default/files/resource-files/snap-zip-fy69tocurrent-10.zip",
+  "archive_sha256": "d31418fd3b4b19a760d7b89524c298e8564832c98a945790bd4a830a6c50cdfe",
+  "selected_units": {
+    "B": "Households (unscaled)",
+    "C": "Persons (unscaled)",
+    "D": "Benefit costs (USD, unscaled)",
+    "E": "USD per household",
+    "F": "USD per person"
+  },
+  "files": [
+    {
+      "file": "FY15.xls",
+      "sha256": "b42ab68842be484726dffe78c09a27b40e2f79881fc65c6f45fd9b7aa3c14103",
+      "sheets": [
+        {
+          "sheet": "NERO",
+          "source_report_date_F1_raw": 43077.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Connecticut",
+              "header_row": 8
+            },
+            {
+              "state": "Maine",
+              "header_row": 23
+            },
+            {
+              "state": "Massachusetts",
+              "header_row": 38
+            },
+            {
+              "state": "New Hampshire",
+              "header_row": 53
+            },
+            {
+              "state": "New York",
+              "header_row": 68
+            },
+            {
+              "state": "Rhode Island",
+              "header_row": 83
+            },
+            {
+              "state": "Vermont",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements, Replacements and Other. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MARO",
+          "source_report_date_F1_raw": 43077.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Delaware",
+              "header_row": 8
+            },
+            {
+              "state": "Maryland",
+              "header_row": 38
+            },
+            {
+              "state": "New Jersey",
+              "header_row": 53
+            },
+            {
+              "state": "Pennsylvania",
+              "header_row": 68
+            },
+            {
+              "state": "Virginia",
+              "header_row": 85
+            },
+            {
+              "state": "West Virginia",
+              "header_row": 115
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements, Replacements and Other. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SERO",
+          "source_report_date_F1_raw": 43077.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alabama",
+              "header_row": 8
+            },
+            {
+              "state": "Florida",
+              "header_row": 23
+            },
+            {
+              "state": "Georgia",
+              "header_row": 38
+            },
+            {
+              "state": "Kentucky",
+              "header_row": 53
+            },
+            {
+              "state": "Mississippi",
+              "header_row": 68
+            },
+            {
+              "state": "North Carolina",
+              "header_row": 83
+            },
+            {
+              "state": "South Carolina",
+              "header_row": 98
+            },
+            {
+              "state": "Tennessee",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements, Replacements and Other. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MWRO",
+          "source_report_date_F1_raw": 43077.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Illinois",
+              "header_row": 8
+            },
+            {
+              "state": "Indiana",
+              "header_row": 23
+            },
+            {
+              "state": "Michigan",
+              "header_row": 38
+            },
+            {
+              "state": "Minnesota",
+              "header_row": 53
+            },
+            {
+              "state": "Ohio",
+              "header_row": 68
+            },
+            {
+              "state": "Wisconsin",
+              "header_row": 83
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements, Replacements and Other. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SWRO",
+          "source_report_date_F1_raw": 43077.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Arkansas",
+              "header_row": 8
+            },
+            {
+              "state": "Louisiana",
+              "header_row": 23
+            },
+            {
+              "state": "New Mexico",
+              "header_row": 38
+            },
+            {
+              "state": "Oklahoma",
+              "header_row": 53
+            },
+            {
+              "state": "Texas",
+              "header_row": 68
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements, Replacements and Other. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MPRO",
+          "source_report_date_F1_raw": 43077.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Colorado",
+              "header_row": 8
+            },
+            {
+              "state": "Iowa",
+              "header_row": 23
+            },
+            {
+              "state": "Kansas",
+              "header_row": 38
+            },
+            {
+              "state": "Missouri",
+              "header_row": 53
+            },
+            {
+              "state": "Montana",
+              "header_row": 68
+            },
+            {
+              "state": "Nebraska",
+              "header_row": 83
+            },
+            {
+              "state": "North Dakota",
+              "header_row": 98
+            },
+            {
+              "state": "South Dakota",
+              "header_row": 113
+            },
+            {
+              "state": "Utah",
+              "header_row": 128
+            },
+            {
+              "state": "Wyoming",
+              "header_row": 143
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements, Replacements and Other. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "WRO",
+          "source_report_date_F1_raw": 43077.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alaska",
+              "header_row": 8
+            },
+            {
+              "state": "Arizona",
+              "header_row": 25
+            },
+            {
+              "state": "California",
+              "header_row": 40
+            },
+            {
+              "state": "Hawaii",
+              "header_row": 70
+            },
+            {
+              "state": "Idaho",
+              "header_row": 85
+            },
+            {
+              "state": "Nevada",
+              "header_row": 100
+            },
+            {
+              "state": "Oregon",
+              "header_row": 115
+            },
+            {
+              "state": "Washington",
+              "header_row": 130
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements, Replacements and Other. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "FY16.xls",
+      "sha256": "c1bf32e4411f1d05c403e0f15cdcd373f34215377d08a7bc900c895791d62974",
+      "sheets": [
+        {
+          "sheet": "NERO",
+          "source_report_date_F1_raw": 43077.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Connecticut",
+              "header_row": 8
+            },
+            {
+              "state": "Maine",
+              "header_row": 23
+            },
+            {
+              "state": "Massachusetts",
+              "header_row": 38
+            },
+            {
+              "state": "New Hampshire",
+              "header_row": 53
+            },
+            {
+              "state": "New York",
+              "header_row": 68
+            },
+            {
+              "state": "Rhode Island",
+              "header_row": 83
+            },
+            {
+              "state": "Vermont",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements, Replacements and Other. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MARO",
+          "source_report_date_F1_raw": 43077.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Delaware",
+              "header_row": 8
+            },
+            {
+              "state": "Maryland",
+              "header_row": 38
+            },
+            {
+              "state": "New Jersey",
+              "header_row": 53
+            },
+            {
+              "state": "Pennsylvania",
+              "header_row": 68
+            },
+            {
+              "state": "Virginia",
+              "header_row": 85
+            },
+            {
+              "state": "West Virginia",
+              "header_row": 115
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements, Replacements and Other. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SERO",
+          "source_report_date_F1_raw": 43077.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alabama",
+              "header_row": 8
+            },
+            {
+              "state": "Florida",
+              "header_row": 23
+            },
+            {
+              "state": "Georgia",
+              "header_row": 38
+            },
+            {
+              "state": "Kentucky",
+              "header_row": 53
+            },
+            {
+              "state": "Mississippi",
+              "header_row": 68
+            },
+            {
+              "state": "North Carolina",
+              "header_row": 83
+            },
+            {
+              "state": "South Carolina",
+              "header_row": 98
+            },
+            {
+              "state": "Tennessee",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements, Replacements and Other. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MWRO",
+          "source_report_date_F1_raw": 43077.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Illinois",
+              "header_row": 8
+            },
+            {
+              "state": "Indiana",
+              "header_row": 23
+            },
+            {
+              "state": "Michigan",
+              "header_row": 38
+            },
+            {
+              "state": "Minnesota",
+              "header_row": 53
+            },
+            {
+              "state": "Ohio",
+              "header_row": 68
+            },
+            {
+              "state": "Wisconsin",
+              "header_row": 83
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements, Replacements and Other. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SWRO",
+          "source_report_date_F1_raw": 43077.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Arkansas",
+              "header_row": 8
+            },
+            {
+              "state": "Louisiana",
+              "header_row": 23
+            },
+            {
+              "state": "New Mexico",
+              "header_row": 38
+            },
+            {
+              "state": "Oklahoma",
+              "header_row": 53
+            },
+            {
+              "state": "Texas",
+              "header_row": 68
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements, Replacements and Other. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MPRO",
+          "source_report_date_F1_raw": 43077.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Colorado",
+              "header_row": 8
+            },
+            {
+              "state": "Iowa",
+              "header_row": 23
+            },
+            {
+              "state": "Kansas",
+              "header_row": 38
+            },
+            {
+              "state": "Missouri",
+              "header_row": 53
+            },
+            {
+              "state": "Montana",
+              "header_row": 68
+            },
+            {
+              "state": "Nebraska",
+              "header_row": 83
+            },
+            {
+              "state": "North Dakota",
+              "header_row": 98
+            },
+            {
+              "state": "South Dakota",
+              "header_row": 113
+            },
+            {
+              "state": "Utah",
+              "header_row": 128
+            },
+            {
+              "state": "Wyoming",
+              "header_row": 143
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements, Replacements and Other. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "WRO",
+          "source_report_date_F1_raw": 43077.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alaska",
+              "header_row": 8
+            },
+            {
+              "state": "Arizona",
+              "header_row": 25
+            },
+            {
+              "state": "California",
+              "header_row": 40
+            },
+            {
+              "state": "Hawaii",
+              "header_row": 70
+            },
+            {
+              "state": "Idaho",
+              "header_row": 85
+            },
+            {
+              "state": "Nevada",
+              "header_row": 100
+            },
+            {
+              "state": "Oregon",
+              "header_row": 115
+            },
+            {
+              "state": "Washington",
+              "header_row": 130
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements, Replacements and Other. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "FY17.xls",
+      "sha256": "3c7ed870277bf5dfa95e049d485d14f68ec9d93ffdb0559e0e846106e3262c79",
+      "sheets": [
+        {
+          "sheet": "NERO",
+          "source_report_date_F1_raw": 43903.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Connecticut",
+              "header_row": 8
+            },
+            {
+              "state": "Maine",
+              "header_row": 23
+            },
+            {
+              "state": "Massachusetts",
+              "header_row": 38
+            },
+            {
+              "state": "New Hampshire",
+              "header_row": 53
+            },
+            {
+              "state": "New York",
+              "header_row": 68
+            },
+            {
+              "state": "Rhode Island",
+              "header_row": 83
+            },
+            {
+              "state": "Vermont",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MARO",
+          "source_report_date_F1_raw": 43903.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Delaware",
+              "header_row": 8
+            },
+            {
+              "state": "Maryland",
+              "header_row": 38
+            },
+            {
+              "state": "New Jersey",
+              "header_row": 53
+            },
+            {
+              "state": "Pennsylvania",
+              "header_row": 68
+            },
+            {
+              "state": "Virginia",
+              "header_row": 85
+            },
+            {
+              "state": "West Virginia",
+              "header_row": 100
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SERO",
+          "source_report_date_F1_raw": 43903.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alabama",
+              "header_row": 8
+            },
+            {
+              "state": "Florida",
+              "header_row": 23
+            },
+            {
+              "state": "Georgia",
+              "header_row": 38
+            },
+            {
+              "state": "Kentucky",
+              "header_row": 53
+            },
+            {
+              "state": "Mississippi",
+              "header_row": 68
+            },
+            {
+              "state": "North Carolina",
+              "header_row": 83
+            },
+            {
+              "state": "South Carolina",
+              "header_row": 98
+            },
+            {
+              "state": "Tennessee",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MWRO",
+          "source_report_date_F1_raw": 43903.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Illinois",
+              "header_row": 8
+            },
+            {
+              "state": "Indiana",
+              "header_row": 23
+            },
+            {
+              "state": "Iowa",
+              "header_row": 38
+            },
+            {
+              "state": "Michigan",
+              "header_row": 53
+            },
+            {
+              "state": "Minnesota",
+              "header_row": 68
+            },
+            {
+              "state": "Ohio",
+              "header_row": 83
+            },
+            {
+              "state": "Wisconsin",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SWRO",
+          "source_report_date_F1_raw": 43903.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Arizona",
+              "header_row": 8
+            },
+            {
+              "state": "Arkansas",
+              "header_row": 23
+            },
+            {
+              "state": "Louisiana",
+              "header_row": 38
+            },
+            {
+              "state": "New Mexico",
+              "header_row": 53
+            },
+            {
+              "state": "Oklahoma",
+              "header_row": 68
+            },
+            {
+              "state": "Texas",
+              "header_row": 83
+            },
+            {
+              "state": "Utah",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MPRO",
+          "source_report_date_F1_raw": 43903.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Colorado",
+              "header_row": 8
+            },
+            {
+              "state": "Kansas",
+              "header_row": 23
+            },
+            {
+              "state": "Missouri",
+              "header_row": 38
+            },
+            {
+              "state": "Montana",
+              "header_row": 53
+            },
+            {
+              "state": "Nebraska",
+              "header_row": 68
+            },
+            {
+              "state": "North Dakota",
+              "header_row": 83
+            },
+            {
+              "state": "South Dakota",
+              "header_row": 98
+            },
+            {
+              "state": "Wyoming",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "WRO",
+          "source_report_date_F1_raw": 43903.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alaska",
+              "header_row": 8
+            },
+            {
+              "state": "California",
+              "header_row": 25
+            },
+            {
+              "state": "Hawaii",
+              "header_row": 55
+            },
+            {
+              "state": "Idaho",
+              "header_row": 70
+            },
+            {
+              "state": "Nevada",
+              "header_row": 85
+            },
+            {
+              "state": "Oregon",
+              "header_row": 100
+            },
+            {
+              "state": "Washington",
+              "header_row": 115
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "FY18.xls",
+      "sha256": "eff803123fd8a15971b2a0db74184697724710e051e98a529cd8a018e7c7f26c",
+      "sheets": [
+        {
+          "sheet": "NERO",
+          "source_report_date_F1_raw": 43903.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Connecticut",
+              "header_row": 8
+            },
+            {
+              "state": "Maine",
+              "header_row": 23
+            },
+            {
+              "state": "Massachusetts",
+              "header_row": 38
+            },
+            {
+              "state": "New Hampshire",
+              "header_row": 53
+            },
+            {
+              "state": "New York",
+              "header_row": 68
+            },
+            {
+              "state": "Rhode Island",
+              "header_row": 83
+            },
+            {
+              "state": "Vermont",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MARO",
+          "source_report_date_F1_raw": 43903.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Delaware",
+              "header_row": 8
+            },
+            {
+              "state": "Maryland",
+              "header_row": 38
+            },
+            {
+              "state": "New Jersey",
+              "header_row": 53
+            },
+            {
+              "state": "Pennsylvania",
+              "header_row": 68
+            },
+            {
+              "state": "Virginia",
+              "header_row": 85
+            },
+            {
+              "state": "West Virginia",
+              "header_row": 100
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SERO",
+          "source_report_date_F1_raw": 43903.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alabama",
+              "header_row": 8
+            },
+            {
+              "state": "Florida",
+              "header_row": 23
+            },
+            {
+              "state": "Georgia",
+              "header_row": 38
+            },
+            {
+              "state": "Kentucky",
+              "header_row": 53
+            },
+            {
+              "state": "Mississippi",
+              "header_row": 68
+            },
+            {
+              "state": "North Carolina",
+              "header_row": 83
+            },
+            {
+              "state": "South Carolina",
+              "header_row": 98
+            },
+            {
+              "state": "Tennessee",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MWRO",
+          "source_report_date_F1_raw": 43903.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Illinois",
+              "header_row": 8
+            },
+            {
+              "state": "Indiana",
+              "header_row": 23
+            },
+            {
+              "state": "Iowa",
+              "header_row": 38
+            },
+            {
+              "state": "Michigan",
+              "header_row": 53
+            },
+            {
+              "state": "Minnesota",
+              "header_row": 68
+            },
+            {
+              "state": "Ohio",
+              "header_row": 83
+            },
+            {
+              "state": "Wisconsin",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SWRO",
+          "source_report_date_F1_raw": 43903.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Arizona",
+              "header_row": 8
+            },
+            {
+              "state": "Arkansas",
+              "header_row": 23
+            },
+            {
+              "state": "Louisiana",
+              "header_row": 38
+            },
+            {
+              "state": "New Mexico",
+              "header_row": 53
+            },
+            {
+              "state": "Oklahoma",
+              "header_row": 68
+            },
+            {
+              "state": "Texas",
+              "header_row": 83
+            },
+            {
+              "state": "Utah",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MPRO",
+          "source_report_date_F1_raw": 43903.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Colorado",
+              "header_row": 8
+            },
+            {
+              "state": "Kansas",
+              "header_row": 23
+            },
+            {
+              "state": "Missouri",
+              "header_row": 38
+            },
+            {
+              "state": "Montana",
+              "header_row": 53
+            },
+            {
+              "state": "Nebraska",
+              "header_row": 68
+            },
+            {
+              "state": "North Dakota",
+              "header_row": 83
+            },
+            {
+              "state": "South Dakota",
+              "header_row": 98
+            },
+            {
+              "state": "Wyoming",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "WRO",
+          "source_report_date_F1_raw": 43903.0,
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alaska",
+              "header_row": 8
+            },
+            {
+              "state": "California",
+              "header_row": 25
+            },
+            {
+              "state": "Hawaii",
+              "header_row": 55
+            },
+            {
+              "state": "Idaho",
+              "header_row": 70
+            },
+            {
+              "state": "Nevada",
+              "header_row": 85
+            },
+            {
+              "state": "Oregon",
+              "header_row": 100
+            },
+            {
+              "state": "Washington",
+              "header_row": 115
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "FY19.xls",
+      "sha256": "688b0d179cc41afd600868ce1c1588436dc95f829470f9f61115066aa1065aa5",
+      "sheets": [
+        {
+          "sheet": "NERO",
+          "source_report_date_F1_raw": "05/07/2021",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Connecticut",
+              "header_row": 8
+            },
+            {
+              "state": "Maine",
+              "header_row": 23
+            },
+            {
+              "state": "Massachusetts",
+              "header_row": 38
+            },
+            {
+              "state": "New Hampshire",
+              "header_row": 53
+            },
+            {
+              "state": "New York",
+              "header_row": 68
+            },
+            {
+              "state": "Rhode Island",
+              "header_row": 83
+            },
+            {
+              "state": "Vermont",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category.",
+            "2. Due to the partial Federal government shutdown, most of the February 2019 SNAP benefits were issued early in the month of January 2019.  This was done to ensure SNAP recipients would receive their February 2019 benefits in a timely manner.  As a result, January 2019's benefits will show a significant increase over the previous month and February 2019's benefits will show significantly less than January 2019."
+          ]
+        },
+        {
+          "sheet": "MARO",
+          "source_report_date_F1_raw": "05/07/2021",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Delaware",
+              "header_row": 8
+            },
+            {
+              "state": "Maryland",
+              "header_row": 38
+            },
+            {
+              "state": "New Jersey",
+              "header_row": 53
+            },
+            {
+              "state": "Pennsylvania",
+              "header_row": 68
+            },
+            {
+              "state": "Virginia",
+              "header_row": 85
+            },
+            {
+              "state": "West Virginia",
+              "header_row": 100
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category.",
+            "2. Due to the partial Federal government shutdown, most of the February 2019 SNAP benefits were issued early in the month of January 2019.  This was done to ensure SNAP recipients would receive their February 2019 benefits in a timely manner.  As a result, January 2019's benefits will show a significant increase over the previous month and February 2019's benefits will show significantly less than January 2019."
+          ]
+        },
+        {
+          "sheet": "SERO",
+          "source_report_date_F1_raw": "05/07/2021",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alabama",
+              "header_row": 8
+            },
+            {
+              "state": "Florida",
+              "header_row": 23
+            },
+            {
+              "state": "Georgia",
+              "header_row": 38
+            },
+            {
+              "state": "Kentucky",
+              "header_row": 53
+            },
+            {
+              "state": "Mississippi",
+              "header_row": 68
+            },
+            {
+              "state": "North Carolina",
+              "header_row": 83
+            },
+            {
+              "state": "South Carolina",
+              "header_row": 98
+            },
+            {
+              "state": "Tennessee",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category.",
+            "2. Due to the partial Federal government shutdown, most of the February 2019 SNAP benefits were issued early in the month of January 2019.  This was done to ensure SNAP recipients would receive their February 2019 benefits in a timely manner.  As a result, January 2019's benefits will show a significant increase over the previous month and February 2019's benefits will show significantly less than January 2019."
+          ]
+        },
+        {
+          "sheet": "MWRO",
+          "source_report_date_F1_raw": "05/07/2021",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Illinois",
+              "header_row": 8
+            },
+            {
+              "state": "Indiana",
+              "header_row": 23
+            },
+            {
+              "state": "Iowa",
+              "header_row": 38
+            },
+            {
+              "state": "Michigan",
+              "header_row": 53
+            },
+            {
+              "state": "Minnesota",
+              "header_row": 68
+            },
+            {
+              "state": "Ohio",
+              "header_row": 83
+            },
+            {
+              "state": "Wisconsin",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category.",
+            "2. Due to the partial Federal government shutdown, most of the February 2019 SNAP benefits were issued early in the month of January 2019.  This was done to ensure SNAP recipients would receive their February 2019 benefits in a timely manner.  As a result, January 2019's benefits will show a significant increase over the previous month and February 2019's benefits will show significantly less than January 2019."
+          ]
+        },
+        {
+          "sheet": "SWRO",
+          "source_report_date_F1_raw": "05/07/2021",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Arizona",
+              "header_row": 8
+            },
+            {
+              "state": "Arkansas",
+              "header_row": 23
+            },
+            {
+              "state": "Louisiana",
+              "header_row": 38
+            },
+            {
+              "state": "New Mexico",
+              "header_row": 53
+            },
+            {
+              "state": "Oklahoma",
+              "header_row": 68
+            },
+            {
+              "state": "Texas",
+              "header_row": 83
+            },
+            {
+              "state": "Utah",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category.",
+            "2. Due to the partial Federal government shutdown, most of the February 2019 SNAP benefits were issued early in the month of January 2019.  This was done to ensure SNAP recipients would receive their February 2019 benefits in a timely manner.  As a result, January 2019's benefits will show a significant increase over the previous month and February 2019's benefits will show significantly less than January 2019."
+          ]
+        },
+        {
+          "sheet": "MPRO",
+          "source_report_date_F1_raw": "05/07/2021",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Colorado",
+              "header_row": 8
+            },
+            {
+              "state": "Kansas",
+              "header_row": 23
+            },
+            {
+              "state": "Missouri",
+              "header_row": 38
+            },
+            {
+              "state": "Montana",
+              "header_row": 53
+            },
+            {
+              "state": "Nebraska",
+              "header_row": 68
+            },
+            {
+              "state": "North Dakota",
+              "header_row": 83
+            },
+            {
+              "state": "South Dakota",
+              "header_row": 98
+            },
+            {
+              "state": "Wyoming",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category.",
+            "2. Due to the partial Federal government shutdown, most of the February 2019 SNAP benefits were issued early in the month of January 2019.  This was done to ensure SNAP recipients would receive their February 2019 benefits in a timely manner.  As a result, January 2019's benefits will show a significant increase over the previous month and February 2019's benefits will show significantly less than January 2019."
+          ]
+        },
+        {
+          "sheet": "WRO",
+          "source_report_date_F1_raw": "05/07/2021",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              "",
+              "",
+              "",
+              ""
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              "",
+              "Cost",
+              "Cost Per",
+              ""
+            ],
+            [
+              "",
+              "Household",
+              "Persons",
+              "",
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alaska",
+              "header_row": 8
+            },
+            {
+              "state": "California",
+              "header_row": 25
+            },
+            {
+              "state": "Hawaii",
+              "header_row": 55
+            },
+            {
+              "state": "Idaho",
+              "header_row": 70
+            },
+            {
+              "state": "Nevada",
+              "header_row": 85
+            },
+            {
+              "state": "Oregon",
+              "header_row": 100
+            },
+            {
+              "state": "Washington",
+              "header_row": 115
+            }
+          ],
+          "footnotes": [
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category.",
+            "2. Due to the partial Federal government shutdown, most of the February 2019 SNAP benefits were issued early in the month of January 2019.  This was done to ensure SNAP recipients would receive their February 2019 benefits in a timely manner.  As a result, January 2019's benefits will show a significant increase over the previous month and February 2019's benefits will show significantly less than January 2019."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "FY20.xlsx",
+      "sha256": "3c4ff195447db655624afb1e41b8ae82024f686340b1164d8dcd5611b458b541",
+      "sheets": [
+        {
+          "sheet": "NERO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Connecticut",
+              "header_row": 8
+            },
+            {
+              "state": "Maine",
+              "header_row": 23
+            },
+            {
+              "state": "Massachusetts",
+              "header_row": 38
+            },
+            {
+              "state": "New Hampshire",
+              "header_row": 53
+            },
+            {
+              "state": "New York",
+              "header_row": 68
+            },
+            {
+              "state": "Rhode Island",
+              "header_row": 83
+            },
+            {
+              "state": "Vermont",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MARO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Delaware",
+              "header_row": 8
+            },
+            {
+              "state": "Maryland",
+              "header_row": 38
+            },
+            {
+              "state": "New Jersey",
+              "header_row": 53
+            },
+            {
+              "state": "Pennsylvania",
+              "header_row": 68
+            },
+            {
+              "state": "Virginia",
+              "header_row": 98
+            },
+            {
+              "state": "West Virginia",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SERO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alabama",
+              "header_row": 8
+            },
+            {
+              "state": "Florida",
+              "header_row": 23
+            },
+            {
+              "state": "Georgia",
+              "header_row": 38
+            },
+            {
+              "state": "Kentucky",
+              "header_row": 53
+            },
+            {
+              "state": "Mississippi",
+              "header_row": 68
+            },
+            {
+              "state": "North Carolina",
+              "header_row": 83
+            },
+            {
+              "state": "South Carolina",
+              "header_row": 98
+            },
+            {
+              "state": "Tennessee",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MWRO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Illinois",
+              "header_row": 8
+            },
+            {
+              "state": "Indiana",
+              "header_row": 23
+            },
+            {
+              "state": "Iowa",
+              "header_row": 38
+            },
+            {
+              "state": "Michigan",
+              "header_row": 53
+            },
+            {
+              "state": "Minnesota",
+              "header_row": 68
+            },
+            {
+              "state": "Ohio",
+              "header_row": 83
+            },
+            {
+              "state": "Wisconsin",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SWRO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Arizona",
+              "header_row": 8
+            },
+            {
+              "state": "Arkansas",
+              "header_row": 23
+            },
+            {
+              "state": "Louisiana",
+              "header_row": 38
+            },
+            {
+              "state": "New Mexico",
+              "header_row": 53
+            },
+            {
+              "state": "Oklahoma",
+              "header_row": 68
+            },
+            {
+              "state": "Texas",
+              "header_row": 83
+            },
+            {
+              "state": "Utah",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MPRO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Colorado",
+              "header_row": 8
+            },
+            {
+              "state": "Kansas",
+              "header_row": 23
+            },
+            {
+              "state": "Missouri",
+              "header_row": 38
+            },
+            {
+              "state": "Montana",
+              "header_row": 53
+            },
+            {
+              "state": "Nebraska",
+              "header_row": 68
+            },
+            {
+              "state": "North Dakota",
+              "header_row": 83
+            },
+            {
+              "state": "South Dakota",
+              "header_row": 98
+            },
+            {
+              "state": "Wyoming",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "WRO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alaska",
+              "header_row": 8
+            },
+            {
+              "state": "California",
+              "header_row": 38
+            },
+            {
+              "state": "Hawaii",
+              "header_row": 68
+            },
+            {
+              "state": "Idaho",
+              "header_row": 83
+            },
+            {
+              "state": "Nevada",
+              "header_row": 98
+            },
+            {
+              "state": "Oregon",
+              "header_row": 113
+            },
+            {
+              "state": "Washington",
+              "header_row": 128
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "FY21.xlsx",
+      "sha256": "04318a940b8cbb0015f939d0eb96fae289f32c3f021fc5151ef0b59a5bf0ec89",
+      "sheets": [
+        {
+          "sheet": "NERO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Connecticut",
+              "header_row": 8
+            },
+            {
+              "state": "Maine",
+              "header_row": 23
+            },
+            {
+              "state": "Massachusetts",
+              "header_row": 38
+            },
+            {
+              "state": "New Hampshire",
+              "header_row": 53
+            },
+            {
+              "state": "New York",
+              "header_row": 68
+            },
+            {
+              "state": "Rhode Island",
+              "header_row": 83
+            },
+            {
+              "state": "Vermont",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MARO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Delaware",
+              "header_row": 8
+            },
+            {
+              "state": "Maryland",
+              "header_row": 38
+            },
+            {
+              "state": "New Jersey",
+              "header_row": 53
+            },
+            {
+              "state": "Pennsylvania",
+              "header_row": 68
+            },
+            {
+              "state": "Virginia",
+              "header_row": 98
+            },
+            {
+              "state": "West Virginia",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SERO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alabama",
+              "header_row": 8
+            },
+            {
+              "state": "Florida",
+              "header_row": 23
+            },
+            {
+              "state": "Georgia",
+              "header_row": 38
+            },
+            {
+              "state": "Kentucky",
+              "header_row": 53
+            },
+            {
+              "state": "Mississippi",
+              "header_row": 68
+            },
+            {
+              "state": "North Carolina",
+              "header_row": 83
+            },
+            {
+              "state": "South Carolina",
+              "header_row": 98
+            },
+            {
+              "state": "Tennessee",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MWRO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Illinois",
+              "header_row": 8
+            },
+            {
+              "state": "Indiana",
+              "header_row": 23
+            },
+            {
+              "state": "Iowa",
+              "header_row": 38
+            },
+            {
+              "state": "Michigan",
+              "header_row": 53
+            },
+            {
+              "state": "Minnesota",
+              "header_row": 68
+            },
+            {
+              "state": "Ohio",
+              "header_row": 83
+            },
+            {
+              "state": "Wisconsin",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SWRO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Arizona",
+              "header_row": 8
+            },
+            {
+              "state": "Arkansas",
+              "header_row": 23
+            },
+            {
+              "state": "Louisiana",
+              "header_row": 38
+            },
+            {
+              "state": "New Mexico",
+              "header_row": 53
+            },
+            {
+              "state": "Oklahoma",
+              "header_row": 68
+            },
+            {
+              "state": "Texas",
+              "header_row": 83
+            },
+            {
+              "state": "Utah",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MPRO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Colorado",
+              "header_row": 8
+            },
+            {
+              "state": "Kansas",
+              "header_row": 23
+            },
+            {
+              "state": "Missouri",
+              "header_row": 38
+            },
+            {
+              "state": "Montana",
+              "header_row": 53
+            },
+            {
+              "state": "Nebraska",
+              "header_row": 68
+            },
+            {
+              "state": "North Dakota",
+              "header_row": 83
+            },
+            {
+              "state": "South Dakota",
+              "header_row": 98
+            },
+            {
+              "state": "Wyoming",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "WRO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alaska",
+              "header_row": 8
+            },
+            {
+              "state": "California",
+              "header_row": 38
+            },
+            {
+              "state": "Hawaii",
+              "header_row": 68
+            },
+            {
+              "state": "Idaho",
+              "header_row": 83
+            },
+            {
+              "state": "Nevada",
+              "header_row": 98
+            },
+            {
+              "state": "Oregon",
+              "header_row": 113
+            },
+            {
+              "state": "Washington",
+              "header_row": 128
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "FY22.xlsx",
+      "sha256": "1ae9c55d6c1ce6af10f53c09962273730fd6f17edeb8e679fb3f4236bbbf9177",
+      "sheets": [
+        {
+          "sheet": "NERO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Connecticut",
+              "header_row": 8
+            },
+            {
+              "state": "Maine",
+              "header_row": 23
+            },
+            {
+              "state": "Massachusetts",
+              "header_row": 38
+            },
+            {
+              "state": "New Hampshire",
+              "header_row": 53
+            },
+            {
+              "state": "New York",
+              "header_row": 68
+            },
+            {
+              "state": "Rhode Island",
+              "header_row": 83
+            },
+            {
+              "state": "Vermont",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MARO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Delaware",
+              "header_row": 8
+            },
+            {
+              "state": "Maryland",
+              "header_row": 38
+            },
+            {
+              "state": "New Jersey",
+              "header_row": 53
+            },
+            {
+              "state": "Pennsylvania",
+              "header_row": 68
+            },
+            {
+              "state": "Virginia",
+              "header_row": 98
+            },
+            {
+              "state": "West Virginia",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SERO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alabama",
+              "header_row": 8
+            },
+            {
+              "state": "Florida",
+              "header_row": 23
+            },
+            {
+              "state": "Georgia",
+              "header_row": 38
+            },
+            {
+              "state": "Kentucky",
+              "header_row": 53
+            },
+            {
+              "state": "Mississippi",
+              "header_row": 68
+            },
+            {
+              "state": "North Carolina",
+              "header_row": 83
+            },
+            {
+              "state": "South Carolina",
+              "header_row": 98
+            },
+            {
+              "state": "Tennessee",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MWRO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Illinois",
+              "header_row": 8
+            },
+            {
+              "state": "Indiana",
+              "header_row": 23
+            },
+            {
+              "state": "Iowa",
+              "header_row": 38
+            },
+            {
+              "state": "Michigan",
+              "header_row": 53
+            },
+            {
+              "state": "Minnesota",
+              "header_row": 68
+            },
+            {
+              "state": "Ohio",
+              "header_row": 83
+            },
+            {
+              "state": "Wisconsin",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SWRO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Arizona",
+              "header_row": 8
+            },
+            {
+              "state": "Arkansas",
+              "header_row": 23
+            },
+            {
+              "state": "Louisiana",
+              "header_row": 38
+            },
+            {
+              "state": "New Mexico",
+              "header_row": 53
+            },
+            {
+              "state": "Oklahoma",
+              "header_row": 68
+            },
+            {
+              "state": "Texas",
+              "header_row": 83
+            },
+            {
+              "state": "Utah",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MPRO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Colorado",
+              "header_row": 8
+            },
+            {
+              "state": "Kansas",
+              "header_row": 23
+            },
+            {
+              "state": "Missouri",
+              "header_row": 38
+            },
+            {
+              "state": "Montana",
+              "header_row": 53
+            },
+            {
+              "state": "Nebraska",
+              "header_row": 68
+            },
+            {
+              "state": "North Dakota",
+              "header_row": 83
+            },
+            {
+              "state": "South Dakota",
+              "header_row": 98
+            },
+            {
+              "state": "Wyoming",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "WRO",
+          "source_report_date_F1_raw": "2024-03-08T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alaska",
+              "header_row": 8
+            },
+            {
+              "state": "California",
+              "header_row": 38
+            },
+            {
+              "state": "Hawaii",
+              "header_row": 68
+            },
+            {
+              "state": "Idaho",
+              "header_row": 83
+            },
+            {
+              "state": "Nevada",
+              "header_row": 98
+            },
+            {
+              "state": "Oregon",
+              "header_row": 113
+            },
+            {
+              "state": "Washington",
+              "header_row": 128
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "FY23.xlsx",
+      "sha256": "f84daecca66edec5a50988af85c4bc61c221bbdbfa7d831d8e459edcb83b0df0",
+      "sheets": [
+        {
+          "sheet": "NERO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Connecticut",
+              "header_row": 8
+            },
+            {
+              "state": "Maine",
+              "header_row": 23
+            },
+            {
+              "state": "Massachusetts",
+              "header_row": 38
+            },
+            {
+              "state": "New Hampshire",
+              "header_row": 53
+            },
+            {
+              "state": "New York",
+              "header_row": 68
+            },
+            {
+              "state": "Rhode Island",
+              "header_row": 83
+            },
+            {
+              "state": "Vermont",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MARO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Delaware",
+              "header_row": 8
+            },
+            {
+              "state": "Maryland",
+              "header_row": 38
+            },
+            {
+              "state": "New Jersey",
+              "header_row": 53
+            },
+            {
+              "state": "Pennsylvania",
+              "header_row": 68
+            },
+            {
+              "state": "Virginia",
+              "header_row": 98
+            },
+            {
+              "state": "West Virginia",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SERO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alabama",
+              "header_row": 8
+            },
+            {
+              "state": "Florida",
+              "header_row": 23
+            },
+            {
+              "state": "Georgia",
+              "header_row": 38
+            },
+            {
+              "state": "Kentucky",
+              "header_row": 53
+            },
+            {
+              "state": "Mississippi",
+              "header_row": 68
+            },
+            {
+              "state": "North Carolina",
+              "header_row": 83
+            },
+            {
+              "state": "South Carolina",
+              "header_row": 98
+            },
+            {
+              "state": "Tennessee",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MWRO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Illinois",
+              "header_row": 8
+            },
+            {
+              "state": "Indiana",
+              "header_row": 23
+            },
+            {
+              "state": "Iowa",
+              "header_row": 38
+            },
+            {
+              "state": "Michigan",
+              "header_row": 53
+            },
+            {
+              "state": "Minnesota",
+              "header_row": 68
+            },
+            {
+              "state": "Ohio",
+              "header_row": 83
+            },
+            {
+              "state": "Wisconsin",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SWRO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Arizona",
+              "header_row": 8
+            },
+            {
+              "state": "Arkansas",
+              "header_row": 23
+            },
+            {
+              "state": "Louisiana",
+              "header_row": 38
+            },
+            {
+              "state": "New Mexico",
+              "header_row": 53
+            },
+            {
+              "state": "Oklahoma",
+              "header_row": 68
+            },
+            {
+              "state": "Texas",
+              "header_row": 83
+            },
+            {
+              "state": "Utah",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MPRO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Colorado",
+              "header_row": 8
+            },
+            {
+              "state": "Kansas",
+              "header_row": 23
+            },
+            {
+              "state": "Missouri",
+              "header_row": 38
+            },
+            {
+              "state": "Montana",
+              "header_row": 53
+            },
+            {
+              "state": "Nebraska",
+              "header_row": 68
+            },
+            {
+              "state": "North Dakota",
+              "header_row": 83
+            },
+            {
+              "state": "South Dakota",
+              "header_row": 98
+            },
+            {
+              "state": "Wyoming",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "WRO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alaska",
+              "header_row": 8
+            },
+            {
+              "state": "California",
+              "header_row": 38
+            },
+            {
+              "state": "Hawaii",
+              "header_row": 68
+            },
+            {
+              "state": "Idaho",
+              "header_row": 83
+            },
+            {
+              "state": "Nevada",
+              "header_row": 98
+            },
+            {
+              "state": "Oregon",
+              "header_row": 113
+            },
+            {
+              "state": "Washington",
+              "header_row": 128
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "FY24.xlsx",
+      "sha256": "d66aea0be71004ae73db1b4e51e6670f5558283e8f98ff35458b46674a1184ee",
+      "sheets": [
+        {
+          "sheet": "NERO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Connecticut",
+              "header_row": 8
+            },
+            {
+              "state": "Maine",
+              "header_row": 23
+            },
+            {
+              "state": "Massachusetts",
+              "header_row": 38
+            },
+            {
+              "state": "New Hampshire",
+              "header_row": 53
+            },
+            {
+              "state": "New York",
+              "header_row": 68
+            },
+            {
+              "state": "Rhode Island",
+              "header_row": 83
+            },
+            {
+              "state": "Vermont",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MARO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Delaware",
+              "header_row": 8
+            },
+            {
+              "state": "Maryland",
+              "header_row": 38
+            },
+            {
+              "state": "New Jersey",
+              "header_row": 53
+            },
+            {
+              "state": "Pennsylvania",
+              "header_row": 68
+            },
+            {
+              "state": "Virginia",
+              "header_row": 98
+            },
+            {
+              "state": "West Virginia",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SERO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alabama",
+              "header_row": 8
+            },
+            {
+              "state": "Florida",
+              "header_row": 23
+            },
+            {
+              "state": "Georgia",
+              "header_row": 38
+            },
+            {
+              "state": "Kentucky",
+              "header_row": 53
+            },
+            {
+              "state": "Mississippi",
+              "header_row": 68
+            },
+            {
+              "state": "North Carolina",
+              "header_row": 83
+            },
+            {
+              "state": "South Carolina",
+              "header_row": 98
+            },
+            {
+              "state": "Tennessee",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MWRO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Illinois",
+              "header_row": 8
+            },
+            {
+              "state": "Indiana",
+              "header_row": 23
+            },
+            {
+              "state": "Iowa",
+              "header_row": 38
+            },
+            {
+              "state": "Michigan",
+              "header_row": 53
+            },
+            {
+              "state": "Minnesota",
+              "header_row": 68
+            },
+            {
+              "state": "Ohio",
+              "header_row": 83
+            },
+            {
+              "state": "Wisconsin",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SWRO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Arizona",
+              "header_row": 8
+            },
+            {
+              "state": "Arkansas",
+              "header_row": 23
+            },
+            {
+              "state": "Louisiana",
+              "header_row": 38
+            },
+            {
+              "state": "New Mexico",
+              "header_row": 53
+            },
+            {
+              "state": "Oklahoma",
+              "header_row": 68
+            },
+            {
+              "state": "Texas",
+              "header_row": 83
+            },
+            {
+              "state": "Utah",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MPRO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Colorado",
+              "header_row": 8
+            },
+            {
+              "state": "Kansas",
+              "header_row": 23
+            },
+            {
+              "state": "Missouri",
+              "header_row": 38
+            },
+            {
+              "state": "Montana",
+              "header_row": 53
+            },
+            {
+              "state": "Nebraska",
+              "header_row": 68
+            },
+            {
+              "state": "North Dakota",
+              "header_row": 83
+            },
+            {
+              "state": "South Dakota",
+              "header_row": 98
+            },
+            {
+              "state": "Wyoming",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "WRO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alaska",
+              "header_row": 8
+            },
+            {
+              "state": "California",
+              "header_row": 38
+            },
+            {
+              "state": "Hawaii",
+              "header_row": 68
+            },
+            {
+              "state": "Idaho",
+              "header_row": 83
+            },
+            {
+              "state": "Nevada",
+              "header_row": 98
+            },
+            {
+              "state": "Oregon",
+              "header_row": 113
+            },
+            {
+              "state": "Washington",
+              "header_row": 128
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "FY25.xlsx",
+      "sha256": "fe9ca933cf6cae1880c87d62b1cbce4cc869464f1e532eeb902bdb3b5979bd11",
+      "sheets": [
+        {
+          "sheet": "NERO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Connecticut",
+              "header_row": 8
+            },
+            {
+              "state": "Maine",
+              "header_row": 23
+            },
+            {
+              "state": "Massachusetts",
+              "header_row": 38
+            },
+            {
+              "state": "New Hampshire",
+              "header_row": 53
+            },
+            {
+              "state": "New York",
+              "header_row": 68
+            },
+            {
+              "state": "Rhode Island",
+              "header_row": 83
+            },
+            {
+              "state": "Vermont",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MARO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Delaware",
+              "header_row": 8
+            },
+            {
+              "state": "Maryland",
+              "header_row": 38
+            },
+            {
+              "state": "New Jersey",
+              "header_row": 53
+            },
+            {
+              "state": "Pennsylvania",
+              "header_row": 68
+            },
+            {
+              "state": "Virginia",
+              "header_row": 98
+            },
+            {
+              "state": "West Virginia",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SERO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alabama",
+              "header_row": 8
+            },
+            {
+              "state": "Florida",
+              "header_row": 23
+            },
+            {
+              "state": "Georgia",
+              "header_row": 38
+            },
+            {
+              "state": "Kentucky",
+              "header_row": 53
+            },
+            {
+              "state": "Mississippi",
+              "header_row": 68
+            },
+            {
+              "state": "North Carolina",
+              "header_row": 83
+            },
+            {
+              "state": "South Carolina",
+              "header_row": 98
+            },
+            {
+              "state": "Tennessee",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MWRO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Illinois",
+              "header_row": 8
+            },
+            {
+              "state": "Indiana",
+              "header_row": 23
+            },
+            {
+              "state": "Iowa",
+              "header_row": 38
+            },
+            {
+              "state": "Michigan",
+              "header_row": 53
+            },
+            {
+              "state": "Minnesota",
+              "header_row": 68
+            },
+            {
+              "state": "Ohio",
+              "header_row": 83
+            },
+            {
+              "state": "Wisconsin",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SWRO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Arizona",
+              "header_row": 8
+            },
+            {
+              "state": "Arkansas",
+              "header_row": 23
+            },
+            {
+              "state": "Louisiana",
+              "header_row": 38
+            },
+            {
+              "state": "New Mexico",
+              "header_row": 53
+            },
+            {
+              "state": "Oklahoma",
+              "header_row": 68
+            },
+            {
+              "state": "Texas",
+              "header_row": 83
+            },
+            {
+              "state": "Utah",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MPRO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Colorado",
+              "header_row": 8
+            },
+            {
+              "state": "Kansas",
+              "header_row": 23
+            },
+            {
+              "state": "Missouri",
+              "header_row": 38
+            },
+            {
+              "state": "Montana",
+              "header_row": 53
+            },
+            {
+              "state": "Nebraska",
+              "header_row": 68
+            },
+            {
+              "state": "North Dakota",
+              "header_row": 83
+            },
+            {
+              "state": "South Dakota",
+              "header_row": 98
+            },
+            {
+              "state": "Wyoming",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "WRO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alaska",
+              "header_row": 8
+            },
+            {
+              "state": "California",
+              "header_row": 38
+            },
+            {
+              "state": "Hawaii",
+              "header_row": 68
+            },
+            {
+              "state": "Idaho",
+              "header_row": 83
+            },
+            {
+              "state": "Nevada",
+              "header_row": 98
+            },
+            {
+              "state": "Oregon",
+              "header_row": 113
+            },
+            {
+              "state": "Washington",
+              "header_row": 128
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "FY26.xlsx",
+      "sha256": "e8169e18ce0d333ce99bd3b660f50e80167ab1e46192abae7e7837d538ca85a9",
+      "sheets": [
+        {
+          "sheet": "NERO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Connecticut",
+              "header_row": 8
+            },
+            {
+              "state": "Maine",
+              "header_row": 23
+            },
+            {
+              "state": "Massachusetts",
+              "header_row": 38
+            },
+            {
+              "state": "New Hampshire",
+              "header_row": 53
+            },
+            {
+              "state": "New York",
+              "header_row": 68
+            },
+            {
+              "state": "Rhode Island",
+              "header_row": 83
+            },
+            {
+              "state": "Vermont",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MARO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Delaware",
+              "header_row": 8
+            },
+            {
+              "state": "Maryland",
+              "header_row": 38
+            },
+            {
+              "state": "New Jersey",
+              "header_row": 53
+            },
+            {
+              "state": "Pennsylvania",
+              "header_row": 68
+            },
+            {
+              "state": "Virginia",
+              "header_row": 98
+            },
+            {
+              "state": "West Virginia",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SERO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alabama",
+              "header_row": 8
+            },
+            {
+              "state": "Florida",
+              "header_row": 23
+            },
+            {
+              "state": "Georgia",
+              "header_row": 38
+            },
+            {
+              "state": "Kentucky",
+              "header_row": 53
+            },
+            {
+              "state": "Mississippi",
+              "header_row": 68
+            },
+            {
+              "state": "North Carolina",
+              "header_row": 83
+            },
+            {
+              "state": "South Carolina",
+              "header_row": 98
+            },
+            {
+              "state": "Tennessee",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MWRO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Illinois",
+              "header_row": 8
+            },
+            {
+              "state": "Indiana",
+              "header_row": 23
+            },
+            {
+              "state": "Iowa",
+              "header_row": 38
+            },
+            {
+              "state": "Michigan",
+              "header_row": 53
+            },
+            {
+              "state": "Minnesota",
+              "header_row": 68
+            },
+            {
+              "state": "Ohio",
+              "header_row": 83
+            },
+            {
+              "state": "Wisconsin",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "SWRO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Arizona",
+              "header_row": 8
+            },
+            {
+              "state": "Arkansas",
+              "header_row": 23
+            },
+            {
+              "state": "Louisiana",
+              "header_row": 38
+            },
+            {
+              "state": "New Mexico",
+              "header_row": 53
+            },
+            {
+              "state": "Oklahoma",
+              "header_row": 68
+            },
+            {
+              "state": "Texas",
+              "header_row": 83
+            },
+            {
+              "state": "Utah",
+              "header_row": 98
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "MPRO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Colorado",
+              "header_row": 8
+            },
+            {
+              "state": "Kansas",
+              "header_row": 23
+            },
+            {
+              "state": "Missouri",
+              "header_row": 38
+            },
+            {
+              "state": "Montana",
+              "header_row": 53
+            },
+            {
+              "state": "Nebraska",
+              "header_row": 68
+            },
+            {
+              "state": "North Dakota",
+              "header_row": 83
+            },
+            {
+              "state": "South Dakota",
+              "header_row": 98
+            },
+            {
+              "state": "Wyoming",
+              "header_row": 113
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        },
+        {
+          "sheet": "WRO",
+          "source_report_date_F1_raw": "2026-10-09T00:00:00",
+          "header_rows_5_to_7": [
+            [
+              " ",
+              "Total 1/",
+              null,
+              null,
+              null,
+              null
+            ],
+            [
+              "Fiscal Year and Month",
+              "Participation 1/",
+              null,
+              "Cost",
+              "Cost Per",
+              null
+            ],
+            [
+              null,
+              "Household",
+              "Persons",
+              null,
+              "Household",
+              "Persons"
+            ]
+          ],
+          "state_sections": [
+            {
+              "state": "Alaska",
+              "header_row": 8
+            },
+            {
+              "state": "California",
+              "header_row": 38
+            },
+            {
+              "state": "Hawaii",
+              "header_row": 68
+            },
+            {
+              "state": "Idaho",
+              "header_row": 83
+            },
+            {
+              "state": "Nevada",
+              "header_row": 98
+            },
+            {
+              "state": "Oregon",
+              "header_row": 113
+            },
+            {
+              "state": "Washington",
+              "header_row": 128
+            }
+          ],
+          "footnotes": [
+            "ALL DATA SUBJECT TO REVISION",
+            "1. \"Total Participation\" (Households and Persons) excludes the counts of participation for Disaster Supplements and Replacements. The participation data reflected in those categories are a subset of the \"Regular Ongoing\" participation category."
+          ]
+        }
+      ]
+    }
+  ],
+  "states": [
+    {
+      "state_fips": "01",
+      "state_name": "Alabama",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "01",
+        "state_name": "Alabama",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "SERO",
+        "row": 12,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "02",
+      "state_name": "Alaska",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "02",
+        "state_name": "Alaska",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "WRO",
+        "row": 12,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "04",
+      "state_name": "Arizona",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "04",
+        "state_name": "Arizona",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "WRO",
+        "row": 29,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "05",
+      "state_name": "Arkansas",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "05",
+        "state_name": "Arkansas",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "SWRO",
+        "row": 12,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "06",
+      "state_name": "California",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "06",
+        "state_name": "California",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "WRO",
+        "row": 44,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "08",
+      "state_name": "Colorado",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "08",
+        "state_name": "Colorado",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MPRO",
+        "row": 12,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "09",
+      "state_name": "Connecticut",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "09",
+        "state_name": "Connecticut",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "NERO",
+        "row": 12,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "10",
+      "state_name": "Delaware",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "10",
+        "state_name": "Delaware",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MARO",
+        "row": 12,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "12",
+      "state_name": "Florida",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "12",
+        "state_name": "Florida",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "SERO",
+        "row": 27,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "13",
+      "state_name": "Georgia",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "13",
+        "state_name": "Georgia",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "SERO",
+        "row": 42,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "15",
+      "state_name": "Hawaii",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "15",
+        "state_name": "Hawaii",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "WRO",
+        "row": 74,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "16",
+      "state_name": "Idaho",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "16",
+        "state_name": "Idaho",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "WRO",
+        "row": 89,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "17",
+      "state_name": "Illinois",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "17",
+        "state_name": "Illinois",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MWRO",
+        "row": 12,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "18",
+      "state_name": "Indiana",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "18",
+        "state_name": "Indiana",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MWRO",
+        "row": 27,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "19",
+      "state_name": "Iowa",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "19",
+        "state_name": "Iowa",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MPRO",
+        "row": 27,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "20",
+      "state_name": "Kansas",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "20",
+        "state_name": "Kansas",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MPRO",
+        "row": 42,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "21",
+      "state_name": "Kentucky",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "21",
+        "state_name": "Kentucky",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "SERO",
+        "row": 57,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "22",
+      "state_name": "Louisiana",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "22",
+        "state_name": "Louisiana",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "SWRO",
+        "row": 27,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "23",
+      "state_name": "Maine",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "23",
+        "state_name": "Maine",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "NERO",
+        "row": 27,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "24",
+      "state_name": "Maryland",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "24",
+        "state_name": "Maryland",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MARO",
+        "row": 42,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "25",
+      "state_name": "Massachusetts",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "25",
+        "state_name": "Massachusetts",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "NERO",
+        "row": 42,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "26",
+      "state_name": "Michigan",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "26",
+        "state_name": "Michigan",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MWRO",
+        "row": 42,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "27",
+      "state_name": "Minnesota",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "27",
+        "state_name": "Minnesota",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MWRO",
+        "row": 57,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "28",
+      "state_name": "Mississippi",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "28",
+        "state_name": "Mississippi",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "SERO",
+        "row": 72,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "29",
+      "state_name": "Missouri",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "29",
+        "state_name": "Missouri",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MPRO",
+        "row": 57,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "30",
+      "state_name": "Montana",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "30",
+        "state_name": "Montana",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MPRO",
+        "row": 72,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "31",
+      "state_name": "Nebraska",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "31",
+        "state_name": "Nebraska",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MPRO",
+        "row": 87,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "32",
+      "state_name": "Nevada",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "32",
+        "state_name": "Nevada",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "WRO",
+        "row": 104,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "33",
+      "state_name": "New Hampshire",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "33",
+        "state_name": "New Hampshire",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "NERO",
+        "row": 57,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "34",
+      "state_name": "New Jersey",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "34",
+        "state_name": "New Jersey",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MARO",
+        "row": 57,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "35",
+      "state_name": "New Mexico",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "35",
+        "state_name": "New Mexico",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "SWRO",
+        "row": 42,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "36",
+      "state_name": "New York",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "36",
+        "state_name": "New York",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "NERO",
+        "row": 72,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "37",
+      "state_name": "North Carolina",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "37",
+        "state_name": "North Carolina",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "SERO",
+        "row": 87,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "38",
+      "state_name": "North Dakota",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "38",
+        "state_name": "North Dakota",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MPRO",
+        "row": 102,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "39",
+      "state_name": "Ohio",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "39",
+        "state_name": "Ohio",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MWRO",
+        "row": 72,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "40",
+      "state_name": "Oklahoma",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "40",
+        "state_name": "Oklahoma",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "SWRO",
+        "row": 57,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "41",
+      "state_name": "Oregon",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "41",
+        "state_name": "Oregon",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "WRO",
+        "row": 119,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "42",
+      "state_name": "Pennsylvania",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "42",
+        "state_name": "Pennsylvania",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MARO",
+        "row": 72,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "44",
+      "state_name": "Rhode Island",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "44",
+        "state_name": "Rhode Island",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "NERO",
+        "row": 87,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "45",
+      "state_name": "South Carolina",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "45",
+        "state_name": "South Carolina",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "SERO",
+        "row": 102,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "46",
+      "state_name": "South Dakota",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "46",
+        "state_name": "South Dakota",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MPRO",
+        "row": 117,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "47",
+      "state_name": "Tennessee",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "47",
+        "state_name": "Tennessee",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "SERO",
+        "row": 117,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "48",
+      "state_name": "Texas",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "48",
+        "state_name": "Texas",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "SWRO",
+        "row": 72,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "49",
+      "state_name": "Utah",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "49",
+        "state_name": "Utah",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MPRO",
+        "row": 132,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "50",
+      "state_name": "Vermont",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "50",
+        "state_name": "Vermont",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "NERO",
+        "row": 102,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "51",
+      "state_name": "Virginia",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "51",
+        "state_name": "Virginia",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MARO",
+        "row": 89,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "53",
+      "state_name": "Washington",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "53",
+        "state_name": "Washington",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "WRO",
+        "row": 134,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "54",
+      "state_name": "West Virginia",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "54",
+        "state_name": "West Virginia",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MARO",
+        "row": 119,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "55",
+      "state_name": "Wisconsin",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "55",
+        "state_name": "Wisconsin",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MWRO",
+        "row": 87,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": []
+    },
+    {
+      "state_fips": "56",
+      "state_name": "Wyoming",
+      "records": 132,
+      "distinct_months": 132,
+      "missing_months": [],
+      "duplicate_months": [],
+      "fractional_count_or_cost_values": [],
+      "example_first_month_location": {
+        "state_fips": "56",
+        "state_name": "Wyoming",
+        "month": "2015-01",
+        "file": "FY15.xls",
+        "sheet": "MPRO",
+        "row": 147,
+        "period_label": "Jan 2015"
+      },
+      "review_flags": [
+        {
+          "month": "2022-08",
+          "column": "D",
+          "value": -1250130,
+          "file": "FY22.xlsx",
+          "sheet": "MPRO",
+          "row": 124
+        },
+        {
+          "month": "2022-08",
+          "column": "E",
+          "value": -91.1306,
+          "file": "FY22.xlsx",
+          "sheet": "MPRO",
+          "row": 124
+        },
+        {
+          "month": "2022-08",
+          "column": "F",
+          "value": -43.6879,
+          "file": "FY22.xlsx",
+          "sheet": "MPRO",
+          "row": 124
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "fiscal_year_files": 12,
+    "regional_sheets_inspected": 84,
+    "states": 50,
+    "historical_rows": 6600,
+    "distinct_state_months": 6600,
+    "states_with_132_distinct_months": 50,
+    "states_with_missing_months": [],
+    "states_with_duplicate_months": [],
+    "fractional_count_or_cost_values": 0,
+    "negative_or_non_numeric_cells_flagged_for_review": 3,
+    "state_month_records_flagged_for_review": 1
+  },
+  "interpretation": "All target state/month rows are present and numeric. Negative source amounts are review flags, not proven data errors; do not replace, drop, or zero them without an understood rule."
+}

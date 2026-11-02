@@ -1,0 +1,3396 @@
+{
+  "date": "2026-10-19",
+  "target": {
+    "account": "866934333672",
+    "region": "us-east-2",
+    "workgroup": "richard-citibike-wg",
+    "database": "dev"
+  },
+  "authorization": "User explicitly requested removal of the three _pre_gold_20261017 backups and public.citibike_station_snapshot_stage/public.citibike_station_snapshot.",
+  "preflight": {
+    "statement_id": "5c01727c-5509-4571-a9bc-7ce5f5079016",
+    "sql": [
+      "SELECT current_user, current_database()",
+      "SELECT schemaname, tablename, tableowner FROM pg_tables WHERE schemaname IN ('public','gold') ORDER BY 1,2",
+      "SHOW PROCEDURE public.sp_richard_accept_citibike_batch(varchar,timestamp,timestamp,timestamp,bigint,boolean)",
+      "SELECT * FROM public.richard_citibike_pipeline_checkpoint",
+      "SELECT * FROM public.richard_citibike_accepted_batch ORDER BY accepted_at",
+      "SELECT 'gold_station' AS object, COUNT(*) AS rows FROM gold.incremental_dim_station UNION ALL SELECT 'gold_date',COUNT(*) FROM gold.incremental_dim_date UNION ALL SELECT 'gold_fact',COUNT(*) FROM gold.incremental_fact_station_snapshot UNION ALL SELECT 'canonical',COUNT(*) FROM public.richard_citibike_station_snapshot_canonical UNION ALL SELECT 'landing',COUNT(*) FROM public.richard_citibike_station_snapshot_landing UNION ALL SELECT 'old_snapshot',COUNT(*) FROM public.citibike_station_snapshot UNION ALL SELECT 'old_stage',COUNT(*) FROM public.citibike_station_snapshot_stage",
+      "SELECT schemaname,viewname,definition FROM pg_views WHERE definition ILIKE '%citibike_station_snapshot%' OR definition ILIKE '%pre_gold_20261017%'",
+      "SELECT n.nspname,p.proname,p.prosrc FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace WHERE n.nspname NOT IN ('pg_catalog','information_schema') AND (p.prosrc ILIKE '%citibike_station_snapshot%' OR p.prosrc ILIKE '%pre_gold_20261017%')"
+    ],
+    "results": {
+      "1": {
+        "Records": [
+          [
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            },
+            {
+              "stringValue": "dev"
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "current_user",
+            "name": "current_user",
+            "nullable": 1,
+            "precision": 127,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "bpchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "current_database",
+            "name": "current_database",
+            "nullable": 1,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "name",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 1
+      },
+      "2": {
+        "Records": [
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "dim_date"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "dim_station"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "fact_station_snapshot"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "incremental_dim_date"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "incremental_dim_station"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "incremental_fact_station_snapshot"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "citibike_station_snapshot"
+            },
+            {
+              "stringValue": "richard_admin"
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "citibike_station_snapshot_stage"
+            },
+            {
+              "stringValue": "richard_admin"
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "richard_citibike_accepted_batch"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "richard_citibike_dim_date_pre_gold_20261017"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "richard_citibike_dim_station_pre_gold_20261017"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "richard_citibike_fact_station_snapshot_pre_gold_20261017"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "richard_citibike_pipeline_checkpoint"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "richard_citibike_station_snapshot_canonical"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "richard_citibike_station_snapshot_landing"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "schemaname",
+            "name": "schemaname",
+            "nullable": 1,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "pg_tables",
+            "typeName": "name",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "tablename",
+            "name": "tablename",
+            "nullable": 1,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "pg_tables",
+            "typeName": "name",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "tableowner",
+            "name": "tableowner",
+            "nullable": 1,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "pg_tables",
+            "typeName": "name",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 15
+      },
+      "3": {
+        "Records": [
+          [
+            {
+              "stringValue": "CREATE OR REPLACE PROCEDURE public.sp_richard_accept_citibike_batch(p_batch_id character varying(64), p_window_start timestamp without time zone, p_window_end timestamp without time zone, p_expected_checkpoint timestamp without time zone, p_expected_rows bigint, p_force_failure boolean)\n LANGUAGE plpgsql\n SECURITY DEFINER\n SET search_path TO pg_catalog\nAS $_$\nDECLARE\n    v_checkpoint TIMESTAMP;\n    v_checkpoint_rows BIGINT;\n    v_accepted_rows BIGINT;\n    v_logical_rows BIGINT;\n    v_accepted RECORD;\nBEGIN\n    -- Lock before reading warehouse state; concurrent calls wait or fail safely.\n    LOCK TABLE public.richard_citibike_pipeline_checkpoint,\n        public.richard_citibike_accepted_batch,\n        public.richard_citibike_station_snapshot_landing,\n        public.richard_citibike_station_snapshot_canonical,\n        gold.incremental_dim_station,\n        gold.incremental_dim_date,\n        gold.incremental_fact_station_snapshot;\n\n    IF p_batch_id IS NULL OR p_batch_id !~ '^[A-Za-z0-9_-]{1,64}$' THEN\n        RAISE EXCEPTION 'Invalid batch ID';\n    END IF;\n    IF p_window_start IS NULL OR p_window_end IS NULL\n       OR p_expected_checkpoint IS NULL OR p_expected_rows IS NULL\n       OR p_window_end <= p_window_start\n       OR p_window_start > p_expected_checkpoint\n       OR p_window_end <= p_expected_checkpoint OR p_expected_rows <= 0\n       OR p_force_failure IS NULL THEN\n        RAISE EXCEPTION 'Invalid window, prior checkpoint, row count or failure flag';\n    END IF;\n\n    SELECT COUNT(*), MAX(last_completed_utc)\n    INTO v_checkpoint_rows, v_checkpoint\n    FROM public.richard_citibike_pipeline_checkpoint\n    WHERE pipeline_name = 'richard-citibike';\n    IF v_checkpoint_rows <> 1 THEN\n        RAISE EXCEPTION 'Expected exactly one pipeline checkpoint row';\n    END IF;\n\n    SELECT COUNT(*) INTO v_accepted_rows\n    FROM public.richard_citibike_accepted_batch\n    WHERE batch_id = p_batch_id;\n    IF v_accepted_rows > 1 THEN\n        RAISE EXCEPTION 'Duplicate accepted batch IDs';\n    END IF;\n    IF v_accepted_rows = 1 THEN\n        SELECT * INTO v_accepted\n        FROM public.richard_citibike_accepted_batch WHERE batch_id = p_batch_id;\n        IF v_accepted.window_start <> p_window_start\n           OR v_accepted.window_end <> p_window_end\n           OR v_accepted.checkpoint_before <> p_expected_checkpoint\n           OR v_accepted.logical_rows <> p_expected_rows\n           OR v_checkpoint < p_window_end THEN\n            RAISE EXCEPTION 'Accepted batch context or checkpoint does not match';\n        END IF;\n        IF p_force_failure THEN\n            RAISE EXCEPTION 'Controlled failure requested for an already accepted batch';\n        END IF;\n        RAISE INFO 'Batch % was already accepted; no writes performed', p_batch_id;\n        RETURN;\n    END IF;\n    IF v_checkpoint <> p_expected_checkpoint THEN\n        RAISE EXCEPTION 'Stale prior checkpoint: expected %, found %',\n            p_expected_checkpoint, v_checkpoint;\n    END IF;\n\n    -- Remove exact landing replays; conflicting copies of a key are rejected.\n    CREATE TEMP TABLE richard_accept_input AS\n    SELECT DISTINCT *\n    FROM public.richard_citibike_station_snapshot_landing\n    WHERE batch_id = p_batch_id;\n\n    SELECT COUNT(*) INTO v_logical_rows FROM richard_accept_input;\n    IF v_logical_rows <> p_expected_rows THEN\n        RAISE EXCEPTION 'Logical landing rows: expected %, found %',\n            p_expected_rows, v_logical_rows;\n    END IF;\n    IF EXISTS (\n        SELECT 1 FROM richard_accept_input\n        WHERE station_id IS NULL OR TRIM(station_id) = ''\n           OR snapshot_timestamp IS NULL\n           OR snapshot_timestamp < p_window_start OR snapshot_timestamp >= p_window_end\n           OR station_name IS NULL OR TRIM(station_name) = ''\n           OR bikes_available IS NULL OR bikes_available < 0\n           OR ebikes_available IS NULL OR ebikes_available < 0\n           OR docks_available IS NULL OR docks_available < 0\n           OR capacity IS NULL OR capacity < 0\n           OR is_empty IS NULL OR is_full IS NULL OR is_operational IS NULL\n    ) THEN\n        RAISE EXCEPTION 'Invalid landing keys, window, metadata or measures';\n    END IF;\n    IF EXISTS (\n        SELECT 1 FROM richard_accept_input\n        GROUP BY station_id, snapshot_timestamp HAVING COUNT(*) > 1\n    ) THEN\n        RAISE EXCEPTION 'Conflicting landing values for a business key';\n    END IF;\n\n    -- Insert-only canonical policy: the first accepted observation is retained.\n    INSERT INTO public.richard_citibike_station_snapshot_canonical\n    SELECT i.* FROM richard_accept_input AS i\n    WHERE NOT EXISTS (\n        SELECT 1 FROM public.richard_citibike_station_snapshot_canonical AS c\n        WHERE c.station_id = i.station_id AND c.snapshot_timestamp = i.snapshot_timestamp\n    );\n\n    -- Only stations touched by this batch need Type 1 dimension updates.\n    -- Use their latest canonical observation, so an old overlap cannot regress them.\n    CREATE TEMP TABLE richard_accept_station AS\n    SELECT c.station_id, c.station_name, c.capacity\n    FROM public.richard_citibike_station_snapshot_canonical AS c\n    WHERE EXISTS (\n        SELECT 1 FROM richard_accept_input AS i WHERE i.station_id = c.station_id\n    )\n    QUALIFY ROW_NUMBER() OVER (\n        PARTITION BY c.station_id ORDER BY c.snapshot_timestamp DESC\n    ) = 1;\n\n    UPDATE gold.incremental_dim_station\n    SET station_name = i.station_name, capacity = i.capacity\n    FROM richard_accept_station AS i\n    WHERE incremental_dim_station.station_id = i.station_id;\n\n    INSERT INTO gold.incremental_dim_station (station_id, station_name, capacity)\n    SELECT i.station_id, i.station_name, i.capacity FROM richard_accept_station AS i\n    WHERE NOT EXISTS (\n        SELECT 1 FROM gold.incremental_dim_station AS s\n        WHERE s.station_id = i.station_id\n    );\n\n    INSERT INTO gold.incremental_dim_date\n        (snapshot_date, calendar_year, calendar_month, day_of_month)\n    SELECT DISTINCT CAST(i.snapshot_timestamp AS DATE),\n        EXTRACT(YEAR FROM i.snapshot_timestamp),\n        EXTRACT(MONTH FROM i.snapshot_timestamp),\n        EXTRACT(DAY FROM i.snapshot_timestamp)\n    FROM richard_accept_input AS i\n    WHERE NOT EXISTS (\n        SELECT 1 FROM gold.incremental_dim_date AS d\n        WHERE d.snapshot_date = CAST(i.snapshot_timestamp AS DATE)\n    );\n\n    INSERT INTO gold.incremental_fact_station_snapshot (\n        station_id, snapshot_timestamp, snapshot_date,\n        bikes_available, ebikes_available, docks_available,\n        capacity_at_capture, utilization_pct, is_empty, is_full, is_operational, batch_id\n    )\n    SELECT c.station_id, c.snapshot_timestamp, CAST(c.snapshot_timestamp AS DATE),\n        c.bikes_available, c.ebikes_available, c.docks_available,\n        c.capacity, c.utilization_pct, c.is_empty, c.is_full, c.is_operational, c.batch_id\n    FROM public.richard_citibike_station_snapshot_canonical AS c\n    WHERE EXISTS (\n        SELECT 1 FROM richard_accept_input AS i\n        WHERE i.station_id = c.station_id AND i.snapshot_timestamp = c.snapshot_timestamp\n    ) AND NOT EXISTS (\n        SELECT 1 FROM gold.incremental_fact_station_snapshot AS f\n        WHERE f.station_id = c.station_id AND f.snapshot_timestamp = c.snapshot_timestamp\n    );\n\n    -- Global integrity guards are intentionally conservative for this small lab.\n    IF EXISTS (\n        SELECT 1 FROM public.richard_citibike_station_snapshot_canonical\n        GROUP BY station_id, snapshot_timestamp HAVING COUNT(*) > 1\n    ) OR EXISTS (\n        SELECT 1 FROM gold.incremental_fact_station_snapshot\n        GROUP BY station_id, snapshot_timestamp HAVING COUNT(*) > 1\n    ) OR EXISTS (\n        SELECT 1 FROM gold.incremental_dim_station\n        GROUP BY station_id HAVING COUNT(*) > 1\n    ) OR EXISTS (\n        SELECT 1 FROM gold.incremental_dim_date\n        GROUP BY snapshot_date HAVING COUNT(*) > 1\n    ) THEN\n        RAISE EXCEPTION 'Duplicate canonical or Gold keys';\n    END IF;\n    IF EXISTS (\n        SELECT 1 FROM gold.incremental_fact_station_snapshot AS f\n        WHERE NOT EXISTS (\n            SELECT 1 FROM gold.incremental_dim_station AS s\n            WHERE s.station_id = f.station_id\n        ) OR NOT EXISTS (\n            SELECT 1 FROM gold.incremental_dim_date AS d\n            WHERE d.snapshot_date = f.snapshot_date\n        )\n    ) THEN\n        RAISE EXCEPTION 'Missing fact dimension references';\n    END IF;\n    IF EXISTS (\n        SELECT 1 FROM gold.incremental_dim_date AS d\n        WHERE d.calendar_year IS NULL OR d.calendar_month IS NULL OR d.day_of_month IS NULL\n           OR d.calendar_year <> EXTRACT(YEAR FROM CAST(d.snapshot_date AS TIMESTAMP))\n           OR d.calendar_month <> EXTRACT(MONTH FROM CAST(d.snapshot_date AS TIMESTAMP))\n           OR d.day_of_month <> EXTRACT(DAY FROM CAST(d.snapshot_date AS TIMESTAMP))\n    ) THEN\n        RAISE EXCEPTION 'Invalid date dimension attributes';\n    END IF;\n\n    -- Ensure the complete canonical projection is represented in facts, and\n    -- that there are no extra or mismatched fact rows. EXCEPT compares nulls too.\n    IF EXISTS (\n        SELECT station_id, snapshot_timestamp, CAST(snapshot_timestamp AS DATE),\n            bikes_available, ebikes_available, docks_available, capacity,\n            utilization_pct, is_empty, is_full, is_operational, batch_id\n        FROM public.richard_citibike_station_snapshot_canonical\n        EXCEPT\n        SELECT station_id, snapshot_timestamp, snapshot_date,\n            bikes_available, ebikes_available, docks_available, capacity_at_capture,\n            utilization_pct, is_empty, is_full, is_operational, batch_id\n        FROM gold.incremental_fact_station_snapshot\n    ) OR EXISTS (\n        SELECT station_id, snapshot_timestamp, snapshot_date,\n            bikes_available, ebikes_available, docks_available, capacity_at_capture,\n            utilization_pct, is_empty, is_full, is_operational, batch_id\n        FROM gold.incremental_fact_station_snapshot\n        EXCEPT\n        SELECT station_id, snapshot_timestamp, CAST(snapshot_timestamp AS DATE),\n            bikes_available, ebikes_available, docks_available, capacity,\n            utilization_pct, is_empty, is_full, is_operational, batch_id\n        FROM public.richard_citibike_station_snapshot_canonical\n    ) THEN\n        RAISE EXCEPTION 'Canonical and fact contents do not agree';\n    END IF;\n\n    INSERT INTO public.richard_citibike_accepted_batch (\n        batch_id, window_start, window_end, checkpoint_before, logical_rows\n    ) VALUES (\n        p_batch_id, p_window_start, p_window_end, p_expected_checkpoint, v_logical_rows\n    );\n    UPDATE public.richard_citibike_pipeline_checkpoint\n    SET last_completed_utc = p_window_end, updated_at = GETDATE()\n    WHERE pipeline_name = 'richard-citibike';\n\n    -- Exercise rollback after actual ledger/checkpoint writes, before commit.\n    IF p_force_failure THEN\n        RAISE EXCEPTION 'Controlled failure before commit; acceptance must roll back';\n    END IF;\n\n    DROP TABLE richard_accept_station;\n    DROP TABLE richard_accept_input;\n    RAISE INFO 'Accepted batch % with % logical rows through %',\n        p_batch_id, v_logical_rows, p_window_end;\nEND;\n$_$\n"
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "Stored Procedure Definition",
+            "name": "Stored Procedure Definition",
+            "nullable": 1,
+            "precision": 65535,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "varchar",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 1
+      },
+      "4": {
+        "Records": [
+          [
+            {
+              "stringValue": "richard-citibike"
+            },
+            {
+              "stringValue": "2026-10-16 17:52:30"
+            },
+            {
+              "stringValue": "2026-10-16 17:59:38"
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "pipeline_name",
+            "name": "pipeline_name",
+            "nullable": 0,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "public",
+            "tableName": "richard_citibike_pipeline_checkpoint",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "last_completed_utc",
+            "name": "last_completed_utc",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "richard_citibike_pipeline_checkpoint",
+            "typeName": "timestamp",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "updated_at",
+            "name": "updated_at",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "richard_citibike_pipeline_checkpoint",
+            "typeName": "timestamp",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 1
+      },
+      "5": {
+        "Records": [
+          [
+            {
+              "stringValue": "manual_20261016T1550_1555_v2"
+            },
+            {
+              "stringValue": "2026-10-16 15:50:00"
+            },
+            {
+              "stringValue": "2026-10-16 15:55:00"
+            },
+            {
+              "stringValue": "2026-10-16 15:50:00"
+            },
+            {
+              "longValue": 2518
+            },
+            {
+              "stringValue": "2026-10-16 17:49:26"
+            }
+          ],
+          [
+            {
+              "stringValue": "sf_20261016T175229_v1"
+            },
+            {
+              "stringValue": "2026-10-16 15:55:00"
+            },
+            {
+              "stringValue": "2026-10-16 17:52:30"
+            },
+            {
+              "stringValue": "2026-10-16 15:55:00"
+            },
+            {
+              "longValue": 2518
+            },
+            {
+              "stringValue": "2026-10-16 17:59:38"
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "batch_id",
+            "name": "batch_id",
+            "nullable": 0,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "public",
+            "tableName": "richard_citibike_accepted_batch",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "window_start",
+            "name": "window_start",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "richard_citibike_accepted_batch",
+            "typeName": "timestamp",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "window_end",
+            "name": "window_end",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "richard_citibike_accepted_batch",
+            "typeName": "timestamp",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "checkpoint_before",
+            "name": "checkpoint_before",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "richard_citibike_accepted_batch",
+            "typeName": "timestamp",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "logical_rows",
+            "name": "logical_rows",
+            "nullable": 0,
+            "precision": 19,
+            "scale": 0,
+            "schemaName": "public",
+            "tableName": "richard_citibike_accepted_batch",
+            "typeName": "int8",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "accepted_at",
+            "name": "accepted_at",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "richard_citibike_accepted_batch",
+            "typeName": "timestamp",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 2
+      },
+      "6": {
+        "Records": [
+          [
+            {
+              "stringValue": "gold_fact"
+            },
+            {
+              "longValue": 5036
+            }
+          ],
+          [
+            {
+              "stringValue": "old_stage"
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "gold_station"
+            },
+            {
+              "longValue": 2518
+            }
+          ],
+          [
+            {
+              "stringValue": "old_snapshot"
+            },
+            {
+              "longValue": 2519
+            }
+          ],
+          [
+            {
+              "stringValue": "canonical"
+            },
+            {
+              "longValue": 5036
+            }
+          ],
+          [
+            {
+              "stringValue": "gold_date"
+            },
+            {
+              "longValue": 1
+            }
+          ],
+          [
+            {
+              "stringValue": "landing"
+            },
+            {
+              "longValue": 5036
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "object",
+            "name": "object",
+            "nullable": 1,
+            "precision": 12,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "rows",
+            "name": "rows",
+            "nullable": 1,
+            "precision": 19,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "int8",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 7
+      },
+      "7": {
+        "Records": [
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "station_availability_summary"
+            },
+            {
+              "stringValue": "SELECT citibike_station_snapshot.snapshot_timestamp, count(*) AS operational_stations, sum(citibike_station_snapshot.bikes_available) AS bikes_available, sum(citibike_station_snapshot.docks_available) AS docks_available, sum(CASE WHEN citibike_station_snapshot.is_empty THEN 1 ELSE 0 END) AS empty_stations, sum(CASE WHEN citibike_station_snapshot.is_full THEN 1 ELSE 0 END) AS full_stations FROM citibike_station_snapshot WHERE (citibike_station_snapshot.is_operational = true) GROUP BY citibike_station_snapshot.snapshot_timestamp;"
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "schemaname",
+            "name": "schemaname",
+            "nullable": 1,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "pg_views",
+            "typeName": "name",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "viewname",
+            "name": "viewname",
+            "nullable": 1,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "pg_views",
+            "typeName": "name",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "definition",
+            "name": "definition",
+            "nullable": 1,
+            "precision": 65535,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "pg_views",
+            "typeName": "varchar",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 1
+      },
+      "8": {
+        "Records": [
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "sp_richard_accept_citibike_batch"
+            },
+            {
+              "stringValue": "\nDECLARE\n    v_checkpoint TIMESTAMP;\n    v_checkpoint_rows BIGINT;\n    v_accepted_rows BIGINT;\n    v_logical_rows BIGINT;\n    v_accepted RECORD;\nBEGIN\n    -- Lock before reading warehouse state; concurrent calls wait or fail safely.\n    LOCK TABLE public.richard_citibike_pipeline_checkpoint,\n        public.richard_citibike_accepted_batch,\n        public.richard_citibike_station_snapshot_landing,\n        public.richard_citibike_station_snapshot_canonical,\n        gold.incremental_dim_station,\n        gold.incremental_dim_date,\n        gold.incremental_fact_station_snapshot;\n\n    IF p_batch_id IS NULL OR p_batch_id !~ '^[A-Za-z0-9_-]{1,64}$' THEN\n        RAISE EXCEPTION 'Invalid batch ID';\n    END IF;\n    IF p_window_start IS NULL OR p_window_end IS NULL\n       OR p_expected_checkpoint IS NULL OR p_expected_rows IS NULL\n       OR p_window_end <= p_window_start\n       OR p_window_start > p_expected_checkpoint\n       OR p_window_end <= p_expected_checkpoint OR p_expected_rows <= 0\n       OR p_force_failure IS NULL THEN\n        RAISE EXCEPTION 'Invalid window, prior checkpoint, row count or failure flag';\n    END IF;\n\n    SELECT COUNT(*), MAX(last_completed_utc)\n    INTO v_checkpoint_rows, v_checkpoint\n    FROM public.richard_citibike_pipeline_checkpoint\n    WHERE pipeline_name = 'richard-citibike';\n    IF v_checkpoint_rows <> 1 THEN\n        RAISE EXCEPTION 'Expected exactly one pipeline checkpoint row';\n    END IF;\n\n    SELECT COUNT(*) INTO v_accepted_rows\n    FROM public.richard_citibike_accepted_batch\n    WHERE batch_id = p_batch_id;\n    IF v_accepted_rows > 1 THEN\n        RAISE EXCEPTION 'Duplicate accepted batch IDs';\n    END IF;\n    IF v_accepted_rows = 1 THEN\n        SELECT * INTO v_accepted\n        FROM public.richard_citibike_accepted_batch WHERE batch_id = p_batch_id;\n        IF v_accepted.window_start <> p_window_start\n           OR v_accepted.window_end <> p_window_end\n           OR v_accepted.checkpoint_before <> p_expected_checkpoint\n           OR v_accepted.logical_rows <> p_expected_rows\n           OR v_checkpoint < p_window_end THEN\n            RAISE EXCEPTION 'Accepted batch context or checkpoint does not match';\n        END IF;\n        IF p_force_failure THEN\n            RAISE EXCEPTION 'Controlled failure requested for an already accepted batch';\n        END IF;\n        RAISE INFO 'Batch % was already accepted; no writes performed', p_batch_id;\n        RETURN;\n    END IF;\n    IF v_checkpoint <> p_expected_checkpoint THEN\n        RAISE EXCEPTION 'Stale prior checkpoint: expected %, found %',\n            p_expected_checkpoint, v_checkpoint;\n    END IF;\n\n    -- Remove exact landing replays; conflicting copies of a key are rejected.\n    CREATE TEMP TABLE richard_accept_input AS\n    SELECT DISTINCT *\n    FROM public.richard_citibike_station_snapshot_landing\n    WHERE batch_id = p_batch_id;\n\n    SELECT COUNT(*) INTO v_logical_rows FROM richard_accept_input;\n    IF v_logical_rows <> p_expected_rows THEN\n        RAISE EXCEPTION 'Logical landing rows: expected %, found %',\n            p_expected_rows, v_logical_rows;\n    END IF;\n    IF EXISTS (\n        SELECT 1 FROM richard_accept_input\n        WHERE station_id IS NULL OR TRIM(station_id) = ''\n           OR snapshot_timestamp IS NULL\n           OR snapshot_timestamp < p_window_start OR snapshot_timestamp >= p_window_end\n           OR station_name IS NULL OR TRIM(station_name) = ''\n           OR bikes_available IS NULL OR bikes_available < 0\n           OR ebikes_available IS NULL OR ebikes_available < 0\n           OR docks_available IS NULL OR docks_available < 0\n           OR capacity IS NULL OR capacity < 0\n           OR is_empty IS NULL OR is_full IS NULL OR is_operational IS NULL\n    ) THEN\n        RAISE EXCEPTION 'Invalid landing keys, window, metadata or measures';\n    END IF;\n    IF EXISTS (\n        SELECT 1 FROM richard_accept_input\n        GROUP BY station_id, snapshot_timestamp HAVING COUNT(*) > 1\n    ) THEN\n        RAISE EXCEPTION 'Conflicting landing values for a business key';\n    END IF;\n\n    -- Insert-only canonical policy: the first accepted observation is retained.\n    INSERT INTO public.richard_citibike_station_snapshot_canonical\n    SELECT i.* FROM richard_accept_input AS i\n    WHERE NOT EXISTS (\n        SELECT 1 FROM public.richard_citibike_station_snapshot_canonical AS c\n        WHERE c.station_id = i.station_id AND c.snapshot_timestamp = i.snapshot_timestamp\n    );\n\n    -- Only stations touched by this batch need Type 1 dimension updates.\n    -- Use their latest canonical observation, so an old overlap cannot regress them.\n    CREATE TEMP TABLE richard_accept_station AS\n    SELECT c.station_id, c.station_name, c.capacity\n    FROM public.richard_citibike_station_snapshot_canonical AS c\n    WHERE EXISTS (\n        SELECT 1 FROM richard_accept_input AS i WHERE i.station_id = c.station_id\n    )\n    QUALIFY ROW_NUMBER() OVER (\n        PARTITION BY c.station_id ORDER BY c.snapshot_timestamp DESC\n    ) = 1;\n\n    UPDATE gold.incremental_dim_station\n    SET station_name = i.station_name, capacity = i.capacity\n    FROM richard_accept_station AS i\n    WHERE incremental_dim_station.station_id = i.station_id;\n\n    INSERT INTO gold.incremental_dim_station (station_id, station_name, capacity)\n    SELECT i.station_id, i.station_name, i.capacity FROM richard_accept_station AS i\n    WHERE NOT EXISTS (\n        SELECT 1 FROM gold.incremental_dim_station AS s\n        WHERE s.station_id = i.station_id\n    );\n\n    INSERT INTO gold.incremental_dim_date\n        (snapshot_date, calendar_year, calendar_month, day_of_month)\n    SELECT DISTINCT CAST(i.snapshot_timestamp AS DATE),\n        EXTRACT(YEAR FROM i.snapshot_timestamp),\n        EXTRACT(MONTH FROM i.snapshot_timestamp),\n        EXTRACT(DAY FROM i.snapshot_timestamp)\n    FROM richard_accept_input AS i\n    WHERE NOT EXISTS (\n        SELECT 1 FROM gold.incremental_dim_date AS d\n        WHERE d.snapshot_date = CAST(i.snapshot_timestamp AS DATE)\n    );\n\n    INSERT INTO gold.incremental_fact_station_snapshot (\n        station_id, snapshot_timestamp, snapshot_date,\n        bikes_available, ebikes_available, docks_available,\n        capacity_at_capture, utilization_pct, is_empty, is_full, is_operational, batch_id\n    )\n    SELECT c.station_id, c.snapshot_timestamp, CAST(c.snapshot_timestamp AS DATE),\n        c.bikes_available, c.ebikes_available, c.docks_available,\n        c.capacity, c.utilization_pct, c.is_empty, c.is_full, c.is_operational, c.batch_id\n    FROM public.richard_citibike_station_snapshot_canonical AS c\n    WHERE EXISTS (\n        SELECT 1 FROM richard_accept_input AS i\n        WHERE i.station_id = c.station_id AND i.snapshot_timestamp = c.snapshot_timestamp\n    ) AND NOT EXISTS (\n        SELECT 1 FROM gold.incremental_fact_station_snapshot AS f\n        WHERE f.station_id = c.station_id AND f.snapshot_timestamp = c.snapshot_timestamp\n    );\n\n    -- Global integrity guards are intentionally conservative for this small lab.\n    IF EXISTS (\n        SELECT 1 FROM public.richard_citibike_station_snapshot_canonical\n        GROUP BY station_id, snapshot_timestamp HAVING COUNT(*) > 1\n    ) OR EXISTS (\n        SELECT 1 FROM gold.incremental_fact_station_snapshot\n        GROUP BY station_id, snapshot_timestamp HAVING COUNT(*) > 1\n    ) OR EXISTS (\n        SELECT 1 FROM gold.incremental_dim_station\n        GROUP BY station_id HAVING COUNT(*) > 1\n    ) OR EXISTS (\n        SELECT 1 FROM gold.incremental_dim_date\n        GROUP BY snapshot_date HAVING COUNT(*) > 1\n    ) THEN\n        RAISE EXCEPTION 'Duplicate canonical or Gold keys';\n    END IF;\n    IF EXISTS (\n        SELECT 1 FROM gold.incremental_fact_station_snapshot AS f\n        WHERE NOT EXISTS (\n            SELECT 1 FROM gold.incremental_dim_station AS s\n            WHERE s.station_id = f.station_id\n        ) OR NOT EXISTS (\n            SELECT 1 FROM gold.incremental_dim_date AS d\n            WHERE d.snapshot_date = f.snapshot_date\n        )\n    ) THEN\n        RAISE EXCEPTION 'Missing fact dimension references';\n    END IF;\n    IF EXISTS (\n        SELECT 1 FROM gold.incremental_dim_date AS d\n        WHERE d.calendar_year IS NULL OR d.calendar_month IS NULL OR d.day_of_month IS NULL\n           OR d.calendar_year <> EXTRACT(YEAR FROM CAST(d.snapshot_date AS TIMESTAMP))\n           OR d.calendar_month <> EXTRACT(MONTH FROM CAST(d.snapshot_date AS TIMESTAMP))\n           OR d.day_of_month <> EXTRACT(DAY FROM CAST(d.snapshot_date AS TIMESTAMP))\n    ) THEN\n        RAISE EXCEPTION 'Invalid date dimension attributes';\n    END IF;\n\n    -- Ensure the complete canonical projection is represented in facts, and\n    -- that there are no extra or mismatched fact rows. EXCEPT compares nulls too.\n    IF EXISTS (\n        SELECT station_id, snapshot_timestamp, CAST(snapshot_timestamp AS DATE),\n            bikes_available, ebikes_available, docks_available, capacity,\n            utilization_pct, is_empty, is_full, is_operational, batch_id\n        FROM public.richard_citibike_station_snapshot_canonical\n        EXCEPT\n        SELECT station_id, snapshot_timestamp, snapshot_date,\n            bikes_available, ebikes_available, docks_available, capacity_at_capture,\n            utilization_pct, is_empty, is_full, is_operational, batch_id\n        FROM gold.incremental_fact_station_snapshot\n    ) OR EXISTS (\n        SELECT station_id, snapshot_timestamp, snapshot_date,\n            bikes_available, ebikes_available, docks_available, capacity_at_capture,\n            utilization_pct, is_empty, is_full, is_operational, batch_id\n        FROM gold.incremental_fact_station_snapshot\n        EXCEPT\n        SELECT station_id, snapshot_timestamp, CAST(snapshot_timestamp AS DATE),\n            bikes_available, ebikes_available, docks_available, capacity,\n            utilization_pct, is_empty, is_full, is_operational, batch_id\n        FROM public.richard_citibike_station_snapshot_canonical\n    ) THEN\n        RAISE EXCEPTION 'Canonical and fact contents do not agree';\n    END IF;\n\n    INSERT INTO public.richard_citibike_accepted_batch (\n        batch_id, window_start, window_end, checkpoint_before, logical_rows\n    ) VALUES (\n        p_batch_id, p_window_start, p_window_end, p_expected_checkpoint, v_logical_rows\n    );\n    UPDATE public.richard_citibike_pipeline_checkpoint\n    SET last_completed_utc = p_window_end, updated_at = GETDATE()\n    WHERE pipeline_name = 'richard-citibike';\n\n    -- Exercise rollback after actual ledger/checkpoint writes, before commit.\n    IF p_force_failure THEN\n        RAISE EXCEPTION 'Controlled failure before commit; acceptance must roll back';\n    END IF;\n\n    DROP TABLE richard_accept_station;\n    DROP TABLE richard_accept_input;\n    RAISE INFO 'Accepted batch % with % logical rows through %',\n        p_batch_id, v_logical_rows, p_window_end;\nEND;\n"
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "nspname",
+            "name": "nspname",
+            "nullable": 0,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "pg_namespace",
+            "typeName": "name",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "proname",
+            "name": "proname",
+            "nullable": 0,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "pg_proc",
+            "typeName": "name",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "prosrc",
+            "name": "prosrc",
+            "nullable": 1,
+            "precision": 65535,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "pg_proc",
+            "typeName": "varchar",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 1
+      }
+    },
+    "dependency_statement_id": "1efbbb69-de4d-43d3-baec-010e0adc4091",
+    "dependency_sql": [
+      "SELECT table_schema,table_name,column_name,data_type,numeric_precision,numeric_scale FROM information_schema.columns WHERE (table_schema='gold' AND table_name='station_availability_summary') OR (table_schema='gold' AND table_name='incremental_fact_station_snapshot') OR (table_schema='public' AND table_name='citibike_station_snapshot') ORDER BY 1,2,ordinal_position",
+      "SELECT 'station' AS object,(SELECT COUNT(*) FROM (SELECT * FROM gold.incremental_dim_station EXCEPT SELECT * FROM public.richard_citibike_dim_station_pre_gold_20261017) a) AS gold_only,(SELECT COUNT(*) FROM (SELECT * FROM public.richard_citibike_dim_station_pre_gold_20261017 EXCEPT SELECT * FROM gold.incremental_dim_station) b) AS backup_only UNION ALL SELECT 'date',(SELECT COUNT(*) FROM (SELECT * FROM gold.incremental_dim_date EXCEPT SELECT * FROM public.richard_citibike_dim_date_pre_gold_20261017) a),(SELECT COUNT(*) FROM (SELECT * FROM public.richard_citibike_dim_date_pre_gold_20261017 EXCEPT SELECT * FROM gold.incremental_dim_date) b) UNION ALL SELECT 'fact',(SELECT COUNT(*) FROM (SELECT * FROM gold.incremental_fact_station_snapshot EXCEPT SELECT * FROM public.richard_citibike_fact_station_snapshot_pre_gold_20261017) a),(SELECT COUNT(*) FROM (SELECT * FROM public.richard_citibike_fact_station_snapshot_pre_gold_20261017 EXCEPT SELECT * FROM gold.incremental_fact_station_snapshot) b)",
+      "SELECT schemaname,viewname,definition FROM pg_views WHERE definition ILIKE '%station_availability_summary%'",
+      "SELECT * FROM gold.station_availability_summary ORDER BY snapshot_timestamp",
+      "SELECT * FROM svv_relation_privileges WHERE namespace_name='gold' AND relation_name='station_availability_summary'"
+    ],
+    "dependency_results": {
+      "1": {
+        "Records": [
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "incremental_fact_station_snapshot"
+            },
+            {
+              "stringValue": "station_id"
+            },
+            {
+              "stringValue": "character varying"
+            },
+            {
+              "isNull": true
+            },
+            {
+              "isNull": true
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "incremental_fact_station_snapshot"
+            },
+            {
+              "stringValue": "snapshot_timestamp"
+            },
+            {
+              "stringValue": "timestamp without time zone"
+            },
+            {
+              "isNull": true
+            },
+            {
+              "isNull": true
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "incremental_fact_station_snapshot"
+            },
+            {
+              "stringValue": "snapshot_date"
+            },
+            {
+              "stringValue": "date"
+            },
+            {
+              "isNull": true
+            },
+            {
+              "isNull": true
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "incremental_fact_station_snapshot"
+            },
+            {
+              "stringValue": "bikes_available"
+            },
+            {
+              "stringValue": "bigint"
+            },
+            {
+              "longValue": 64
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "incremental_fact_station_snapshot"
+            },
+            {
+              "stringValue": "ebikes_available"
+            },
+            {
+              "stringValue": "bigint"
+            },
+            {
+              "longValue": 64
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "incremental_fact_station_snapshot"
+            },
+            {
+              "stringValue": "docks_available"
+            },
+            {
+              "stringValue": "bigint"
+            },
+            {
+              "longValue": 64
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "incremental_fact_station_snapshot"
+            },
+            {
+              "stringValue": "capacity_at_capture"
+            },
+            {
+              "stringValue": "bigint"
+            },
+            {
+              "longValue": 64
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "incremental_fact_station_snapshot"
+            },
+            {
+              "stringValue": "utilization_pct"
+            },
+            {
+              "stringValue": "double precision"
+            },
+            {
+              "longValue": 53
+            },
+            {
+              "isNull": true
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "incremental_fact_station_snapshot"
+            },
+            {
+              "stringValue": "is_empty"
+            },
+            {
+              "stringValue": "boolean"
+            },
+            {
+              "isNull": true
+            },
+            {
+              "isNull": true
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "incremental_fact_station_snapshot"
+            },
+            {
+              "stringValue": "is_full"
+            },
+            {
+              "stringValue": "boolean"
+            },
+            {
+              "isNull": true
+            },
+            {
+              "isNull": true
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "incremental_fact_station_snapshot"
+            },
+            {
+              "stringValue": "is_operational"
+            },
+            {
+              "stringValue": "boolean"
+            },
+            {
+              "isNull": true
+            },
+            {
+              "isNull": true
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "incremental_fact_station_snapshot"
+            },
+            {
+              "stringValue": "batch_id"
+            },
+            {
+              "stringValue": "character varying"
+            },
+            {
+              "isNull": true
+            },
+            {
+              "isNull": true
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "station_availability_summary"
+            },
+            {
+              "stringValue": "snapshot_timestamp"
+            },
+            {
+              "stringValue": "timestamp without time zone"
+            },
+            {
+              "isNull": true
+            },
+            {
+              "isNull": true
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "station_availability_summary"
+            },
+            {
+              "stringValue": "operational_stations"
+            },
+            {
+              "stringValue": "bigint"
+            },
+            {
+              "longValue": 64
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "station_availability_summary"
+            },
+            {
+              "stringValue": "bikes_available"
+            },
+            {
+              "stringValue": "bigint"
+            },
+            {
+              "longValue": 64
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "station_availability_summary"
+            },
+            {
+              "stringValue": "docks_available"
+            },
+            {
+              "stringValue": "bigint"
+            },
+            {
+              "longValue": 64
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "station_availability_summary"
+            },
+            {
+              "stringValue": "empty_stations"
+            },
+            {
+              "stringValue": "bigint"
+            },
+            {
+              "longValue": 64
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "station_availability_summary"
+            },
+            {
+              "stringValue": "full_stations"
+            },
+            {
+              "stringValue": "bigint"
+            },
+            {
+              "longValue": 64
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "citibike_station_snapshot"
+            },
+            {
+              "stringValue": "station_id"
+            },
+            {
+              "stringValue": "character varying"
+            },
+            {
+              "isNull": true
+            },
+            {
+              "isNull": true
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "citibike_station_snapshot"
+            },
+            {
+              "stringValue": "snapshot_timestamp"
+            },
+            {
+              "stringValue": "timestamp without time zone"
+            },
+            {
+              "isNull": true
+            },
+            {
+              "isNull": true
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "citibike_station_snapshot"
+            },
+            {
+              "stringValue": "station_name"
+            },
+            {
+              "stringValue": "character varying"
+            },
+            {
+              "isNull": true
+            },
+            {
+              "isNull": true
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "citibike_station_snapshot"
+            },
+            {
+              "stringValue": "bikes_available"
+            },
+            {
+              "stringValue": "bigint"
+            },
+            {
+              "longValue": 64
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "citibike_station_snapshot"
+            },
+            {
+              "stringValue": "ebikes_available"
+            },
+            {
+              "stringValue": "bigint"
+            },
+            {
+              "longValue": 64
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "citibike_station_snapshot"
+            },
+            {
+              "stringValue": "docks_available"
+            },
+            {
+              "stringValue": "bigint"
+            },
+            {
+              "longValue": 64
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "citibike_station_snapshot"
+            },
+            {
+              "stringValue": "capacity"
+            },
+            {
+              "stringValue": "bigint"
+            },
+            {
+              "longValue": 64
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "citibike_station_snapshot"
+            },
+            {
+              "stringValue": "utilization_pct"
+            },
+            {
+              "stringValue": "double precision"
+            },
+            {
+              "longValue": 53
+            },
+            {
+              "isNull": true
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "citibike_station_snapshot"
+            },
+            {
+              "stringValue": "is_empty"
+            },
+            {
+              "stringValue": "boolean"
+            },
+            {
+              "isNull": true
+            },
+            {
+              "isNull": true
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "citibike_station_snapshot"
+            },
+            {
+              "stringValue": "is_full"
+            },
+            {
+              "stringValue": "boolean"
+            },
+            {
+              "isNull": true
+            },
+            {
+              "isNull": true
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "citibike_station_snapshot"
+            },
+            {
+              "stringValue": "is_operational"
+            },
+            {
+              "stringValue": "boolean"
+            },
+            {
+              "isNull": true
+            },
+            {
+              "isNull": true
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "table_schema",
+            "name": "table_schema",
+            "nullable": 1,
+            "precision": 65535,
+            "scale": 0,
+            "schemaName": "information_schema",
+            "tableName": "columns",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "table_name",
+            "name": "table_name",
+            "nullable": 1,
+            "precision": 65535,
+            "scale": 0,
+            "schemaName": "information_schema",
+            "tableName": "columns",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "column_name",
+            "name": "column_name",
+            "nullable": 1,
+            "precision": 65535,
+            "scale": 0,
+            "schemaName": "information_schema",
+            "tableName": "columns",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "data_type",
+            "name": "data_type",
+            "nullable": 1,
+            "precision": 65535,
+            "scale": 0,
+            "schemaName": "information_schema",
+            "tableName": "columns",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "numeric_precision",
+            "name": "numeric_precision",
+            "nullable": 1,
+            "precision": 10,
+            "scale": 0,
+            "schemaName": "information_schema",
+            "tableName": "columns",
+            "typeName": "int4",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "numeric_scale",
+            "name": "numeric_scale",
+            "nullable": 1,
+            "precision": 10,
+            "scale": 0,
+            "schemaName": "information_schema",
+            "tableName": "columns",
+            "typeName": "int4",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 29
+      },
+      "2": {
+        "Records": [
+          [
+            {
+              "stringValue": "fact"
+            },
+            {
+              "longValue": 0
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "date"
+            },
+            {
+              "longValue": 0
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "station"
+            },
+            {
+              "longValue": 0
+            },
+            {
+              "longValue": 0
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "object",
+            "name": "object",
+            "nullable": 1,
+            "precision": 7,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "gold_only",
+            "name": "gold_only",
+            "nullable": 1,
+            "precision": 19,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "int8",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "backup_only",
+            "name": "backup_only",
+            "nullable": 1,
+            "precision": 19,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "int8",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 3
+      },
+      "3": {
+        "Records": [],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "schemaname",
+            "name": "schemaname",
+            "nullable": 1,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "pg_views",
+            "typeName": "name",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "viewname",
+            "name": "viewname",
+            "nullable": 1,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "pg_views",
+            "typeName": "name",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "definition",
+            "name": "definition",
+            "nullable": 1,
+            "precision": 65535,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "pg_views",
+            "typeName": "varchar",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 0
+      },
+      "4": {
+        "Records": [
+          [
+            {
+              "stringValue": "2026-10-09 02:41:15"
+            },
+            {
+              "longValue": 2435
+            },
+            {
+              "longValue": 35568
+            },
+            {
+              "longValue": 30430
+            },
+            {
+              "longValue": 122
+            },
+            {
+              "longValue": 274
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "snapshot_timestamp",
+            "name": "snapshot_timestamp",
+            "nullable": 1,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "citibike_station_snapshot",
+            "typeName": "timestamp",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "operational_stations",
+            "name": "operational_stations",
+            "nullable": 1,
+            "precision": 19,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "int8",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "bikes_available",
+            "name": "bikes_available",
+            "nullable": 1,
+            "precision": 19,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "int8",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "docks_available",
+            "name": "docks_available",
+            "nullable": 1,
+            "precision": 19,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "int8",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "empty_stations",
+            "name": "empty_stations",
+            "nullable": 1,
+            "precision": 19,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "int8",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "full_stations",
+            "name": "full_stations",
+            "nullable": 1,
+            "precision": 19,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "int8",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 1
+      },
+      "5": {
+        "Records": [],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "namespace_name",
+            "name": "namespace_name",
+            "nullable": 1,
+            "precision": 128,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "svv_relation_privileges",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "relation_name",
+            "name": "relation_name",
+            "nullable": 1,
+            "precision": 128,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "svv_relation_privileges",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "privilege_type",
+            "name": "privilege_type",
+            "nullable": 1,
+            "precision": 128,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "svv_relation_privileges",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "identity_id",
+            "name": "identity_id",
+            "nullable": 1,
+            "precision": 10,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "svv_relation_privileges",
+            "typeName": "int4",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "identity_name",
+            "name": "identity_name",
+            "nullable": 1,
+            "precision": 128,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "svv_relation_privileges",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "identity_type",
+            "name": "identity_type",
+            "nullable": 1,
+            "precision": 128,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "svv_relation_privileges",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "admin_option",
+            "name": "admin_option",
+            "nullable": 1,
+            "precision": 1,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "svv_relation_privileges",
+            "typeName": "bool",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 0
+      }
+    },
+    "running_executions": {
+      "executions": []
+    },
+    "jobs": [
+      {
+        "name": "richard-citibike-bronze-to-silver",
+        "script": "s3://richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/scripts/glue/glue-bronze-to-silver.py",
+        "arguments": {
+          "--BUCKET": "richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an",
+          "--job-bookmark-option": "job-bookmark-disable",
+          "--job-language": "python",
+          "--TempDir": "s3://richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/glue-temp/",
+          "--conf": "spark.sql.shuffle.partitions=4"
+        }
+      },
+      {
+        "name": "richard-citibike-bronze-to-silver-incremental",
+        "script": "s3://richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/scripts/glue/incremental/bronze-to-silver.py",
+        "arguments": {
+          "--BUCKET": "richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an",
+          "--job-bookmark-option": "job-bookmark-disable",
+          "--job-language": "python",
+          "--TempDir": "s3://richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/glue-temp/incremental/",
+          "--conf": "spark.sql.shuffle.partitions=4"
+        }
+      },
+      {
+        "name": "richard-citibike-silver-to-redshift",
+        "script": "s3://richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/scripts/glue/richard-citibike-silver-to-redshift.py",
+        "arguments": {
+          "--enable-metrics": "",
+          "--spark-event-logs-path": "s3://aws-glue-assets-866934333672-us-east-2/sparkHistoryLogs/",
+          "--enable-job-insights": "true",
+          "--enable-observability-metrics": "true",
+          "--conf": "spark.sql.catalog.glue_catalog.glue.skip-name-validation=true",
+          "--enable-glue-datacatalog": "",
+          "--enable-continuous-cloudwatch-log": "true",
+          "--job-bookmark-option": "job-bookmark-disable",
+          "--job-language": "python",
+          "--TempDir": "s3://aws-glue-assets-866934333672-us-east-2/temporary/"
+        },
+        "connections": {
+          "Connections": [
+            "richard-citibike-redshift-connection"
+          ]
+        }
+      },
+      {
+        "name": "richard-citibike-silver-to-redshift-incremental",
+        "script": "s3://richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/scripts/glue/incremental/silver-to-redshift.py",
+        "arguments": {
+          "--BUCKET": "richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an",
+          "--job-bookmark-option": "job-bookmark-disable",
+          "--job-language": "python",
+          "--TempDir": "s3://richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/glue-temp/incremental/",
+          "--conf": "spark.sql.shuffle.partitions=4"
+        },
+        "connections": {
+          "Connections": [
+            "richard-citibike-redshift-connection"
+          ]
+        }
+      }
+    ],
+    "job_runs": {
+      "richard-citibike-bronze-to-silver": {
+        "JobRuns": [
+          {
+            "Id": "jr_70db287aa6199146b043df237873d3a25f3cdde8490a142c7c9a56e1e97980ef",
+            "Attempt": 0,
+            "JobName": "richard-citibike-bronze-to-silver",
+            "JobMode": "SCRIPT",
+            "JobRunQueuingEnabled": false,
+            "StartedOn": "2026-10-09T02:44:36.252000+00:00",
+            "LastModifiedOn": "2026-10-09T02:46:02.008000+00:00",
+            "CompletedOn": "2026-10-09T02:46:02.008000+00:00",
+            "JobRunState": "SUCCEEDED",
+            "PredecessorRuns": [],
+            "AllocatedCapacity": 2,
+            "ExecutionTime": 78,
+            "Timeout": 10,
+            "MaxCapacity": 2,
+            "WorkerType": "G.1X",
+            "NumberOfWorkers": 2,
+            "LogGroupName": "/aws-glue/jobs",
+            "GlueVersion": "5.0",
+            "DPUSeconds": 156
+          }
+        ]
+      },
+      "richard-citibike-bronze-to-silver-incremental": {
+        "JobRuns": [
+          {
+            "Id": "jr_68ba35a6ac592df711f06b3e9132c1a7e03130ae975001ec4f29684f65440841",
+            "Attempt": 0,
+            "JobName": "richard-citibike-bronze-to-silver-incremental",
+            "JobMode": "SCRIPT",
+            "JobRunQueuingEnabled": false,
+            "StartedOn": "2026-10-16T17:53:25.346000+00:00",
+            "LastModifiedOn": "2026-10-16T17:55:08.567000+00:00",
+            "CompletedOn": "2026-10-16T17:55:08.567000+00:00",
+            "JobRunState": "SUCCEEDED",
+            "Arguments": {
+              "--BATCH_ID": "sf_20261016T175229_v1",
+              "--WINDOW_END": "2026-10-16T17:52:30Z",
+              "--WINDOW_START": "2026-10-16T15:55:00Z"
+            },
+            "PredecessorRuns": [],
+            "AllocatedCapacity": 2,
+            "ExecutionTime": 95,
+            "Timeout": 10,
+            "MaxCapacity": 2,
+            "WorkerType": "G.1X",
+            "NumberOfWorkers": 2,
+            "LogGroupName": "/aws-glue/jobs",
+            "GlueVersion": "5.0",
+            "DPUSeconds": 191
+          },
+          {
+            "Id": "jr_bbc07e364be2d212907170e49a631ea1e2f6d3a81040e077e625c699623bc419",
+            "Attempt": 0,
+            "JobName": "richard-citibike-bronze-to-silver-incremental",
+            "JobMode": "SCRIPT",
+            "JobRunQueuingEnabled": false,
+            "StartedOn": "2026-10-16T16:39:38.495000+00:00",
+            "LastModifiedOn": "2026-10-16T16:41:11.074000+00:00",
+            "CompletedOn": "2026-10-16T16:41:11.074000+00:00",
+            "JobRunState": "SUCCEEDED",
+            "Arguments": {
+              "--BATCH_ID": "manual_20261016T1550_1555_v2",
+              "--WINDOW_START": "2026-10-16T15:50:00Z",
+              "--WINDOW_END": "2026-10-16T15:55:00Z"
+            },
+            "PredecessorRuns": [],
+            "AllocatedCapacity": 2,
+            "ExecutionTime": 85,
+            "Timeout": 10,
+            "MaxCapacity": 2,
+            "WorkerType": "G.1X",
+            "NumberOfWorkers": 2,
+            "LogGroupName": "/aws-glue/jobs",
+            "GlueVersion": "5.0",
+            "DPUSeconds": 170
+          },
+          {
+            "Id": "jr_e5173b95648cc7d0b51eb5a37119c87be5396f4ea36dc2b17efbad926c04f403",
+            "Attempt": 0,
+            "JobName": "richard-citibike-bronze-to-silver-incremental",
+            "JobMode": "SCRIPT",
+            "JobRunQueuingEnabled": false,
+            "StartedOn": "2026-10-16T16:34:48.303000+00:00",
+            "LastModifiedOn": "2026-10-16T16:36:18.659000+00:00",
+            "CompletedOn": "2026-10-16T16:36:18.659000+00:00",
+            "JobRunState": "FAILED",
+            "Arguments": {
+              "--BATCH_ID": "manual_20261016T1550_1555_v1",
+              "--WINDOW_START": "2026-10-16T15:50:00Z",
+              "--WINDOW_END": "2026-10-16T15:55:00Z"
+            },
+            "ErrorMessage": "An error occurred while calling o382.parquet. User: arn:aws:sts::866934333672:assumed-role/AWSGlueServiceRole-RichardCitiBike/GlueJobRunnerSession is not authorized to perform: s3:PutObject on resource: \"arn:aws:s3:::richard-wilkerson-citibike-pipeline-866934333672-us-east-2-an/silver/citibike/incremental_batches/batch_id=manual_20261016T1550_1555_v1/part-00000-cb2ede9a-71c6-4e19-abc1-a4bf8d15ee87-c000.snappy.parquet\" because no identity-based policy allows the s3:PutObject action (Service: Amazon S3; Status Code: 403; Error Code: AccessDenied; Request ID: BQ0ERVQCW4RWWYP6; S3 Extended Request ID: yrS/kp2WA2Bh+jyTk8uhpC233VQSkRXk7mStQLUCVLsJ8x2CzOPbu7ggx7qcTva3On9fQrBK30svtrbdV++VJI54iGKcPOH6; Proxy: null)",
+            "PredecessorRuns": [],
+            "AllocatedCapacity": 2,
+            "ExecutionTime": 82,
+            "Timeout": 10,
+            "MaxCapacity": 2,
+            "WorkerType": "G.1X",
+            "NumberOfWorkers": 2,
+            "LogGroupName": "/aws-glue/jobs",
+            "GlueVersion": "5.0",
+            "DPUSeconds": 165
+          }
+        ]
+      },
+      "richard-citibike-silver-to-redshift": {
+        "JobRuns": [
+          {
+            "Id": "jr_7c57efccca6b18ae9569f1fccfe1f3a65cd817d4986dee7dee8ea806012f2c6f",
+            "Attempt": 0,
+            "JobName": "richard-citibike-silver-to-redshift",
+            "JobMode": "SCRIPT",
+            "JobRunQueuingEnabled": false,
+            "StartedOn": "2026-10-09T18:54:57.974000+00:00",
+            "LastModifiedOn": "2026-10-09T18:58:16.404000+00:00",
+            "CompletedOn": "2026-10-09T18:58:16.404000+00:00",
+            "JobRunState": "SUCCEEDED",
+            "PredecessorRuns": [],
+            "AllocatedCapacity": 2,
+            "ExecutionTime": 184,
+            "Timeout": 10,
+            "MaxCapacity": 2,
+            "WorkerType": "G.1X",
+            "NumberOfWorkers": 2,
+            "LogGroupName": "/aws-glue/jobs",
+            "GlueVersion": "5.1",
+            "DPUSeconds": 369,
+            "ExecutionClass": "STANDARD"
+          },
+          {
+            "Id": "jr_ee0b1777b4387c372e107fd3fff6afde7052522021d18c8714f430387bc7a522",
+            "Attempt": 0,
+            "JobName": "richard-citibike-silver-to-redshift",
+            "JobMode": "SCRIPT",
+            "JobRunQueuingEnabled": false,
+            "StartedOn": "2026-10-09T17:50:53.797000+00:00",
+            "LastModifiedOn": "2026-10-09T17:54:20.964000+00:00",
+            "CompletedOn": "2026-10-09T17:54:20.964000+00:00",
+            "JobRunState": "SUCCEEDED",
+            "PredecessorRuns": [],
+            "AllocatedCapacity": 2,
+            "ExecutionTime": 186,
+            "Timeout": 10,
+            "MaxCapacity": 2,
+            "WorkerType": "G.1X",
+            "NumberOfWorkers": 2,
+            "LogGroupName": "/aws-glue/jobs",
+            "GlueVersion": "5.1",
+            "DPUSeconds": 373,
+            "ExecutionClass": "STANDARD"
+          },
+          {
+            "Id": "jr_b2280b6dfcb7ef18f489ba8288682f5d2a43d7c13c3941bfd28787c3724ec469",
+            "Attempt": 0,
+            "JobName": "richard-citibike-silver-to-redshift",
+            "JobMode": "SCRIPT",
+            "JobRunQueuingEnabled": false,
+            "StartedOn": "2026-10-09T17:28:02.739000+00:00",
+            "LastModifiedOn": "2026-10-09T17:30:12.084000+00:00",
+            "CompletedOn": "2026-10-09T17:30:12.084000+00:00",
+            "JobRunState": "SUCCEEDED",
+            "PredecessorRuns": [],
+            "AllocatedCapacity": 2,
+            "ExecutionTime": 110,
+            "Timeout": 10,
+            "MaxCapacity": 2,
+            "WorkerType": "G.1X",
+            "NumberOfWorkers": 2,
+            "LogGroupName": "/aws-glue/jobs",
+            "GlueVersion": "5.1",
+            "DPUSeconds": 220,
+            "ExecutionClass": "STANDARD"
+          }
+        ]
+      },
+      "richard-citibike-silver-to-redshift-incremental": {
+        "JobRuns": [
+          {
+            "Id": "jr_5ac5877fc9fa2d6d5b4d8813a39d69be2a3143192da205dfa33774b080965765",
+            "Attempt": 0,
+            "JobName": "richard-citibike-silver-to-redshift-incremental",
+            "JobMode": "SCRIPT",
+            "JobRunQueuingEnabled": false,
+            "StartedOn": "2026-10-16T17:55:26.747000+00:00",
+            "LastModifiedOn": "2026-10-16T17:58:34.206000+00:00",
+            "CompletedOn": "2026-10-16T17:58:34.206000+00:00",
+            "JobRunState": "SUCCEEDED",
+            "Arguments": {
+              "--BATCH_ID": "sf_20261016T175229_v1"
+            },
+            "PredecessorRuns": [],
+            "AllocatedCapacity": 2,
+            "ExecutionTime": 168,
+            "Timeout": 10,
+            "MaxCapacity": 2,
+            "WorkerType": "G.1X",
+            "NumberOfWorkers": 2,
+            "LogGroupName": "/aws-glue/jobs",
+            "GlueVersion": "5.1",
+            "DPUSeconds": 336
+          },
+          {
+            "Id": "jr_5df647a158fb6237c28ea57b39bf09b9202427dabc3dfe782c0f021d0bbf20a0",
+            "Attempt": 0,
+            "JobName": "richard-citibike-silver-to-redshift-incremental",
+            "JobMode": "SCRIPT",
+            "JobRunQueuingEnabled": false,
+            "StartedOn": "2026-10-16T17:37:16.107000+00:00",
+            "LastModifiedOn": "2026-10-16T17:40:01.100000+00:00",
+            "CompletedOn": "2026-10-16T17:40:01.100000+00:00",
+            "JobRunState": "SUCCEEDED",
+            "Arguments": {
+              "--BATCH_ID": "manual_20261016T1550_1555_v2"
+            },
+            "PredecessorRuns": [],
+            "AllocatedCapacity": 2,
+            "ExecutionTime": 142,
+            "Timeout": 10,
+            "MaxCapacity": 2,
+            "WorkerType": "G.1X",
+            "NumberOfWorkers": 2,
+            "LogGroupName": "/aws-glue/jobs",
+            "GlueVersion": "5.1",
+            "DPUSeconds": 284
+          },
+          {
+            "Id": "jr_8508d522c72ba3b71ef8003d3963c3f43f725f09f9d39f0597131db612bc736d",
+            "Attempt": 0,
+            "JobName": "richard-citibike-silver-to-redshift-incremental",
+            "JobMode": "SCRIPT",
+            "JobRunQueuingEnabled": false,
+            "StartedOn": "2026-10-16T16:58:37.184000+00:00",
+            "LastModifiedOn": "2026-10-16T17:01:11.935000+00:00",
+            "CompletedOn": "2026-10-16T17:01:11.935000+00:00",
+            "JobRunState": "SUCCEEDED",
+            "Arguments": {
+              "--BATCH_ID": "manual_20261016T1550_1555_v2"
+            },
+            "PredecessorRuns": [],
+            "AllocatedCapacity": 2,
+            "ExecutionTime": 140,
+            "Timeout": 10,
+            "MaxCapacity": 2,
+            "WorkerType": "G.1X",
+            "NumberOfWorkers": 2,
+            "LogGroupName": "/aws-glue/jobs",
+            "GlueVersion": "5.1",
+            "DPUSeconds": 281
+          }
+        ]
+      }
+    },
+    "glue_triggers": {
+      "Triggers": []
+    },
+    "scheduler_richard_targets": []
+  },
+  "cleanup": {
+    "submission": {
+      "status": "success",
+      "stdout": "",
+      "stderr": null,
+      "return_value": {
+        "Id": "d0d197b9-29a1-43f3-bed2-1f8652b25c0e",
+        "CreatedAt": "2026-10-19T17:12:46.765000+00:00",
+        "DbUser": "IAM:richard.wilkerson@techconsulting.tech",
+        "Database": "dev",
+        "WorkgroupName": "richard-citibike-wg"
+      },
+      "warning": null,
+      "api_calls": [
+        {
+          "service": "redshift-data",
+          "operation": "BatchExecuteStatement",
+          "status": "success"
+        }
+      ]
+    },
+    "status": {
+      "status": "success",
+      "stdout": "",
+      "stderr": null,
+      "return_value": {
+        "Id": "d0d197b9-29a1-43f3-bed2-1f8652b25c0e",
+        "DbUser": "IAM:richard.wilkerson@techconsulting.tech",
+        "Database": "dev",
+        "Duration": 304525007,
+        "Status": "FINISHED",
+        "CreatedAt": "2026-10-19T17:12:46.765000+00:00",
+        "UpdatedAt": "2026-10-19T17:12:48.438000+00:00",
+        "RedshiftPid": 1073758322,
+        "HasResultSet": false,
+        "ResultRows": -1,
+        "ResultSize": -1,
+        "RedshiftQueryId": 0,
+        "SubStatements": [
+          {
+            "Id": "d0d197b9-29a1-43f3-bed2-1f8652b25c0e:1",
+            "Duration": 53010137,
+            "Status": "FINISHED",
+            "CreatedAt": "2026-10-19T17:12:47.023000+00:00",
+            "UpdatedAt": "2026-10-19T17:12:47.539000+00:00",
+            "QueryString": "CREATE OR REPLACE VIEW gold.station_availability_summary AS SELECT snapshot_timestamp, COUNT(*) AS operational_stations, SUM(bikes_available) AS bikes_available, SUM(docks_available) AS docks_available, SUM(CASE WHEN is_empty THEN 1 ELSE 0 END) AS empty_stations, SUM(CASE WHEN is_full THEN 1 ELSE 0 END) AS full_stations FROM gold.incremental_fact_station_snapshot WHERE is_operational = TRUE GROUP BY snapshot_timestamp",
+            "ResultRows": 0,
+            "ResultSize": 0,
+            "RedshiftQueryId": 0,
+            "HasResultSet": false
+          },
+          {
+            "Id": "d0d197b9-29a1-43f3-bed2-1f8652b25c0e:2",
+            "Duration": 56910303,
+            "Status": "FINISHED",
+            "CreatedAt": "2026-10-19T17:12:47.030000+00:00",
+            "UpdatedAt": "2026-10-19T17:12:47.669000+00:00",
+            "QueryString": "DROP TABLE public.richard_citibike_fact_station_snapshot_pre_gold_20261017 RESTRICT",
+            "ResultRows": 0,
+            "ResultSize": 0,
+            "RedshiftQueryId": 0,
+            "HasResultSet": false
+          },
+          {
+            "Id": "d0d197b9-29a1-43f3-bed2-1f8652b25c0e:3",
+            "Duration": 46752591,
+            "Status": "FINISHED",
+            "CreatedAt": "2026-10-19T17:12:47.036000+00:00",
+            "UpdatedAt": "2026-10-19T17:12:47.789000+00:00",
+            "QueryString": "DROP TABLE public.richard_citibike_dim_station_pre_gold_20261017 RESTRICT",
+            "ResultRows": 0,
+            "ResultSize": 0,
+            "RedshiftQueryId": 0,
+            "HasResultSet": false
+          },
+          {
+            "Id": "d0d197b9-29a1-43f3-bed2-1f8652b25c0e:4",
+            "Duration": 46666272,
+            "Status": "FINISHED",
+            "CreatedAt": "2026-10-19T17:12:47.042000+00:00",
+            "UpdatedAt": "2026-10-19T17:12:47.909000+00:00",
+            "QueryString": "DROP TABLE public.richard_citibike_dim_date_pre_gold_20261017 RESTRICT",
+            "ResultRows": 0,
+            "ResultSize": 0,
+            "RedshiftQueryId": 0,
+            "HasResultSet": false
+          },
+          {
+            "Id": "d0d197b9-29a1-43f3-bed2-1f8652b25c0e:5",
+            "Duration": 46108210,
+            "Status": "FINISHED",
+            "CreatedAt": "2026-10-19T17:12:47.048000+00:00",
+            "UpdatedAt": "2026-10-19T17:12:48.029000+00:00",
+            "QueryString": "DROP TABLE public.citibike_station_snapshot_stage RESTRICT",
+            "ResultRows": 0,
+            "ResultSize": 0,
+            "RedshiftQueryId": 0,
+            "HasResultSet": false
+          },
+          {
+            "Id": "d0d197b9-29a1-43f3-bed2-1f8652b25c0e:6",
+            "Duration": 55077494,
+            "Status": "FINISHED",
+            "CreatedAt": "2026-10-19T17:12:47.055000+00:00",
+            "UpdatedAt": "2026-10-19T17:12:48.159000+00:00",
+            "QueryString": "DROP TABLE public.citibike_station_snapshot RESTRICT",
+            "ResultRows": 0,
+            "ResultSize": 0,
+            "RedshiftQueryId": 0,
+            "HasResultSet": false
+          }
+        ],
+        "WorkgroupName": "richard-citibike-wg",
+        "ResultFormat": "json"
+      },
+      "warning": null,
+      "api_calls": [
+        {
+          "service": "redshift-data",
+          "operation": "DescribeStatement",
+          "status": "success",
+          "n_items": {
+            "SubStatements": 6
+          }
+        }
+      ]
+    },
+    "sql": [
+      "CREATE OR REPLACE VIEW gold.station_availability_summary AS SELECT snapshot_timestamp, COUNT(*) AS operational_stations, SUM(bikes_available) AS bikes_available, SUM(docks_available) AS docks_available, SUM(CASE WHEN is_empty THEN 1 ELSE 0 END) AS empty_stations, SUM(CASE WHEN is_full THEN 1 ELSE 0 END) AS full_stations FROM gold.incremental_fact_station_snapshot WHERE is_operational = TRUE GROUP BY snapshot_timestamp",
+      "DROP TABLE public.richard_citibike_fact_station_snapshot_pre_gold_20261017 RESTRICT",
+      "DROP TABLE public.richard_citibike_dim_station_pre_gold_20261017 RESTRICT",
+      "DROP TABLE public.richard_citibike_dim_date_pre_gold_20261017 RESTRICT",
+      "DROP TABLE public.citibike_station_snapshot_stage RESTRICT",
+      "DROP TABLE public.citibike_station_snapshot RESTRICT"
+    ]
+  },
+  "verification": {
+    "submission": {
+      "status": "success",
+      "stdout": "",
+      "stderr": null,
+      "return_value": {
+        "Id": "be94cda2-3542-4f87-b51e-0a298afc9fe9",
+        "CreatedAt": "2026-10-19T17:13:07.500000+00:00",
+        "DbUser": "IAM:richard.wilkerson@techconsulting.tech",
+        "Database": "dev",
+        "WorkgroupName": "richard-citibike-wg"
+      },
+      "warning": null,
+      "api_calls": [
+        {
+          "service": "redshift-data",
+          "operation": "BatchExecuteStatement",
+          "status": "success"
+        }
+      ]
+    },
+    "status": {
+      "status": "success",
+      "stdout": "",
+      "stderr": null,
+      "return_value": {
+        "Id": "be94cda2-3542-4f87-b51e-0a298afc9fe9",
+        "DbUser": "IAM:richard.wilkerson@techconsulting.tech",
+        "Database": "dev",
+        "Duration": 3504921753,
+        "Status": "FINISHED",
+        "CreatedAt": "2026-10-19T17:13:07.500000+00:00",
+        "UpdatedAt": "2026-10-19T17:13:13.281000+00:00",
+        "RedshiftPid": 1073832036,
+        "HasResultSet": true,
+        "ResultRows": -1,
+        "ResultSize": -1,
+        "RedshiftQueryId": 0,
+        "SubStatements": [
+          {
+            "Id": "be94cda2-3542-4f87-b51e-0a298afc9fe9:1",
+            "Duration": 37641477,
+            "Status": "FINISHED",
+            "CreatedAt": "2026-10-19T17:13:07.738000+00:00",
+            "UpdatedAt": "2026-10-19T17:13:08.404000+00:00",
+            "QueryString": "SELECT schemaname, tablename, tableowner FROM pg_tables WHERE schemaname IN ('public','gold') ORDER BY 1,2",
+            "ResultRows": 10,
+            "ResultSize": 725,
+            "RedshiftQueryId": 0,
+            "HasResultSet": true
+          },
+          {
+            "Id": "be94cda2-3542-4f87-b51e-0a298afc9fe9:2",
+            "Duration": 27957381,
+            "Status": "FINISHED",
+            "CreatedAt": "2026-10-19T17:13:07.742000+00:00",
+            "UpdatedAt": "2026-10-19T17:13:08.595000+00:00",
+            "QueryString": "SELECT * FROM public.richard_citibike_pipeline_checkpoint",
+            "ResultRows": 1,
+            "ResultSize": 54,
+            "RedshiftQueryId": 4267670,
+            "HasResultSet": true
+          },
+          {
+            "Id": "be94cda2-3542-4f87-b51e-0a298afc9fe9:3",
+            "Duration": 88025270,
+            "Status": "FINISHED",
+            "CreatedAt": "2026-10-19T17:13:07.746000+00:00",
+            "UpdatedAt": "2026-10-19T17:13:08.814000+00:00",
+            "QueryString": "SELECT * FROM public.richard_citibike_accepted_batch ORDER BY accepted_at",
+            "ResultRows": 2,
+            "ResultSize": 241,
+            "RedshiftQueryId": 4267673,
+            "HasResultSet": true
+          },
+          {
+            "Id": "be94cda2-3542-4f87-b51e-0a298afc9fe9:4",
+            "Duration": 121056960,
+            "Status": "FINISHED",
+            "CreatedAt": "2026-10-19T17:13:07.750000+00:00",
+            "UpdatedAt": "2026-10-19T17:13:09.074000+00:00",
+            "QueryString": "SELECT 'gold_station' AS object, COUNT(*) AS rows FROM gold.incremental_dim_station UNION ALL SELECT 'gold_date',COUNT(*) FROM gold.incremental_dim_date UNION ALL SELECT 'gold_fact',COUNT(*) FROM gold.incremental_fact_station_snapshot UNION ALL SELECT 'canonical',COUNT(*) FROM public.richard_citibike_station_snapshot_canonical UNION ALL SELECT 'landing',COUNT(*) FROM public.richard_citibike_station_snapshot_landing",
+            "ResultRows": 5,
+            "ResultSize": 146,
+            "RedshiftQueryId": 4267676,
+            "HasResultSet": true
+          },
+          {
+            "Id": "be94cda2-3542-4f87-b51e-0a298afc9fe9:5",
+            "Duration": 79124741,
+            "Status": "FINISHED",
+            "CreatedAt": "2026-10-19T17:13:07.755000+00:00",
+            "UpdatedAt": "2026-10-19T17:13:09.284000+00:00",
+            "QueryString": "SHOW VIEW gold.station_availability_summary",
+            "ResultRows": 1,
+            "ResultSize": 602,
+            "RedshiftQueryId": 4267676,
+            "HasResultSet": true
+          },
+          {
+            "Id": "be94cda2-3542-4f87-b51e-0a298afc9fe9:6",
+            "Duration": 378063296,
+            "Status": "FINISHED",
+            "CreatedAt": "2026-10-19T17:13:07.759000+00:00",
+            "UpdatedAt": "2026-10-19T17:13:09.795000+00:00",
+            "QueryString": "SELECT * FROM gold.station_availability_summary ORDER BY snapshot_timestamp",
+            "ResultRows": 2,
+            "ResultSize": 238,
+            "RedshiftQueryId": 4267681,
+            "HasResultSet": true
+          },
+          {
+            "Id": "be94cda2-3542-4f87-b51e-0a298afc9fe9:7",
+            "Duration": 1725971498,
+            "Status": "FINISHED",
+            "CreatedAt": "2026-10-19T17:13:07.763000+00:00",
+            "UpdatedAt": "2026-10-19T17:13:11.654000+00:00",
+            "QueryString": "-- Run in Richard's warehouse, database dev.\n-- Expected totals apply to the initial single-capture dataset only.\nSELECT 'fact_rows' AS check_name, COUNT(*) AS observed\nFROM gold.incremental_fact_station_snapshot\nUNION ALL\nSELECT 'station_rows', COUNT(*) FROM gold.incremental_dim_station\nUNION ALL\nSELECT 'date_rows', COUNT(*) FROM gold.incremental_dim_date\nUNION ALL\nSELECT 'duplicate_fact_keys', COUNT(*)\nFROM (\n    SELECT station_id, snapshot_timestamp\n    FROM gold.incremental_fact_station_snapshot\n    GROUP BY station_id, snapshot_timestamp\n    HAVING COUNT(*) > 1\n) AS duplicate_facts\nUNION ALL\nSELECT 'duplicate_station_keys', COUNT(*)\nFROM (\n    SELECT station_id\n    FROM gold.incremental_dim_station\n    GROUP BY station_id\n    HAVING COUNT(*) > 1\n) AS duplicate_stations\nUNION ALL\nSELECT 'duplicate_date_keys', COUNT(*)\nFROM (\n    SELECT snapshot_date\n    FROM gold.incremental_dim_date\n    GROUP BY snapshot_date\n    HAVING COUNT(*) > 1\n) AS duplicate_dates\nUNION ALL\nSELECT 'missing_station_references', COUNT(*)\nFROM gold.incremental_fact_station_snapshot AS f\nWHERE NOT EXISTS (\n    SELECT 1 FROM gold.incremental_dim_station AS s\n    WHERE s.station_id = f.station_id\n)\nUNION ALL\nSELECT 'missing_date_references', COUNT(*)\nFROM gold.incremental_fact_station_snapshot AS f\nWHERE NOT EXISTS (\n    SELECT 1 FROM gold.incremental_dim_date AS d\n    WHERE d.snapshot_date = f.snapshot_date\n)\nUNION ALL\nSELECT 'invalid_fact_measures', COUNT(*)\nFROM gold.incremental_fact_station_snapshot\nWHERE bikes_available IS NULL OR bikes_available < 0\n   OR ebikes_available IS NULL OR ebikes_available < 0\n   OR docks_available IS NULL OR docks_available < 0\n   OR capacity_at_capture IS NULL OR capacity_at_capture < 0\n   OR (capacity_at_capture > 0 AND utilization_pct IS NULL)\nUNION ALL\nSELECT 'invalid_station_attributes', COUNT(*)\nFROM gold.incremental_dim_station\nWHERE station_name IS NULL OR TRIM(station_name) = ''\n   OR capacity IS NULL OR capacity < 0\nORDER BY check_name;\n\n-- Expect 2026-10-16, 2026, 10, 16 for the first loaded capture.\nSELECT snapshot_date, calendar_year, calendar_month, day_of_month\nFROM gold.incremental_dim_date\nORDER BY snapshot_date;\n",
+            "ResultRows": 10,
+            "ResultSize": 386,
+            "RedshiftQueryId": 4267686,
+            "HasResultSet": true
+          },
+          {
+            "Id": "be94cda2-3542-4f87-b51e-0a298afc9fe9:8",
+            "Duration": 774537295,
+            "Status": "FINISHED",
+            "CreatedAt": "2026-10-19T17:13:07.767000+00:00",
+            "UpdatedAt": "2026-10-19T17:13:12.502000+00:00",
+            "QueryString": "CALL public.sp_richard_accept_citibike_batch('sf_20261016T175229_v1','2026-10-16 15:55:00'::timestamp,'2026-10-16 17:52:30'::timestamp,'2026-10-16 15:55:00'::timestamp,2518::bigint,FALSE)",
+            "ResultRows": 0,
+            "ResultSize": 0,
+            "RedshiftQueryId": 4267697,
+            "HasResultSet": false
+          },
+          {
+            "Id": "be94cda2-3542-4f87-b51e-0a298afc9fe9:9",
+            "Duration": 28724512,
+            "Status": "FINISHED",
+            "CreatedAt": "2026-10-19T17:13:07.771000+00:00",
+            "UpdatedAt": "2026-10-19T17:13:12.696000+00:00",
+            "QueryString": "SELECT * FROM public.richard_citibike_pipeline_checkpoint",
+            "ResultRows": 1,
+            "ResultSize": 54,
+            "RedshiftQueryId": 4267700,
+            "HasResultSet": true
+          },
+          {
+            "Id": "be94cda2-3542-4f87-b51e-0a298afc9fe9:10",
+            "Duration": 76683770,
+            "Status": "FINISHED",
+            "CreatedAt": "2026-10-19T17:13:07.775000+00:00",
+            "UpdatedAt": "2026-10-19T17:13:12.905000+00:00",
+            "QueryString": "SELECT * FROM public.richard_citibike_accepted_batch ORDER BY accepted_at",
+            "ResultRows": 2,
+            "ResultSize": 241,
+            "RedshiftQueryId": 4267703,
+            "HasResultSet": true
+          },
+          {
+            "Id": "be94cda2-3542-4f87-b51e-0a298afc9fe9:11",
+            "Duration": 167135553,
+            "Status": "FINISHED",
+            "CreatedAt": "2026-10-19T17:13:07.779000+00:00",
+            "UpdatedAt": "2026-10-19T17:13:13.214000+00:00",
+            "QueryString": "SELECT * FROM svv_relation_privileges WHERE namespace_name='gold' AND relation_name='station_availability_summary'",
+            "ResultRows": 0,
+            "ResultSize": 0,
+            "RedshiftQueryId": 4267703,
+            "HasResultSet": true
+          }
+        ],
+        "WorkgroupName": "richard-citibike-wg",
+        "ResultFormat": "json"
+      },
+      "warning": null,
+      "api_calls": [
+        {
+          "service": "redshift-data",
+          "operation": "DescribeStatement",
+          "status": "success",
+          "n_items": {
+            "SubStatements": 11
+          }
+        }
+      ]
+    },
+    "sql": [
+      "SELECT schemaname, tablename, tableowner FROM pg_tables WHERE schemaname IN ('public','gold') ORDER BY 1,2",
+      "SELECT * FROM public.richard_citibike_pipeline_checkpoint",
+      "SELECT * FROM public.richard_citibike_accepted_batch ORDER BY accepted_at",
+      "SELECT 'gold_station' AS object, COUNT(*) AS rows FROM gold.incremental_dim_station UNION ALL SELECT 'gold_date',COUNT(*) FROM gold.incremental_dim_date UNION ALL SELECT 'gold_fact',COUNT(*) FROM gold.incremental_fact_station_snapshot UNION ALL SELECT 'canonical',COUNT(*) FROM public.richard_citibike_station_snapshot_canonical UNION ALL SELECT 'landing',COUNT(*) FROM public.richard_citibike_station_snapshot_landing",
+      "SHOW VIEW gold.station_availability_summary",
+      "SELECT * FROM gold.station_availability_summary ORDER BY snapshot_timestamp",
+      "-- Run in Richard's warehouse, database dev.\n-- Expected totals apply to the initial single-capture dataset only.\nSELECT 'fact_rows' AS check_name, COUNT(*) AS observed\nFROM gold.incremental_fact_station_snapshot\nUNION ALL\nSELECT 'station_rows', COUNT(*) FROM gold.incremental_dim_station\nUNION ALL\nSELECT 'date_rows', COUNT(*) FROM gold.incremental_dim_date\nUNION ALL\nSELECT 'duplicate_fact_keys', COUNT(*)\nFROM (\n    SELECT station_id, snapshot_timestamp\n    FROM gold.incremental_fact_station_snapshot\n    GROUP BY station_id, snapshot_timestamp\n    HAVING COUNT(*) > 1\n) AS duplicate_facts\nUNION ALL\nSELECT 'duplicate_station_keys', COUNT(*)\nFROM (\n    SELECT station_id\n    FROM gold.incremental_dim_station\n    GROUP BY station_id\n    HAVING COUNT(*) > 1\n) AS duplicate_stations\nUNION ALL\nSELECT 'duplicate_date_keys', COUNT(*)\nFROM (\n    SELECT snapshot_date\n    FROM gold.incremental_dim_date\n    GROUP BY snapshot_date\n    HAVING COUNT(*) > 1\n) AS duplicate_dates\nUNION ALL\nSELECT 'missing_station_references', COUNT(*)\nFROM gold.incremental_fact_station_snapshot AS f\nWHERE NOT EXISTS (\n    SELECT 1 FROM gold.incremental_dim_station AS s\n    WHERE s.station_id = f.station_id\n)\nUNION ALL\nSELECT 'missing_date_references', COUNT(*)\nFROM gold.incremental_fact_station_snapshot AS f\nWHERE NOT EXISTS (\n    SELECT 1 FROM gold.incremental_dim_date AS d\n    WHERE d.snapshot_date = f.snapshot_date\n)\nUNION ALL\nSELECT 'invalid_fact_measures', COUNT(*)\nFROM gold.incremental_fact_station_snapshot\nWHERE bikes_available IS NULL OR bikes_available < 0\n   OR ebikes_available IS NULL OR ebikes_available < 0\n   OR docks_available IS NULL OR docks_available < 0\n   OR capacity_at_capture IS NULL OR capacity_at_capture < 0\n   OR (capacity_at_capture > 0 AND utilization_pct IS NULL)\nUNION ALL\nSELECT 'invalid_station_attributes', COUNT(*)\nFROM gold.incremental_dim_station\nWHERE station_name IS NULL OR TRIM(station_name) = ''\n   OR capacity IS NULL OR capacity < 0\nORDER BY check_name;\n\n-- Expect 2026-10-16, 2026, 10, 16 for the first loaded capture.\nSELECT snapshot_date, calendar_year, calendar_month, day_of_month\nFROM gold.incremental_dim_date\nORDER BY snapshot_date;\n",
+      "CALL public.sp_richard_accept_citibike_batch('sf_20261016T175229_v1','2026-10-16 15:55:00'::timestamp,'2026-10-16 17:52:30'::timestamp,'2026-10-16 15:55:00'::timestamp,2518::bigint,FALSE)",
+      "SELECT * FROM public.richard_citibike_pipeline_checkpoint",
+      "SELECT * FROM public.richard_citibike_accepted_batch ORDER BY accepted_at",
+      "SELECT * FROM svv_relation_privileges WHERE namespace_name='gold' AND relation_name='station_availability_summary'"
+    ],
+    "results": {
+      "1": {
+        "Records": [
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "dim_date"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "dim_station"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "fact_station_snapshot"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "incremental_dim_date"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "incremental_dim_station"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "gold"
+            },
+            {
+              "stringValue": "incremental_fact_station_snapshot"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "richard_citibike_accepted_batch"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "richard_citibike_pipeline_checkpoint"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "richard_citibike_station_snapshot_canonical"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ],
+          [
+            {
+              "stringValue": "public"
+            },
+            {
+              "stringValue": "richard_citibike_station_snapshot_landing"
+            },
+            {
+              "stringValue": "IAM:richard.wilkerson@techconsulting.tech"
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "schemaname",
+            "name": "schemaname",
+            "nullable": 1,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "pg_tables",
+            "typeName": "name",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "tablename",
+            "name": "tablename",
+            "nullable": 1,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "pg_tables",
+            "typeName": "name",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "tableowner",
+            "name": "tableowner",
+            "nullable": 1,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "pg_tables",
+            "typeName": "name",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 10
+      },
+      "2": {
+        "Records": [
+          [
+            {
+              "stringValue": "richard-citibike"
+            },
+            {
+              "stringValue": "2026-10-16 17:52:30"
+            },
+            {
+              "stringValue": "2026-10-16 17:59:38"
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "pipeline_name",
+            "name": "pipeline_name",
+            "nullable": 0,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "public",
+            "tableName": "richard_citibike_pipeline_checkpoint",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "last_completed_utc",
+            "name": "last_completed_utc",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "richard_citibike_pipeline_checkpoint",
+            "typeName": "timestamp",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "updated_at",
+            "name": "updated_at",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "richard_citibike_pipeline_checkpoint",
+            "typeName": "timestamp",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 1
+      },
+      "3": {
+        "Records": [
+          [
+            {
+              "stringValue": "manual_20261016T1550_1555_v2"
+            },
+            {
+              "stringValue": "2026-10-16 15:50:00"
+            },
+            {
+              "stringValue": "2026-10-16 15:55:00"
+            },
+            {
+              "stringValue": "2026-10-16 15:50:00"
+            },
+            {
+              "longValue": 2518
+            },
+            {
+              "stringValue": "2026-10-16 17:49:26"
+            }
+          ],
+          [
+            {
+              "stringValue": "sf_20261016T175229_v1"
+            },
+            {
+              "stringValue": "2026-10-16 15:55:00"
+            },
+            {
+              "stringValue": "2026-10-16 17:52:30"
+            },
+            {
+              "stringValue": "2026-10-16 15:55:00"
+            },
+            {
+              "longValue": 2518
+            },
+            {
+              "stringValue": "2026-10-16 17:59:38"
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "batch_id",
+            "name": "batch_id",
+            "nullable": 0,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "public",
+            "tableName": "richard_citibike_accepted_batch",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "window_start",
+            "name": "window_start",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "richard_citibike_accepted_batch",
+            "typeName": "timestamp",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "window_end",
+            "name": "window_end",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "richard_citibike_accepted_batch",
+            "typeName": "timestamp",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "checkpoint_before",
+            "name": "checkpoint_before",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "richard_citibike_accepted_batch",
+            "typeName": "timestamp",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "logical_rows",
+            "name": "logical_rows",
+            "nullable": 0,
+            "precision": 19,
+            "scale": 0,
+            "schemaName": "public",
+            "tableName": "richard_citibike_accepted_batch",
+            "typeName": "int8",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "accepted_at",
+            "name": "accepted_at",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "richard_citibike_accepted_batch",
+            "typeName": "timestamp",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 2
+      },
+      "4": {
+        "Records": [
+          [
+            {
+              "stringValue": "gold_station"
+            },
+            {
+              "longValue": 2518
+            }
+          ],
+          [
+            {
+              "stringValue": "gold_fact"
+            },
+            {
+              "longValue": 5036
+            }
+          ],
+          [
+            {
+              "stringValue": "gold_date"
+            },
+            {
+              "longValue": 1
+            }
+          ],
+          [
+            {
+              "stringValue": "canonical"
+            },
+            {
+              "longValue": 5036
+            }
+          ],
+          [
+            {
+              "stringValue": "landing"
+            },
+            {
+              "longValue": 5036
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "object",
+            "name": "object",
+            "nullable": 1,
+            "precision": 12,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "rows",
+            "name": "rows",
+            "nullable": 1,
+            "precision": 19,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "int8",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 5
+      },
+      "5": {
+        "Records": [
+          [
+            {
+              "stringValue": "SELECT incremental_fact_station_snapshot.snapshot_timestamp, count(*) AS operational_stations, sum(incremental_fact_station_snapshot.bikes_available) AS bikes_available, sum(incremental_fact_station_snapshot.docks_available) AS docks_available, sum(CASE WHEN incremental_fact_station_snapshot.is_empty THEN 1 ELSE 0 END) AS empty_stations, sum(CASE WHEN incremental_fact_station_snapshot.is_full THEN 1 ELSE 0 END) AS full_stations FROM gold.incremental_fact_station_snapshot WHERE (incremental_fact_station_snapshot.is_operational = true) GROUP BY incremental_fact_station_snapshot.snapshot_timestamp;"
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "Show View DDL statement",
+            "name": "Show View DDL statement",
+            "nullable": 1,
+            "precision": 65535,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "varchar",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 1
+      },
+      "6": {
+        "Records": [
+          [
+            {
+              "stringValue": "2026-10-16 15:52:44"
+            },
+            {
+              "longValue": 2454
+            },
+            {
+              "longValue": 35140
+            },
+            {
+              "longValue": 31175
+            },
+            {
+              "longValue": 88
+            },
+            {
+              "longValue": 180
+            }
+          ],
+          [
+            {
+              "stringValue": "2026-10-16 17:52:29"
+            },
+            {
+              "longValue": 2454
+            },
+            {
+              "longValue": 34761
+            },
+            {
+              "longValue": 31637
+            },
+            {
+              "longValue": 83
+            },
+            {
+              "longValue": 176
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "snapshot_timestamp",
+            "name": "snapshot_timestamp",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "gold",
+            "tableName": "incremental_fact_station_snapshot",
+            "typeName": "timestamp",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "operational_stations",
+            "name": "operational_stations",
+            "nullable": 1,
+            "precision": 19,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "int8",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "bikes_available",
+            "name": "bikes_available",
+            "nullable": 1,
+            "precision": 19,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "int8",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "docks_available",
+            "name": "docks_available",
+            "nullable": 1,
+            "precision": 19,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "int8",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "empty_stations",
+            "name": "empty_stations",
+            "nullable": 1,
+            "precision": 19,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "int8",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "full_stations",
+            "name": "full_stations",
+            "nullable": 1,
+            "precision": 19,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "int8",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 2
+      },
+      "7": {
+        "Records": [
+          [
+            {
+              "stringValue": "date_rows"
+            },
+            {
+              "longValue": 1
+            }
+          ],
+          [
+            {
+              "stringValue": "duplicate_date_keys"
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "duplicate_fact_keys"
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "duplicate_station_keys"
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "fact_rows"
+            },
+            {
+              "longValue": 5036
+            }
+          ],
+          [
+            {
+              "stringValue": "invalid_fact_measures"
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "invalid_station_attributes"
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "missing_date_references"
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "missing_station_references"
+            },
+            {
+              "longValue": 0
+            }
+          ],
+          [
+            {
+              "stringValue": "station_rows"
+            },
+            {
+              "longValue": 2518
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "check_name",
+            "name": "check_name",
+            "nullable": 1,
+            "precision": 26,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "observed",
+            "name": "observed",
+            "nullable": 1,
+            "precision": 19,
+            "scale": 0,
+            "schemaName": "",
+            "tableName": "",
+            "typeName": "int8",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 10
+      },
+      "9": {
+        "Records": [
+          [
+            {
+              "stringValue": "richard-citibike"
+            },
+            {
+              "stringValue": "2026-10-16 17:52:30"
+            },
+            {
+              "stringValue": "2026-10-16 17:59:38"
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "pipeline_name",
+            "name": "pipeline_name",
+            "nullable": 0,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "public",
+            "tableName": "richard_citibike_pipeline_checkpoint",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "last_completed_utc",
+            "name": "last_completed_utc",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "richard_citibike_pipeline_checkpoint",
+            "typeName": "timestamp",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "updated_at",
+            "name": "updated_at",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "richard_citibike_pipeline_checkpoint",
+            "typeName": "timestamp",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 1
+      },
+      "10": {
+        "Records": [
+          [
+            {
+              "stringValue": "manual_20261016T1550_1555_v2"
+            },
+            {
+              "stringValue": "2026-10-16 15:50:00"
+            },
+            {
+              "stringValue": "2026-10-16 15:55:00"
+            },
+            {
+              "stringValue": "2026-10-16 15:50:00"
+            },
+            {
+              "longValue": 2518
+            },
+            {
+              "stringValue": "2026-10-16 17:49:26"
+            }
+          ],
+          [
+            {
+              "stringValue": "sf_20261016T175229_v1"
+            },
+            {
+              "stringValue": "2026-10-16 15:55:00"
+            },
+            {
+              "stringValue": "2026-10-16 17:52:30"
+            },
+            {
+              "stringValue": "2026-10-16 15:55:00"
+            },
+            {
+              "longValue": 2518
+            },
+            {
+              "stringValue": "2026-10-16 17:59:38"
+            }
+          ]
+        ],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "batch_id",
+            "name": "batch_id",
+            "nullable": 0,
+            "precision": 64,
+            "scale": 0,
+            "schemaName": "public",
+            "tableName": "richard_citibike_accepted_batch",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "window_start",
+            "name": "window_start",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "richard_citibike_accepted_batch",
+            "typeName": "timestamp",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "window_end",
+            "name": "window_end",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "richard_citibike_accepted_batch",
+            "typeName": "timestamp",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "checkpoint_before",
+            "name": "checkpoint_before",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "richard_citibike_accepted_batch",
+            "typeName": "timestamp",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "logical_rows",
+            "name": "logical_rows",
+            "nullable": 0,
+            "precision": 19,
+            "scale": 0,
+            "schemaName": "public",
+            "tableName": "richard_citibike_accepted_batch",
+            "typeName": "int8",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "accepted_at",
+            "name": "accepted_at",
+            "nullable": 0,
+            "precision": 29,
+            "scale": 6,
+            "schemaName": "public",
+            "tableName": "richard_citibike_accepted_batch",
+            "typeName": "timestamp",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 2
+      },
+      "11": {
+        "Records": [],
+        "ColumnMetadata": [
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "namespace_name",
+            "name": "namespace_name",
+            "nullable": 1,
+            "precision": 128,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "svv_relation_privileges",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "relation_name",
+            "name": "relation_name",
+            "nullable": 1,
+            "precision": 128,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "svv_relation_privileges",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "privilege_type",
+            "name": "privilege_type",
+            "nullable": 1,
+            "precision": 128,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "svv_relation_privileges",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": true,
+            "label": "identity_id",
+            "name": "identity_id",
+            "nullable": 1,
+            "precision": 10,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "svv_relation_privileges",
+            "typeName": "int4",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "identity_name",
+            "name": "identity_name",
+            "nullable": 1,
+            "precision": 128,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "svv_relation_privileges",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": true,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "identity_type",
+            "name": "identity_type",
+            "nullable": 1,
+            "precision": 128,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "svv_relation_privileges",
+            "typeName": "varchar",
+            "length": 0
+          },
+          {
+            "isCaseSensitive": false,
+            "isCurrency": false,
+            "isSigned": false,
+            "label": "admin_option",
+            "name": "admin_option",
+            "nullable": 1,
+            "precision": 1,
+            "scale": 0,
+            "schemaName": "pg_catalog",
+            "tableName": "svv_relation_privileges",
+            "typeName": "bool",
+            "length": 0
+          }
+        ],
+        "TotalNumRows": 0
+      }
+    }
+  },
+  "limits": [
+    "No fresh batch or full workflow was run.",
+    "Legacy manual loader remains configured and its saved script references removed tables; it is retired and must not be rerun without restoring or redesigning its targets.",
+    "No claim of exhaustive discovery of arbitrary external consumers or EventBridge rules. Catalog views/procedures, Richard jobs/workflow, Glue triggers and Scheduler targets were inspected."
+  ]
+}

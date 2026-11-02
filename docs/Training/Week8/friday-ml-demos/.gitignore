@@ -1,0 +1,11 @@
+# Local Kafka state and process logs belong to the running lab, not its sources.
+kafka-data/
+logs/
+
+# Generated training inputs, fixed evaluation papers, and chosen deployment state.
+07-kafka-fraud-training/*.csv
+07-kafka-fraud-training/runs/
+07-kafka-fraud-training/evaluation/
+07-kafka-fraud-training/.evaluation-*/
+08-kafka-fraud-inference/deployment.json
+08-kafka-fraud-inference/deployment.tmp

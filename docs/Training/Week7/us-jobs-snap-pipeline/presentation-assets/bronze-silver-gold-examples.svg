@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#F7F9FC"/>
+<text x="70" y="52" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="45" font-weight="700" fill="#24344B">Bronze → Silver → Gold</text>
+<text x="70" y="114" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="26" font-weight="400" fill="#56677D">Actual saved project records · Idaho · January 2015</text>
+<rect x="70" y="210" width="565" height="710" rx="18" fill="#F8EFE7" stroke="#C39A76" stroke-width="2"/>
+<text x="95" y="237" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="33" font-weight="700" fill="#24344B">BRONZE</text>
+<text x="95" y="286" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">Preserve source format</text>
+<rect x="695" y="210" width="565" height="710" rx="18" fill="#EEF2F6" stroke="#A6B5C5" stroke-width="2"/>
+<text x="720" y="237" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="33" font-weight="700" fill="#24344B">SILVER</text>
+<text x="720" y="286" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">Normalize and validate</text>
+<rect x="1320" y="210" width="565" height="710" rx="18" fill="#FFF6DB" stroke="#D4B34E" stroke-width="2"/>
+<text x="1345" y="237" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="33" font-weight="700" fill="#24344B">GOLD</text>
+<text x="1345" y="286" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">Organize analytical facts</text>
+<text x="95" y="345" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#24344B">BLS JSON: selected source fields</text>
+<rect x="95" y="390" width="510" height="47" rx="0" fill="#EAF0F7" stroke="#EAF0F7" stroke-width="2"/>
+<text x="105" y="402" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#24344B">Series*</text>
+<text x="305" y="402" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#24344B">Period</text>
+<text x="435" y="402" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#24344B">value</text>
+<text x="105" y="450" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">Total nonfarm</text>
+<text x="305" y="450" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">M01 / 2015</text>
+<text x="435" y="450" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">&quot;662.6&quot;</text>
+<path d="M95,486 L605,486" fill="none" stroke="#DFE6EE" stroke-width="1"/>
+<text x="105" y="498" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">Construction</text>
+<text x="305" y="498" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">M01 / 2015</text>
+<text x="435" y="498" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">&quot;37.5&quot;</text>
+<path d="M95,534 L605,534" fill="none" stroke="#DFE6EE" stroke-width="1"/>
+<text x="105" y="546" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">Unemployment</text>
+<text x="305" y="546" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">M01 / 2015</text>
+<text x="435" y="546" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">&quot;3.9&quot;</text>
+<path d="M95,582 L605,582" fill="none" stroke="#DFE6EE" stroke-width="1"/>
+<text x="95" y="616" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#24344B">USDA: FY15.xls · WRO · row 89</text>
+<rect x="95" y="661" width="510" height="47" rx="0" fill="#EAF0F7" stroke="#EAF0F7" stroke-width="2"/>
+<text x="105" y="673" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#24344B">Month</text>
+<text x="275" y="673" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#24344B">Persons</text>
+<text x="445" y="673" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#24344B">Households</text>
+<text x="105" y="721" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">Jan 2015</text>
+<text x="275" y="721" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">199,944</text>
+<text x="445" y="721" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">85,070</text>
+<path d="M95,757 L605,757" fill="none" stroke="#DFE6EE" stroke-width="1"/>
+<text x="95" y="804" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">*Series labels added for readability.</text>
+<text x="95" y="834" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">Raw BLS records retain series IDs.</text>
+<text x="720" y="345" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#24344B">bls_observations</text>
+<rect x="720" y="390" width="510" height="47" rx="0" fill="#EAF0F7" stroke="#EAF0F7" stroke-width="2"/>
+<text x="730" y="402" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#24344B">Measure*</text>
+<text x="955" y="402" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#24344B">value</text>
+<text x="1100" y="402" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#24344B">Units</text>
+<text x="730" y="450" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">Total nonfarm</text>
+<text x="955" y="450" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">662,600</text>
+<text x="1100" y="450" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">jobs</text>
+<path d="M720,486 L1230,486" fill="none" stroke="#DFE6EE" stroke-width="1"/>
+<text x="730" y="498" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">Construction</text>
+<text x="955" y="498" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">37,500</text>
+<text x="1100" y="498" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">jobs</text>
+<path d="M720,534 L1230,534" fill="none" stroke="#DFE6EE" stroke-width="1"/>
+<text x="730" y="546" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">Unemployment</text>
+<text x="955" y="546" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">3.9</text>
+<text x="1100" y="546" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">percent</text>
+<path d="M720,582 L1230,582" fill="none" stroke="#DFE6EE" stroke-width="1"/>
+<text x="720" y="616" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#24344B">snap_state_month</text>
+<rect x="720" y="661" width="510" height="47" rx="0" fill="#EAF0F7" stroke="#EAF0F7" stroke-width="2"/>
+<text x="730" y="673" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#24344B">date_key</text>
+<text x="900" y="673" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#24344B">Persons</text>
+<text x="1070" y="673" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#24344B">Households</text>
+<text x="730" y="721" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">201501</text>
+<text x="900" y="721" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">199,944</text>
+<text x="1070" y="721" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">85,070</text>
+<path d="M720,757 L1230,757" fill="none" stroke="#DFE6EE" stroke-width="1"/>
+<text x="720" y="804" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">state_fips = &quot;16&quot; · status = available</text>
+<text x="720" y="834" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">*Labels shortened; lineage retained.</text>
+<text x="1345" y="345" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#24344B">fact_state_month</text>
+<rect x="1345" y="390" width="510" height="47" rx="0" fill="#EAF0F7" stroke="#EAF0F7" stroke-width="2"/>
+<text x="1355" y="402" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#24344B">Selected field</text>
+<text x="1685" y="402" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#24344B">Value</text>
+<text x="1355" y="450" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">state_key / date_key</text>
+<text x="1685" y="450" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">16 / 201501</text>
+<path d="M1345,486 L1855,486" fill="none" stroke="#DFE6EE" stroke-width="1"/>
+<text x="1355" y="498" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">total_nonfarm_jobs</text>
+<text x="1685" y="498" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">662,600</text>
+<path d="M1345,534 L1855,534" fill="none" stroke="#DFE6EE" stroke-width="1"/>
+<text x="1355" y="546" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">unemployment_rate_pct</text>
+<text x="1685" y="546" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">3.9</text>
+<path d="M1345,582 L1855,582" fill="none" stroke="#DFE6EE" stroke-width="1"/>
+<text x="1355" y="594" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">snap_persons</text>
+<text x="1685" y="594" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">199,944</text>
+<path d="M1345,630 L1855,630" fill="none" stroke="#DFE6EE" stroke-width="1"/>
+<text x="1345" y="676" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#24344B">fact_state_industry_month</text>
+<rect x="1345" y="721" width="510" height="47" rx="0" fill="#EAF0F7" stroke="#EAF0F7" stroke-width="2"/>
+<text x="1355" y="733" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#24344B">industry_key</text>
+<text x="1685" y="733" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#24344B">Jobs</text>
+<text x="1355" y="781" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">20000000 (Construction)</text>
+<text x="1685" y="781" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#24344B">37,500</text>
+<path d="M1345,817 L1855,817" fill="none" stroke="#DFE6EE" stroke-width="1"/>
+<text x="1345" y="845" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">Both facts share state and month keys.</text>
+<path d="M635,565 L691,565" fill="none" stroke="#315B85" stroke-width="4"/>
+<polygon points="691,565 682,559 682,571" fill="#315B85"/>
+<path d="M1260,565 L1316,565" fill="none" stroke="#315B85" stroke-width="4"/>
+<polygon points="1316,565 1307,559 1307,571" fill="#315B85"/>
+<text x="70" y="954" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#24344B">Historical snapshot saved October 25, 2026. Selected fields shown; formatting simplified for presentation.</text>
+<text x="70" y="997" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="23" font-weight="400" fill="#56677D">Bronze is raw JSON and Excel, shown here as readable excerpts. These are not November 1 execution outputs.</text>
+</svg>

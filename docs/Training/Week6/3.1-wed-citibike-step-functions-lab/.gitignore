@@ -1,0 +1,6 @@
+# Execution inputs and inspection artifacts generated locally.
+inputs/*.local.json
+terraform/plan.local.json
+terraform/deployment-policy.local.json
+terraform/generated-policies/
+dashboard/.streamlit/secrets.toml

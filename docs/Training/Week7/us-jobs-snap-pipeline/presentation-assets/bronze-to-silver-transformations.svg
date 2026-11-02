@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#F7F9FC"/>
+<text x="72" y="48" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="43" font-weight="700" fill="#24344B">Bronze to Silver: making the data comparable</text>
+<text x="72" y="110" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="27" font-weight="400" fill="#56677D">Actual examples from our saved Idaho data</text>
+<text x="108" y="191" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#8A6547">BRONZE · AS PUBLISHED</text>
+<text x="794" y="191" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#56677D">WHAT WE CHANGE</text>
+<text x="1320" y="191" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#315B85">SILVER · STANDARDIZED</text>
+<rect x="72" y="239" width="585" height="200" rx="18" fill="#F8EFE7" stroke="#C39A76" stroke-width="2"/>
+<rect x="1263" y="239" width="585" height="200" rx="18" fill="#EEF3FA" stroke="#9FB7D5" stroke-width="2"/>
+<text x="103" y="261" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#56677D">EMPLOYMENT · JANUARY 2015</text>
+<text x="103" y="306" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="41" font-weight="700" fill="#24344B">662.6 thousand jobs</text>
+<text x="103" y="372" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#24344B">BLS publishes employment in thousands.</text>
+<path d="M678,338 L1239,338" fill="none" stroke="#6686B2" stroke-width="3"/>
+<polygon points="1239,338 1230,332 1230,344" fill="#6686B2"/>
+<rect x="721" y="259" width="478" height="66" rx="0" fill="#F7F9FC" stroke="#F7F9FC" stroke-width="2"/>
+<text x="960" y="272" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#24344B">Put jobs in consistent units</text>
+<text x="960" y="365" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="400" fill="#56677D">Multiply the source value by 1,000</text>
+<text x="1294" y="261" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#56677D">EMPLOYMENT · JANUARY 2015</text>
+<text x="1294" y="306" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="41" font-weight="700" fill="#264D7A">662,600 jobs</text>
+<text x="1294" y="372" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#24344B">The same measurement, in jobs.</text>
+<rect x="72" y="468" width="585" height="200" rx="18" fill="#F8EFE7" stroke="#C39A76" stroke-width="2"/>
+<rect x="1263" y="468" width="585" height="200" rx="18" fill="#EEF3FA" stroke="#9FB7D5" stroke-width="2"/>
+<text x="103" y="490" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#56677D">MONTH LABELS · TWO SOURCES</text>
+<text x="103" y="535" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#24344B">BLS: 2015 + M01</text>
+<text x="103" y="601" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#24344B">USDA: Jan 2015</text>
+<path d="M678,567 L1239,567" fill="none" stroke="#6686B2" stroke-width="3"/>
+<polygon points="1239,567 1230,561 1230,573" fill="#6686B2"/>
+<rect x="721" y="488" width="478" height="66" rx="0" fill="#F7F9FC" stroke="#F7F9FC" stroke-width="2"/>
+<text x="960" y="501" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#24344B">Use one monthly identifier</text>
+<text x="960" y="594" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="400" fill="#56677D">Recognize both labels as the same month</text>
+<text x="1294" y="490" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#56677D">ONE CALENDAR MONTH</text>
+<text x="1294" y="535" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#264D7A">January 2015</text>
+<text x="1294" y="601" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#24344B">Shared month identifier: 201501</text>
+<rect x="72" y="697" width="585" height="200" rx="18" fill="#F8EFE7" stroke="#C39A76" stroke-width="2"/>
+<rect x="1263" y="697" width="585" height="200" rx="18" fill="#EEF3FA" stroke="#9FB7D5" stroke-width="2"/>
+<text x="103" y="719" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#56677D">UNEMPLOYMENT · OCTOBER 2025</text>
+<text x="103" y="764" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#24344B">“–”  (not provided)</text>
+<text x="103" y="830" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#24344B">BLS reports that this value is unavailable.</text>
+<path d="M678,796 L1239,796" fill="none" stroke="#6686B2" stroke-width="3"/>
+<polygon points="1239,796 1230,790 1230,802" fill="#6686B2"/>
+<rect x="721" y="717" width="478" height="66" rx="0" fill="#F7F9FC" stroke="#F7F9FC" stroke-width="2"/>
+<text x="960" y="730" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#24344B">Keep missing values explicit</text>
+<text x="960" y="823" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="400" fill="#56677D">Do not invent a rate or substitute zero</text>
+<text x="1294" y="719" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#56677D">UNEMPLOYMENT · OCTOBER 2025</text>
+<text x="1294" y="764" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="38" font-weight="700" fill="#264D7A">Unknown, not 0%</text>
+<text x="1294" y="830" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#24344B">Stored as NULL, with source_missing status.</text>
+<text x="72" y="949" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#24344B">Bronze preserves the original files. Silver adds consistent units, dates, types, and source status.</text>
+<text x="72" y="1002" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#63748A">Saved historical records, captured October 25, 2026. Labels simplified for presentation; sources remain unchanged.</text>
+</svg>

@@ -1,0 +1,29 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadDedicatedSource",
+      "Effect": "Allow",
+      "Action": ["kinesis:DescribeStream", "kinesis:ListShards", "kinesis:GetShardIterator", "kinesis:GetRecords"],
+      "Resource": "__STREAM_ARN__"
+    },
+    {
+      "Sid": "ArchiveBucketMetadata",
+      "Effect": "Allow",
+      "Action": ["s3:GetBucketLocation", "s3:ListBucket", "s3:ListBucketMultipartUploads"],
+      "Resource": "arn:aws:s3:::__BUCKET_NAME__"
+    },
+    {
+      "Sid": "WriteDedicatedArchiveAndErrors",
+      "Effect": "Allow",
+      "Action": ["s3:AbortMultipartUpload", "s3:GetObject", "s3:PutObject"],
+      "Resource": ["arn:aws:s3:::__BUCKET_NAME__/bronze/station-status/*", "arn:aws:s3:::__BUCKET_NAME__/errors/*"]
+    },
+    {
+      "Sid": "DeliveryErrorLogging",
+      "Effect": "Allow",
+      "Action": "logs:PutLogEvents",
+      "Resource": "__FIREHOSE_LOG_STREAM_ARN__"
+    }
+  ]
+}

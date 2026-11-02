@@ -1,0 +1,102 @@
+{
+  "source": "snap",
+  "mode": "historical",
+  "landing_url": "https://fns-prod.azureedge.us/pd/supplemental-nutrition-assistance-program-snap",
+  "endpoint": "https://fns-prod.azureedge.us/sites/default/files/resource-files/snap-zip-fy69tocurrent-10.zip",
+  "retrieval_ts": "2026-10-25T23:33:30.938169+00:00",
+  "ingestion_date": "2026-10-25",
+  "run_id": "a4a640c086d74c21b472f08f84306277",
+  "attempt_id": "001",
+  "target_start_year": 2015,
+  "target_end_year": 2025,
+  "response_filename": "archive.zip",
+  "byte_size": 1661153,
+  "sha256": "d31418fd3b4b19a760d7b89524c298e8564832c98a945790bd4a830a6c50cdfe",
+  "members": [
+    {
+      "fiscal_year": 2015,
+      "filename": "FY15.xls",
+      "archive_member": "FY15.xls",
+      "byte_size": 133632,
+      "sha256": "b42ab68842be484726dffe78c09a27b40e2f79881fc65c6f45fd9b7aa3c14103"
+    },
+    {
+      "fiscal_year": 2016,
+      "filename": "FY16.xls",
+      "archive_member": "FY16.xls",
+      "byte_size": 133632,
+      "sha256": "c1bf32e4411f1d05c403e0f15cdcd373f34215377d08a7bc900c895791d62974"
+    },
+    {
+      "fiscal_year": 2017,
+      "filename": "FY17.xls",
+      "archive_member": "FY17.xls",
+      "byte_size": 133632,
+      "sha256": "3c7ed870277bf5dfa95e049d485d14f68ec9d93ffdb0559e0e846106e3262c79"
+    },
+    {
+      "fiscal_year": 2018,
+      "filename": "FY18.xls",
+      "archive_member": "FY18.xls",
+      "byte_size": 133632,
+      "sha256": "eff803123fd8a15971b2a0db74184697724710e051e98a529cd8a018e7c7f26c"
+    },
+    {
+      "fiscal_year": 2019,
+      "filename": "FY19.xls",
+      "archive_member": "FY19.xls",
+      "byte_size": 135168,
+      "sha256": "688b0d179cc41afd600868ce1c1588436dc95f829470f9f61115066aa1065aa5"
+    },
+    {
+      "fiscal_year": 2020,
+      "filename": "FY20.xlsx",
+      "archive_member": "FY20.xlsx",
+      "byte_size": 76438,
+      "sha256": "3c4ff195447db655624afb1e41b8ae82024f686340b1164d8dcd5611b458b541"
+    },
+    {
+      "fiscal_year": 2021,
+      "filename": "FY21.xlsx",
+      "archive_member": "FY21.xlsx",
+      "byte_size": 77001,
+      "sha256": "04318a940b8cbb0015f939d0eb96fae289f32c3f021fc5151ef0b59a5bf0ec89"
+    },
+    {
+      "fiscal_year": 2022,
+      "filename": "FY22.xlsx",
+      "archive_member": "FY22.xlsx",
+      "byte_size": 77086,
+      "sha256": "1ae9c55d6c1ce6af10f53c09962273730fd6f17edeb8e679fb3f4236bbbf9177"
+    },
+    {
+      "fiscal_year": 2023,
+      "filename": "FY23.xlsx",
+      "archive_member": "FY23.xlsx",
+      "byte_size": 77533,
+      "sha256": "f84daecca66edec5a50988af85c4bc61c221bbdbfa7d831d8e459edcb83b0df0"
+    },
+    {
+      "fiscal_year": 2024,
+      "filename": "FY24.xlsx",
+      "archive_member": "FY24.xlsx",
+      "byte_size": 76745,
+      "sha256": "d66aea0be71004ae73db1b4e51e6670f5558283e8f98ff35458b46674a1184ee"
+    },
+    {
+      "fiscal_year": 2025,
+      "filename": "FY25.xlsx",
+      "archive_member": "FY25.xlsx",
+      "byte_size": 76653,
+      "sha256": "fe9ca933cf6cae1880c87d62b1cbce4cc869464f1e532eeb902bdb3b5979bd11"
+    },
+    {
+      "fiscal_year": 2026,
+      "filename": "FY26.xlsx",
+      "archive_member": "FY26.xlsx",
+      "byte_size": 73704,
+      "sha256": "e8169e18ce0d333ce99bd3b660f50e80167ab1e46192abae7e7837d538ca85a9"
+    }
+  ],
+  "validation_scope": "ZIP and required workbook members only"
+}

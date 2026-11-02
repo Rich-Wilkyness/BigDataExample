@@ -1,0 +1,128 @@
+{
+  "date": "2026-10-19",
+  "status": "LOCAL_IMPLEMENTATION_VALIDATED_NOT_DEPLOYED",
+  "account": "866934333672",
+  "region": "us-east-2",
+  "caller": "arn:aws:iam::866934333672:user/richard.wilkerson@techconsulting.tech",
+  "baseline_plan": "No changes before implementation",
+  "proposed_plan": {
+    "create": 7,
+    "update": 3,
+    "delete": 0,
+    "rule_state": "DISABLED",
+    "changes": [
+      {
+        "address": "aws_cloudwatch_event_rule.capture_complete",
+        "actions": [
+          "create"
+        ]
+      },
+      {
+        "address": "aws_cloudwatch_event_target.capture_complete",
+        "actions": [
+          "create"
+        ]
+      },
+      {
+        "address": "aws_iam_role.capture_events",
+        "actions": [
+          "create"
+        ]
+      },
+      {
+        "address": "aws_iam_role_policy.capture_events",
+        "actions": [
+          "create"
+        ]
+      },
+      {
+        "address": "aws_iam_role_policy.prepare_batch",
+        "actions": [
+          "update"
+        ]
+      },
+      {
+        "address": "aws_lambda_function.prepare_batch",
+        "actions": [
+          "update"
+        ]
+      },
+      {
+        "address": "aws_s3_bucket_notification.capture_events",
+        "actions": [
+          "create"
+        ]
+      },
+      {
+        "address": "aws_sfn_state_machine.incremental",
+        "actions": [
+          "update"
+        ]
+      },
+      {
+        "address": "aws_sqs_queue.capture_delivery_dlq",
+        "actions": [
+          "create"
+        ]
+      },
+      {
+        "address": "aws_sqs_queue_policy.capture_delivery_dlq",
+        "actions": [
+          "create"
+        ]
+      }
+    ]
+  },
+  "checks": {
+    "offline_tests_passed": 30,
+    "python_ast": "passed",
+    "deterministic_zip_packaging": "passed",
+    "terraform_fmt": "passed",
+    "terraform_validate": "passed",
+    "aws_state_machine_validation": {
+      "result": "OK",
+      "diagnostics": []
+    },
+    "proposed_state_count": 23
+  },
+  "confirmed_access_denials": [
+    {
+      "action": "events:DescribeRule",
+      "resource": "arn:aws:events:us-east-2:866934333672:rule/richard-citibike-capture-complete"
+    },
+    {
+      "action": "events:TestEventPattern",
+      "resource": "*"
+    }
+  ],
+  "bucket_notifications_before": {
+    "EventBridge": null,
+    "Lambda": null,
+    "Queue": null,
+    "Topic": null
+  },
+  "ingestion_observed": {
+    "runtime": "python3.14",
+    "architecture": "x86_64",
+    "memory_mb": 256,
+    "timeout_seconds": 120,
+    "code_sha256": "vhFGEweC/ac1guCo2im6ZxhTpbbBn7f6k7c9/lKp6l0=",
+    "role": "RichardCitiBikeLambdaRole",
+    "role_write_scope": "bronze/citibike/*"
+  },
+  "preflight": {
+    "running_workflow_executions": 0,
+    "lock_state": "idle"
+  },
+  "cloud_mutations_performed": [],
+  "pending": [
+    "administrator authorization",
+    "fresh ownership and notification checks",
+    "disabled-rule Terraform apply",
+    "ingestion ZIP update",
+    "manual event-shaped acceptance test",
+    "rule enablement and S3 propagation",
+    "automatic capture-to-warehouse run",
+    "live duplicate/out-of-order and failed-delivery checks"
+  ]
+}

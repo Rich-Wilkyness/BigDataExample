@@ -1,0 +1,61 @@
+{
+  "files": [
+    {
+      "local_file": "reference/instructor/backfill-bronze-to-silver.py",
+      "source": "s3://citi-bike-nyc-pipeline/scripts/glue/citibike_glue_etl_v2.py",
+      "retrieved_on": "2026-10-14",
+      "sha256": "ae316e6cbfc9618fcced22ed5f17d6f3cbcadd3cb596fa01a73cdd129741271e",
+      "status": "Instructor source snapshot; not a Richard deployment file"
+    },
+    {
+      "local_file": "reference/instructor/backfill-silver-to-redshift.py",
+      "source": "s3://citi-bike-nyc-pipeline/scripts/glue/citibike_silver_redshift_backfill_v2.py",
+      "retrieved_on": "2026-10-14",
+      "sha256": "34b8c34d4ec5b88559128001f37bebec3fc1296dea0f1be81f082546fa1ba8fd",
+      "status": "Instructor source snapshot; not a Richard deployment file"
+    },
+    {
+      "local_file": "reference/instructor/incremental-bronze-to-silver.py",
+      "source": "s3://citi-bike-nyc-pipeline/scripts/glue/citibike_bronze_to_silver_incremental_v2.py",
+      "retrieved_on": "2026-10-14",
+      "sha256": "3ab3adf4a59f74526ccfc8d36ddc8896af795909273e9dcc1ffe0d8f18070e84",
+      "status": "Instructor source snapshot; not a Richard deployment file"
+    },
+    {
+      "local_file": "reference/instructor/incremental-silver-to-redshift.py",
+      "source": "s3://citi-bike-nyc-pipeline/scripts/glue/citibike_silver_to_redshift_incremental_v2.py",
+      "retrieved_on": "2026-10-14",
+      "sha256": "ae0da9e21e85fa5a2df3a1b99aafbf5ea3f796c8bbeb3cec09e6c855fa3e7e0a",
+      "status": "Instructor source snapshot; not a Richard deployment file"
+    },
+    {
+      "local_file": "reference/instructor/initial-bronze-to-silver.py",
+      "source": "s3://citi-bike-nyc-pipeline/scripts/glue/citibike_glue_etl.py",
+      "retrieved_on": "2026-10-14",
+      "sha256": "ae33c6d517709dfdeb8fab13df774174c3b68789cd4ce4c926fb96034be0ae94",
+      "status": "Instructor source snapshot; not a Richard deployment file"
+    },
+    {
+      "local_file": "reference/instructor/initial-silver-to-redshift.py",
+      "source": "s3://citi-bike-nyc-pipeline/scripts/glue/citibike_silver_to_redshift.py",
+      "retrieved_on": "2026-10-14",
+      "sha256": "583e28b939c713a1d961672c643ac3559148c2a4a119b52c67577adad44c9284",
+      "status": "Instructor source snapshot; not a Richard deployment file"
+    }
+  ],
+  "missing_instructor_sources": [
+    "Active Terraform source and lock file",
+    "Final coordinator.py and packaging/configuration",
+    "Final Step Functions definition",
+    "Stored procedure, checkpoint and physical Gold DDL/grants",
+    "Streamlit app if written"
+  ],
+  "adaptation_changes": [
+    "BUCKET/CONNECTION/REDSHIFT_ROLE arguments",
+    "isolated v2-lab S3 paths and citibike_v2_lab schema",
+    "START_AT_UTC argument rename; inclusive/exclusive boundaries match current instructor executable code",
+    "Silver read-back key validation"
+  ],
+  "reference_text_normalization": "CRLF source line endings normalized to LF; one final newline added when copying. Python content otherwise matches retrieved source.",
+  "instructor_handoff": "reference/instructor-handoff.md; coordinator/checkpoint/physical Gold design supersedes the reconstruction as instructor-matching implementation target"
+}

@@ -1,0 +1,14 @@
+
+# Build the dependency image; application code is submitted separately.
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -f
+      - Dockerfile.silver
+      - -t
+      - us-central1-docker.pkg.dev/$PROJECT_ID/jobs-snap/silver-runtime:v1
+      - .
+
+images:
+  - us-central1-docker.pkg.dev/$PROJECT_ID/jobs-snap/silver-runtime:v1

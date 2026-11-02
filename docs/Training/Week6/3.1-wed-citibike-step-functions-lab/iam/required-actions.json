@@ -1,0 +1,35 @@
+{
+  "note": "Permission checklist, NOT an IAM policy. Existing role ARN is a required Terraform input. Review boundaries and SQL grants with administrator.",
+  "workflow_service_principal": "states.amazonaws.com",
+  "workflow_calls": [
+    "glue:StartJobRun",
+    "glue:GetJobRun",
+    "glue:GetJobRuns",
+    "glue:BatchStopJobRun",
+    "redshift-data:ExecuteStatement",
+    "redshift-data:DescribeStatement",
+    "redshift-serverless:GetCredentials"
+  ],
+  "dashboard_calls": [
+    "redshift-data:ExecuteStatement",
+    "redshift-data:DescribeStatement",
+    "redshift-data:GetStatementResult",
+    "redshift-serverless:GetCredentials"
+  ],
+  "operator_calls": [
+    "states:ListStateMachines",
+    "states:CreateStateMachine",
+    "states:UpdateStateMachine",
+    "states:DescribeStateMachine",
+    "states:StartExecution",
+    "states:DescribeExecution",
+    "states:GetExecutionHistory",
+    "states:ValidateStateMachineDefinition",
+    "iam:PassRole"
+  ],
+  "database_privileges": {
+    "glue": "USAGE on citibike_v2_lab; INSERT on station_snapshot and station_snapshot_landing",
+    "workflow": "EXECUTE on sp_accept_batch plus its SECURITY INVOKER table privileges and temporary-table permission",
+    "dashboard": "USAGE on citibike_v2_lab; SELECT on station_availability_summary"
+  }
+}

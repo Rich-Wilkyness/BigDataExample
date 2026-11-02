@@ -1,0 +1,8 @@
+{
+  "streamARN": "__STREAM_ARN__",
+  "classification": "json",
+  "inferSchema": "false",
+  "schema": "schema_version INT, source_system STRING, event_id STRING, snapshot_id STRING, station_id STRING, num_bikes_available INT, num_docks_available INT, last_reported BIGINT, ingested_at STRING, source_last_updated BIGINT, source_feed_url STRING",
+  "startingPosition": "trim_horizon",
+  "emitConsumerLagMetrics": "true"
+}

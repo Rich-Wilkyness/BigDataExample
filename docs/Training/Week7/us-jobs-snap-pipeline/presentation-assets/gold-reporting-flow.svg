@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="260" viewBox="0 0 1200 260">
+<rect x="20" y="35" width="320" height="190" rx="20" fill="#FFF6DB" stroke="#D4B34E" stroke-width="2"/>
+<text x="180" y="78" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="43" font-weight="700" fill="#24344B">Gold</text>
+<text x="180" y="132" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="43" font-weight="700" fill="#24344B">tables</text>
+<rect x="440" y="35" width="320" height="190" rx="20" fill="#EEF1FC" stroke="#A1AEDB" stroke-width="2"/>
+<text x="600" y="78" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="43" font-weight="700" fill="#24344B">Reporting</text>
+<text x="600" y="132" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="43" font-weight="700" fill="#24344B">views</text>
+<rect x="860" y="35" width="320" height="190" rx="20" fill="#E8F5F2" stroke="#82BCAE" stroke-width="2"/>
+<text x="1020" y="105" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="43" font-weight="700" fill="#24344B">Dashboard</text>
+<path d="M356,130 L420,130" fill="none" stroke="#315B85" stroke-width="5"/>
+<polygon points="420,130 411,124 411,136" fill="#315B85"/>
+<path d="M776,130 L840,130" fill="none" stroke="#315B85" stroke-width="5"/>
+<polygon points="840,130 831,124 831,136" fill="#315B85"/>
+</svg>

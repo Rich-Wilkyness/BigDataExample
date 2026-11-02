@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#F7F9FC"/>
+<text x="72" y="48" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="44" font-weight="700" fill="#24344B">Gold: two fact tables with shared dimensions</text>
+<text x="72" y="111" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="27" font-weight="400" fill="#56677D">State and month connect the measurements; industry adds detail to employment.</text>
+<rect x="80" y="220" width="450" height="180" rx="18" fill="#EAF1FF" stroke="#95B6F0" stroke-width="2"/>
+<text x="105" y="244" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#24344B">STATE</text>
+<text x="105" y="294" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="27" font-weight="400" fill="#24344B">Example: Idaho</text>
+<text x="105" y="342" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#63748A">dim_state</text>
+<rect x="735" y="220" width="450" height="180" rx="18" fill="#F0EDFC" stroke="#B7A2DB" stroke-width="2"/>
+<text x="760" y="244" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#24344B">MONTH</text>
+<text x="760" y="294" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="27" font-weight="400" fill="#24344B">Example: January 2015</text>
+<text x="760" y="342" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#63748A">dim_date</text>
+<rect x="1390" y="220" width="450" height="180" rx="18" fill="#E8F5F2" stroke="#82BCAE" stroke-width="2"/>
+<text x="1415" y="244" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#24344B">INDUSTRY</text>
+<text x="1415" y="294" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="27" font-weight="400" fill="#24344B">Example: Construction</text>
+<text x="1415" y="342" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="400" fill="#63748A">dim_industry</text>
+<path d="M305,400 L305,454 L245,454 L245,560" fill="none" stroke="#4779B8" stroke-width="4"/>
+<path d="M305,454 L1120,454 L1120,560" fill="none" stroke="#4779B8" stroke-width="4"/>
+<path d="M960,400 L960,510 L620,510 L620,560" fill="none" stroke="#8968B4" stroke-width="4"/>
+<path d="M960,510 L1390,510 L1390,560" fill="none" stroke="#8968B4" stroke-width="4"/>
+<path d="M1615,400 L1615,560" fill="none" stroke="#478F7D" stroke-width="4"/>
+<rect x="80" y="560" width="800" height="338" rx="18" fill="#FFF6DB" stroke="#D4B34E" stroke-width="2"/>
+<text x="110" y="587" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#24344B">STATE-LEVEL MEASUREMENTS</text>
+<text x="110" y="638" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#7B662A">One row per state and month</text>
+<text x="110" y="692" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#24344B">Jobs · unemployment · SNAP</text>
+<text x="110" y="747" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">Idaho, January 2015:</text>
+<text x="110" y="787" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#24344B">662,600 jobs · 3.9% unemployment rate</text>
+<text x="110" y="821" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#24344B">199,944 SNAP participants</text>
+<text x="110" y="866" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#63748A">fact_state_month</text>
+<rect x="1040" y="560" width="800" height="338" rx="18" fill="#FFF6DB" stroke="#D4B34E" stroke-width="2"/>
+<text x="1070" y="587" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#24344B">INDUSTRY EMPLOYMENT</text>
+<text x="1070" y="638" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#7B662A">One row per state, industry, and month</text>
+<text x="1070" y="692" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#24344B">Jobs in each selected industry</text>
+<text x="1070" y="747" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="25" font-weight="400" fill="#24344B">Idaho, Construction, January 2015:</text>
+<text x="1070" y="787" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#24344B">37,500 jobs</text>
+<text x="1070" y="853" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="23" font-weight="400" fill="#63748A">fact_state_industry_month</text>
+<text x="80" y="938" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="31" font-weight="700" fill="#24344B">Two stars sharing dimensions = a fact constellation</text>
+<text x="80" y="988" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="26" font-weight="400" fill="#24344B">SNAP is recorded once per state/month, rather than repeated for every industry.</text>
+<text x="80" y="1030" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="20" font-weight="400" fill="#63748A">Lines show how tables connect. Example values are from the saved October 25, 2026 historical snapshot.</text>
+</svg>

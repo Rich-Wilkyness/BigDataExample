@@ -1,0 +1,33 @@
+{
+  "status": "complete",
+  "mode": "historical_plus_initial_catchup_rebuild",
+  "start_year": 2015,
+  "end_year": 2026,
+  "bls_latest_month": 202609,
+  "snap_latest_month": 202607,
+  "silver_run": "/Users/richardwilkerson/VSCodeProjects/BigDataExample/docs/Training/Week7/us-jobs-snap-pipeline/data/silver/ingestion_date=2026-10-26/run_id=4a67bce75c5d4c5680b158119930c6ec",
+  "loaded_at": "2026-10-26T01:41:51.959578+00:00",
+  "row_counts": {
+    "dim_state": 50,
+    "dim_date": 141,
+    "dim_industry": 3,
+    "fact_state_month": 7050,
+    "fact_state_industry_month": 20868,
+    "report_jobs_snap": 6950,
+    "report_industry_month": 20304
+  },
+  "load_files": {
+    "dim_state": "/Users/richardwilkerson/VSCodeProjects/BigDataExample/docs/Training/Week7/us-jobs-snap-pipeline/data/gold/ingestion_date=2026-10-26/run_id=6efac951e42245c389eb7659d92a8fa4/dim_state/part-00000-3ff456c6-088f-40c0-84ae-8a01e59cffca-c000.snappy.parquet",
+    "dim_date": "/Users/richardwilkerson/VSCodeProjects/BigDataExample/docs/Training/Week7/us-jobs-snap-pipeline/data/gold/ingestion_date=2026-10-26/run_id=6efac951e42245c389eb7659d92a8fa4/dim_date/part-00000-261f876a-a78d-4896-bfd2-97b34afc0b6f-c000.snappy.parquet",
+    "dim_industry": "/Users/richardwilkerson/VSCodeProjects/BigDataExample/docs/Training/Week7/us-jobs-snap-pipeline/data/gold/ingestion_date=2026-10-26/run_id=6efac951e42245c389eb7659d92a8fa4/dim_industry/part-00000-231747f4-38df-45ae-8637-d321c265d743-c000.snappy.parquet",
+    "fact_state_month": "/Users/richardwilkerson/VSCodeProjects/BigDataExample/docs/Training/Week7/us-jobs-snap-pipeline/data/gold/ingestion_date=2026-10-26/run_id=6efac951e42245c389eb7659d92a8fa4/fact_state_month/part-00000-176cf161-6430-4963-9692-525cb44bc67e-c000.snappy.parquet",
+    "fact_state_industry_month": "/Users/richardwilkerson/VSCodeProjects/BigDataExample/docs/Training/Week7/us-jobs-snap-pipeline/data/gold/ingestion_date=2026-10-26/run_id=6efac951e42245c389eb7659d92a8fa4/fact_state_industry_month/part-00000-0a4b9745-c3da-4361-92e1-c78fb24a1f93-c000.snappy.parquet",
+    "report_jobs_snap": "/Users/richardwilkerson/VSCodeProjects/BigDataExample/docs/Training/Week7/us-jobs-snap-pipeline/data/gold/ingestion_date=2026-10-26/run_id=6efac951e42245c389eb7659d92a8fa4/report_jobs_snap/part-00000-22d795c6-2bd9-4dbe-90d2-2926cb289d62-c000.snappy.parquet",
+    "report_industry_month": "/Users/richardwilkerson/VSCodeProjects/BigDataExample/docs/Training/Week7/us-jobs-snap-pipeline/data/gold/ingestion_date=2026-10-26/run_id=6efac951e42245c389eb7659d92a8fa4/report_industry_month/part-00000-a67873ec-3f7a-4c98-967e-a828e56ac40b-c000.snappy.parquet"
+  },
+  "report_scope": {
+    "report_jobs_snap": "50 states; jobs and SNAP persons",
+    "report_industry_month": "48 states; all three industries"
+  },
+  "revision_history": "Pending incremental implementation"
+}

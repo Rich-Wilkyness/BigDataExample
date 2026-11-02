@@ -1,0 +1,16 @@
+FROM python:3.12-slim
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY bls_ingest.py backfill_bls.py plan_monthly_refresh.py /app/code/
+COPY bls-series-inventory.json /app/config/bls-series-inventory.json
+
+USER 10001:10001
+
+CMD ["python", "/app/code/bls_ingest.py"]

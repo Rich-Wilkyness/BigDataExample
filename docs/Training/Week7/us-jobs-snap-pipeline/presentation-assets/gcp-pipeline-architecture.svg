@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+<rect width="1920" height="1080" fill="#F7F9FC"/>
+<text x="70" y="54" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="48" font-weight="700" fill="#24344B">U.S. Jobs and SNAP</text>
+<text x="70" y="116" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="29" font-weight="400" fill="#56677D">Monthly batch pipeline on Google Cloud</text>
+<rect x="560" y="218" width="320" height="116" rx="18" fill="#EAF1FF" stroke="#95B6F0" stroke-width="2"/>
+<text x="720" y="238" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="29" font-weight="700" fill="#24344B">Cloud Scheduler</text>
+<text x="720" y="282" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="400" fill="#24344B">1st of month · 08:00 UTC</text>
+<path d="M880,276 L950,276" fill="none" stroke="#6686B2" stroke-width="3" stroke-dasharray="9 8"/>
+<polygon points="950,276 941,270 941,282" fill="#6686B2"/>
+<rect x="950" y="218" width="460" height="116" rx="18" fill="#EAF1FF" stroke="#95B6F0" stroke-width="2"/>
+<text x="1180" y="238" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="29" font-weight="700" fill="#24344B">Google Cloud Workflows</text>
+<text x="1180" y="282" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="400" fill="#24344B">Starts stages · waits · checks results</text>
+<path d="M1180,334 L1180,450" fill="none" stroke="#6686B2" stroke-width="3" stroke-dasharray="9 8"/>
+<path d="M186,450 L1202,450" fill="none" stroke="#6686B2" stroke-width="3" stroke-dasharray="9 8"/>
+<path d="M186,450 L186,520" fill="none" stroke="#6686B2" stroke-width="3" stroke-dasharray="9 8"/>
+<polygon points="186,520 180,510 192,510" fill="#6686B2"/>
+<path d="M694,450 L694,520" fill="none" stroke="#6686B2" stroke-width="3" stroke-dasharray="9 8"/>
+<polygon points="694,520 688,510 700,510" fill="#6686B2"/>
+<path d="M1202,450 L1202,520" fill="none" stroke="#6686B2" stroke-width="3" stroke-dasharray="9 8"/>
+<polygon points="1202,520 1196,510 1208,510" fill="#6686B2"/>
+<text x="1438" y="250" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#5877A3">ORCHESTRATION</text>
+<rect x="70" y="277" width="360" height="122" rx="18" fill="#FFFFFF" stroke="#D5DFEC" stroke-width="2"/>
+<text x="94" y="296" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#56677D">PUBLIC DATA SOURCES</text>
+<text x="94" y="332" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#24344B">BLS API + USDA SNAP files</text>
+<path d="M112,399 L112,520" fill="none" stroke="#315B85" stroke-width="3"/>
+<polygon points="112,520 106,510 118,510" fill="#315B85"/>
+<rect x="70" y="520" width="232" height="218" rx="18" fill="#FFFFFF" stroke="#D5DFEC" stroke-width="2"/>
+<text x="186" y="546" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#24344B">Cloud Run Jobs</text>
+<text x="186" y="589" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#315B85">Ingestion</text>
+<text x="186" y="643" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">BLS API responses</text>
+<text x="186" y="677" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">USDA archive capture</text>
+<path d="M302,629 L322,629" fill="none" stroke="#315B85" stroke-width="3"/>
+<polygon points="322,629 313,623 313,635" fill="#315B85"/>
+<rect x="324" y="520" width="232" height="218" rx="18" fill="#F8EFE7" stroke="#C39A76" stroke-width="2"/>
+<text x="440" y="546" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#24344B">Cloud Storage</text>
+<text x="440" y="589" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#315B85">BRONZE</text>
+<text x="440" y="643" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">Original captures</text>
+<text x="440" y="677" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">Manifests + checksums</text>
+<path d="M556,629 L576,629" fill="none" stroke="#315B85" stroke-width="3"/>
+<polygon points="576,629 567,623 567,635" fill="#315B85"/>
+<rect x="578" y="520" width="232" height="218" rx="18" fill="#FFFFFF" stroke="#D5DFEC" stroke-width="2"/>
+<text x="694" y="546" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#24344B">Serverless Dataproc</text>
+<text x="694" y="589" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#315B85">PySpark</text>
+<text x="694" y="643" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">Parse + normalize</text>
+<text x="694" y="677" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">Validate measurements</text>
+<path d="M810,629 L830,629" fill="none" stroke="#315B85" stroke-width="3"/>
+<polygon points="830,629 821,623 821,635" fill="#315B85"/>
+<rect x="832" y="520" width="232" height="218" rx="18" fill="#EEF2F6" stroke="#A6B5C5" stroke-width="2"/>
+<text x="948" y="546" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#24344B">Cloud Storage</text>
+<text x="948" y="589" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#315B85">SILVER</text>
+<text x="948" y="643" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">Typed datasets</text>
+<text x="948" y="677" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">Parquet + lineage</text>
+<path d="M1064,629 L1084,629" fill="none" stroke="#315B85" stroke-width="3"/>
+<polygon points="1084,629 1075,623 1075,635" fill="#315B85"/>
+<rect x="1086" y="520" width="232" height="218" rx="18" fill="#FFFFFF" stroke="#D5DFEC" stroke-width="2"/>
+<text x="1202" y="546" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#24344B">Cloud Run Jobs</text>
+<text x="1202" y="589" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#315B85">Publication</text>
+<text x="1202" y="643" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">Stage + validate</text>
+<text x="1202" y="677" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">Merge + record history</text>
+<path d="M1318,629 L1338,629" fill="none" stroke="#315B85" stroke-width="3"/>
+<polygon points="1338,629 1329,623 1329,635" fill="#315B85"/>
+<rect x="1340" y="520" width="232" height="218" rx="18" fill="#FFF6DB" stroke="#D4B34E" stroke-width="2"/>
+<text x="1456" y="546" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#24344B">BigQuery</text>
+<text x="1456" y="589" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#315B85">GOLD</text>
+<text x="1456" y="643" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">Facts + dimensions</text>
+<text x="1456" y="677" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">History + views</text>
+<path d="M1572,629 L1592,629" fill="none" stroke="#315B85" stroke-width="3"/>
+<polygon points="1592,629 1583,623 1583,635" fill="#315B85"/>
+<rect x="1594" y="520" width="232" height="218" rx="18" fill="#E8F5F2" stroke="#82BCAE" stroke-width="2"/>
+<text x="1710" y="546" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="23" font-weight="700" fill="#24344B">Looker Studio</text>
+<text x="1710" y="589" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#315B85">Dashboard</text>
+<text x="1710" y="643" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">State + date filters</text>
+<text x="1710" y="677" dominant-baseline="text-before-edge" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="400" fill="#24344B">Trends + comparisons</text>
+<text x="70" y="782" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#56677D">DATA MOVEMENT</text>
+<path d="M300,795 L375,795" fill="none" stroke="#315B85" stroke-width="3"/>
+<polygon points="375,795 366,789 366,801" fill="#315B85"/>
+<text x="395" y="781" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="23" font-weight="400" fill="#24344B">Read / write or query results</text>
+<path d="M875,795 L950,795" fill="none" stroke="#6686B2" stroke-width="3" stroke-dasharray="9 8"/>
+<polygon points="950,795 941,789 941,801" fill="#6686B2"/>
+<text x="970" y="781" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="23" font-weight="400" fill="#24344B">Execution control</text>
+<rect x="70" y="853" width="1756" height="137" rx="18" fill="#FFFFFF" stroke="#D5DFEC" stroke-width="2"/>
+<text x="96" y="875" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#24344B">Retain source history. Validate before publication. Reuse reporting definitions.</text>
+<text x="96" y="919" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="#24344B">Initial history + catch-up, then a rolling six-reporting-month refresh for each source.</text>
+<text x="70" y="1021" dominant-baseline="text-before-edge" text-anchor="start" font-family="Arial, sans-serif" font-size="20" font-weight="400" fill="#63748A">Looker Studio is labeled Data Studio in the current interface. Build tooling and credentials omitted for clarity.</text>
+</svg>

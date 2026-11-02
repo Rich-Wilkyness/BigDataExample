@@ -59,17 +59,7 @@ shallow copy vs copy
 
 decorators and generators, and when would you use them in relation to python
 
-def findDuplicate(myList: list[str]) -> set[str]:
-    seen = set()
-    duplicate = set()
 
-    for value in myList:
-        if value in seen:
-            duplicate.add(value)
-        else:
-            seen.add(value)
-
-    return duplicate
 
 map, flatMap, and foreach
 
@@ -385,64 +375,222 @@ Source: [Python copy operations](https://docs.python.org/3/library/copy.html).
 
 ### 4. What are decorators and generators, and when would you use them?
 
-**Interview answer**
+**Decorator: add behavior around a function call**
 
-A decorator takes a function or class and returns a replacement, often wrapping it to add reusable behavior such as logging, timing, or authorization. A generator produces values lazily and preserves its execution state between values. I use decorators for reusable behavior around calls, and generators to process records incrementally without building the entire result in memory.
+Start with the ordinary function: `normalize("  ACTIVE  ")` removes surrounding spaces and changes the letters to lowercase, returning `"active"`. The decorator adds a message whenever someone calls that function.
 
-**Examples**
+In this example, three names have different jobs:
+
+- `normalize`: the original function that cleans a string.
+- `log_call`: the decorator function that receives the original function and creates a replacement.
+- `wrapper`: the replacement function that prints a message and then calls the original function.
 
 ```python
-from functools import wraps
+from functools import wraps  # Helps the replacement keep the original function's name.
 
 def log_call(func):
-    @wraps(func)
+    # When Python applies @log_call, func refers to the original normalize function.
+    # We are passing the function itself, not calling normalize yet.
+
+    @wraps(func)  # Copies metadata such as the original name onto wrapper.
     def wrapper(*args, **kwargs):
-        print(f"Calling {func.__name__}")
+        # This body runs each time someone calls the decorated normalize.
+        # args collects positional arguments; kwargs collects named arguments.
+        print(f"Calling {func.__name__}")  # func.__name__ is "normalize".
+
+        # Call the ORIGINAL function with the arguments we received.
+        # Return its result to whoever called the replacement.
         return func(*args, **kwargs)
+
+    # Return the replacement FUNCTION, without calling it.
+    # No parentheses: return wrapper, rather than return wrapper().
     return wrapper
 
-@log_call
+@log_call  # After defining normalize, Python replaces it with log_call(normalize).
+def normalize(value):
+    # This original function is still accessible through func inside wrapper.
+    return value.strip().lower()
+
+result = normalize("  ACTIVE  ")  # Calls wrapper, which calls the original normalize.
+print(result)
+```
+
+Expected output:
+
+```text
+Calling normalize
+active
+```
+
+**Step by step: applying the decorator**
+
+1. Python defines `log_call`. Its body has not run yet.
+2. Python creates the original `normalize` function.
+3. `@log_call` causes Python to call `log_call`, passing the original function as `func`.
+4. `log_call` creates `wrapper`, applies `wraps(func)` to preserve metadata, and returns `wrapper`. Creating a function does not execute its body.
+5. The name `normalize` now refers to the returned wrapper. No string has been cleaned and no logging message has been printed yet.
+
+**Step by step: calling the decorated function**
+
+1. `normalize("  ACTIVE  ")` enters `wrapper` because `normalize` now refers to that replacement.
+2. Inside `wrapper`, `args` is the tuple `("  ACTIVE  ",)` and `kwargs` is the empty dictionary `{}`.
+3. `print(...)` displays `Calling normalize`.
+4. `func(*args, **kwargs)` forwards the arguments to the original function. The stars here unpack the tuple and dictionary into a function call.
+5. The original function calculates `"  ACTIVE  ".strip().lower()`, producing `"active"`.
+6. `return func(...)` returns that result from the wrapper. The caller stores it in `result`.
+7. `print(result)` displays `active`.
+
+**What the unfamiliar syntax means**
+
+| Syntax | Meaning here |
+| --- | --- |
+| `func` | A variable holding the original function; functions can be passed as values. |
+| `def wrapper(...)` inside `log_call` | Creates a function that remembers `func`, even after `log_call` returns. This is called a closure. |
+| `*args` in the definition | Collects positional arguments into a tuple. |
+| `**kwargs` in the definition | Collects named arguments into a dictionary. |
+| `func(*args, **kwargs)` | Unpacks those arguments and calls the original function. |
+| `func.__name__` | Reads the function's name for the logging message. |
+| `@wraps(func)` | Preserves metadata for debugging and inspection; it does not call the original function. |
+| `return wrapper` | Hands back the replacement function itself. |
+
+For a named call such as `normalize(value="  ACTIVE  ")`, `args` would be `()` and `kwargs` would be `{"value": "  ACTIVE  "}`. The wrapper supports both calling styles.
+
+A decorator is a higher-order function: it accepts a function and, in this wrapper pattern, returns another function. You can call `log_call(normalize)` directly; that creates and returns the wrapper without running the original `normalize` yet. The `@log_call` syntax automatically assigns that replacement back to the name `normalize` when the definition executes.
+
+The decorator syntax is shorthand for this sequence, shown separately for explanation:
+
+```python
 def normalize(value):
     return value.strip().lower()
 
-assert normalize("  ACTIVE  ") == "active"
+normalize = log_call(normalize)  # Replace the name with the returned wrapper.
 ```
+
+Use a decorator when several functions need the same surrounding behavior, such as logging or timing, so each function can focus on its own job.
+
+**Does the decorator's logic always happen after the original function returns?**
+
+No. Applying the decorator creates the replacement function. Later, when someone calls that replacement, its code controls whether and when the original function runs.
+
+- **Before the original call:** log a message, validate an argument, or change the input.
+- **After the original returns:** change its result or log that the call succeeded.
+- **Both before and after:** prepare the input, call the original function, then change the output.
+- **Skip the original call:** return a cached result or reject an invalid request without calling it.
+
+In `log_call`, the message is printed before `func(...)` runs. In the next example, the wrapper changes the input before the call and capitalizes the result after the original function returns.
+
+```python
+def capitalize_result(func):
+    def wrapper(value):
+        # BEFORE the original function: remove surrounding spaces.
+        value = value.strip()  # "  ACTIVE  " becomes "ACTIVE".
+
+        # CALL the original function and wait for its result.
+        result = func(value)  # normalize turns "ACTIVE" into "active".
+
+        # AFTER the original function: change the result given to the caller.
+        return result.capitalize()  # "active" becomes "Active".
+
+    return wrapper  # Return the replacement function so it can be called later.
+
+@capitalize_result
+def normalize(value):
+    return value.lower()
+
+print(normalize("  ACTIVE  "))  # Active
+```
+
+The execution order is:
+
+```text
+Caller provides "  ACTIVE  "
+    -> wrapper strips spaces: "ACTIVE"
+    -> original normalize returns: "active"
+    -> wrapper capitalizes the result: "Active"
+    -> caller receives "Active"
+```
+
+The original function still produces `"active"` internally. The wrapper decides that the caller receives `"Active"`. This example uses a wrapper with one argument to keep the steps visible; `*args` and `**kwargs` are useful when forwarding different argument signatures.
+
+**Generator: produce a value, pause, then continue when asked**
+
+A generator function contains `yield`. Calling it creates a generator object that can produce values as you request them. It does not immediately execute the function body or create a list of all results.
 
 ```python
 def normalized_rows(rows):
+    # This loop starts only when the generator is asked for a value.
     for row in rows:
+        # Produce one cleaned string, then PAUSE this function here.
+        # The next request resumes after this yield and continues the loop.
         yield row.strip().lower()
 
+# Create the generator. The loop has not started yet.
 rows = normalized_rows([" ACTIVE ", " PENDING "])
-assert next(rows) == "active"
-assert list(rows) == ["pending"]
-assert list(rows) == []  # This generator is exhausted.
+
+# Ask for ONE value. The loop cleans the first string and pauses at yield.
+first = next(rows)
+print(first)  # active
+
+# Ask for ALL REMAINING values and put them in a list.
+# The generator resumes, yields "pending", then finishes the loop.
+remaining = list(rows)
+print(remaining)  # ['pending']
+
+# The same generator has finished. It does not restart automatically.
+print(list(rows))  # []
 ```
 
-**Likely follow-up**
+**Step by step**
 
-- `@log_call` is equivalent to assigning `normalize = log_call(normalize)` after defining the original function.
-- Calling a generator function returns a generator; its body runs as it is iterated. A generator does not make an already-loaded input list disappear from memory.
+| Caller does this | What happens inside the generator | Result |
+| --- | --- | --- |
+| `rows = normalized_rows(...)` | Creates a generator; function body has not run. | `rows` holds a generator object. |
+| `next(rows)` | Starts the loop, cleans `" ACTIVE "`, and pauses at the first `yield`. | `"active"` |
+| `list(rows)` | Resumes after that yield, cleans `" PENDING "`, yields it, then reaches the end. | `["pending"]` |
+| `list(rows)` again | The generator is already exhausted. | `[]` |
 
-Sources: [Python decorators](https://docs.python.org/3/glossary.html#term-decorator), [generators](https://docs.python.org/3/tutorial/classes.html#generators), and [`functools.wraps`](https://docs.python.org/3/library/functools.html#functools.wraps).
+`list(rows)` does not include `"active"` because the earlier `next(rows)` already consumed it. If you called `list(rows)` immediately after creating a fresh generator, you would get `["active", "pending"]`.
 
-### 5. Explain the `findDuplicate` function.
+**`yield` versus `return`**
+
+- `yield value`: gives the caller a value and pauses, keeping the function's place and local state for the next request.
+- `return value` in an ordinary function: gives the caller a result and ends that call.
+- Reaching the end of a generator, or using `return` inside it, ends iteration. A later `next(rows)` raises `StopIteration`; a `for` loop or `list()` handles that signal automatically.
+
+Use a generator to process records one at a time, especially when the input also arrives incrementally, such as lines read from a file. Calling `list(generator)` collects all remaining outputs in memory, so that particular step gives up the benefit of avoiding a full output list. In this small example, the input list is already in memory.
+
+**About `assert` in the earlier examples**
+
+`assert result == "active"` checks whether the result is correct. It displays nothing when the condition is true and raises `AssertionError` when false. The `print` calls above make the results visible while you learn.
 
 **Interview answer**
 
-The function returns the unique strings that occur more than once. `seen` tracks values already encountered, and `duplicate` records repeated values. Each input is examined once; hash-set operations give average O(n) time and O(n) additional space in the worst case. The returned set does not preserve encounter order or count repetitions.
+A decorator is a higher-order function that can wrap another function to add reusable behavior. The wrapper can act before the original call, after it returns, or both; it can change inputs or outputs and can even skip the original call. A generator produces values on demand using `yield`, pausing between values instead of building the whole result at once. I use decorators for shared behavior across functions and generators for incremental processing.
 
-**correct**
+**Example verification**
 
-Your original algorithm is correct for the stated `list[str]` input and `set[str]` output.
+All four Python blocks in this revised section executed successfully. Printed outputs matched the comments, including `Active` from the wrapper that modifies both input and output. Named-argument forwarding for `log_call` and `StopIteration` after generator exhaustion also passed checks.
 
-**Example**
+Sources: [Python decorators](https://docs.python.org/3/glossary.html#term-decorator), [generators](https://docs.python.org/3/tutorial/classes.html#generators), and [`functools.wraps`](https://docs.python.org/3/library/functools.html#functools.wraps).
+
+### 5. write the `findDuplicate` function.
+
+Given a list of strings, find and return all the duplicates.
+
+**Interview answer**
 
 ```python
-# Uses your function from the original notes.
-assert findDuplicate(["a", "b", "a", "a", "c", "b"]) == {"a", "b"}
-assert findDuplicate([]) == set()
-assert findDuplicate(["a", "b"]) == set()
+def findDuplicate(myList: list[str]) -> set[str]:
+    seen = set()
+    duplicate = set()
+
+    for value in myList:
+        if value in seen:
+            duplicate.add(value)
+        else:
+            seen.add(value)
+
+    return duplicate
 ```
 
 **Likely follow-up**

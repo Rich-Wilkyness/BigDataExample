@@ -1,0 +1,16 @@
+{
+  "ResponseMetadata": {
+    "HTTPStatusCode": 200
+  },
+  "FailedRecordCount": 1,
+  "Records": [
+    {
+      "ShardId": "shardId-000000000000",
+      "SequenceNumber": "fixture-sequence-1"
+    },
+    {
+      "ErrorCode": "ProvisionedThroughputExceededException",
+      "ErrorMessage": "Simulated throttling; not an AWS response."
+    }
+  ]
+}

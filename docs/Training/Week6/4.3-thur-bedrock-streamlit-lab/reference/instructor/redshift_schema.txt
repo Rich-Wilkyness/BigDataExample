@@ -1,0 +1,76 @@
+table_schema	table_name	column_name	data_type	ordinal_position
+gold	dim_date	date_key	integer	1	
+gold	dim_date	calendar_date	date	2	
+gold	dim_date	year_number	integer	3	
+gold	dim_date	month_number	integer	4	
+gold	dim_date	day_number	integer	5	
+gold	dim_date	day_of_week	integer	6	
+gold	dim_station	station_id	character varying	1	
+gold	dim_station	station_name	character varying	2	
+gold	dim_station	capacity	integer	3	
+gold	fact_station_snapshot	station_id	character varying	1	
+gold	fact_station_snapshot	date_key	integer	2	
+gold	fact_station_snapshot	snapshot_timestamp	timestamp without time zone	3	
+gold	fact_station_snapshot	bikes_available	integer	4	
+gold	fact_station_snapshot	ebikes_available	integer	5	
+gold	fact_station_snapshot	docks_available	integer	6	
+gold	fact_station_snapshot	utilization_pct	double precision	7	
+gold	fact_station_snapshot	is_empty	boolean	8	
+gold	fact_station_snapshot	is_full	boolean	9	
+gold	fact_station_snapshot	is_operational	boolean	10	
+public	citibike_station_snapshot_v2	station_id	character varying	1	
+public	citibike_station_snapshot_v2	snapshot_timestamp	timestamp without time zone	2	
+public	citibike_station_snapshot_v2	station_name	character varying	3	
+public	citibike_station_snapshot_v2	bikes_available	integer	4	
+public	citibike_station_snapshot_v2	ebikes_available	integer	5	
+public	citibike_station_snapshot_v2	docks_available	integer	6	
+public	citibike_station_snapshot_v2	capacity	integer	7	
+public	citibike_station_snapshot_v2	utilization_pct	double precision	8	
+public	citibike_station_snapshot_v2	is_empty	boolean	9	
+public	citibike_station_snapshot_v2	is_full	boolean	10	
+public	citibike_station_snapshot_v2	is_operational	boolean	11	
+
+
+RELATIONSHIPS:
+gold.fact_station_snapshot.station_id = gold.dim_station.station_id
+gold.fact_station_snapshot.date_key = gold.dim_date.date_key
+
+DATA DEFINITIONS:
+- snapshot_timestamp is the timestamp of a station observation.
+- bikes_available is the number of available bikes at that observation.
+- ebikes_available is the number of available electric bikes.
+- docks_available is the number of available docking spaces.
+- utilization_pct is the recorded utilization percentage.
+- Each fact_station_snapshot row represents a station observation at a timestamp.
+- Use gold tables for dimensional analysis; public.citibike_station_snapshot_v2 is a denormalized alternative.
+- Do not sum bikes_available across multiple timestamps and describe the result as a current bike count.
+
+
+DATA GRAIN AND QUERY RULES:
+
+gold.dim_station:
+- One row per station_id is intended.
+- station_id identifies a station.
+
+gold.fact_station_snapshot:
+- Time-series fact table.
+- Each row represents one observation of a station at a specific snapshot_timestamp.
+- A station appears many times across different timestamps.
+- Intended grain: (station_id, snapshot_timestamp).
+
+QUERY RULES:
+- When the user asks for "top stations", "bottom stations",
+  or a ranking of stations, return one row per station
+  unless the question explicitly requests individual observations.
+- For current/latest availability, use ROW_NUMBER()
+  partitioned by station_id and ordered by
+  snapshot_timestamp DESC, then filter to rn = 1.
+- For historical averages, use AVG() and GROUP BY station_id.
+- Never rank raw snapshot rows when the user asks
+  for a ranking of stations.
+- Do not use DISTINCT to conceal duplicates caused
+  by incorrect joins or incorrect query grain.
+- For time-series questions, include the relevant
+  timestamp or time grouping.
+- Join fact_station_snapshot to dim_station on station_id.
+- Join fact_station_snapshot to dim_date on date_key.

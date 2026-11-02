@@ -1,0 +1,120 @@
+{
+  "Comment": "Richard Citi Bike: existing full-rebuild Glue pipeline",
+  "QueryLanguage": "JSONPath",
+  "StartAt": "ChooseInputMode",
+  "TimeoutSeconds": 7200,
+  "States": {
+    "ChooseInputMode": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "And": [
+            {
+              "Variable": "$.skip_ingestion",
+              "IsPresent": true
+            },
+            {
+              "Variable": "$.skip_ingestion",
+              "BooleanEquals": true
+            }
+          ],
+          "Next": "BuildSilver"
+        }
+      ],
+      "Default": "IngestBronze"
+    },
+    "IngestBronze": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "Parameters": {
+        "FunctionName": "arn:aws:lambda:us-east-2:866934333672:function:richard-citibike-ingestion",
+        "Payload": {}
+      },
+      "ResultPath": "$.ingestion",
+      "TimeoutSeconds": 300,
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "ResultPath": "$.failure",
+          "Next": "PipelineFailed"
+        }
+      ],
+      "Next": "CheckIngestionResult"
+    },
+    "CheckIngestionResult": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "And": [
+            {
+              "Variable": "$.ingestion.Payload.statusCode",
+              "IsPresent": true
+            },
+            {
+              "Variable": "$.ingestion.Payload.statusCode",
+              "NumericEquals": 200
+            }
+          ],
+          "Next": "BuildSilver"
+        }
+      ],
+      "Default": "IngestionRejected"
+    },
+    "BuildSilver": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::glue:startJobRun.sync",
+      "Parameters": {
+        "JobName": "richard-citibike-bronze-to-silver",
+        "Arguments": {
+          "--BUCKET.$": "$.bucket"
+        }
+      },
+      "ResultPath": "$.silver_job",
+      "TimeoutSeconds": 3300,
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "ResultPath": "$.failure",
+          "Next": "PipelineFailed"
+        }
+      ],
+      "Next": "LoadRedshift"
+    },
+    "LoadRedshift": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::glue:startJobRun.sync",
+      "Parameters": {
+        "JobName": "richard-citibike-silver-to-redshift"
+      },
+      "ResultPath": "$.redshift_job",
+      "TimeoutSeconds": 3300,
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "ResultPath": "$.failure",
+          "Next": "PipelineFailed"
+        }
+      ],
+      "Next": "JobsCompleted"
+    },
+    "JobsCompleted": {
+      "Type": "Succeed"
+    },
+    "IngestionRejected": {
+      "Type": "Fail",
+      "Error": "IngestionResultRejected",
+      "Cause": "Lambda did not return the expected application statusCode 200. Inspect ingestion output."
+    },
+    "PipelineFailed": {
+      "Type": "Fail",
+      "Error": "CitiBikePipelineFailed",
+      "Cause": "Inspect the failed task, its saved failure object, and the corresponding service logs."
+    }
+  }
+}

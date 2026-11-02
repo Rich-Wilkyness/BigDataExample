@@ -1,0 +1,121 @@
+{
+  "captured_on": "2026-10-15",
+  "source_directory": "/Users/richardwilkerson/Downloads/ai_demo",
+  "origin": "Instructor bundle supplied by Richard; local source snapshot, not retrieved deployed code",
+  "files": [
+    {
+      "source_relative_path": "app.py",
+      "snapshot_relative_path": "reference/instructor/app.py",
+      "bytes": 7266,
+      "sha256": "1c8b68a47930a2a30eb303213025afaebb7f71198ece90faf894d248b496070e"
+    },
+    {
+      "source_relative_path": "bedrock_sql.py",
+      "snapshot_relative_path": "reference/instructor/bedrock_sql.py",
+      "bytes": 5950,
+      "sha256": "35c7cdff9eadbe185d665c2c78f39c7a006bf023c37ffa67515e3ade08c9fa24"
+    },
+    {
+      "source_relative_path": "redshift_query.py",
+      "snapshot_relative_path": "reference/instructor/redshift_query.py",
+      "bytes": 3047,
+      "sha256": "91763d6056e4051041eadc8b924ec24a45c7cbc0d88af0e13f77a2a09e4a0903"
+    },
+    {
+      "source_relative_path": "pages/2_AI_SQL_Generator.py",
+      "snapshot_relative_path": "reference/instructor/pages/2_AI_SQL_Generator.py",
+      "bytes": 6504,
+      "sha256": "9a84088eef29e4005d8837dbe275d18b2b259bc765fec5a95a92f67f28d88ff0"
+    },
+    {
+      "source_relative_path": "redshift_schema.txt",
+      "snapshot_relative_path": "reference/instructor/redshift_schema.txt",
+      "bytes": 3617,
+      "sha256": "e916f5402871613b4aa2803c24cc2af59e7e4233d317b717098635b554851b4f"
+    },
+    {
+      "source_relative_path": "requirements.txt",
+      "snapshot_relative_path": "reference/instructor/requirements.txt",
+      "bytes": 97,
+      "sha256": "01f9e01e830ad7bbfffb258627ee1ff052af26cec1c4f57f9d289e15040e9bb5"
+    },
+    {
+      "source_relative_path": "README.md",
+      "snapshot_relative_path": "reference/instructor/README.md",
+      "bytes": 2379,
+      "sha256": "f1299a61a879720f085543604f3fec431b3cb2cbfee346f19bdbfc6cd7b44cf1"
+    },
+    {
+      "source_relative_path": "dashboard.tf",
+      "snapshot_relative_path": "reference/instructor/dashboard.tf",
+      "bytes": 4800,
+      "sha256": "2426da46a231d7f5da056aa0925024e9676b3ee39cec8e86cbe863bc2e1f6eaf"
+    },
+    {
+      "source_relative_path": "dashboard-user-data.sh.tftpl",
+      "snapshot_relative_path": "reference/instructor/dashboard-user-data.sh.tftpl",
+      "bytes": 1164,
+      "sha256": "ba3bdbac4fc19b4c9045e522a46a94c70e9eac644f14b62763a6aa32f85d9d3e"
+    },
+    {
+      "source_relative_path": "deploy-chatbot.sh",
+      "snapshot_relative_path": "reference/instructor/deploy-chatbot.sh",
+      "bytes": 2146,
+      "sha256": "453ed9aa07d977c1a04e3a492d34b6d1b39a42f8db105b9c30ff0f1a74d1676f"
+    },
+    {
+      "source_relative_path": "ssm-chatbot-v2.json",
+      "snapshot_relative_path": "reference/instructor/ssm-chatbot-v2.json",
+      "bytes": 1984,
+      "sha256": "8fec7eddf2a723451bd30382d4285256ff8e75b5ccf4e24b763ba57fd6b830f9"
+    },
+    {
+      "source_relative_path": "ssm-prompt-update.json",
+      "snapshot_relative_path": "reference/instructor/ssm-prompt-update.json",
+      "bytes": 1065,
+      "sha256": "5d3e26a5b9a75aec06939d5d62abe03ebae22ebd05423c528171643e0336b004"
+    },
+    {
+      "source_relative_path": "ssm-sql-repair.json",
+      "snapshot_relative_path": "reference/instructor/ssm-sql-repair.json",
+      "bytes": 1000,
+      "sha256": "4566108c2b83d34fc95d8fb55956021a61cd9a6f42826e044597271b5dfb71f0"
+    },
+    {
+      "source_relative_path": "main.tf",
+      "snapshot_relative_path": "reference/instructor/main.tf",
+      "bytes": 4944,
+      "sha256": "3a79cc080e1e86b5942daf16ba701fd6a84603dbd35422ed4014f18e27c8d184"
+    },
+    {
+      "source_relative_path": "orchestration.tf",
+      "snapshot_relative_path": "reference/instructor/orchestration.tf",
+      "bytes": 1852,
+      "sha256": "a5de221bdefaeaeaa6eb3c6212aecc94660210015bf8eb0d6bd5caaea299ac21"
+    },
+    {
+      "source_relative_path": "scheduler.tf",
+      "snapshot_relative_path": "reference/instructor/scheduler.tf",
+      "bytes": 1358,
+      "sha256": "06d8bde2c693cce3d192fffcf61c634fc21fb394af687c850642fa757e7d0920"
+    },
+    {
+      "source_relative_path": "coordinator.py",
+      "snapshot_relative_path": "reference/instructor/coordinator.py",
+      "bytes": 3432,
+      "sha256": "8521a532faed84c3cfe2d7e525feb4afdf0593b5af384ef0dbdec7ee9607a445"
+    }
+  ],
+  "excluded": [
+    "terraform.tfstate",
+    "terraform.tfstate.backup",
+    "*.tfplan",
+    ".terraform/",
+    "__pycache__/",
+    "*.zip",
+    "*.backup",
+    "*.pre-final-backup",
+    "ssm-deploy.json (duplicates deploy-chatbot.sh via a heredoc)"
+  ],
+  "runtime_verified": false
+}

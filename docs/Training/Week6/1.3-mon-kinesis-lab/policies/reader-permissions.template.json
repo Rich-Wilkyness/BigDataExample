@@ -1,0 +1,24 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "InspectDedicatedStream",
+      "Effect": "Allow",
+      "Action": ["kinesis:DescribeStream", "kinesis:DescribeStreamSummary", "kinesis:ListShards", "kinesis:GetShardIterator", "kinesis:GetRecords"],
+      "Resource": "__STREAM_ARN__"
+    },
+    {
+      "Sid": "ListBronzeArchive",
+      "Effect": "Allow",
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::__BUCKET_NAME__",
+      "Condition": {"StringLike": {"s3:prefix": "bronze/station-status/*"}}
+    },
+    {
+      "Sid": "ReadBronzeArchive",
+      "Effect": "Allow",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::__BUCKET_NAME__/bronze/station-status/*"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+
+# Python version matching managed Spark runtime 3.0.
+FROM python:3.12-slim-bookworm
+
+# Utilities required by Spark's startup scripts.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends procps tini libjemalloc2 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install libraries used to read Excel and access Cloud Storage.
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
+
+# Select this image's Python environment for Spark workers.
+ENV PYSPARK_PYTHON=/usr/local/bin/python3
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Managed Spark requires this user/group ID and a home directory.
+RUN groupadd --gid 1099 spark \
+    && useradd --uid 1099 --gid 1099 --create-home spark
+
+USER spark
+WORKDIR /home/spark
+
+# Google supplies Spark/PySpark and launches the submitted application.

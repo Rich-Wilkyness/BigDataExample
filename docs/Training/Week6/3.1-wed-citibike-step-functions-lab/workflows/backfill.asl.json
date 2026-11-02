@@ -1,0 +1,57 @@
+{
+  "Comment": "Richard reconstructed one-time backfill. Destination must be verified empty.",
+  "QueryLanguage": "JSONPath",
+  "StartAt": "BuildHistory",
+  "TimeoutSeconds": 3000,
+  "States": {
+    "BuildHistory": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::glue:startJobRun.sync",
+      "Parameters": {
+        "JobName": "richard-citibike-v2-lab-backfill-silver",
+        "Arguments": {
+          "--CUTOFF_UTC.$": "$.cutoff_utc"
+        }
+      },
+      "ResultPath": "$.silver",
+      "TimeoutSeconds": 1200,
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "ResultPath": "$.failure",
+          "Next": "Failed"
+        }
+      ],
+      "Next": "LoadHistory"
+    },
+    "LoadHistory": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::glue:startJobRun.sync",
+      "Parameters": {
+        "JobName": "richard-citibike-v2-lab-backfill-redshift"
+      },
+      "ResultPath": "$.load",
+      "TimeoutSeconds": 1200,
+      "Catch": [
+        {
+          "ErrorEquals": [
+            "States.ALL"
+          ],
+          "ResultPath": "$.failure",
+          "Next": "Failed"
+        }
+      ],
+      "Next": "JobsCompleted"
+    },
+    "JobsCompleted": {
+      "Type": "Succeed"
+    },
+    "Failed": {
+      "Type": "Fail",
+      "Error": "CitiBikeLabFailed",
+      "Cause": "Inspect execution history, Glue run or SQL statement, and partial side effects before replay."
+    }
+  }
+}

@@ -1,0 +1,51 @@
+table_schema	table_name	column_name	data_type	ordinal_position
+gold	incremental_dim_date	snapshot_date	date	1
+gold	incremental_dim_date	calendar_year	smallint	2
+gold	incremental_dim_date	calendar_month	smallint	3
+gold	incremental_dim_date	day_of_month	smallint	4
+gold	incremental_dim_station	station_id	character varying	1
+gold	incremental_dim_station	station_name	character varying	2
+gold	incremental_dim_station	capacity	bigint	3
+gold	incremental_fact_station_snapshot	station_id	character varying	1
+gold	incremental_fact_station_snapshot	snapshot_timestamp	timestamp without time zone	2
+gold	incremental_fact_station_snapshot	snapshot_date	date	3
+gold	incremental_fact_station_snapshot	bikes_available	bigint	4
+gold	incremental_fact_station_snapshot	ebikes_available	bigint	5
+gold	incremental_fact_station_snapshot	docks_available	bigint	6
+gold	incremental_fact_station_snapshot	capacity_at_capture	bigint	7
+gold	incremental_fact_station_snapshot	utilization_pct	double precision	8
+gold	incremental_fact_station_snapshot	is_empty	boolean	9
+gold	incremental_fact_station_snapshot	is_full	boolean	10
+gold	incremental_fact_station_snapshot	is_operational	boolean	11
+gold	incremental_fact_station_snapshot	batch_id	character varying	12
+
+SOURCE:
+- Column metadata verified against Richard's dev database in us-east-2 on 2026-10-17.
+- Only these three incremental Gold tables are in scope for this application.
+
+RELATIONSHIPS:
+gold.incremental_fact_station_snapshot.station_id = gold.incremental_dim_station.station_id
+gold.incremental_fact_station_snapshot.snapshot_date = gold.incremental_dim_date.snapshot_date
+
+DATA GRAIN AND DEFINITIONS:
+- incremental_dim_station has one row per station_id, with latest accepted station_name and capacity (Type 1 attributes).
+- incremental_dim_date has one row per snapshot_date, a UTC capture date; there is no date_key column.
+- incremental_fact_station_snapshot has one observation per (station_id, snapshot_timestamp).
+- snapshot_timestamp is the UTC capture timestamp from the source filename, not the station's last_reported time.
+- bikes_available, ebikes_available and docks_available are counts at that capture.
+- capacity_at_capture is historical capacity on the fact; capacity on the station dimension is its latest accepted value.
+- utilization_pct records bicycle availability as a percentage of capacity, not trip demand or rentals.
+- is_empty, is_full and is_operational are recorded station indicators.
+- batch_id records the accepted processing batch.
+
+QUERY RULES:
+- Use only the listed gold.incremental_* tables and their actual columns.
+- Join station dimension on station_id and date dimension on snapshot_date.
+- Station rankings should return one row per station unless observations are explicitly requested.
+- For latest availability, select the latest observation per station using a timestamp ordering before ranking stations.
+- Latest stored availability is not necessarily live availability; include the observation timestamp.
+- For historical station averages, aggregate observations per station with AVG.
+- Do not sum bikes_available across timestamps and describe that as a current bike count.
+- Do not use DISTINCT to hide an incorrect join or query grain.
+- Include the relevant time grouping for time-series questions.
+- Do not invent a date_key, station_name on the fact, or instructor table names.

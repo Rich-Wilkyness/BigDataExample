@@ -1,0 +1,38 @@
+[
+  {
+    "transaction_id": "sample-ordinary-correct",
+    "event_time": "2026-10-30T19:45:00+00:00",
+    "prediction_time": "2026-10-30T19:45:01+00:00",
+    "model_version": "sample",
+    "predicted_fraud": 0,
+    "actual_fraud": 0,
+    "features": {"amount": 24.5, "hour": 14, "distance_from_home": 3.0, "new_device": 0, "transactions_last_hour": 1}
+  },
+  {
+    "transaction_id": "sample-fraud-correct",
+    "event_time": "2026-10-30T19:46:00+00:00",
+    "prediction_time": "2026-10-30T19:46:01+00:00",
+    "model_version": "sample",
+    "predicted_fraud": 1,
+    "actual_fraud": 1,
+    "features": {"amount": 950.0, "hour": 2, "distance_from_home": 250.0, "new_device": 1, "transactions_last_hour": 12}
+  },
+  {
+    "transaction_id": "sample-false-positive",
+    "event_time": "2026-10-30T19:47:00+00:00",
+    "prediction_time": "2026-10-30T19:47:01+00:00",
+    "model_version": "sample",
+    "predicted_fraud": 1,
+    "actual_fraud": 0,
+    "features": {"amount": 420.0, "hour": 23, "distance_from_home": 80.0, "new_device": 1, "transactions_last_hour": 5}
+  },
+  {
+    "transaction_id": "sample-false-negative",
+    "event_time": "2026-10-30T19:48:00+00:00",
+    "prediction_time": "2026-10-30T19:48:01+00:00",
+    "model_version": "sample",
+    "predicted_fraud": 0,
+    "actual_fraud": 1,
+    "features": {"amount": 75.0, "hour": 10, "distance_from_home": 5.0, "new_device": 0, "transactions_last_hour": 2}
+  }
+]

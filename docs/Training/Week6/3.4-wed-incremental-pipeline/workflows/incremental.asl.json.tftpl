@@ -1,0 +1,144 @@
+{
+  "Comment": "Richard prepared incremental batches; frozen inputs and fail-closed workflow lock",
+  "StartAt": "PrepareBatch",
+  "TimeoutSeconds": 3000,
+  "States": {
+    "PrepareBatch": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "TimeoutSeconds": 330,
+      "Parameters": {
+        "FunctionName": "${prepare_function}",
+        "Payload": {"action": "prepare", "request.$": "$$.Execution.Input", "execution_id.$": "$$.Execution.Id"}
+      },
+      "OutputPath": "$.Payload",
+      "Catch": [{"ErrorEquals": ["States.ALL"], "ResultPath": "$.failure", "Next": "PreparationFailed"}],
+      "Next": "PreparedStatus"
+    },
+    "PreparedStatus": {
+      "Type": "Choice",
+      "Choices": [
+        {"Variable": "$.status", "StringEquals": "READY", "Next": "ValidateInput"},
+        {"Variable": "$.status", "StringEquals": "NO_DATA", "Next": "NoNewData"},
+        {"Variable": "$.status", "StringEquals": "BUSY", "Next": "WaitForBatchLock"},
+        {"Variable": "$.status", "StringEquals": "PREVIEW", "Next": "PreviewComplete"}
+      ],
+      "Default": "InvalidInput"
+    },
+    "WaitForBatchLock": {"Type": "Wait", "Seconds": 30, "Next": "PrepareBatch"},
+    "NoNewData": {"Type": "Succeed"},
+    "PreviewComplete": {"Type": "Succeed"},
+    "PreparationFailed": {"Type": "Fail", "Error": "BatchPreparationFailed", "Cause": "Inspect preparation logs and active S3 lock; do not clear another execution's lock"},
+    "ValidateInput": {
+      "Type": "Choice",
+      "Choices": [{"And": [
+        {"Variable": "$.batch_id", "IsString": true},
+        {"Variable": "$.window_start", "IsString": true},
+        {"Variable": "$.window_end", "IsString": true},
+        {"Variable": "$.checkpoint_before", "IsString": true},
+        {"Variable": "$.expected_rows", "IsNumeric": true},
+        {"Variable": "$.expected_rows", "NumericGreaterThan": 0}
+      ], "Next": "BronzeToSilver"}],
+      "Default": "InvalidInput"
+    },
+    "BronzeToSilver": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::glue:startJobRun.sync",
+      "TimeoutSeconds": 900,
+      "Parameters": {
+        "JobName": "${bronze_job}",
+        "Arguments": {
+          "--BATCH_ID.$": "$.batch_id",
+          "--WINDOW_START.$": "$.window_start",
+          "--WINDOW_END.$": "$.window_end",
+          "--MANIFEST_KEY.$": "$.manifest_key"
+        }
+      },
+      "ResultPath": "$.bronze_result",
+      "Catch": [{"ErrorEquals": ["States.ALL"], "ResultPath": "$.failure", "Next": "PipelineFailed"}],
+      "Next": "SilverToLanding"
+    },
+    "SilverToLanding": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::glue:startJobRun.sync",
+      "TimeoutSeconds": 900,
+      "Parameters": {
+        "JobName": "${silver_job}",
+        "Arguments": {"--BATCH_ID.$": "$.batch_id"}
+      },
+      "ResultPath": "$.landing_result",
+      "Catch": [{"ErrorEquals": ["States.ALL"], "ResultPath": "$.failure", "Next": "PipelineFailed"}],
+      "Next": "SubmitAcceptance"
+    },
+    "SubmitAcceptance": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::aws-sdk:redshiftdata:executeStatement",
+      "TimeoutSeconds": 30,
+      "Parameters": {
+        "WorkgroupName": "richard-citibike-wg",
+        "Database": "dev",
+        "ClientToken.$": "States.Hash($$.Execution.Id, 'SHA-256')",
+        "Sql": "CALL public.sp_richard_accept_citibike_batch(CAST(:batch AS VARCHAR), CAST(:window_start AS TIMESTAMP), CAST(:window_end AS TIMESTAMP), CAST(:checkpoint_before AS TIMESTAMP), CAST(:expected_rows AS BIGINT), FALSE);",
+        "Parameters": [
+          {"Name": "batch", "Value.$": "$.batch_id"},
+          {"Name": "window_start", "Value.$": "$.window_start"},
+          {"Name": "window_end", "Value.$": "$.window_end"},
+          {"Name": "checkpoint_before", "Value.$": "$.checkpoint_before"},
+          {"Name": "expected_rows", "Value.$": "States.Format('{}', $.expected_rows)"}
+        ]
+      },
+      "ResultPath": "$.statement",
+      "Catch": [{"ErrorEquals": ["States.ALL"], "ResultPath": "$.failure", "Next": "PipelineFailed"}],
+      "Next": "InitializePolling"
+    },
+    "InitializePolling": {"Type": "Pass", "Result": {"attempts": 0}, "ResultPath": "$.poll", "Next": "WaitForAcceptance"},
+    "WaitForAcceptance": {"Type": "Wait", "Seconds": 5, "Next": "DescribeAcceptance"},
+    "DescribeAcceptance": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::aws-sdk:redshiftdata:describeStatement",
+      "TimeoutSeconds": 30,
+      "Parameters": {"Id.$": "$.statement.Id"},
+      "ResultPath": "$.sql_status",
+      "Catch": [{"ErrorEquals": ["States.ALL"], "ResultPath": "$.failure", "Next": "PipelineFailed"}],
+      "Next": "AcceptanceStatus"
+    },
+    "AcceptanceStatus": {
+      "Type": "Choice",
+      "Choices": [
+        {"Variable": "$.sql_status.Status", "StringEquals": "FINISHED", "Next": "ReleaseBatchLock"},
+        {"Variable": "$.sql_status.Status", "StringEquals": "FAILED", "Next": "AcceptanceFailed"},
+        {"Variable": "$.sql_status.Status", "StringEquals": "ABORTED", "Next": "AcceptanceFailed"},
+        {"Variable": "$.poll.attempts", "NumericGreaterThanEquals": 60, "Next": "CancelOverdueAcceptance"}
+      ],
+      "Default": "IncrementPolling"
+    },
+    "IncrementPolling": {"Type": "Pass", "Parameters": {"attempts.$": "States.MathAdd($.poll.attempts, 1)"}, "ResultPath": "$.poll", "Next": "WaitForAcceptance"},
+    "CancelOverdueAcceptance": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::aws-sdk:redshiftdata:cancelStatement",
+      "TimeoutSeconds": 30,
+      "Parameters": {"Id.$": "$.statement.Id"},
+      "ResultPath": "$.cancellation",
+      "Catch": [{"ErrorEquals": ["States.ALL"], "ResultPath": "$.failure", "Next": "AcceptanceTimedOut"}],
+      "Next": "AcceptanceTimedOut"
+    },
+    "InvalidInput": {"Type": "Fail", "Error": "InvalidBatchInput", "Cause": "Preparation must return a valid frozen batch and positive source row count"},
+    "PipelineFailed": {"Type": "Fail", "Error": "PipelineTaskFailed", "Cause": "Inspect failure and task history; reconcile ledger after ambiguous SQL submission failures"},
+    "AcceptanceFailed": {"Type": "Fail", "Error": "WarehouseAcceptanceFailed", "Cause": "Inspect sql_status.Error; warehouse acceptance did not finish successfully"},
+    "AcceptanceTimedOut": {"Type": "Fail", "Error": "WarehouseAcceptanceTimedOut", "Cause": "Cancellation is best effort; reconcile accepted ledger and checkpoint before retry"},
+    "ReleaseBatchLock": {
+      "Type": "Task",
+      "Resource": "arn:aws:states:::lambda:invoke",
+      "TimeoutSeconds": 330,
+      "Parameters": {
+        "FunctionName": "${prepare_function}",
+        "Payload": {"action": "release", "execution_id.$": "$$.Execution.Id"}
+      },
+      "ResultPath": "$.lock_release",
+      "Catch": [{"ErrorEquals": ["States.ALL"], "ResultPath": "$.failure", "Next": "LockReleaseFailed"}],
+      "Next": "PipelineSucceeded"
+    },
+    "LockReleaseFailed": {"Type": "Fail", "Error": "LockReleaseFailed", "Cause": "Warehouse acceptance finished; verify committed ledger/checkpoint before releasing the retained lock"},
+    "PipelineSucceeded": {"Type": "Succeed"}
+  }
+}
