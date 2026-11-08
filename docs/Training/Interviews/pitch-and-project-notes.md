@@ -14,9 +14,7 @@ Updated: 2026-10-27. Personal interview preparation using the supplied [résumé
 
 ## Short pitch: “Tell me about yourself”
 
-Aim for about 30–40 seconds. Introduce your background, strengths, and direction, then pause. First-person wording below is a fictional role-play script based on the supplied profile.
-
-“Hi, I’m Richard Wilkerson. I’m a data engineer with a background across financial services, retail, and other industries. My core strengths are Python, SQL, and Spark, with a focus on building reliable cloud data pipelines and making data useful for business teams. Most recently, I’ve been working as a Lead Data Engineer at PayPal. I enjoy staying hands-on while contributing to technical design and mentoring engineers, and I’m looking for a role where I can bring those strengths to the team.”
+Hi, I’m Richard Wilkerson. I bring over fourteen years of engineering experience, with a focus on data platforms in financial services and retail. My strengths are Python, SQL, and Spark, and I enjoy combining hands-on development with technical leadership. Most recently, at PayPal, I’ve been leading data engineering for Buy Now, Pay Later, including controls that prevent bad upstream data from reaching risk reporting. I’m looking for a role where I can build reliable platforms and help engineers grow.
 
 ## Recent-job narrative: “Tell me about your most recent role”
 
@@ -33,6 +31,37 @@ Across the broader migration program, PayPal reported queries running 2.5 to 10 
 For BNPL, I helped develop an acquisition-funnel pipeline that processed application-event data so Marketing could understand how far users progressed through the application process and where they dropped off. I also helped implement configuration-driven controls that accounted for upstream feature availability by country, product, and application screen, so processing and reporting reflected the active application experience.
 
 My hands-on work included PySpark processing on Dataproc and SQL in BigQuery. Alongside implementation, I contributed to technical design, code reviews, mentoring, and production support. The focus was delivering dependable datasets that downstream teams could use for reporting and analysis.”
+
+## Batch pipeline
+“One project I worked on focused on making our BNPL batch pipelines more reliable, particularly when partner feeds arrived with missing fields, duplicate records, or unexpected changes.
+ 
+A duplicate repayment could make a customer’s outstanding balance look lower than it really was, while a missing repayment could make them appear overdue. The existing error handling also meant that one malformed partner file could hold up otherwise valid data from other markets.
+ 
+My responsibility was to strengthen validation and error handling so we could hold back unreliable data without unnecessarily blocking healthy markets.
+ 
+As API responses and partner files landed, we preserved the originals, checked their schemas, and validated the transformed records before publishing them to BigQuery. I checked for things like missing loan IDs, duplicate repayments, and totals that didn’t match the source. If a batch failed those checks, we held it for investigation.
+ 
+I separated temporary failures from bad data: an API timeout could be retried, while a malformed file was quarantined. When markets were independent, a problem in one didn’t have to stop the others.
+ 
+I also added controls by market so quality failures could block publication automatically, and an operator could pause a market during an incident without deploying new code. Airflow running in Cloud Composer coordinated those checks and read the market configuration before publication, so only approved batches moved downstream.
+ 
+The goal was to give risk and product teams dependable datasets, with clear visibility into which markets were current and which were waiting on a correction.”
+
+## Stream pipeline
+“My work on the BNPL streaming pipeline focused on making sure its exposure calculations were both current and consistent with our batch results.
+
+A customer could take out a loan or make a repayment between batch runs, so the next credit decision needed a fresher view of their outstanding balance.
+
+Kafka carried the loan and repayment events, Flink calculated the updated exposure, and Bigtable made it available for fast lookups. I reviewed the streaming and batch logic to make sure both applied the same financial rules.
+
+For example, a repayment should reduce exposure only once and only after it posts. I checked how both paths handled duplicates, late events, and reversals so those situations wouldn’t produce different balances.
+
+I also reviewed whether the pipeline could keep up during busy periods and catch up after an outage, because a fast lookup isn’t useful if the balance behind it is stale.
+
+To check the results, I compared streaming and batch balances for the same customer, loan, and currency at the same cutoff, so we could distinguish expected timing differences from actual defects.
+
+The goal was to give credit decisioning a current, dependable exposure figure, backed by reconciled history and a clear way to investigate discrepancies.”
+
 
 ## Migration article: context for follow-up questions
 

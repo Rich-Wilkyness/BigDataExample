@@ -45,14 +45,19 @@ For Azure questions, Neiman Marcus also used Azure Data Factory for some feeds; 
 #### Five Questions to Have Cold
 
 - “How do you stop bad data from spreading?” → PayPal, Section 03 (your circuit breaker).
+> “I put validation before publication so a successful pipeline run doesn’t automatically mean the data is safe to use. In the PayPal example, each market’s batch goes through schema checks, completeness checks, and business rules, such as linking disbursements to approved applications. If a critical check fails, that market’s batch is quarantined and downstream publication is blocked, while independent healthy markets continue. The circuit breaker keeps the affected market blocked until the issue is resolved and the batch passes revalidation. I also have an audited kill switch for manually holding publication.”
 
 - “How did you handle unexpected schema changes?” → Section 03 of each case.
+> “I separate changes we can safely tolerate from changes that break the data contract. For incoming files, I compare the observed schema with a versioned contract before curated processing. An optional new field can remain in raw data under an approved compatibility policy, while downstream models continue selecting known columns explicitly. If a required field disappears or changes to an incompatible type, I quarantine the batch, block its downstream publication, and alert the source owner. After we agree on the intended change, I update the contract and transformations, test them, and replay the affected data.”
 
 - “How do you handle slowly changing dimensions?” → Section 07 (Ally is your strongest answer).
+> “I start by asking whether reporting needs the current value or the value that applied when an event happened. At Ally, account attributes such as product, rate tier, and ownership needed historical tracking, so I used Type 2. When a tracked attribute changed, I closed the existing version and inserted a new row with a new surrogate key, effective dates, and a current flag. Facts reference the version valid at their business timestamp. That preserves historical reporting when an account changes later. For attributes where history isn’t required, I use Type 1 and overwrite the value.”
 
 - “Why NoSQL instead of your warehouse?” → Track 2, NoSQL hot path.
+> “The decision comes from the access pattern. The BNPL decisioning service needs a customer’s current exposure and selected profile attributes by key during an application request. I would use Bigtable for those derived serving records and keep BigQuery for historical analysis and reconciliation. Flink owns exposure updates, while a separate pipeline owns profile updates. That adds operational complexity, so I would justify it with measured lookup latency, concurrency, freshness, and cost. I would also prevent older replay writes from replacing newer state and define what the service does when the data is stale.”
 
 - “How did you protect payment and banking data?” → Section 09.
+> “I used several layers of protection. In the retail example, card numbers stayed out of analytics through upstream tokenization, and customer contact information was masked for roles without an approved need. In the banking example, account numbers and SSNs were tokenized before curated processing. I restricted sensitive attributes through role-based access, used encryption and managed keys, and gave pipeline identities only the permissions they needed. I also maintained source lineage, audit evidence, and reconciliation so reporting teams could trace the data. Access changes went through code review and controlled deployment.”
 
 **Case Study 1 of 3  ·  Most Recent Role**
 
@@ -219,6 +224,7 @@ QUALITY     dbt tests . Great Expectations . circuit breaker . Datadog
 - **Why tokenize customer identifiers:** A stable token replaces a direct identifier before general analytical use: customer 12345 becomes an opaque token used consistently in applications and repayments, so joins still work without spreading the original identifier. A protected mapping/tokenization service controls any permitted reversal. This is pseudonymization, not guaranteed anonymization: linked behavior can still identify someone, and tokens remain sensitive. A simple unsalted hash of an email is not an adequate substitute for a designed tokenization scheme. See [Google pseudonymization guidance](https://docs.cloud.google.com/sensitive-data-protection/docs/pseudonymization).
 
 *Accepted practice-design decision (2026-10-29): use Bigtable for both customer exposure and profile serving. This is a hypothetical architecture choice supported by workload fit, not evidence of PayPal’s private implementation or Richard’s employment experience. The [Google financial-serving example](https://cloud.google.com/blog/products/databases/fraud-detection-with-cloud-bigtable?hl=en) illustrates profiles and transaction features in one Bigtable service; it does not establish our workload size or performance.*
+
 
 ### TRACK 1 — BATCH PIPELINE
 
@@ -420,6 +426,21 @@ SEQUENTIAL   dbt build + tests -> Iceberg publish -> Datadog metrics
 - **Market partners** — partner-driven feeds across international markets.
 
 - **Analysts** — Looker on BigQuery; Spark users read the same Iceberg tables.
+
+### Batch Narrative
+“One project I worked on focused on making our BNPL batch pipelines more reliable, particularly when partner feeds arrived with missing fields, duplicate records, or unexpected changes.
+ 
+A duplicate repayment could make a customer’s outstanding balance look lower than it really was, while a missing repayment could make them appear overdue. The existing error handling also meant that one malformed partner file could hold up otherwise valid data from other markets.
+ 
+My responsibility was to strengthen validation and error handling so we could hold back unreliable data without unnecessarily blocking healthy markets.
+ 
+As API responses and partner files landed, we preserved the originals, checked their schemas, and validated the transformed records before publishing them to BigQuery. I checked for things like missing loan IDs, duplicate repayments, and totals that didn’t match the source. If a batch failed those checks, we held it for investigation.
+ 
+I separated temporary failures from bad data: an API timeout could be retried, while a malformed file was quarantined. When markets were independent, a problem in one didn’t have to stop the others.
+ 
+I also added controls by market so quality failures could block publication automatically, and an operator could pause a market during an incident without deploying new code. Airflow running in Cloud Composer coordinated those checks and read the market configuration before publication, so only approved batches moved downstream.
+ 
+The goal was to give risk and product teams dependable datasets, with clear visibility into which markets were current and which were waiting on a correction.”
 
 ### TRACK 2 — STREAMING PIPELINE
 
